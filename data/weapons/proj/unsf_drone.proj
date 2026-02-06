@@ -1,0 +1,41 @@
+{
+	"id":"unsf_drone",
+	"specClass":"missile",	
+	"missileType":"MISSILE",
+	"sprite":"graphics/missles/unsf_drone.png",
+	"size":[6,14],
+	"onHitEffect":"com.fs.starfarer.api.impl.combat.IonCannonOnHitEffect",
+	"center":[3,7],
+	"noEngineGlowTime":0.5,
+	"glowColor":[255,200,0,255],
+	"glowRadius":15,
+	"collisionRadius":12,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,165,50,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":20, # purely visual
+	"fadeTime":0.5, # fadeout duration
+	"engineSpec":{"turnAcc":300,
+				  "turnRate":250,
+				  "acc":300,
+				  "dec":250},				  
+	"engineSlots":[{"id":"ES1",
+					"loc":[-7, 0],
+				    #"style":"MISSILE_MIDLINE",
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[255,150,100,255],
+						"contrailDuration":.0,
+						"contrailWidthMult":1,
+						"contrailWidthAddedFractionAtEnd":1,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":2, # min segment length, in pixels
+						"contrailMaxSpeedMult":.0f,
+						"contrailAngularVelocityMult":0.5f,
+						"contrailSpawnDistMult":.1, # how far away from engine it starts
+						"contrailColor":[155,100,70,75],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":0.0,
+				    "length":0.0,
+				    "angle":180.0}]
+}

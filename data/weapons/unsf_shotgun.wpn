@@ -1,0 +1,78 @@
+{
+  "id": "unsf_shotgun",
+  "specClass": "projectile",
+  "projectileSpecId": "unsf_shotgunspray",
+  "type": "BALLISTIC",
+  "size": "MEDIUM",
+  "turretSprite": "graphics/weapons/unsf_shotgun_turret.png",
+  "turretGunSprite": "graphics/weapons/unsf_shotgun_barrel.png",
+  "hardpointSprite": "",
+  "visualRecoil": 10,
+  "separateRecoilForLinkedBarrels":true,
+  "renderHints":[RENDER_BARREL_BELOW],
+  "turretOffsets": [
+    26.5,
+    2.5,
+    26.5,
+    1.5,
+    26.5,
+    0.5,
+    25.5,
+    2.5,
+    25.5,
+    -2.5,
+    26.5,
+    -0.5,
+    26.5,
+    -1.5,
+    25.5,
+    -1.5,
+    26.5,
+    -2.5,
+    25.5,
+    0.5,
+    25.5,
+    1.5,
+    25.5,
+    -0.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    0,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "LINKED",
+  "animationType": "MUZZLE_FLASH",
+  "requiresFullCharge": false,
+  "muzzleFlashSpec": {
+    "length": 30,
+    "spread": 20,
+    "particleSizeMin": 10,
+    "particleSizeRange": 10,
+    "particleDuration": 0.5,
+    "particleCount": 10,
+    "particleColor": [
+      255,
+      255,
+      255,
+      255
+    ]
+  },
+  "fireSoundTwo": "railgun3_sound"
+}

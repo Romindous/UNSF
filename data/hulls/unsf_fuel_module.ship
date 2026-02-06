@@ -1,0 +1,38 @@
+{
+    "hullName": "Fuel module",
+    "hullId": "module_fuel_unsf",
+    "hullSize": "FRIGATE",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/modules/unsf_fuel_module.png",
+    "height": 65,
+    "width": 65,
+    "center": [
+        32.5, 32.5
+    ],
+    "collisionRadius": 41.5,
+    "coversColor": "",
+    "shieldCenter": [
+        0, 0
+    ],
+    "shieldRadius": 40.5,
+    "viewOffset": 0,
+    "builtInMods": [
+        "always_detaches",
+        "reduced_explosion"
+    ],
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [],
+    "engineSlots": [],
+    "bounds": [
+            29.5,       24,
+              24,       29,
+             -24,       29,
+           -29.5,       24,
+           -29.5,      -24,
+        
+             -24,      -29,
+              24,      -29,
+            29.5,      -24
+    ]
+}

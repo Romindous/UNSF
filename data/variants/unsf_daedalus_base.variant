@@ -1,0 +1,81 @@
+{
+    "displayName": "Daedalus Base",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "unsf_daedalus",
+    "hullMods": [
+        "unsf_asgardhyperdrive",
+        "unsf_asgardshield",
+        "unsf_asgardsensors",
+        "unsf_asgardcpu",
+        "unsf_transporter",
+        "unsf_NeutrinoIonreactor",
+        "unsf_triniumalloy"
+    ],
+    "quality": 0.0,
+    "variantId": "unsf_daedalus_base",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "unsf_asgbeam",
+                "WS 000": "unsf_asgbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 012": "unsf_railgun",
+                "WS 013": "unsf_railgun",
+                "WS 015": "unsf_railgun",
+                "WS 014": "unsf_railgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 018": "unsf_railgun_pd",
+                "WS 019": "unsf_railgun_pd"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 016": "unsf_railgun_small",
+                "WS 011": "unsf_railgun_small",
+                "WS 006": "unsf_railgun_small",
+                "WS 017": "unsf_railgun_small",
+                "WS 009": "unsf_railgun_small",
+                "WS 007": "unsf_railgun_small",
+                "WS 008": "unsf_railgun_small",
+                "WS 010": "unsf_railgun_small"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "unsf_vls_4"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "unsf_vls_1",
+                "WS 004": "unsf_vls_2",
+                "WS 002": "unsf_vls_1"
+            }
+        }
+    ],
+    "wings": [
+        "unsf_302_wing",
+        "unsf_302_wing",
+        "unsf_302_wing"
+    ]
+}

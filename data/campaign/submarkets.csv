@@ -1,0 +1,3 @@
+id,name,faction,desc,script,icon,order
+unsf_submarket,"UNSF
+Requisitions",unsf_requisition,Supplier for best of the best.,TrueAvarus.UNSF.World.Submarkets.UNSFMarketPlugin,,800.05

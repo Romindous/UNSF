@@ -1,0 +1,7 @@
+name,id,type,tags,activationDays,activationCooldown,durationDays,deactivationDays,deactivationCooldown,unlockedAtStart,defaultForAIFleet,musicSuppression,uiOn,uiOff,uiLoop,worldOn,worldOff,worldLoop,icon,plugin,ai,desc,sortOrder
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+Hyperspace Window,hyperspace_window,DURATION,"stealth-, burn+",0.02,,0.001,0.1,0.5,TRUE,,,,,,jump_point_open,,,graphics/icons/abilities/hyperspace_window.png,TrueAvarus.UNSF.FistingManifesto.HyperspaceWindowGenerator,,"Jump into a system through a nascent gravity well, or directly into hyperspace.",800
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,

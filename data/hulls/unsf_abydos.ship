@@ -1,0 +1,112 @@
+{
+    "hullName": "Abydos",
+    "hullId": "unsf_abydos",
+    "hullSize": "DESTROYER",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/unsf_Abydos.png",
+    "height": 280,
+    "width": 130,
+    "center": [
+        65, 140
+    ],
+    "collisionRadius": 132,
+    "coversColor": "",
+    "shieldCenter": [
+        0, 0
+    ],
+    "shieldRadius": 138,
+    "viewOffset": 0,
+    "builtInWeapons": {
+        "WS 002": "unsf_dronelauncher"
+    },
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [
+        {
+            "id": "WS 000",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 359,
+            "angle": 0,
+            "locations": [
+                     -64,      -19
+            ]
+        },
+        {
+            "id": "WS 001",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 359,
+            "angle": 0,
+            "locations": [
+                     -64,       19
+            ]
+        },
+        {
+            "id": "WS 002",
+            "size": "SMALL",
+            "type": "BUILT_IN",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                   -52.5,        0
+            ]
+        }
+    ],
+    "engineSlots": [
+        {
+            "location": [
+                -126.5, -17
+            ],
+            "length": 22.5,
+            "width": 18,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "MIDLINE"
+        },
+        {
+            "location": [
+                -126.5, 17
+            ],
+            "length": 22.5,
+            "width": 18,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "MIDLINE"
+        }
+    ],
+    "bounds": [
+             124,     15.5,
+           114.5,     24.5,
+             127,     27.5,
+              83,     29.5,
+            32.5,     23.5,
+        
+              29,     19.5,
+             -14,     19.5,
+             -14,       29,
+             -23,       38,
+          -100.5,     38.5,
+        
+            -111,     25.5,
+            -127,       23,
+            -127,      -23,
+            -111,    -25.5,
+          -100.5,    -38.5,
+        
+             -23,      -38,
+             -14,      -29,
+             -14,    -19.5,
+              29,    -19.5,
+            32.5,    -23.5,
+        
+              83,    -29.5,
+             127,    -27.5,
+           114.5,    -24.5,
+             124,    -15.5
+    # 24 points total.
+    ]
+}

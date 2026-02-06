@@ -1,0 +1,11 @@
+{
+    "displayName": "Base",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": false,
+    "hullId": "unsf_shield_generator",
+    "hullMods": [],
+    "quality": 0.0,
+    "variantId": "unsf_shield_generator_base",
+    "weaponGroups": []
+}

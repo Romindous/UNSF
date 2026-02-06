@@ -1,0 +1,84 @@
+{
+    "displayName": "Base",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": false,
+    "hullId": "unsf_zenith",
+    "hullMods": [
+        "unsf_triniumalloy",
+        "unsf_NeutrinoIonreactor",
+        "unsf_asgardsensors",
+        "unsf_asgardcpu",
+        "unsf_asgardhyperdrive"
+    ],
+    "quality": 0.0,
+    "variantId": "unsf_zenith_base",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 023": "unsf_railgun",
+                "WS 025": "unsf_railgun",
+                "WS 027": "unsf_railgun",
+                "WS 029": "unsf_railgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 026": "unsf_railgun",
+                "WS 022": "unsf_railgun",
+                "WS 028": "unsf_railgun",
+                "WS 031": "unsf_railgun",
+                "WS 024": "unsf_railgun",
+                "WS 032": "unsf_railgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 020": "unsf_railgun_3",
+                "WS 013": "unsf_railgun_3",
+                "WS 018": "unsf_railgun_3",
+                "WS 016": "unsf_railgun_3",
+                "WS 014": "unsf_railgun_3"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 033": "unsf_railgun_3",
+                "WS 019": "unsf_railgun_3",
+                "WS 015": "unsf_railgun_3",
+                "WS 017": "unsf_railgun_3",
+                "WS 021": "unsf_railgun_3"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 030": "unsf_railgun_4",
+                "WS 012": "unsf_railgun_4",
+                "WS 010": "unsf_railgun_4",
+                "WS 009": "unsf_railgun_4",
+                "WS 011": "unsf_railgun_4"
+            }
+        }
+    ],
+    "modules": {
+        "WS 001": "unsf_zenith_AFL_base",
+        "WS 000": "unsf_zenith_AFR_base",
+        "WS 003": "unsf_zenith_ABL_base",
+        "WS 002": "unsf_zenith_ABR_base",
+        "WS 005": "unsf_zenith_engine_L_base",
+        "WS 004": "unsf_zenith_engine_R_base",
+        "WS 007": "unsf_shield_generator_base",
+        "WS 006": "unsf_shield_generator_base",
+        "WS 008": "unsf_shield_generator_base"
+    }
+}

@@ -1,0 +1,241 @@
+{
+	"unsf_railgun":
+	[
+		{"file":"sounds/weapons/unsf_railgun.ogg","pitch":1.00,"volume":0.55},
+		{"file":"sounds/weapons/unsf_railgun.ogg","pitch":0.95,"volume":0.55},	
+		{"file":"sounds/weapons/unsf_railgun.ogg","pitch":1.05,"volume":0.55},
+		{"file":"sounds/weapons/unsf_railgun.ogg","pitch":1.07,"volume":0.55},
+		{"file":"sounds/weapons/unsf_railgun.ogg","pitch":0.93,"volume":0.55},
+	],
+	
+	"unsf_railgun_4":
+	[
+		{"file":"sounds/weapons/unsf_railgun_4_shot.ogg","pitch":1.00,"volume":0.25},
+		{"file":"sounds/weapons/unsf_railgun_4_shot.ogg","pitch":0.95,"volume":0.25},	
+		{"file":"sounds/weapons/unsf_railgun_4_shot.ogg","pitch":1.05,"volume":0.25},
+		{"file":"sounds/weapons/unsf_railgun_4_shot.ogg","pitch":1.07,"volume":0.25},
+		{"file":"sounds/weapons/unsf_railgun_4_shot.ogg","pitch":0.93,"volume":0.25},
+	],
+
+
+	"unsf_dronelauncher":
+	[
+		{"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":0.95,"volume":0.2},
+		{"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":1.05,"volume":0.2},
+		{"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":1.1,"volume":0.2},
+		{"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":0.9,"volume":0.2},
+	],
+
+"unsf_dronestorage":
+	[
+		{"file":"sounds/weapons/drop.ogg","pitch":0.9,"volume":0.2},
+		{"file":"sounds/weapons/drop.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/weapons/drop.ogg","pitch":0.95,"volume":0.2},
+		{"file":"sounds/weapons/drop.ogg","pitch":0.8,"volume":0.2},
+		{"file":"sounds/weapons/drop.ogg","pitch":0.85,"volume":0.2},
+	],
+
+
+
+	"unsf_asgbeam":
+	[
+		{"file":"sounds/weapons/unsf_asg_beam_new.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/weapons/unsf_asg_beam_new.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/weapons/unsf_asg_beam_new.ogg","pitch":1,"volume":0.4},
+	],
+	
+	"unsf_asgbeam_heavy":
+	[
+		{"file":"sounds/weapons/unsf_asg_beam_upgraded.ogg","pitch":1,"volume":0.9},
+		{"file":"sounds/weapons/unsf_asg_beam_upgraded.ogg","pitch":1,"volume":0.9},
+		{"file":"sounds/weapons/unsf_asg_beam_upgraded.ogg","pitch":1,"volume":0.9},
+	],
+
+	"unsf_asuranbeam":
+	[
+		{"file":"sounds/weapons/unsf_asuranbeam.ogg","pitch":1,"volume":1},
+	],
+
+	"unsf_ori_beam":
+	[
+		{"file":"sounds/weapons/unsf_ori_beam.ogg","pitch":1,"volume":1},
+	],
+
+
+
+"unsf_bomb_drop":
+	[
+		{"file":"sounds/weapons/bomb_drop1.ogg","pitch":1,"volume":0.5},
+		{"file":"sounds/weapons/bomb_drop2.ogg","pitch":1,"volume":0.5},
+		{"file":"sounds/weapons/bomb_drop3.ogg","pitch":1,"volume":0.5},
+	],
+
+	"unsf_vls_launch":
+	[
+		{"file":"sounds/weapons/unsf_vls_launch.ogg","pitch":1.0,"volume":2.0},
+	],
+
+
+
+	"flak_fire_01":[
+		{"file":"sounds/weapons/flak_fire_01.ogg","pitch":1,"volume":0.55},
+	],
+
+
+	"pd_boom":[
+		{"file":"sounds/weapons/exp/pd_boom.ogg","pitch":0.6,"volume":0.2},
+
+	],
+
+"railgun3_sound":[
+		{"file":"sounds/weapons/unsf_railgun3_sound.ogg","pitch":0.90,"volume":0.1},
+		{"file":"sounds/weapons/unsf_railgun3_sound.ogg","pitch":1.0,"volume":0.1},		
+		{"file":"sounds/weapons/unsf_railgun3_sound.ogg","pitch":1.10,"volume":0.1},		
+	],
+
+
+
+
+
+"asgardpulse_fire":[
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_01.ogg","pitch":1.60,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_02.ogg","pitch":1.60,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_03.ogg","pitch":1.60,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_04.ogg","pitch":1.60,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_05.ogg","pitch":1.60,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_01.ogg","pitch":1.2,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_02.ogg","pitch":1.2,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_03.ogg","pitch":1.2,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_04.ogg","pitch":1.2,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_05.ogg","pitch":1.2,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_01.ogg","pitch":1.90,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_02.ogg","pitch":1.90,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_03.ogg","pitch":1.90,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_04.ogg","pitch":1.90,"volume":0.4},
+		{"file":"sounds/sfx_wpn_energy/minipulser_fire_05.ogg","pitch":1.90,"volume":0.4},
+	],
+
+
+"flak_sound":[
+		{"file":"sounds/flak/canister_flak_01.ogg","pitch":1.0,"volume":1.0},
+		{"file":"sounds/flak/canister_flak_02.ogg","pitch":1.0,"volume":1.0},		
+		{"file":"sounds/flak/canister_flak_03.ogg","pitch":1.0,"volume":1.0},
+		{"file":"sounds/flak/canister_flak_04.ogg","pitch":1.0,"volume":1.0},
+		{"file":"sounds/flak/canister_flak_05.ogg","pitch":1.0,"volume":1.0},
+		{"file":"sounds/flak/canister_flak_06.ogg","pitch":1.0,"volume":1.0},
+	],
+
+"flak_explosion":[
+		{"file":"sounds/flak/canister_flak_explosion_01.ogg","pitch":1.0,"volume":0.1},
+		{"file":"sounds/flak/canister_flak_explosion_02.ogg","pitch":1.0,"volume":0.1},		
+		{"file":"sounds/flak/canister_flak_explosion_03.ogg","pitch":1.0,"volume":0.1},
+		{"file":"sounds/flak/canister_flak_explosion_04.ogg","pitch":1.0,"volume":0.1},
+		{"file":"sounds/flak/canister_flak_explosion_05.ogg","pitch":1.0,"volume":0.1},
+	],
+
+
+
+	"unsf_hyperspace_window":[ 
+		{"file":"sounds/ability/unsf_hyperspace.ogg","pitch":1,"volume":0.3},
+	],
+
+
+	"system_recall_device2":[ 
+		{"file":"sounds/systems/asgard-beamup.ogg","pitch":1,"volume":0.3},
+	],
+	
+	"system_asgard_nuke":[ 
+		{"file":"sounds/systems/asgard_minebeamdown.ogg","pitch":1,"volume":0.3},
+	],
+	"nuke_windup":[ 
+		{"file":"sounds/weapons/unsf_nuke_windup.ogg","pitch":1,"volume":0.8},
+	],
+	"nuke_detonation":[ 
+		{"file":"sounds/nuke_detonation.ogg","pitch":1,"volume":0.5},
+	],
+
+
+
+        ######ENGINES######
+
+        "unsf_engine_loop":{
+	        "sounds":[
+                        {"file":"sounds/engines/sound_vehicles_bc304_engines.ogg","pitch":1,"volume":0.8},
+                ],
+		"FIGHTER":{"sounds":[0],"pitch":1, "volume":0.3},
+		"CAPITAL_SHIP":{"sounds":[0],"pitch":1, "volume":0.9},
+		"FRIGATE":{"sounds":[0],"pitch":1, "volume":0.9},
+		"DESTROYER":{"sounds":[0],"pitch":1, "volume":0.9},
+		"CRUISER":{"sounds":[0],"pitch":1, "volume":0.9},
+	},
+	"unsf_engine_accelerate":{
+	        "sounds":[
+                        {"file":"sounds/engines/sound_vehicles_bc304_engines2.ogg","pitch":1.0,"volume":0.9},
+                ],
+		"FIGHTER":{"sounds":[0],"pitch":1, "volume":0.3},
+		"CAPITAL_SHIP":{"sounds":[0],"pitch":1, "volume":0.9},
+		"FRIGATE":{"sounds":[0],"pitch":1, "volume":0.9},
+		"DESTROYER":{"sounds":[0],"pitch":1, "volume":0.9},
+		"CRUISER":{"sounds":[0],"pitch":1, "volume":0.9},
+	},
+
+
+		# Explosions
+	"explosion_ship_mod":{ # when a fighter or ship explodes
+		"sounds":[
+			{"file":"sounds/explosion_big_01.ogg","pitch":1,"volume":1.0},
+			{"file":"sounds/explosion_big_02.ogg","pitch":1,"volume":1.0},
+			{"file":"sounds/explosion_big_03.ogg","pitch":1,"volume":1.0},
+			{"file":"sounds/explosion_big_04.ogg","pitch":1,"volume":1.0},
+			],
+		"FIGHTER":{"sounds":[2], "pitch":1, "volume":1.0},
+		"FRIGATE":{"sounds":[0,1,3], "pitch":1.0, "volume":7.0},
+		"DESTROYER":{"sounds":[0,1,3], "pitch":1.0, "volume":7.0},
+		"CRUISER":{"sounds":[0,1,3], "pitch":1.0, "volume":7.0},
+		"CAPITAL_SHIP":{"sounds":[0,1,3], "pitch":1.0, "volume":7.0},		
+	},
+
+	
+	"music":{
+				
+			"unsf_market_friendly":[
+				{"file":"unsf_theme.ogg","source":"sounds/music/","volume":0.15,"randomStart":false},
+				],
+			
+			"AtlantisStation_music": [
+				{"file": "unsf_atlantis_music_v2.ogg", "source": "sounds/music/", "volume":0.4,"randomStart":false},
+				],
+    
+			
+			
+			
+			}
+
+# Any custom music your mod adds can be added here, then played via code using one of the song methods in `Global.getSoundPlayer()`.
+# "music":{
+#		"music_campaign":[
+#			{"file":"miscallenous_corvus_campaign_music.ogg","source":"sounds/music/music.bin","volume":1}, 
+#		],
+#
+# 'source' can also be a directory
+#		"music_default_market_neutral":[
+#			{
+#				"source":"sounds/music/music.bin",
+#				"volume":0.8,
+#				"files":[
+#					"faction_generic_market_01_neutral_var01.ogg",
+#					"faction_generic_market_01_neutral_var02.ogg",
+#				],
+#				"randomStart":true, 
+#			},
+#		],
+#	},
+	
+# Loose sound files for anything else, e.g. weapons, systems, or any other effects.
+# They may be played via code using one of the sound methods in `Global.getSoundPlayer()`.
+#    "mote_attractor_launch_mote":[
+#            {"file":"sounds/sfx_systems/mote_attractor_spawn_01.ogg","pitch":1,"volume":0.4},
+#            {"file":"sounds/sfx_systems/mote_attractor_spawn_02.ogg","pitch":1,"volume":0.4},
+#    ],
+}

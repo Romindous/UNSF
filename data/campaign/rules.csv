@@ -1,0 +1,178 @@
+id,trigger,conditions,script,text,options,notes
+# This file is not required by the game and can be deleted if you aren't using it, but doesn't hurt to keep either.,,,,,
+# Official rules.csv guide: https://fractalsoftworks.com/2023/11/13/you-merely-adopted-rules-csv-i-was-born-into-it/,,,,,,
+,,,,,,
+#  TURORIAL HOW ITS DONE,,,,,,
+#  BQFS real version,,,,,,
+#  bqfsAskForSuppliesOptionDEV,PopulateOptions,"$global.isDevMode
+$postId == supplyOfficer
+$faction.c:offersCommissions",SetOptionColor bqfs_devResetCounter gray,,bqfs_devResetCounter:DEV unset resupply counter,
+#  bqfsAskForSuppliesOptionDEV2,DialogOptionSelected,$option == bqfs_devResetCounter,"unset $faction.playerReceivedCommissionResupply
+FireAll PopulateOptions",,,
+#  bqfsIgnoringComms,PickGreeting,"$postId == supplyOfficer
+$ignorePlayerCommRequests","ShowDefaultVisual
+EndConversation NO_CONTINUE","You try to establish a comm link, but your request is denied.",,# mad at you for trying to cheat the system
+#  bqfsAskForSuppliesOptionFirst,PopulateOptions,"$postId == supplyOfficer
+$faction.c:offersCommissions
+!$player.everAskedForFreeSupplies",,,"bqfs_askForSupplies:""Do you have any supplies to spare?""",
+#  bqfsAskForSuppliesOptionAgain,PopulateOptions,"$postId == supplyOfficer
+$faction.c:offersCommissions
+$player.everAskedForFreeSupplies",FireAll BQFSaskForSuppliesOptCheck,,"bqfs_askForSupplies:""Do you have any supplies to spare?""",
+#  bqfsAskForSuppliesOptAgainCheck,BQFSaskForSuppliesOptCheck,"Commission recalcFreeSupplyDaysRemaining
+$faction.playerReceivedCommissionResupply
+$player.fcm_faction == $personFaction.id","SetEnabled bqfs_askForSupplies false
+SetTooltip bqfs_askForSupplies ""You must wait another $daysLeft days before you may be allocated emergency supplies due to your $faction commission.""
+SetTooltipHighlights bqfs_askForSupplies ""$daysLeft days"" ""$faction""
+SetTooltipHighlightColors bqfs_askForSupplies hColor $faction.id",,,
+#  bqfsAskForSuppliesOptAgainCheck2,BQFSaskForSuppliesOptCheck,$player.fcm_faction != $personFaction.id,"SetEnabled bqfs_askForSupplies false
+SetTooltip bqfs_askForSupplies ""The $post will only provide supplies to a $shipOrFleet in need and bearing a $faction commission.""
+SetTooltipHighlights bqfs_askForSupplies ""$faction""
+SetTooltipHighlightColors bqfs_askForSupplies $faction.id",,,
+#  bqfsAskedForSuppliesFirstNo,DialogOptionSelected,"$option == bqfs_askForSupplies
+!$player.everAskedForFreeSupplies
+$player.fcm_faction != $personFaction.id","SetTextHighlightColors $faction.id
+Highlight $faction
+$player.everAskedForFreeSupplies = true
+FireAll PopulateOptions","$HeOrShe glances at a secondary display, checking your $shipOrFleet ID.
+
+""This isn't a charity, spacer,"" $heOrShe says, turning back to you. ""I'd only even consider your request if you held a $faction commission. And you don't. So don't waste my time.""",,"# yes, setting highlights on regular text has to be done in the opposite order from tooltips"
+#  bqfsAskedForSuppliesFirstNoLuddic,DialogOptionSelected,"$option == bqfs_askForSupplies
+!$player.everAskedForFreeSupplies
+$player.fcm_faction != $personFaction.id
+$faction.id == luddic_church","SetTextHighlightColors $faction.id
+Highlight ""Church of Galactic Redemption"" 
+$player.everAskedForFreeSupplies = true
+FireAll PopulateOptions","$HeOrShe glances at a secondary display, checking your $shipOrFleet ID.
+
+""Charity may be a virtue, spacer,"" $heOrShe says, ""but I'd only even consider your request if you were actually in need - and commissioned in service of the Church of Galactic Redemption.""
+
+""Mind you that greed is a vice, so pray on that as you move along.""",,
+#  bqfsAskedForSupplies,DialogOptionSelected,"$option == bqfs_askForSupplies
+Commission doesPlayerFleetNeedRepairs","$player.everAskedForFreeSupplies = true
+$option = bqfs_askForSupplies2 0
+FireBest DialogOptionSelected","""Hmm,"" the $post looks over a secondary display, casually tapping through a few reports.",,
+#  bqfsAskedForSuppliesB,DialogOptionSelected,"$option == bqfs_askForSupplies
+!Commission doesPlayerFleetNeedRepairs","$player.everAskedForFreeSupplies = true
+$option = bqfs_askForSupplies2 0
+FireBest DialogOptionSelected","""Hmm,"" the $post looks over a secondary display, casually tapping through a few reports.",,
+#  bqfsAskedForSuppliesHostile,DialogOptionSelected,"$option == bqfs_askForSupplies
+$faction.isHostile",$ignorePlayerCommRequests = true 7,"The $post gives you a strange look, then glances at a secondary display. Then, looking slightly alarmed, back at you.
+
+""Wait, are you-"" $HisOrHer eyes dart to the display. ""You're $playerName! Get yourself off of my comm-link.""
+
+$HeOrShe mashes at the cut-off button.",,# don't actually flip the first-time flag 'cause player didn't get the essential game info out of this
+#  bqfsAskedForSuppliesScam,DialogOptionSelected,"$option == bqfs_askForSupplies2
+$player.fleetLowCR
+$player.supplies < 10
+Commission isCargoPodsScam","$option = bqfs_askForSuppliesScam 0
+FireBest DialogOptionSelected","Something comes up, $hisOrHer eyes narrow, expression growing harder. More tapping. Then $heOrShe turns to you, frowning.",,
+#  bqfsAskedForSuppliesScam2generic,DialogOptionSelected,$option == bqfs_askForSuppliesScam,"$option = bqfs_askForSuppliesScamOut 0
+FireBest DialogOptionSelected","Something comes up, $hisOrHer eyes narrow, expression growing harder. More tapping. Then $heOrShe turns to you, frowning.
+
+""You don't become the $post without having seen a few tricks over the cycles. I just didn't expect a captain bearing a $faction commission to attempt the old cargo dump on me.""
+
+$HeOrShe sighs, shaking his or her head. ""I'm flagging your commission ID for a cycle. Now get off my comms.""",,
+#  bqfsAskedForSuppliesScamHeg,DialogOptionSelected,"$option == bqfs_askForSuppliesScam
+$faction.id == hegemony","$option = bqfs_askForSuppliesScamOut 0
+FireBest DialogOptionSelected","""I'm a $post for the Hegemony, not some two-credit League world. I've seen the old dump-the-cargo done by an upstart who thinks they're more clever than the system before, and I will again. You should be hauled before a court martial. But lucky you, I've got enough paperwork, so I'm going to pretend this was one big, stupid mistake.""
+
+$HeOrShe sighs, shaking his or her head. ""I'm flagging your commission ID for a cycle. Now get off my comms.""",,
+#  bqfsAskedForSuppliesScamTT,DialogOptionSelected,"$option == bqfs_askForSuppliesScam
+$faction.id == tritachyon","$option = bqfs_askForSuppliesScamOut 0
+FireBest DialogOptionSelected","""I see your trick, captain, and while I admire your drive to maximize profit, I cannot respect that you're too incompetent to dump your supplies further afield before requesting assistance. You understand that if I was found misappropriating Tri-Tachyon property, they'd bond me into debt-service? I've got wealth, but not much. It'd be life.""
+
+$HeOrShe sighs, shaking his or her head. ""I'm flagging your commission ID for a cycle. Now get off my comms.""",,
+#  bqfsAskedForSuppliesScamChurch,DialogOptionSelected,"$option == bqfs_askForSuppliesScam
+$faction.id == luddic_church","$option = bqfs_askForSuppliesScamOut 0
+FireBest DialogOptionSelected","""I may walk with Ludd, but you don't become the $post by taking every spacer's word on faith alone. I'd hoped a captain commissioned by the Church would never attempt a cargo dump scam on me, but here you are.""
+
+$HeOrShe sighs, shaking his or her head. ""I'm flagging your commission for a cycle, that you might reflect and pray for forgiveness. Now remove your sinning face from my comms.""",,
+#  bqfsAskedForSuppliesScamLeague,DialogOptionSelected,"$option == bqfs_askForSuppliesScam
+$faction.id == persean","$option = bqfs_askForSuppliesScamOut 0
+FireBest DialogOptionSelected","""I'm no gens-get, captain; I earned my position by serving from Laicaille to Salamanca and I didn't become $post because I'm a fool. I just didn't expect a League captain to attempt the old smuggler's dump on me.""
+
+$HeOrShe sighs, shaking his or her head. ""I'm flagging your commission ID for a cycle. Now get off my comms.""",,
+#  bqfsAskedForSuppliesScamSD,DialogOptionSelected,"$option == bqfs_askForSuppliesScam
+$faction.id == sindrian_diktat","$option = bqfs_askForSuppliesScamOut 0
+FireBest DialogOptionSelected","""You don't become the $post here without knowing a few tricks employed by terrorists and smugglers. I'd have expected if you'd pledged to the Sindrian Diktat you'd know better than to attempt the old cargo dump scam. Stars beyond, you'd get us both sent to Cruor!""
+
+$HeOrShe sighs, shaking his or her head. ""I'm flagging your commission ID for a cycle. You'd best hope the Spider doesn't take an interest. Now get off my comms.""",,
+#  bqfsAskedForSuppliesScamOut,DialogOptionSelected,$option == bqfs_askForSuppliesScamOut,"AdjustRepActivePerson -2
+$faction.playerReceivedCommissionResupply = true 365
+$faction.playerReceivedCommissionResupplyOn = $global.daysSinceStart
+$playerAttemptedCargoPodScam = true
+$player.attemptedComSupCargoPodScamEver = true
+$ignorePlayerCommRequests = true 7",,cutCommLink:Cut the comm link,
+#  bqfsAskedForSuppliesAcceptA,DialogOptionSelected,"$option == bqfs_askForSupplies2
+$player.fleetLowCR
+$player.supplies < 10",,"""Hmm. Your $shipOrFleet is in decent shape, but your readiness has suffered. Seeing as how you bear a $faction commission, it looks like I might be able to justify providing you with assistance.""
+
+$HeOrShe gives you a severe look. ""Are you sure you want to call this in now? A commissioned captain is only authorized to receive emergency supplies once per cycle.""","bqfs_receiveSupplies:""I need supplies. Badly.""
+bqfs_receiveSuppliesAbort:""No, I'll do without.""",
+#  bqfsAskedForSuppliesAcceptAbort,DialogOptionSelected,$option == bqfs_receiveSuppliesAbort,FireAll PopulateOptions,The $post simply nods.,,
+#  bqfsAskedForSuppliesAcceptB,DialogOptionSelected,"$option == bqfs_askForSupplies2
+$player.fleetDamaged score:2
+$player.supplies < 10",,"""It looks like your $shipOrFleet has taken some hits. Seeing as how you bear a $faction commission, it looks like I can justify providing you with assistance.""",bqfs_receiveSupplies:Continue,
+#  bqfsAskedForSuppliesAcceptC,DialogOptionSelected,"$option == bqfs_askForSupplies2
+$player.fleetDamaged
+$player.fleetDamagedLots score:2
+$player.supplies < 10",,"""Your $shipOrFleet has taken some serious damage. You have a $faction commission and this is a clear case of need, so I shall provide you with emergency supplies.""",bqfs_receiveSupplies:Continue,
+#  bqfsAskedForSuppliesDecline,DialogOptionSelected,$option == bqfs_askForSupplies2,"FireAll PopulateOptions
+RemoveOption bqfs_askForSupplies","""Looks like you've got a handle on your $shipOrFleet's upkeep. I'll not give supplies away for them to end up on the black market.""
+
+$HeOrShe holds up one rough hand, ""Not accusing you, captain. It's simply a matter of policy that I must justify any emergency supply transfer. If I can't prove they're used to serve $faction interests, then I have to answer for the expense.""",,
+#  bqfsASkedForSuppliesDeclineColony,DialogOptionSelected,"$option == bqfs_askForSupplies2
+$player.numColonies > 0 score:100","AdjustRepActivePerson -1
+FireAll PopulateOptions
+RemoveOption bqfs_askForSupplies","$HeOrShe back looks to you, perplexed. ""You own your own planet and you've come to me begging for supplies?""
+
+""I'll count this as a joke in poor taste, $playerSirOrMadam.""
+
+$HeOrShe doesn't look amused, and doesn't manage to imbue $hisOrHer words with quite the tone of respect $hisOrHer words alone would imply.",,
+#  bqfsAskedForSuppliesAccept2,DialogOptionSelected,$option == bqfs_receiveSupplies,"AddRemoveCommodity supplies 60
+$faction.playerReceivedCommissionResupply = true 365
+$faction.playerReceivedCommissionResupplyOn = $global.daysSinceStart
+FireAll PopulateOptions
+RemoveOption bqfs_askForSupplies","You make the arrangements, and before the passing of a workshift, a small batch of emergency supplies is transferred to your $shipOrFleet for repairs.
+
+""The funds you receive from $theFaction are meant to cover operational expenses,"" $personName says brusquely. ""Your commission ID will be flagged for one full cycle due to this emergency supply transfer, so don't make a habit of not having a backup plan.""",,
+,,,,,,
+,,,,,,
+#KIERA SHEPPARD INTERACTION,,,,,,
+unsfKieraFirstGreeting,PopulateOptions,"$isPerson
+$id == atlantis_shady
+!$player.metAtlantis_Shady","ShowPersonVisual
+FireAll PopulateOptions
+$player.metAtlantis_Shady = true
+AddText ""You walk trought station, its like nothing you have ever seen, its less of a space staton but more of a space city.""
+
+AddText ""Many corridors, hallways, teleporters for civilian use. You use one and find yourself in docking area.""
+
+AddText ""You explore a bit untill you find woman near wet boxes.""",,ksi_observe_op:Observe woman,
+unsfObserveKiera,DialogOptionSelected,"$option == ksi_observe_op
+",,"""Never thought I’d find something like this... after all these weeks.""
+She holds up the device, its faint glow pulsing softly.
+""It even still has power.""
+Kiera glances at you suspiciously, her expression hardening as she continues.
+""Who are you? Haven’t seen you around here before.""
+Her grip on the device tightens as she assesses your intentions.
+",,
+,,,,,,
+,,,,,,
+#UAFNiaFirstGreeting,PickGreeting,"$id == uaf_niaauroria score:100
+!$player.metUAFNiaAuroria","ShowPersonVisual
+FireAll PopulateOptions
+$player.metUAFNiaAuroria = true
+AddText ""You see many people from numerous worlds seems to be queueing in front of you, took the ticket and wait in the queue bench. Looking up there is a large sign laced with neon lights underneath with a text saying \""Aurora Diplomatic Bureau\"".""
+
+AddText ""Not long after, your number got called, you walk over to the counter and open the communication device that is now available to you""
+
+AddText """"\""Bzzt!!""\"""" highlight
+
+AddText ""A woman with a tied up white hair can now be seen appearing in your monitor, wearing a dark officer uniform with badges that appear quite high in rank on her shawl. A small text also appeared on the down-left side of your screen, identifying the person as Nia Auroria, the Administrator of this station as well as the current Head of The Bureau.""
+
+AddText ""\""Well, you may speak your business now, if not then I'll have something else to do.\"" the woman speaks in a strict manner, only slightly staring at you.""",,0:cutCommLinkPolite:Cut the comm link,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,

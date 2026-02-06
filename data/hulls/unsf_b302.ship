@@ -1,0 +1,118 @@
+{
+    "hullName": "B-302 bomber",
+    "hullId": "unsf_b302",
+    "hullSize": "FIGHTER",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/unsf_b302.png",
+    "height": 70,
+    "width": 70,
+    "center": [
+        35, 35
+    ],
+    "collisionRadius": 35.5,
+    "coversColor": "",
+    "shieldCenter": [
+        -3.5, 0
+    ],
+    "shieldRadius": 35.5,
+    "viewOffset": 0,
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [
+        {
+            "id": "WS 000",
+            "size": "SMALL",
+            "type": "UNIVERSAL",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                    -3.5,      -24
+            ]
+        },
+        {
+            "id": "WS 001",
+            "size": "SMALL",
+            "type": "UNIVERSAL",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                    -3.5,       24
+            ]
+        },
+        {
+            "id": "WS 002",
+            "size": "SMALL",
+            "type": "UNIVERSAL",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                       1,    -17.5
+            ]
+        },
+        {
+            "id": "WS 003",
+            "size": "SMALL",
+            "type": "UNIVERSAL",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                       1,     17.5
+            ]
+        },
+        {
+            "id": "WS 004",
+            "size": "SMALL",
+            "type": "UNIVERSAL",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                       5,      -11
+            ]
+        },
+        {
+            "id": "WS 005",
+            "size": "SMALL",
+            "type": "UNIVERSAL",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                       5,       11
+            ]
+        }
+    ],
+    "engineSlots": [
+        {
+            "location": [
+                -9, -6
+            ],
+            "length": 10,
+            "width": 4,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -9, 6
+            ],
+            "length": 10,
+            "width": 4,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        }
+    ],
+    "bounds": [
+           -18.5,     14.5,
+            -4.5,     33.5,
+            20.5,        0,
+            -4.5,    -33.5,
+           -18.5,    -14.5
+    ]
+}

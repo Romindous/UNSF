@@ -1,0 +1,71 @@
+{
+    "displayName": "Daedalus Refit Base",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "unsf_daedalus_refit",
+    "hullMods": [
+        "unsf_asgardcpu",
+        "unsf_asgardhyperdrive",
+        "unsf_asgardsensors",
+        "unsf_asgardshield",
+        "unsf_transporter",
+        "unsf_naqgenerator",
+        "unsf_triniumalloy",
+        "unsf_NeutrinoIonreactor"
+    ],
+    "quality": 1.0,
+    "variantId": "unsf_daedalus_refit_base",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "unsf_railgun_small",
+                "WS 000": "unsf_railgun_small",
+                "WS 002": "unsf_railgun_small",
+                "WS 003": "unsf_railgun_small",
+                "WS 004": "unsf_railgun_small",
+                "WS 005": "unsf_railgun_small",
+                "WS 009": "unsf_railgun_small",
+                "WS 008": "unsf_railgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 016": "unsf_railgun",
+                "WS 015": "unsf_railgun",
+                "WS 014": "unsf_railgun",
+                "WS 017": "unsf_railgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "unsf_railgun_pd",
+                "WS 012": "unsf_railgun_pd",
+                "WS 010": "unsf_railgun_pd",
+                "WS 013": "unsf_railgun_pd",
+                "WS 006": "unsf_railgun_pd",
+                "WS 007": "unsf_railgun_pd"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 021": "unsf_dronelauncher",
+                "WS 018": "unsf_dronelauncher"
+            }
+        }
+    ],
+    "wings": [
+        "unsf_b302_wing_bomber",
+        "unsf_302_wing",
+        "unsf_302_wing",
+        "unsf_302_wing"
+    ]
+}

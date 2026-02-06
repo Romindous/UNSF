@@ -1,0 +1,107 @@
+{
+    "hullName": "Engine Module R",
+    "hullId": "unsf_zenith_engine_R",
+    "hullSize": "FRIGATE",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/unsf_zenith/UNSF_Zenith_ENG_R.png",
+    "height": 203,
+    "width": 136,
+    "center": [
+        68, 101.5
+    ],
+    "collisionRadius": 112,
+    "coversColor": "",
+    "shieldCenter": [
+        0, 0
+    ],
+    "shieldRadius": 111.5,
+    "viewOffset": 0,
+    "builtInMods": [
+        "always_detaches",
+        "reduced_explosion",
+        "unsf_triniumalloy",
+        "unsf_msc"
+    ],
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [
+        {
+            "id": "WS 000",
+            "size": "MEDIUM",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 293,
+            "angle": 326,
+            "locations": [
+                      67,      -58
+            ]
+        },
+        {
+            "id": "WS 001",
+            "size": "MEDIUM",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 300,
+            "angle": 213,
+            "locations": [
+                   -42.5,      -60
+            ]
+        },
+        {
+            "id": "WS 002",
+            "size": "LARGE",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 220,
+            "angle": 270,
+            "locations": [
+                     5.5,      -49
+            ]
+        }
+    ],
+    "engineSlots": [
+        {
+            "location": [
+                -100.5, -34.5
+            ],
+            "length": 150,
+            "width": 36,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -100.5, -9.5
+            ],
+            "length": 150,
+            "width": 36,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -100.5, 16.5
+            ],
+            "length": 150,
+            "width": 36,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        }
+    ],
+    "bounds": [
+           -51.5,    -49.5,
+            -100,    -43.5,
+            -100,     25.5,
+           -50.5,     31.5,
+             -64,       67,
+        
+             -24,     38.5,
+             -12,        0,
+            99.5,        0,
+              71,    -66.5,
+             -50,    -64.5
+    ]
+}

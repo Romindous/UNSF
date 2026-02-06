@@ -1,0 +1,152 @@
+{
+	# should be a copy of "combatSmall", minus variants that are annoying to fight in low numbers
+	# for example, no Hyperions or fast beam-based kiting loadouts, or ships with damper field
+	"combatSmallForSmallFleet":{
+		
+		"unsf_Fenrir_base":5,
+		"unsf_prometheus_base":5,
+	},
+	"combatSmall":{
+		
+		"unsf_Fenrir_base":5,
+		"unsf_prometheus_base":5,
+		
+	},
+	
+	"combatMedium":{
+		"unsf_daedalus_refit_base":4,
+		"unsf_daedalus_base":6,
+	},
+	
+	"combatLarge":{
+		"unsf_helios_base":8,
+		"unsf_astraios_base":2,
+	},
+	"combatCapital":{
+		"unsf_astraios_base":2,
+		
+	},
+	
+	
+	# hybrid ships with good combat and cargo capacity
+	"combatFreighterSmall":{
+		
+	},
+	"combatFreighterMedium":{
+		
+	},
+	"combatFreighterLarge":{
+		
+	},
+	
+	"civilianRandom":{
+		
+	},
+
+	# carriers
+	"carrierSmall":{
+		
+		"unsf_prometheus_base":2,
+	},
+	"carrierMedium":{
+		"unsf_daedalus_base":6,
+		
+	},
+	"carrierLarge":{
+		"unsf_daedalus_refit_base":8,
+		
+	},
+
+	# phase ships
+	"phaseSmall":{
+	},
+	"phaseMedium":{
+	},
+	"phaseLarge":{
+		
+	},
+	"phaseCapital":{
+	},
+
+	# freighters and such
+	"freighterSmall":{
+		
+		"unsf_abydos_base":2,
+		
+	},
+	"freighterMedium":{
+		
+		"unsf_tempest_cargo":6,
+	},
+	"freighterLarge":{
+		
+		"unsf_hyperion_base":8,
+		"unsf_tempest_cargo":8,
+	},
+	
+	"tankerSmall":{
+		
+		"unsf_abydos_base":8,
+		
+	},
+	"tankerMedium":{
+		
+		"unsf_tempest_fuel":8,
+		
+	},
+	"tankerLarge":{
+		
+		"unsf_hyperion_base":8,
+		"unsf_tempest_fuel":8,
+		
+	},
+	
+	"personnelSmall":{
+		
+		
+	},
+	"personnelMedium":{
+		
+		"unsf_dauntless_base":10,
+		
+		
+	},
+	"personnelLarge":{
+		
+		"unsf_dauntless_base":8,
+		
+	},
+	
+	"linerSmall":{
+		
+		"unsf_dauntless_base":6,
+		
+	},
+	"linerMedium":{
+		
+		"unsf_dauntless_base":6,
+		
+	},
+	"linerLarge":{
+	},
+	
+	# utility ships
+	"tug":{
+	},
+	"crig":{
+	},
+	"utility":{
+	},
+	
+
+
+	# Old/unused below this line
+	"fastAttack":{
+	},
+
+	"escortSmall":{
+	},
+	"escortMedium":{
+	},
+	
+}

@@ -1,0 +1,34 @@
+{
+    "displayName": "Cargo freighter",
+    "fluxCapacitors": 20,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "unsf_tempest",
+    "hullMods": [],
+    "permaMods": [
+        "unsf_tempest_cargo"
+    ],
+    "quality": 1.0,
+    "variantId": "unsf_tempest_cargo",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 007": "unsf_railgun_small",
+                "WS 006": "unsf_railgun_small",
+                "WS 009": "unsf_railgun_small",
+                "WS 008": "unsf_railgun_small",
+                "WS 010": "unsf_vls_1"
+            }
+        }
+    ],
+    "modules": {
+        "WS 000": "module_cargo",
+        "WS 002": "module_cargo",
+        "WS 001": "module_cargo",
+        "WS 003": "module_cargo",
+        "WS 004": "module_cargo",
+        "WS 005": "module_cargo"
+    }
+}

@@ -1,0 +1,17 @@
+{
+	"id":"recalldevice2",
+	"type":"STAT_MOD",
+	"aiType":"RECALL_DEVICE",
+	
+	"statsScript":"TrueAvarus.UNSF.Shipsystem.Asgard_fighter_transporter",
+	
+	"useSound":"system_recall_device2",
+	"outOfUsesSound":"gun_out_of_ammo",
+	
+	"aiHints":{
+	}
+}
+
+
+
+

@@ -1,0 +1,36 @@
+{
+    "displayName": "B-302 bomber wing",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": false,
+    "hullId": "unsf_b302",
+    "hullMods": [],
+    "quality": 0.0,
+    "variantId": "unsf_b302_bomber",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 004": "unsf_bomb_pylon",
+                "WS 005": "unsf_bomb_pylon"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "unsf_bomb_pylon",
+                "WS 000": "unsf_bomb_pylon"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "unsf_bomb_pylon",
+                "WS 002": "unsf_bomb_pylon"
+            }
+        }
+    ]
+}

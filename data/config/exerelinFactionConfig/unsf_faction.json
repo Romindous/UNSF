@@ -1,0 +1,88 @@
+{
+    "playableFaction": true,
+    "corvusCompatible": true,
+    "marketSpawnWeight": 0.75,
+    "difficultyString": "easy",
+    "ngcTooltip": "You might come to help rebuild and expand our lost empire or don't come at all.",
+    
+    "asteroidMiningFleetName": "Mining Fleet",
+    "gasMiningFleetName": "Snorchel Fleet",
+    "invasionFleetName": "UNSF Invasion Fleet",
+    "responseFleetName": "UNSF Defense Fleet",
+    "invasionSupportFleetName": "UNSF Logistical Support",
+    "defenceFleetName": "UNSF Deterence Fleet",
+
+    "startRelationships": {
+        "independent": 0.6,					
+        "pirates": -0.2,						
+        "persean": 0.15,						
+        "tritachyon": 0.3,					
+        "hegemony": 0,						
+        "lions_guard": 0,				
+        "sindrian_diktat": 0,			
+        "luddic_church": 0.2,					
+        "luddic_path": 0,					
+        "remnant": -0.6,
+        "scalartech": 0.15,					
+        "vic": 0.15,						
+        "default": 0.25
+    },
+
+    "maxRelationships": {},
+    "diplomacyPositiveChance": {},
+    "diplomacyNegativeChance": {},
+
+    "morality": "good",
+    "freeMarket": true,
+
+    "alignments": {
+        "militarist": 0.6,
+        "diplomatic": 1.0,
+        "corporate": 0,
+        "technocratic": 0.8
+    },
+
+    "diplomacyTraits": ["pacifist", "stalwart", "helps_allies", "lowprofile", "neutralist"],
+
+    "colonyExpeditionChance": 0,
+    "colonyTargetValuator": "exerelin.campaign.colony.IndustrialColonyTargetValuator",
+
+    "vengeanceLevelNames": ["First Warning", "Last Warning"],
+    "vengeanceFleetNames": ["Stalker fleet", "Jaeger fleet"],
+    "vengeanceFleetNamesSingle": ["a Stalker fleet", "a Jaeger fleet"],
+
+    "specialForcesMaxFleets": 3,
+    "specialForcesNamerClass": "exerelin.campaign.intel.specialforces.namer.FactionListNamer",
+
+    "invasionStrengthBonusAttack": 0.2,
+    "invasionStrengthBonusDefend": 0.2,
+
+    "groundBattleSettings": {
+        "attackMult": 1.25,
+        "defenseMult": 1.25,
+        "moraleDamageTakenMult": 0.8
+    },
+
+    "invasionPointMult": 0.2,
+    "dropPrisoners": true,
+
+    "startShipsSolo": [
+        ["unsf_abydos_base"]
+    ],
+
+    "startShipsCombatSmall": [
+        ["unsf_fenrir_base", "unsf_fenrir_base", "unsf_prometheus_base", "unsf_prometheus_base", "unsf_abydos_base"]
+    ],
+
+    "startShipsTradeSmall": [
+        ["unsf_tempest_cargo", "unsf_tempest_fuel", "unsf_abydos_base"]
+    ],
+
+    "startShipsCombatLarge": [
+        ["unsf_daedalus_base", "unsf_daedalus_refit_base", "unsf_helios_base"]
+    ],
+
+    "startShipsSuper": [
+        ["unsf_astraios_base"]
+    ]
+}

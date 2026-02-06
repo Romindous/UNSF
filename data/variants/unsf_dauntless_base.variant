@@ -1,0 +1,42 @@
+{
+    "displayName": "Dauntless Base",
+    "fluxCapacitors": 20,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "unsf_dauntless",
+    "hullMods": [
+        "unsf_asgardhyperdrive",
+        "unsf_asgardshield",
+        "unsf_asgardcpu",
+        "unsf_asgardsensors",
+        "unsf_NeutrinoIonreactor",
+        "unsf_triniumalloy",
+        "unsf_naqgenerator"
+    ],
+    "permaMods": [
+        "unsf_rings"
+    ],
+    "quality": 1.0,
+    "variantId": "unsf_dauntless_base",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 005": "unsf_dronelauncher",
+                "WS 006": "unsf_dronelauncher"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "unsf_railgun_small",
+                "WS 001": "unsf_railgun_small",
+                "WS 002": "unsf_railgun_small",
+                "WS 004": "unsf_railgun_small",
+                "WS 000": "unsf_railgun_small"
+            }
+        }
+    ]
+}

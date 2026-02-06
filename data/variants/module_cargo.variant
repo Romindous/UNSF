@@ -1,0 +1,15 @@
+{
+    "displayName": "Module Cargo",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "module_cargo_unsf",
+    "hullMods": [],
+    "permaMods": [
+        "always_detaches",
+        "reduced_explosion"
+    ],
+    "quality": 0.0,
+    "variantId": "module_cargo",
+    "weaponGroups": []
+}

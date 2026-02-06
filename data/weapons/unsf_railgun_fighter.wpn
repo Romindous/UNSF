@@ -1,0 +1,45 @@
+{
+  "id": "unsf_railgun_fighter",
+  "specClass": "projectile",
+  "projectileSpecId": "unsf_railgun_slug",
+  "type": "BALLISTIC",
+  "size": "MEDIUM",
+  "turretSprite": "graphics/weapons/unsf_railgun_base.png",
+  "hardpointSprite": "",
+  "turretOffsets": [
+    8,
+    1,
+    8,
+    -1
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    0,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "DUAL",
+  "animationType": "MUZZLE_FLASH",
+  "interruptibleBurst": true,
+  "requiresFullCharge": false,
+  "muzzleFlashSpec": {
+    "length": 10,
+    "spread": 2,
+    "particleSizeMin": 5,
+    "particleSizeRange": 5,
+    "particleDuration": 0.02,
+    "particleCount": 10,
+    "particleColor": [
+      255,
+      255,
+      255,
+      255
+    ]
+  },
+  "fireSoundTwo": "unsf_railgun"
+}

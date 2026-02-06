@@ -1,0 +1,56 @@
+{
+  "id": "unsf_asuranbeam",
+  "specClass": "beam",
+  "type": "ENERGY",
+  "size": "MEDIUM",
+  "beamEffect": "com.fs.starfarer.api.impl.combat.TachyonLanceEffect",
+  "collisionClass": "RAY",
+  "collisionClassByFighter": "RAY_FIGHTER",
+  "turretSprite": "graphics/weapons/unsf_asgardbeam.png",
+  "hardpointSprite": "",
+  "glowColor": [
+    165,
+    204,
+    255,
+    235
+  ],
+  "hitGlowRadius": 0,
+  "turretOffsets": [
+    3,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    5,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "fringeColor": [
+    255,
+    180,
+    180,
+    255
+  ],
+  "coreColor": [
+    255,
+    0,
+    0,
+    255
+  ],
+  "width": 45,
+  "textureType": LASER,
+  "textureScrollSpeed": 260,
+  "pixelsPerTexel": 1,
+  "pierceSet": [
+    PROJECTILE_FF,
+    PROJECTILE_NO_FF,
+    PROJECTILE_FIGHTER,
+    MISSILE_FF,
+    MISSILE_NO_FF
+  ],
+  "fireSoundTwo": "unsf_asuranbeam"
+}

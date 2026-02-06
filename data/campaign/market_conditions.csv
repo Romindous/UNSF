@@ -1,0 +1,11 @@
+name,id,planetary,decivRemove,script,desc,icon,order
+,,,,,,,
+,,,,,,,
+,,,,,,,
+Vice Demand,vice_demand,,TRUE,com.fs.starfarer.api.impl.campaign.econ.ViceDemand,The demand for vice goods is unusually high here.,graphics/icons/markets/vice_demand.png,145
+Stargate cohesion,stargate_cohesion,,,TrueAvarus.UNSF.Industry.Market_Conditions.stargate_cohesion,Decreases demand for goods and adds accessibility,graphics/icons/conditions/stargate.png,145
+Stargate ZPM enabled,stargate_zpmcohesion,,,TrueAvarus.UNSF.Industry.Market_Conditions.stargate_zpmcohesion,Decreases demand for goods and adds accessibility,graphics/icons/conditions/zpmstargate.png,145
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,

@@ -1,0 +1,215 @@
+{
+    "hullName": "Hyperion",
+    "hullId": "unsf_hyperion",
+    "hullSize": "CRUISER",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/unsf_Hyperion.png",
+    "height": 500,
+    "width": 500,
+    "center": [
+        250, 250
+    ],
+    "collisionRadius": 185.5,
+    "coversColor": "",
+    "shieldCenter": [
+        0, 0
+    ],
+    "shieldRadius": 196,
+    "viewOffset": 0,
+    "builtInWings": [
+        "unsf_dd_wing",
+        "unsf_dd_wing"
+    ],
+    "builtInModules": null,
+    "weaponSlots": [
+        {
+            "id": "WS 000",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 359,
+            "angle": 0,
+            "locations": [
+                      65,      -10
+            ]
+        },
+        {
+            "id": "WS 001",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 359,
+            "angle": 0,
+            "locations": [
+                      65,      8.5
+            ]
+        },
+        {
+            "id": "WS 002",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 360,
+            "angle": 180,
+            "locations": [
+                    -101,       -9
+            ]
+        },
+        {
+            "id": "WS 003",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 360,
+            "angle": 180,
+            "locations": [
+                    -101,        9
+            ]
+        },
+        {
+            "id": "LB 000",
+            "size": "SMALL",
+            "type": "LAUNCH_BAY",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                  -123.5,       22,
+                    -123,    -24.5
+            ]
+        }
+    ],
+    "engineSlots": [
+        {
+            "location": [
+                -120, -74.5
+            ],
+            "length": 17.5,
+            "width": 12,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -120, 74.5
+            ],
+            "length": 17.5,
+            "width": 12,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -120, -103.5
+            ],
+            "length": 17.5,
+            "width": 13,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -120, 103.5
+            ],
+            "length": 17.5,
+            "width": 13,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -122, -117.5
+            ],
+            "length": 45.5,
+            "width": 16,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -122, 117.5
+            ],
+            "length": 45.5,
+            "width": 16,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -120, -130
+            ],
+            "length": 17.5,
+            "width": 13,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -120, 130
+            ],
+            "length": 17.5,
+            "width": 13,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -122, -88.5
+            ],
+            "length": 45.5,
+            "width": 16,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -122, 88.5
+            ],
+            "length": 45.5,
+            "width": 16,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "HIGH_TECH"
+        }
+    ],
+    "bounds": [
+          -136.5,     51.5,
+            -120,       70,
+          -119.5,      131,
+          -104.5,      140,
+           -11.5,      142,
+        
+            26.5,    106.5,
+              46,    105.5,
+              98,     50.5,
+           140.5,     15.5,
+           176.5,       14,
+        
+           176.5,        7,
+           141.5,      5.5,
+           141.5,     -5.5,
+           176.5,       -7,
+           176.5,      -14,
+        
+           140.5,    -15.5,
+              98,    -50.5,
+              46,   -105.5,
+            26.5,   -106.5,
+           -11.5,     -142,
+        
+          -104.5,     -140,
+          -119.5,     -131,
+            -120,      -70,
+          -136.5,    -51.5
+    # 24 points total.
+    ]
+}

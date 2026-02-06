@@ -1,0 +1,242 @@
+{
+    "hullName": "Tempest",
+    "hullId": "unsf_tempest",
+    "hullSize": "DESTROYER",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/unsf_Tempest.png",
+    "height": 450,
+    "width": 145,
+    "center": [
+        72.5, 225
+    ],
+    "collisionRadius": 218,
+    "coversColor": "",
+    "shieldCenter": [
+        7.5, 0
+    ],
+    "shieldRadius": 217,
+    "viewOffset": 0,
+    "builtInWeapons": {
+        "WS 010": "unsf_vls_1"
+    },
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [
+        {
+            "id": "WS 000",
+            "size": "SMALL",
+            "type": "STATION_MODULE",
+            "mount": "TURRET",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                   -43.5,      -45
+            ]
+        },
+        {
+            "id": "WS 001",
+            "size": "SMALL",
+            "type": "STATION_MODULE",
+            "mount": "TURRET",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                   -43.5,       45
+            ]
+        },
+        {
+            "id": "WS 002",
+            "size": "SMALL",
+            "type": "STATION_MODULE",
+            "mount": "TURRET",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                  -107.5,      -45
+            ]
+        },
+        {
+            "id": "WS 003",
+            "size": "SMALL",
+            "type": "STATION_MODULE",
+            "mount": "TURRET",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                  -107.5,       45
+            ]
+        },
+        {
+            "id": "WS 004",
+            "size": "SMALL",
+            "type": "STATION_MODULE",
+            "mount": "TURRET",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                    -171,      -45
+            ]
+        },
+        {
+            "id": "WS 005",
+            "size": "SMALL",
+            "type": "STATION_MODULE",
+            "mount": "TURRET",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                    -171,       45
+            ]
+        },
+        {
+            "id": "WS 006",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 272,
+            "angle": 291.5,
+            "locations": [
+                     202,      -20
+            ]
+        },
+        {
+            "id": "WS 007",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 272,
+            "angle": 68.5,
+            "locations": [
+                     202,       20
+            ]
+        },
+        {
+            "id": "WS 008",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 276,
+            "angle": 114.5,
+            "locations": [
+                      65,     39.5
+            ]
+        },
+        {
+            "id": "WS 009",
+            "size": "SMALL",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 276,
+            "angle": 245.5,
+            "locations": [
+                      65,    -39.5
+            ]
+        },
+        {
+            "id": "WS 010",
+            "size": "SMALL",
+            "type": "BUILT_IN",
+            "mount": "TURRET",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                     121,        0
+            ]
+        }
+    ],
+    "engineSlots": [
+        {
+            "location": [
+                43, -54.5
+            ],
+            "length": 38.5,
+            "width": 29,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "MIDLINE"
+        },
+        {
+            "location": [
+                43, 54.5
+            ],
+            "length": 38.5,
+            "width": 29,
+            "angle": 180,
+            "contrailSize": 12,
+            "style": "MIDLINE"
+        }
+    ],
+    "bounds": [
+           204.5,      -25,
+             208,      -21,
+             208,       21,
+           204.5,       25,
+           187.5,       30,
+        
+           161.5,       31,
+             143,       31,
+           136.5,     27.5,
+           124.5,       28,
+           120.5,       23,
+        
+           117.5,       37,
+           125.5,       42,
+           122.5,       70,
+            81.5,     71.5,
+            49.5,       69,
+        
+              48,     61.5,
+              42,     59.5,
+              42,     49.5,
+            47.5,     48.5,
+            52.5,      9.5,
+        
+              -7,      9.5,
+           -11.5,      6.5,
+           -17.5,       10,
+           -70.5,     10.5,
+             -76,      6.5,
+        
+             -82,       10,
+          -133.5,       10,
+            -139,      6.5,
+            -146,       10,
+          -198.5,     10.5,
+        
+            -203,      6.5,
+            -203,     -6.5,
+          -198.5,    -10.5,
+            -146,      -10,
+            -139,     -6.5,
+        
+          -133.5,      -10,
+             -82,      -10,
+             -76,     -6.5,
+           -70.5,    -10.5,
+           -17.5,      -10,
+        
+           -11.5,     -6.5,
+              -7,     -9.5,
+            52.5,     -9.5,
+            47.5,    -48.5,
+              42,    -49.5,
+        
+              42,    -59.5,
+              48,    -61.5,
+            49.5,      -69,
+            81.5,    -71.5,
+           122.5,      -70,
+        
+           125.5,    -67.5,
+           125.5,      -42,
+           117.5,      -37,
+           120.5,      -23,
+           124.5,      -28,
+        
+           136.5,    -27.5,
+             143,      -31,
+           161.5,      -31,
+           187.5,      -30
+    # 59 points total.
+    ]
+}

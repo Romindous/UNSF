@@ -1,0 +1,67 @@
+{
+	"id":"unsf_horizon_missile",
+	"specClass":"missile",	
+	"missileType":"MIRV",
+	"sprite":"graphics/missles/unsf_horizon.png",
+	"size":[12,28],	
+	"center":[6,14],
+	"collisionRadius":16,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[100,100,255,220],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":125, # purely visual
+	"engineSpec":{"turnAcc":600,
+				  "turnRate":150,
+				  "acc":250,
+				  "dec":200},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-15, 0],
+				    #"style":"MISSILE_MIDLINE",
+				    "style":"CUSTOM",
+				    "styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[94,170,250,180],
+						"contrailDuration":3,
+						"contrailWidthMult":3,
+						"contrailWidthAddedFractionAtEnd":4,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":.0f,
+						"contrailAngularVelocityMult":0.75f,
+						"contrailSpawnDistMult":-0.1, # how far away from engine it starts
+						"contrailColor":[100,100,100,220],
+						"glowSizeMult":2,
+						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":8.0,
+				    "length":40.0,
+				    "angle":180.0}],
+	"behaviorSpec":{"behavior":"MIRV",
+					"splitRange":1200,
+					"minTimeToSplit":2,
+					"canSplitEarly":true,
+					"splitSound":"hurricane_mirv_split",
+					"numShots":10,
+					"damage":2000,
+					"impact":5,
+					"emp":0,
+					"damageType":ENERGY,
+					"hitpoints":800,
+					"arc":160,
+					"arcOffset":180,
+					"evenSpread":true,
+					"spreadSpeed":800,
+					"spreadSpeedRange":1,
+					"projectileRange":3000,
+					"projectileSpec":"unsf_horizon_missile_subprojectile",
+					#"emptySpec":"type_1_mirv_empty",
+					"smokeSpec":{"particleSizeMin":30.0,
+								 "particleSizeRange":30.0,
+								 "cloudParticleCount":15,
+								 "cloudDuration":1.0,
+								 "cloudRadius":20.0,
+								 "blowbackParticleCount":0,
+								 "blowbackDuration":0,
+								 "blowbackLength":0,
+								 "blowbackSpread":0,
+								 "particleColor":[175,100,50,200]}
+					}				    
+}

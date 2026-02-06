@@ -1,0 +1,2 @@
+id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
+stargate_complex,Stargate complex,150,60,5,2,,,waystation,,graphics/icons/industry/stargate_complex.png,TrueAvarus.UNSF.Industry.Stargate_Complex,"Stargate connects all UNSF colonies and stations, increases accessibility and connectivity of whole UNSF jurisdiction.   ",200,HIGH

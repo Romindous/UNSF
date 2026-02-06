@@ -1,0 +1,34 @@
+{
+    "displayName": "Base",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": false,
+    "hullId": "unsf_zenith_AFR",
+    "hullMods": [],
+    "quality": 0.0,
+    "variantId": "unsf_zenith_AFR_base",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 002": "unsf_railgun_4"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "unsf_railgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "unsf_railgun_3",
+                "WS 000": "unsf_railgun_3"
+            }
+        }
+    ]
+}

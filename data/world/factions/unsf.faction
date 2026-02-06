@@ -1,0 +1,280 @@
+
+{
+	"id": "unsf_faction",
+	"color": [60,120,255,200],
+	"baseUIColor": [60,120,255,200],
+	#"darkUIColor": [150, 0, 0, 255],
+	#"shipNamePrefix": "UNSF",
+	#"factionIdForShipPrefix": "my_faction",
+	"displayName": "UNSF",
+	"displayNameWithArticle": "UNSF",
+	"displayNameLong":"United Nations Space Force",
+	"logo":"graphics/factions/UNSF.png",
+	"crest": "graphics/factions/crest_UNSF.png",
+	"showInIntelTab":True,
+	"shipNamePrefix":"UNSF",
+	
+	
+	
+	"shipNameSources":{
+	
+	"UNSF":5,
+	
+		},
+	
+	
+	
+	"names":{
+		"unsf":1,
+    },
+	
+	
+    "portraits":{
+	
+		"standard_male":[
+			"graphics/portraits/portrait_league02.png",
+			"graphics/portraits/portrait_league06.png",
+			"graphics/portraits/portrait_league09.png",
+			"graphics/portraits/portrait_corporate01.png",
+			"graphics/portraits/portrait_corporate03.png",
+			"graphics/portraits/portrait_corporate05.png",
+			"graphics/portraits/portrait_corporate08.png",
+			"graphics/portraits/portrait_corporate01.png",
+			"graphics/portraits/portrait_diktat01.png",
+			"graphics/portraits/portrait_diktat04.png",
+			"graphics/portraits/portrait_diktat12.png",
+			
+		],
+		"standard_female":[
+			"graphics/portraits/portrait_league00.png",
+			"graphics/portraits/portrait_league04.png",
+			"graphics/portraits/portrait_league05.png",
+			"graphics/portraits/portrait_league08.png",
+			"graphics/portraits/portrait_league10.png",
+			"graphics/portraits/portrait_corporate02.png",
+			"graphics/portraits/portrait_corporate04.png",
+			"graphics/portraits/portrait_corporate09.png",
+			"graphics/portraits/portrait_corporate11.png",
+			"graphics/portraits/portrait_diktat02.png",
+			"graphics/portraits/portrait_diktat09.png",
+			"graphics/portraits/portrait_diktat13.png",
+		],
+	
+	},
+	
+	
+	"knownShips":{
+		"tags":["unsf_bp_hull"],
+		"hulls":[
+			
+			"unsf_Fenrir",
+			"unsf_prometheus",
+			"unsf_daedalus",
+			"unsf_daedalus_refit",
+			"unsf_helios",
+			"unsf_astraios",
+			"unsf_hyperion",
+			"unsf_abydos",
+			"unsf_tempest",
+			"unsf_dauntless",
+		],
+	},
+	
+	
+	"hullFrequency":{
+		"tags":{
+			"unsf_bp_hull":2
+		},
+		"hulls": {
+        "unsf_Fenrir": 0.8,
+        "unsf_prometheus": 0.7,
+        "unsf_daedalus": 0.6,
+        "unsf_daedalus_refit": 0.5,
+        "unsf_helios": 0.4,
+        "unsf_astraios": 0.2,
+        "unsf_hyperion": 0.4,
+        "unsf_abydos": 0.5,
+        "unsf_tempest": 0.6,
+        "unsf_dauntless": 0.5,
+		},
+	},
+	
+	
+	
+	"knownHullMods":{
+		"tags":[],
+		"hullMods":[
+			"unsf_asgardshield", # accelerated
+			"unsf_NeutrinoIonreactor",
+			"unsf_asgardhyperdrive",
+			"unsf_triniumalloy",
+			"unsf_naqgenerator",
+			"unsf_asgardsensors",
+			"unsf_asgardcpu",
+			"unsf_transporter",
+			"unsf_rings"
+		],
+	},
+	
+	"knownFighters":{
+		"tags":["unsf_bp_wing"],
+		"fighters":[
+			"unsf_302_wing",
+			"unsf_b302_wing_bomber",
+			"unsf_dd_wing",
+		],
+	},
+	
+	
+	
+	"knownWeapons":{
+		"tags":["unsf_bp_wpn"],
+		"weapons":[
+			"unsf_railgun_pd",
+			"unsf_railgun_small",
+			"unsf_railgun",
+			"unsf_railgun_3",
+			"unsf_railgun_4",
+			"unsf_asgbeam",
+			"unsf_asgbeam_heavy",
+			"unsf_dronelauncher",
+			"unsf_vls_1",
+			"unsf_vls_2",
+			"unsf_vls_3",
+			"unsf_vls_4",
+			"unsf_horizon",
+		],
+	},
+	
+	
+	
+	
+	# listing ships here will make the faction mostly use them even if other hulls become available
+	"priorityShips":{
+		"tags":["unsf_bp_hull"],
+		"hulls":[
+			"unsf_Fenrir",
+			"unsf_prometheus",
+			"unsf_daedalus",
+			"unsf_daedalus_refit",
+			"unsf_helios",
+			"unsf_astraios",
+			"unsf_hyperion",
+			"unsf_abydos",
+			"unsf_tempest",
+			"unsf_dauntless",
+		],
+	},
+	
+	
+	
+	"priorityFighters":{
+		"tags":[],
+		"fighters":[
+			"unsf_302_wing",
+			"unsf_b302_wing_bomber",
+			"unsf_dd_wing",
+		],
+	},
+	
+	
+	"priorityWeapons":{
+		"tags":[],
+		"weapons":[
+			"unsf_railgun_pd",
+			"unsf_railgun_small",
+			"unsf_railgun",
+			"unsf_railgun_3",
+			"unsf_railgun_4",
+			"unsf_asgbeam",
+			"unsf_asgbeam_heavy",
+			"unsf_dronelauncher",
+			"unsf_vls_1",
+			"unsf_vls_2",
+			"unsf_vls_3",
+			"unsf_vls_4",
+			"unsf_horizon",
+		],
+	},
+	
+	
+	"factionDoctrine":{
+		"warships":4,
+		"carriers":3,
+		"phaseShips":0,
+		
+		"officerQuality":1,
+		"shipQuality":4,
+		"numShips":2,
+		
+		"shipSize":4,
+		
+		"aggression":2,
+		
+		"combatFreighterProbability":0,     				# instead of some portion of the freighters in a fleet
+		"combatFreighterCombatUseFraction":0,  				# as part of the normal combat lineup
+		"combatFreighterCombatUseFractionWhenPriority":0.33,# as part of normal combat lineup, when marked as priority ship
+		"autofitRandomizeProbability":0.1,
+
+		"commanderSkillsShuffleProbability":0,
+		"commanderSkills":[
+			"coordinated_maneuvers",
+			"electronic_warfare",
+			"fighter_uplink",
+			"carrier_group",
+			"flux_regulation",
+		],
+	},
+	"illegalCommodities":[
+		
+	],
+	
+	"custom":{
+		"offersCommissions":true,
+		"engagesInHostilities":true,
+		"buysAICores":true,
+		"AICoreValueMult":2,
+		"AICoreRepMult":1,
+		"buysSurveyData":true,
+		"hostilityImpactOnGrowth":true,
+		"caresAboutAtrocities":false,
+		"punitiveExpeditionData":{
+			"vsCompetitors":false,
+			"vsFreePort":false,
+			"canBombard":false,
+			"territorial":true,
+		},
+	},	
+	"fleetTypeNames":{
+		"trade":"Logistics Convoy",
+		"tradeLiner":"Medium Convoy",
+		"tradeSmuggler":"Courier",
+		"smallTrader":"Small Convoy",
+		
+		"patrolSmall":"Patrol",
+		"patrolMedium":"Flotilla",
+		"patrolLarge":"Fleet",
+		
+		"inspectionFleet":"Inspector",
+		"taskForce":"Task Force",
+		
+		"foodReliefFleet":"Relief Convoy",
+		
+		#"mercScout":"Contract Scout",
+		#"mercBountyHunter":"Human Recovery Contractor",
+		#"mercPrivateer":"Security Contractor",
+		#"mercPatrol":"Contracted Patrol",
+		#"mercArmada":"Contracted Armada",
+	},
+	
+	
+	"music":{
+		"theme":"unsf_market_friendly",
+		"market_neutral":"unsf_market_friendly",
+		"market_hostile":"unsf_market_friendly",
+		"market_friendly":"unsf_market_friendly",
+		"encounter_neutral":"music_none",
+		"encounter_hostile":"music_none",
+		"encounter_friendly":"music_none",
+	},
+}

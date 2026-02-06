@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>TrueAvarus.UNSF</groupId>
+  <artifactId>UNSF</artifactId>
+  <version>1.1.1</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <name>UNSFX</name>
+
+  <build>
+
+    <finalName>${project.artifactId}</finalName>
+    <sourceDirectory>src</sourceDirectory>
+    <outputDirectory>target/classes</outputDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <appendAssemblyId>false</appendAssemblyId>
+          <descriptors>
+            <descriptor>assembly.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <!--<repository>
+      <id>sona</id>
+      <url>https://oss.sona.org/content/groups/public/</url>
+    </repository>-->
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>starfarer.api</groupId>
+      <artifactId>com.fs</artifactId>
+      <version>0.98</version>
+      <scope>system</scope>
+      <systemPath>C:/Games/SS/starsector-core/starfarer.api.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>starfarer_obf</groupId>
+      <artifactId>com.fs</artifactId>
+      <version>0.98</version>
+      <scope>system</scope>
+      <systemPath>C:/Games/SS/starsector-core/starfarer_obf.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>magiclib</groupId>
+      <artifactId>org.magiclib</artifactId>
+      <version>1.5.7</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/Romindous/Downloads/ss/MagicLib.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>lazylib</groupId>
+      <artifactId>org.lazywizard</artifactId>
+      <version>3.0.0</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/Romindous/Downloads/ss/LazyLib.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>exerelin</groupId>
+      <artifactId>exerelin</artifactId>
+      <version>0.12.1b</version>
+      <scope>system</scope>
+      <systemPath>C:/Users/Romindous/Downloads/ss/ExerelinCore.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>org.lwjgl.lwjgl</groupId>
+      <artifactId>lwjgl_util</artifactId>
+      <version>2.9.3</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

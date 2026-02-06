@@ -1,0 +1,72 @@
+{
+    "displayName": "Helios Base",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "unsf_helios",
+    "hullMods": [
+        "unsf_asgardcpu",
+        "unsf_asgardhyperdrive",
+        "unsf_asgardsensors",
+        "unsf_asgardshield",
+        "unsf_triniumalloy",
+        "unsf_NeutrinoIonreactor",
+        "unsf_naqgenerator"
+    ],
+    "quality": 1.0,
+    "variantId": "unsf_helios_base",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 020": "unsf_asgbeam",
+                "WS 001": "unsf_asgbeam",
+                "WS 019": "unsf_asgbeam",
+                "WS 000": "unsf_asgbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 018": "unsf_vls_2",
+                "WS 016": "unsf_vls_2",
+                "WS 022": "unsf_vls_2"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 017": "unsf_dronelauncher"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "unsf_railgun_small",
+                "WS 008": "unsf_railgun_small",
+                "WS 006": "unsf_railgun_small",
+                "WS 009": "unsf_railgun_small",
+                "WS 007": "unsf_railgun_small",
+                "WS 004": "unsf_railgun_small",
+                "WS 003": "unsf_railgun_small",
+                "WS 005": "unsf_railgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 012": "unsf_railgun",
+                "WS 014": "unsf_railgun",
+                "WS 015": "unsf_railgun",
+                "WS 011": "unsf_railgun",
+                "WS 010": "unsf_railgun",
+                "WS 013": "unsf_railgun"
+            }
+        }
+    ]
+}

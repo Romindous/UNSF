@@ -1,0 +1,84 @@
+{
+    "hullName": "Armor Module AFL",
+    "hullId": "unsf_zenith_AFL",
+    "hullSize": "FRIGATE",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/unsf_zenith/UNSF_Zenith_A_F_L.png",
+    "height": 269,
+    "width": 51,
+    "center": [
+        25.5, 134.5
+    ],
+    "collisionRadius": 138.5,
+    "coversColor": "",
+    "shieldCenter": [
+        0, 0
+    ],
+    "shieldRadius": 138,
+    "viewOffset": 0,
+    "builtInMods": [
+        "always_detaches",
+        "reduced_explosion",
+        "unsf_triniumalloy",
+        "unsf_msc"
+    ],
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [
+        {
+            "id": "WS 000",
+            "size": "LARGE",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 246,
+            "angle": 90,
+            "locations": [
+                   -66.5,        6
+            ]
+        },
+        {
+            "id": "WS 001",
+            "size": "LARGE",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 253,
+            "angle": 90,
+            "locations": [
+                     -28,      6.5
+            ]
+        },
+        {
+            "id": "WS 002",
+            "size": "LARGE",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 262,
+            "angle": 90,
+            "locations": [
+                    10.5,      6.5
+            ]
+        },
+        {
+            "id": "WS 003",
+            "size": "MEDIUM",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 280,
+            "angle": 50,
+            "locations": [
+                     119,        1
+            ]
+        }
+    ],
+    "engineSlots": [],
+    "bounds": [
+            -134,     -8.5,
+             133,     -9.5,
+           122.5,       11,
+            91.5,     11.5,
+              61,     23.5,
+        
+            -105,       24,
+            -124,     19.5
+    ]
+}

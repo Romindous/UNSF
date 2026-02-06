@@ -1,0 +1,27 @@
+{
+    "displayName": "Base",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": false,
+    "hullId": "unsf_sat",
+    "hullMods": [],
+    "quality": 0.0,
+    "variantId": "unsf_sat_base",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "unsf_ori_beam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "unsf_railgun_small",
+                "WS 002": "unsf_railgun_small"
+            }
+        }
+    ]
+}

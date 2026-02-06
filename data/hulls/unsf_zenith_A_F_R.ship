@@ -1,0 +1,84 @@
+{
+    "hullName": "Armor Module AFR",
+    "hullId": "unsf_zenith_AFR",
+    "hullSize": "FRIGATE",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/unsf_zenith/UNSF_Zenith_A_F_R.png",
+    "height": 269,
+    "width": 51,
+    "center": [
+        25.5, 134.5
+    ],
+    "collisionRadius": 136,
+    "coversColor": "",
+    "shieldCenter": [
+        0, 0
+    ],
+    "shieldRadius": 136,
+    "viewOffset": 0,
+    "builtInMods": [
+        "always_detaches",
+        "reduced_explosion",
+        "unsf_triniumalloy",
+        "unsf_msc"
+    ],
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [
+        {
+            "id": "WS 000",
+            "size": "LARGE",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 274,
+            "angle": 270,
+            "locations": [
+                    10.5,     -6.5
+            ]
+        },
+        {
+            "id": "WS 001",
+            "size": "LARGE",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 263,
+            "angle": 270.5,
+            "locations": [
+                   -28.5,     -6.5
+            ]
+        },
+        {
+            "id": "WS 002",
+            "size": "LARGE",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 284,
+            "angle": 270,
+            "locations": [
+                     -67,     -6.5
+            ]
+        },
+        {
+            "id": "WS 003",
+            "size": "MEDIUM",
+            "type": "BALLISTIC",
+            "mount": "TURRET",
+            "arc": 284,
+            "angle": 319,
+            "locations": [
+                     119,       -1
+            ]
+        }
+    ],
+    "engineSlots": [],
+    "bounds": [
+            -133,        8,
+            -122,      -21,
+            -104,      -24,
+              60,      -24,
+            91.5,      -11,
+        
+             123,      -11,
+             133,        9
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "hullName": "Shield Generator",
+    "hullId": "unsf_shield_generator",
+    "hullSize": "FRIGATE",
+    "style": "UNSF_TECH",
+    "spriteName": "graphics/ships/unsf_zenith/UNSF_Zenith_shield.png",
+    "height": 39,
+    "width": 38,
+    "center": [
+        19, 19.5
+    ],
+    "collisionRadius": 240,
+    "coversColor": "",
+    "shieldCenter": [
+        0, 0
+    ],
+    "shieldRadius": 220,
+    "viewOffset": 0,
+    "builtInMods": [
+        "unsf_asgardshield",
+        "unsf_msc",
+        "shield_always_on"
+    ],
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [],
+    "engineSlots": [],
+    "bounds": [
+              18,      5.5,
+               6,     17.5,
+            -6.5,     17.5,
+             -18,      5.5,
+             -18,     -5.5,
+        
+            -6.5,    -17.5,
+               6,    -17.5,
+              18,     -5.5
+    ]
+}

@@ -1,0 +1,44 @@
+name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sModDesc,sprite
+#HULLMODS ,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+#ZPM HULLMODS - NEED ZPM ,,,,,,,,,,,,,,,,,,,
+ZPM,unsf_zpm_hm2,,,UNSF,,Special,10000,TRUE,,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_hm2,"Special hullmod that can be installed only when ZPM is present in inventory. Installation removes all installed Asgard hullmods. 
+Your fleet currently requires %s ZPMs to be operational, you have %s ZPMs in inventory.
+If your number of ZPMs in inventory falls under %s, all ships loose equiped ZPM hullmods, connected boosts and will have to be re-equiped with ZPM hullmod again.
+",,,graphics/hullmods/unsf_zpm_hm.png
+ZPM powered shields,unsf_zpm_shieldbooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_shieldbooster,"ZPM overcharges shield systems to increased durability, arc and unfold speed.",,,graphics/hullmods/unsf_zpm_shieldoobst.png
+ZPM powered engines,unsf_zpm_drivebooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_drivebooster,"ZPM overcharges drive systems to increased speeds in hyperspace, star systems and battle.",,,graphics/hullmods/unsf_zpm_driveboost.png
+ZPM powered beam weapons,unsf_zpm_beambooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_beambooster,"ZPM overcharges beam weapon systems to increased to increased damage, range and decreased flux cost.",,,graphics/hullmods/unsf_zpm_beamboost.png
+ZPM flux system bypass,unsf_zpm_systembooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_systembooster,"ZPM supplements ship life support systems to decrease supply consumption and bypasses flux regulators to directly supply ship energy needs. However heat buildup requires ship to use flux system to store and vent massive ammounts of waste heat ZPM produces in shield and weapon systems.
+",,,graphics/hullmods/unsf_zpm_sysboost.png
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+#ASGARD MODS - MAKES SHIPS NOT BEING SHIT ,,,,,,,,,,,,,,,,,,,
+Asgard sensors,unsf_asgardsensors,3,,UNSF,,"Logistics, Requires Dock",9000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_asgardsensors,<Tooltip created in script>,Increases fleet's sensor range.,"Increases the ship's in-combat vision range by %s/%s/%s/%s, based on hull size.",graphics/hullmods/unsf_asgardsensors.png
+Asgard computer core,unsf_asgardcpu,3,,UNSF,,Weapons,10000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_asgardcpu,"Extends the range of ballistic and energy weapons by %s/%s/%s/%s, depending on hull size. Can not work in conjunction with Dedicated Targeting Core.
+
+Most combat ships install either an Integrated Targeting Unit or a Dedicated Targeting Core, with the exception of more specialized variants.","Increases weapon range, more so for larger ships.",,graphics/hullmods/unsf_asgardcpu.png
+Asgard shield,unsf_asgardshield,3,,UNSF,,Shields,10000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_asgardshield,Reduces the amount of damage taken by shields by %s. Also reduces the chance that shields will be pierced by EMP arcs from weapons like the Ion Beam.,Reduces damage taken by shields.,,graphics/hullmods/asgard_shield.png
+Asgard Hyperdrive,unsf_asgardhyperdrive,3,,UNSF,,"Logistics, Requires Dock",8000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_asgardhyperdrive,Increases maximum burn level by %s.,Increases maximum burn level.,,graphics/hullmods/unsf_asgardhyperdrive.png
+Asgard transporter,unsf_transporter,3,,UNSF,,Fighters,4000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_transporter,Reduces the casualties suffered by fighter pilots by %s.,Reduces fighter pilot casualties.,Increases the fighter pilot casualty reduction to %s.,graphics/hullmods/unsf_transporter.png
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+#UPGRADED VANILLA HULLMODS FOR STARGATE FEEL,,,,,,,,,,,,,,,,,,,
+Neutrino Ion reactor,unsf_NeutrinoIonreactor,0,,UNSF,,"Logistics, Requires Dock",4000,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_NeutrinoIonreactor,"Neutrino Ion Reactor, a hull mod engineered for peak performance in the vast expanse of space. This advanced reactor integrates hyper-efficient neutrino processing with next-generation ion technology, delivering unparalleled enhancements to your vessel. Increased sublight speed by %s. Slash crew demands, supply requisites, and fuel consumption by a staggering %s , thanks to the reactor's revolutionary energy management systems. Augment your ship’s flux capacity by %s and enhance dissipation rates by %s, enabling your vessel to channel and dissipate energy with unprecedented efficiency. With a %s boost to CR recovery and repair rates, the Neutrino Ion Reactor ensures that your ship’s combat readiness and operational integrity are restored at lightning speed. Return to the fray with enhanced resilience and reduced downtime.",Reduces ongoing costs and enables more deployments.,"Reduces maintenance cost, fuel use, and minimum crew requirement by a further %s.",graphics/hullmods/unsf_NeutrinoIonreactor.png
+Trinium alloys,unsf_triniumalloy,0,,UNSF,,Defenses,2500,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_triniumalloy,"Increases the ship's armor by %s/%s/%s/%s points, depending on hull size.",Increases armor.,Reduces the ship's maneuverability by %s.,graphics/hullmods/unsf_triniumalloy.png
+Auxiliary Naquadah generators,unsf_naqgenerator,0,,UNSF,,Special,2500,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_naqgenerator,"Increases peak operating time for ships that suffer degraded performance from extended deployment by %s.
+
+Also reduces the rate at which combat readiness degrades by %s.","Increases peak time, CR degrades more slowly.",,graphics/hullmods/unsf_naqgenerator.png
+Transportation rings,unsf_rings,0,,UNSF,,Ground attack,2500,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_rings,"Ring platforms are deployed using Asgard transporters to the surface of planets and space stations. Transportation rings deployment significantly enhances ground support capabilities up to %s marines, by enabling near-instantaneous transport of personnel, weapons, explosives, and medevac operations decrease causualities by %s percent. It increases the effectiveness of raids by providing a substantial bonus to ground support operations.
+
+",Gives bonuses to ground attack and reduces casualities.,,graphics/hullmods/unsf_rings.png
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+#DONT TOUCH BREAKS MOD !!! ,,,,,,,,,,,,,,,,,,,
+Tempest fuel holds,unsf_tempest_fuel,,,,,,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.TempestFuelHolds,Tempest is tugging fuel along,,,graphics/hullmods/unsf_tempest_fuel.png
+Tempest cargo holds,unsf_tempest_cargo,,,,,,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.TempestCargoHolds,Tempest is tugging cargo along,,,graphics/hullmods/unsf_tempest_cargo.png
+Hullmod remover,unsf_deletor,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_deletor,,,,
+Remover Primer,unsf_primer,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_primer,,,,
+Modular Ship Controller,unsf_msc,,,,,,,,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.unsf_msc,"While the Gown's structure is modular in design, the individual flux grids and systems are closely linked, leading to the following effects:",,graphics/hullmods/vast_bulk.png,
