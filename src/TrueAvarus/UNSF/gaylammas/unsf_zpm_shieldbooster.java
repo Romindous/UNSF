@@ -1,31 +1,31 @@
 package TrueAvarus.UNSF.gaylammas;
 
-import com.fs.starfarer.api.Global;
+import java.awt.*;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
-import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
-import java.awt.*;
 
 
 
 public class unsf_zpm_shieldbooster extends BaseHullMod {
+    // Fully opaque (0 is fully transparent, 255 is fully opaque)
     private static final String DEPENDENCY_HULLMOD_ID = "unsf_zpm_hm2"; // Replace with your specific hullmod ID
 
-    public static float PIERCE_MULT = 0.0001f;
-    public static float SHIELD_BONUS = 0.6f;
-    public static float SHIELD_ARCBONUS = 360f;
-    public static float SHIELD_UNFOLDSPEED = 3.5f;
+    private static final int ALPHA = 150;
+    public static final float PIERCE_MULT = 0.0001f;
+    public static final float SHIELD_BONUS = 0.6f;
+    public static final float SHIELD_ARCBONUS = 0.5f;
+    public static final float SHIELD_UNFOLDSPEED = 0.5f;
 
 
 
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        stats.getShieldDamageTakenMult().modifyMult(id, 1f * SHIELD_BONUS);
+        stats.getShieldDamageTakenMult().modifyMult(id, SHIELD_BONUS);
         stats.getDynamic().getStat(Stats.SHIELD_PIERCED_MULT).modifyMult(id, PIERCE_MULT);
-        stats.getShieldArcBonus().modifyMult(id,SHIELD_ARCBONUS);
+        stats.getShieldArcBonus().modifyMult(id, 1f + SHIELD_ARCBONUS);
         stats.getShieldUnfoldRateMult().modifyMult(id,1 * SHIELD_UNFOLDSPEED);
 
     }
@@ -35,11 +35,8 @@ public class unsf_zpm_shieldbooster extends BaseHullMod {
         // Check if the ship is alive
         if (!ship.isAlive()) return;
 
-        // Define the alpha value (adjust this value as needed)
-        int alpha = 255; // Fully opaque (0 is fully transparent, 255 is fully opaque)
-
         // Set the shield color to white with the specified alpha value
-        ship.getShield().setInnerColor(new Color(255, 255, 255, 150));
+        ship.getShield().setInnerColor(new Color(255, 255, 255, ALPHA));
     }
     @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
@@ -55,18 +52,13 @@ public class unsf_zpm_shieldbooster extends BaseHullMod {
         tooltip.addPara("Increases shield unfold speed", opad, good);
         tooltip.setBulletedListMode(null);
     }
-
     @Override
     public boolean isApplicableToShip(ShipAPI ship) {
-        if (ship == null || ship.getVariant() == null) return false;
-
+        // This hullmod cannot be applied if the dependency hullmod is not present
         // Check if the ship has the specific dependency hullmod
-        if (!ship.getVariant().hasHullMod(DEPENDENCY_HULLMOD_ID)) {
-            return false; // This hullmod cannot be applied if the dependency hullmod is not present
-        }
-
         // If the ship has the required hullmod, this hullmod can be applied
-        return true;
+        return ship != null && ship.getVariant() != null
+            && ship.getVariant().hasHullMod(DEPENDENCY_HULLMOD_ID);
     }
 
     @Override

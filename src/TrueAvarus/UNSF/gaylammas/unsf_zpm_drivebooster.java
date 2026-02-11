@@ -9,8 +9,8 @@ import com.fs.starfarer.api.util.Misc;
 import java.awt.*;
 
 public class unsf_zpm_drivebooster extends BaseLogisticsHullMod {
-    private static final int BURN_LEVEL_BONUS = 6;
-    private static final float MAXSPEED_BONUS = 1.5f;
+    private static final int BURN_LEVEL_BONUS = 3;
+    private static final float MAXSPEED_BONUS = 1.4f;
     private static final String DEPENDENCY_HULLMOD_ID = "unsf_zpm_hm2"; // Replace with your specific hullmod ID
 
 //	private static final int STRENGTH_PENALTY = 50;
@@ -22,18 +22,13 @@ public class unsf_zpm_drivebooster extends BaseLogisticsHullMod {
         stats.getMaxBurnLevel().modifyFlat(id, BURN_LEVEL_BONUS );
         stats.getMaxSpeed().modifyMult(id,1 * MAXSPEED_BONUS);
     }
-
     @Override
     public boolean isApplicableToShip(ShipAPI ship) {
-        if (ship == null || ship.getVariant() == null) return false;
-
+        // This hullmod cannot be applied if the dependency hullmod is not present
         // Check if the ship has the specific dependency hullmod
-        if (!ship.getVariant().hasHullMod(DEPENDENCY_HULLMOD_ID)) {
-            return false; // This hullmod cannot be applied if the dependency hullmod is not present
-        }
-
         // If the ship has the required hullmod, this hullmod can be applied
-        return true;
+        return ship != null && ship.getVariant() != null
+            && ship.getVariant().hasHullMod(DEPENDENCY_HULLMOD_ID);
     }
 
     @Override
@@ -58,7 +53,7 @@ public class unsf_zpm_drivebooster extends BaseLogisticsHullMod {
         Color bad = Misc.getNegativeHighlightColor();
 
         tooltip.setBulletedListMode(" - ");
-        tooltip.addPara("Adds additional bonus of %s to burn speed", opad, good, Math.round(BURN_LEVEL_BONUS) + "");
+        tooltip.addPara("Adds additional bonus of %s to burn speed", opad, good, BURN_LEVEL_BONUS + "");
         tooltip.addPara("Increases ship maximum speed in battle by %s", opad, good, Math.round(MAXSPEED_BONUS * 100f-100f) + "%");
         tooltip.setBulletedListMode(null);
     }

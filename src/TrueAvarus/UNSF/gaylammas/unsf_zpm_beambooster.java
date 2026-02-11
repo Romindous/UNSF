@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class unsf_zpm_beambooster extends BaseHullMod {
     private static final String DEPENDENCY_HULLMOD_ID = "unsf_zpm_hm2"; // Replace with your specific hullmod ID
-    public static final float BEAM_BOOSTER = 1.5f;
+    public static final float BEAM_BOOSTER = 1.4f;
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
@@ -28,17 +28,14 @@ public class unsf_zpm_beambooster extends BaseHullMod {
         tooltip.addPara("Increases the damage of beam weapons by %s", opad, good, Math.round(BEAM_BOOSTER * 100f) + "%");
         tooltip.setBulletedListMode(null);
     }
+
     @Override
     public boolean isApplicableToShip(ShipAPI ship) {
-        if (ship == null || ship.getVariant() == null) return false;
-
+        // This hullmod cannot be applied if the dependency hullmod is not present
         // Check if the ship has the specific dependency hullmod
-        if (!ship.getVariant().hasHullMod(DEPENDENCY_HULLMOD_ID)) {
-            return false; // This hullmod cannot be applied if the dependency hullmod is not present
-        }
-
         // If the ship has the required hullmod, this hullmod can be applied
-        return true;
+        return ship != null && ship.getVariant() != null
+            && ship.getVariant().hasHullMod(DEPENDENCY_HULLMOD_ID);
     }
 
     @Override

@@ -11,18 +11,19 @@ import java.awt.*;
 public class unsf_zpm_systembooster extends BaseHullMod {
     private static final String DEPENDENCY_HULLMOD_ID = "unsf_zpm_hm2"; // Replace with your specific hullmod ID
 
-    public static final float SUPPLY_CONSUM_REDUCTION = 0.8f;
-    public static final float FLUX_CAPACITY = 1.5f;
-    public static final float FLUX_DISSIPATION = 1.2f;
+    public static final float SUPPLY_CONSUM_REDUCTION = 0.4f;
+    public static final float FLUX_CAPACITY = 0.25f;
+    public static final float FLUX_DISSIPATION = 0.2f;
+    public static final float MAX_COMBAT_READINESS = 0.5f;
 
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
 
-        stats.getSuppliesPerMonth().modifyMult(id, 1- SUPPLY_CONSUM_REDUCTION);
-        stats.getFluxCapacity().modifyMult(id,1 * FLUX_CAPACITY);
-        stats.getFluxDissipation().modifyMult(id,1 * FLUX_DISSIPATION);
-        stats.getMaxCombatReadiness().modifyMult(id,1 * 1.5f);
+        stats.getSuppliesPerMonth().modifyMult(id, 1f - SUPPLY_CONSUM_REDUCTION);
+        stats.getFluxCapacity().modifyMult(id,1f + FLUX_CAPACITY);
+        stats.getFluxDissipation().modifyMult(id,1f + FLUX_DISSIPATION);
+        stats.getMaxCombatReadiness().modifyMult(id,1f + MAX_COMBAT_READINESS);
     }
 
     @Override
@@ -38,17 +39,14 @@ public class unsf_zpm_systembooster extends BaseHullMod {
         tooltip.addPara("Increases flux dissipation by %s", opad, good, Math.round(FLUX_DISSIPATION * 100f) + "%");
         tooltip.setBulletedListMode(null);
     }
+
     @Override
     public boolean isApplicableToShip(ShipAPI ship) {
-        if (ship == null || ship.getVariant() == null) return false;
-
+        // This hullmod cannot be applied if the dependency hullmod is not present
         // Check if the ship has the specific dependency hullmod
-        if (!ship.getVariant().hasHullMod(DEPENDENCY_HULLMOD_ID)) {
-            return false; // This hullmod cannot be applied if the dependency hullmod is not present
-        }
-
         // If the ship has the required hullmod, this hullmod can be applied
-        return true;
+        return ship != null && ship.getVariant() != null
+            && ship.getVariant().hasHullMod(DEPENDENCY_HULLMOD_ID);
     }
 
     @Override
