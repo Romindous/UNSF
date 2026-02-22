@@ -33,6 +33,7 @@
           <descriptors>
             <descriptor>assembly.xml</descriptor>
           </descriptors>
+          <outputDirectory>jars</outputDirectory>
         </configuration>
         <executions>
           <execution>

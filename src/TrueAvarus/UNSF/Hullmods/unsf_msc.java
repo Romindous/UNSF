@@ -1,17 +1,13 @@
 package TrueAvarus.UNSF.Hullmods;
 
+import java.util.List;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.combat.*;
+import com.fs.starfarer.api.combat.BaseHullMod;
+import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.combat.ShipCommand;
+import com.fs.starfarer.api.combat.ShipEngineControllerAPI;
 import com.fs.starfarer.api.combat.ShipEngineControllerAPI.ShipEngineAPI;
 import com.fs.starfarer.api.combat.ShipwideAIFlags.AIFlags;
-import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.util.Misc;
-import org.magiclib.util.MagicIncompatibleHullmods;
-
-import java.awt.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 
 // DONT FUCK WITH IT
@@ -117,33 +113,19 @@ public class unsf_msc extends BaseHullMod {
     private static void advanceParent(ShipAPI parent, List<ShipAPI> children) {
         ShipEngineControllerAPI ec = parent.getEngineController();
         if (ec != null) {
-            float originalMass;
-            int originalEngines;
-            switch (parent.getHullSpec().getBaseHullId()) {
+            float originalMass = 5000f;
+            int originalEngines = 10;
+            /*switch (parent.getHullSpec().getBaseHullId()) {
                 default:
                 case "unsf_zenith_core":
                     originalMass = 5000f;
                     originalEngines = 10;
                     break;
-            }
+            }*/
             float thrustPerEngine = originalMass / originalEngines;
 
             /* Don't count parent's engines for this stuff - game already affects stats */
-            float workingEngines = ec.getShipEngines().size();
-            for (ShipAPI child : children) {
-                if ((child.getParentStation() == parent) && (child.getStationSlot() != null) && child.isAlive()) {
-                    ShipEngineControllerAPI cec = child.getEngineController();
-                    if (cec != null) {
-                        float contribution = 0f;
-                        for (ShipEngineAPI ce : cec.getShipEngines()) {
-                            if (ce.isActive() && !ce.isDisabled() && !ce.isPermanentlyDisabled() && !ce.isSystemActivated()) {
-                                contribution += ce.getContribution();
-                            }
-                        }
-                        workingEngines += cec.getShipEngines().size() * contribution;
-                    }
-                }
-            }
+            float workingEngines = getWorkingEngines(parent, children, ec);
 
             float thrust = workingEngines * thrustPerEngine * 2.2f;
             float enginePerformance = thrust / Math.max(1f, parent.getMassWithModules());
@@ -154,6 +136,24 @@ public class unsf_msc extends BaseHullMod {
             parent.getMutableStats().getMaxSpeed().modifyMult("unsf_msc", enginePerformance);
             parent.getMutableStats().getZeroFluxSpeedBoost().modifyMult("unsf_msc", enginePerformance);
         }
+    }
+
+    private static float getWorkingEngines(ShipAPI parent, List<ShipAPI> children, ShipEngineControllerAPI ec) {
+        float workingEngines = ec.getShipEngines().size();
+        for (final ShipAPI child : children) {
+            if (child.getParentStation() == parent && child.getStationSlot() != null && child.isAlive()) {
+                final ShipEngineControllerAPI cec = child.getEngineController();
+                if (cec == null) continue;
+                float contribution = 0f;
+                for (final ShipEngineAPI ce : cec.getShipEngines()) {
+                    if (!ce.isActive() || ce.isDisabled() || ce.isPermanentlyDisabled()
+                        || ce.isSystemActivated()) continue;
+                    contribution += ce.getContribution();
+                }
+                workingEngines += cec.getShipEngines().size() * contribution;
+            }
+        }
+        return workingEngines;
     }
 
     @Override
@@ -169,25 +169,25 @@ public class unsf_msc extends BaseHullMod {
         }
     }
 
-    private static final Set<String> BLOCKED_FRONT = new HashSet<>();
+    /*private static final Set<String> BLOCKED_FRONT = new HashSet<>();
     private static final Set<String> BLOCKED_OTHER = new HashSet<>();
     private static final Set<String> BLOCKED_OTHER_PLAYER_ONLY = new HashSet<>();
 
     static {
-        /* No shields on my modules */
+        *//* No shields on my modules *//*
         BLOCKED_FRONT.add("frontemitter");
         BLOCKED_FRONT.add("frontshield");
         BLOCKED_FRONT.add("adaptiveshields");
 
-        /* Modules don't move on their own */
+        *//* Modules don't move on their own *//*
         BLOCKED_OTHER.add("auxiliarythrusters");
         BLOCKED_OTHER.add("unstable_injector");
 
-        /* Module's can't provide ECM/Nav */
+        *//* Module's can't provide ECM/Nav *//*
         BLOCKED_OTHER.add("ecm");
         BLOCKED_OTHER.add("nav_relay");
 
-        /* Logistics mods partially or completely don't apply on modules */
+        *//* Logistics mods partially or completely don't apply on modules *//*
         BLOCKED_OTHER.add("operations_center");
         BLOCKED_OTHER.add("recovery_shuttles");
         BLOCKED_OTHER.add("additional_berthing");
@@ -201,12 +201,9 @@ public class unsf_msc extends BaseHullMod {
         //BLOCKED_OTHER.add("solar_shielding"); // Niche use
         BLOCKED_OTHER.add("surveying_equipment");
 
-        /* Crew penalty doesn't reflect in campaign */
+        *//* Crew penalty doesn't reflect in campaign *//*
         BLOCKED_OTHER_PLAYER_ONLY.add("converted_hangar");
         //BLOCKED_OTHER_PLAYER_ONLY.add("expanded_deck_crew");
         BLOCKED_OTHER_PLAYER_ONLY.add("TSC_converted_hangar");
-    }
-
-
-
+    }*/
 }

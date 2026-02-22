@@ -6,16 +6,13 @@ import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.characters.FullName;
 import com.fs.starfarer.api.characters.ImportantPeopleAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
-import com.fs.starfarer.api.impl.campaign.ids.People;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
-import com.fs.starfarer.api.impl.campaign.missions.hub.BaseMissionHub;
 
 public class important_people {
 
     // ATLANTIS PERSONEL
-    public static String ATLANTIS_BOSS = "atlantis_boss";
-    public static String ATLANTIS_SHADY = "atlantis_shady";
+    public static final String ATLANTIS_BOSS = "atlantis_boss";
+    public static final String ATLANTIS_SHADY = "atlantis_shady";
 
 
     public static void createAtlantisPersonnel() {

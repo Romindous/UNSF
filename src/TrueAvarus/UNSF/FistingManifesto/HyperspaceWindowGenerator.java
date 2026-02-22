@@ -1,6 +1,7 @@
 package TrueAvarus.UNSF.FistingManifesto;
 
 import java.awt.*;
+import TrueAvarus.UNSF.dunno.Format;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
@@ -17,10 +18,9 @@ import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 public class HyperspaceWindowGenerator extends BaseDurationAbility {
-	private static final float PAD = 10f;
 	private Vector2f lockedDirection = null; // Variable to store initial direction
 
-	public static float FUEL_USE_MULT = 0.5f;
+	public static final float FUEL_USE_MULT = 2f;
 	protected boolean canUseToJumpToHyper() {
 		return true;
 	}
@@ -372,13 +372,13 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 
 		tooltip.addPara("Jump into hyperspace without the use of a jump-point, or " +
 						"jump into a star system across the hyperspace boundary near a nascent gravity well, " +
-						"emerging near the entity corresponding to the gravity well.", PAD);
+						"emerging near the entity corresponding to the gravity well.", Format.PAD);
 
 		float fuelCost = computeFuelCost();
 
 		if (!fleet.isInHyperspace()) {
 			if (fuelCost > fleet.getCargo().getFuel()) {
-				tooltip.addPara("Not enough fuel.", bad, PAD);
+				tooltip.addPara("Not enough fuel.", bad, Format.PAD);
 			}
 		}
 		addIncompatibleToTooltip(tooltip, expanded);

@@ -1,9 +1,7 @@
 package TrueAvarus.UNSF.Hullmods;
 
-import java.awt.Color;
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.*;
+import TrueAvarus.UNSF.dunno.Format;
 import com.fs.starfarer.api.GameState;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
@@ -13,188 +11,184 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
+import com.fs.starfarer.api.impl.hullmods.BaseLogisticsHullMod;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
-import com.fs.starfarer.api.impl.hullmods.BaseLogisticsHullMod;
+import org.magiclib.util.MagicIncompatibleHullmods;
 
-@SuppressWarnings("unchecked")
+import static TrueAvarus.UNSF.dunno.HullMods.UNSF_ASGARD_SENSORS;
+
 public class unsf_asgardsensors extends BaseLogisticsHullMod  implements HullModFleetEffect {
 
-//	public static float BONUS = 60;
-//	public static float CAPITAL_BONUS = 100;
+    public static final float MIN_CR = 0.1f;
+    public static final String HIGH_RES_SENSORS = "core_HighResSensors";
 
-	public static float MIN_CR = 0.1f;
-	public static String MOD_KEY = "core_HighResSensors";
+    private static final Map<HullSize, Float> sensors = new HashMap<>();
+    private static final Map<HullSize, Float> combat = new HashMap<>();
 
-	private static Map combatMag = new HashMap();
-	private static Map mag = new HashMap();
-//	static {
-//		mag.put(HullSize.FRIGATE, Global.getSettings().getFloat("baseSensorFrigate"));
-//		mag.put(HullSize.DESTROYER, Global.getSettings().getFloat("baseSensorDestroyer"));
-//		mag.put(HullSize.CRUISER, Global.getSettings().getFloat("baseSensorCruiser"));
-//		mag.put(HullSize.CAPITAL_SHIP, Global.getSettings().getFloat("baseSensorCapital"));
-//	}
-	static {
-		mag.put(HullSize.FRIGATE, 120f);
-		mag.put(HullSize.DESTROYER, 170f);
-		mag.put(HullSize.CRUISER, 250f);
-		mag.put(HullSize.CAPITAL_SHIP, 500f);
+    public static final Set<String> BLOCKED = new HashSet<>();
+    /*	static {
+		mag.put(HullSize.FRIGATE, Global.getSettings().getFloat("baseSensorFrigate"));
+		mag.put(HullSize.DESTROYER, Global.getSettings().getFloat("baseSensorDestroyer"));
+		mag.put(HullSize.CRUISER, Global.getSettings().getFloat("baseSensorCruiser"));
+		mag.put(HullSize.CAPITAL_SHIP, Global.getSettings().getFloat("baseSensorCapital"));
+	}*/
+    static {
+        sensors.put(HullSize.FRIGATE, 120f);
+        sensors.put(HullSize.DESTROYER, 170f);
+        sensors.put(HullSize.CRUISER, 250f);
+        sensors.put(HullSize.CAPITAL_SHIP, 500f);
 
-		combatMag.put(HullSize.FRIGATE, 1500f);
-		combatMag.put(HullSize.DESTROYER, 2000f);
-		combatMag.put(HullSize.CRUISER, 2500f);
-		combatMag.put(HullSize.CAPITAL_SHIP, 3000f);
-	}
+        combat.put(HullSize.FRIGATE, 1500f);
+        combat.put(HullSize.DESTROYER, 2000f);
+        combat.put(HullSize.CRUISER, 2500f);
+        combat.put(HullSize.CAPITAL_SHIP, 3000f);
 
-	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		//stats.getSensorStrength().modifyPercent(id, ((Float) mag.get(hullSize)).intValue());
-//		float bonus = BONUS;
-//		if (hullSize == HullSize.CAPITAL_SHIP) bonus = CAPITAL_BONUS;
-//		stats.getSensorStrength().modifyFlat(id, bonus);
+        BLOCKED.add(HIGH_RES_SENSORS);
+    }
 
-		stats.getDynamic().getMod(Stats.HRS_SENSOR_RANGE_MOD).modifyFlat(id, (Float) mag.get(hullSize));
+    @Override
+    public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
+        final Collection<String> hullMods = ship.getVariant().getHullMods();
+        for (final String tmp : BLOCKED) {
+            //if someone tries to install blocked hullmod, remove it
+            if (hullMods.contains(tmp))
+                MagicIncompatibleHullmods.removeHullmodWithWarning(
+                    ship.getVariant(), tmp, UNSF_ASGARD_SENSORS);
+        }
+    }
 
-		boolean sMod = isSMod(stats);
-		if (sMod) {
-			float mag = ((Float) combatMag.get(hullSize)).intValue();
-			stats.getSightRadiusMod().modifyFlat(id, mag);
-		}
-	}
+    public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 
-	public String getSModDescriptionParam(int index, HullSize hullSize) {
-		if (index == 0) return "" + ((Float) combatMag.get(HullSize.FRIGATE)).intValue();
-		if (index == 1) return "" + ((Float) combatMag.get(HullSize.DESTROYER)).intValue();
-		if (index == 2) return "" + ((Float) combatMag.get(HullSize.CRUISER)).intValue();
-		if (index == 3) return "" + ((Float) combatMag.get(HullSize.CAPITAL_SHIP)).intValue();
-		return null;
-	}
-	public String getDescriptionParam(int index, HullSize hullSize) {
-//		if (index == 0) return "" + (int) BONUS;
-//		if (index == 1) return "" + (int) CAPITAL_BONUS;
-//		if (index == 0) return "" + ((Float) mag.get(HullSize.FRIGATE)).intValue();
-//		if (index == 1) return "" + ((Float) mag.get(HullSize.DESTROYER)).intValue();
-//		if (index == 2) return "" + ((Float) mag.get(HullSize.CRUISER)).intValue();
-		//if (index == 3) return "" + ((Float) mag.get(HullSize.CAPITAL_SHIP)).intValue();
-		return null;
-	}
+        stats.getDynamic().getMod(Stats.HRS_SENSOR_RANGE_MOD).modifyFlat(id, sensors.get(hullSize));
 
-	public void advanceInCampaign(CampaignFleetAPI fleet) {
-	}
-	public boolean withAdvanceInCampaign() {
-		return false;
-	}
-	public boolean withOnFleetSync() {
-		return true;
-	}
+        boolean sMod = isSMod(stats);
+        if (sMod) {
+            float mag = combat.get(hullSize).intValue();
+            stats.getSightRadiusMod().modifyFlat(id, mag);
+        }
+    }
 
-	public void onFleetSync(CampaignFleetAPI fleet) {
-		float modifier = getAdjustedHRSModifier(fleet, null, 0f);
-		if (modifier <= 0) {
-			fleet.getSensorRangeMod().unmodifyFlat(MOD_KEY);
-		} else {
-			fleet.getSensorRangeMod().modifyFlat(MOD_KEY, modifier, "Ships with high resolution sensors");
-		}
-	}
+    public String getSModDescriptionParam(int index, HullSize hullSize) {
+        if (index == 0) return "" + combat.get(HullSize.FRIGATE).intValue();
+        if (index == 1) return "" + combat.get(HullSize.DESTROYER).intValue();
+        if (index == 2) return "" + combat.get(HullSize.CRUISER).intValue();
+        if (index == 3) return "" + combat.get(HullSize.CAPITAL_SHIP).intValue();
+        return null;
+    }
+    public String getDescriptionParam(int index, HullSize hullSize) {
+        return null;
+    }
 
-	@Override
-	public boolean shouldAddDescriptionToTooltip(HullSize hullSize, ShipAPI ship, boolean isForModSpec) {
-		return false; // no description from the csv
-	}
+    public void advanceInCampaign(CampaignFleetAPI fleet) {}
+    public boolean withAdvanceInCampaign() {
+        return false;
+    }
+    public boolean withOnFleetSync() {
+        return true;
+    }
 
-	@Override
-	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
-		float pad = 3f;
-		float opad = 10f;
-		Color h = Misc.getHighlightColor();
-		Color bad = Misc.getNegativeHighlightColor();
+    public void onFleetSync(CampaignFleetAPI fleet) {
+        final float modifier = getAdjustedHRSModifier(fleet, null, 0f);
+        if (modifier <= 0) fleet.getSensorRangeMod().unmodifyFlat(HIGH_RES_SENSORS);
+        else fleet.getSensorRangeMod().modifyFlat(HIGH_RES_SENSORS, modifier, "Ships with high resolution sensors");
+    }
 
-		tooltip.addPara("A ship with high resolution sensors increases the fleet's sensor range by %s/%s/%s/%s," +
-				" depending on hull size. " +
-				"Each additional ship with high resolution sensors provides diminishing returns. " +
-				"The higher the highest sensor range increase from a single ship in the fleet, the later diminishing returns kick in.",
-				opad, h,
-				"" + ((Float) mag.get(HullSize.FRIGATE)).intValue(),
-				"" + ((Float) mag.get(HullSize.DESTROYER)).intValue(),
-				"" + ((Float) mag.get(HullSize.CRUISER)).intValue(),
-				"" + ((Float) mag.get(HullSize.CAPITAL_SHIP)).intValue()
-				);
+    @Override
+    public boolean shouldAddDescriptionToTooltip(HullSize hullSize, ShipAPI ship, boolean isForModSpec) {
+        return false; // no description from the csv
+    }
 
-		if (isForModSpec || ship == null) return;
-		if (Global.getSettings().getCurrentState() == GameState.TITLE) return;
+    @Override
+    public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
 
-		CampaignFleetAPI fleet = Global.getSector().getPlayerFleet();
-		float fleetMod = getAdjustedHRSModifier(fleet, null, 0f);
-		float currShipMod = (Float) mag.get(hullSize);
+        tooltip.addPara("A ship with asgard sensors increases the fleet's sensor range by %s/%s/%s/%s," +
+                " depending on hull size. " +
+                "Each additional ship with high resolution sensors provides diminishing returns. " +
+                "The higher the highest sensor range increase from a single ship in the fleet, the later diminishing returns kick in.",
+            Format.OPAD, Format.HIGH,
+            "" + sensors.get(HullSize.FRIGATE).intValue(),
+            "" + sensors.get(HullSize.DESTROYER).intValue(),
+            "" + sensors.get(HullSize.CRUISER).intValue(),
+            "" + sensors.get(HullSize.CAPITAL_SHIP).intValue()
+        );
 
-		float fleetModWithOneMore = getAdjustedHRSModifier(fleet, null, currShipMod);
-		float fleetModWithoutThisShip = getAdjustedHRSModifier(fleet, ship.getFleetMemberId(), 0f);
+        if (isForModSpec || ship == null) return;
+        if (Global.getSettings().getCurrentState() == GameState.TITLE) return;
 
-		tooltip.addPara("The total sensor strength increase for your fleet is %s.", opad, h,
-				"" + (int)Math.round(fleetMod));
+        CampaignFleetAPI fleet = Global.getSector().getPlayerFleet();
+        float fleetMod = getAdjustedHRSModifier(fleet, null, 0f);
+        float currShipMod = sensors.get(hullSize);
 
-		float cr = ship.getCurrentCR();
-		for (FleetMemberAPI member : Global.getSector().getPlayerFleet().getFleetData().getMembersListCopy()) {
-			if (member.getId().equals(ship.getFleetMemberId())) {
-				cr = member.getRepairTracker().getCR();
-			}
-		}
+        float fleetModWithOneMore = getAdjustedHRSModifier(fleet, null, currShipMod);
+        float fleetModWithoutThisShip = getAdjustedHRSModifier(fleet, ship.getFleetMemberId(), 0f);
 
-		if (cr < MIN_CR) {
-			LabelAPI label = tooltip.addPara("This ship's combat readiness is below %s " +
-					"and its high resolution sensors can not be utilized. Bringing this ship into readiness " +
-					"would increase the fleetwide bonus to %s.",
-					opad, h,
-					"" + (int) Math.round(MIN_CR * 100f) + "%",
-					"" + (int)Math.round(fleetModWithOneMore));
-			label.setHighlightColors(bad, h);
-			label.setHighlight("" + (int) Math.round(MIN_CR * 100f) + "%", "" + (int)Math.round(fleetModWithOneMore));
-		} else {
-			if (fleetMod > currShipMod) {
-				tooltip.addPara("Removing this ship would decrease it to %s. Adding another ship of the same type " +
-						"would increase it to %s.", opad, h,
-						"" + (int)Math.round(fleetModWithoutThisShip),
-						"" + (int)Math.round(fleetModWithOneMore));
-			} else {
-				tooltip.addPara("Adding another ship of the same type " +
-						"would increase it to %s.", opad, h,
-						"" + (int)Math.round(fleetModWithOneMore));
-			}
-		}
-	}
+        tooltip.addPara("The total sensor strength increase for your fleet is %s.", Format.OPAD, Format.HIGH,
+            "" + Math.round(fleetMod));
 
-	public static float getAdjustedHRSModifier(CampaignFleetAPI fleet, String skipId, float add) {
-		float max = 0f;
-		float total = 0f;
-		for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy()) {
-			if (member.isMothballed()) continue;
-			if (member.getRepairTracker().getCR() < MIN_CR) continue;
+        float cr = ship.getCurrentCR();
+        for (FleetMemberAPI member : Global.getSector().getPlayerFleet().getFleetData().getMembersListCopy()) {
+            if (member.getId().equals(ship.getFleetMemberId())) {
+                cr = member.getRepairTracker().getCR();
+            }
+        }
 
-			if (member.getId().equals(skipId)) {
-				continue;
-			}
-			float v = member.getStats().getDynamic().getMod(Stats.HRS_SENSOR_RANGE_MOD).computeEffective(0f);
-			if (v <= 0) continue;
+        if (cr < MIN_CR) {
+            LabelAPI label = tooltip.addPara("This ship's combat readiness is below %s " +
+                    "and its high resolution sensors can not be utilized. Bringing this ship into readiness " +
+                    "would increase the fleetwide bonus to %s.",
+                Format.OPAD, Format.HIGH,
+                Math.round(MIN_CR * 100f) + "%",
+                "" + Math.round(fleetModWithOneMore));
+            label.setHighlightColors(Format.BAD, Format.HIGH);
+            label.setHighlight(Math.round(MIN_CR * 100f) + "%", "" + Math.round(fleetModWithOneMore));
+        } else {
+            if (fleetMod > currShipMod) {
+                tooltip.addPara("Removing this ship would decrease it to %s. Adding another ship of the same type " +
+                        "would increase it to %s.", Format.OPAD, Format.HIGH,
+                    "" + Math.round(fleetModWithoutThisShip),
+                    "" + Math.round(fleetModWithOneMore));
+            } else {
+                tooltip.addPara("Adding another ship of the same type " +
+                        "would increase it to %s.", Format.OPAD, Format.HIGH,
+                    "" + Math.round(fleetModWithOneMore));
+            }
+        }
+    }
 
-			if (v > max) max = v;
-			total += v;
-		}
-		if (add > max) max = add;
-		total += add;
+    public static float getAdjustedHRSModifier(CampaignFleetAPI fleet, String skipId, float add) {
+        float max = 0f;
+        float total = 0f;
+        for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy()) {
+            if (member.isMothballed()) continue;
+            if (member.getRepairTracker().getCR() < MIN_CR) continue;
 
-		if (max <= 0) return 0f;
-		float units = total / max;
-		if (units <= 1) return max;
-		float mult = Misc.logOfBase(2.5f, units) + 1f;
-		float result = total * mult / units;
-		if (result <= 0) {
-			result = 0;
-		} else {
-			result = Math.round(result * 100f) / 100f;
-			result = Math.max(result, 1f);
-		}
-		return result;
-	}
+            if (member.getId().equals(skipId)) {
+                continue;
+            }
+            float v = member.getStats().getDynamic().getMod(Stats.HRS_SENSOR_RANGE_MOD).computeEffective(0f);
+            if (v <= 0) continue;
+
+            if (v > max) max = v;
+            total += v;
+        }
+        if (add > max) max = add;
+        total += add;
+
+        if (max <= 0) return 0f;
+        float units = total / max;
+        if (units <= 1) return max;
+        float mult = Misc.logOfBase(2.5f, units) + 1f;
+        float result = total * mult / units;
+        if (result <= 0) {
+            result = 0;
+        } else {
+            result = Math.round(result * 100f) / 100f;
+            result = Math.max(result, 1f);
+        }
+        return result;
+    }
 
 
 }

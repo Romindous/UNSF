@@ -1,62 +1,58 @@
 package TrueAvarus.UNSF.Hullmods;
 
-import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import TrueAvarus.UNSF.dunno.Format;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.util.Misc;
+import org.magiclib.util.MagicIncompatibleHullmods;
+
+import static TrueAvarus.UNSF.dunno.HullMods.UNSF_TRINIUM;
 
 public class unsf_asgardcpu extends BaseHullMod {
-	public static final float BALISTIC_RANGE = 150f;
-	public static final float PD_RANGE = 200f;
-	public static final float BEAM_RANGE = 150f;
 
-	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getBallisticWeaponRangeBonus().modifyFlat(id, BALISTIC_RANGE);
-		stats.getBeamWeaponRangeBonus().modifyFlat(id, BEAM_RANGE);
-		stats.getNonBeamPDWeaponRangeBonus().modifyFlat(id, PD_RANGE);
-	}
+    public static final float WEAPON_RANGE = 25f;
+    public static final float PD_RANGE = 200f;
+    public static final float BEAM_RANGE = 150f;
 
+    public static final Set<String> BLOCKED = new HashSet<>();
+    static {
+        BLOCKED.add(HullMods.INTEGRATED_TARGETING_UNIT);
+        BLOCKED.add(HullMods.DISTRIBUTED_FIRE_CONTROL);
+        BLOCKED.add(HullMods.ADVANCED_TARGETING_CORE);
+        BLOCKED.add(HullMods.DEDICATED_TARGETING_CORE);
+        BLOCKED.add("vice_unified_targeting_core");
+        BLOCKED.add("DEX_targetcomp");
+    }
 
-	@Override
-	public boolean isApplicableToShip(ShipAPI ship) {
-		return !ship.getVariant().getHullMods().contains("dedicated_targeting_core") &&
-				!ship.getVariant().getHullMods().contains(HullMods.DISTRIBUTED_FIRE_CONTROL) &&
-				!ship.getVariant().getHullMods().contains("advancedcore");
-	}
+    @Override
+    public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
+        final Collection<String> hullMods = ship.getVariant().getHullMods();
+        for (final String tmp : BLOCKED) {
+            //if someone tries to install blocked hullmod, remove it
+            if (hullMods.contains(tmp))
+                MagicIncompatibleHullmods.removeHullmodWithWarning(
+                    ship.getVariant(), tmp, UNSF_TRINIUM);
+        }
+    }
 
+    public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
+        stats.getBallisticWeaponRangeBonus().modifyFlat(id, WEAPON_RANGE);
+        stats.getEnergyWeaponRangeBonus().modifyFlat(id, WEAPON_RANGE);
+        stats.getBeamWeaponRangeBonus().modifyFlat(id, BEAM_RANGE);
+        stats.getNonBeamPDWeaponRangeBonus().modifyFlat(id, PD_RANGE);
+    }
 
-	@Override
-	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
-		float pad = 3f;
-		float opad = 10f;
-		Color good = Misc.getPositiveHighlightColor();
-		Color bad = Misc.getNegativeHighlightColor();
-
-		tooltip.setBulletedListMode(" - ");
-		tooltip.addPara("Increases the non-beam PD range by %s", opad, good, Math.round(PD_RANGE) + "");
-		tooltip.addPara("Increases the balistic range by %s", opad, good, Math.round(BALISTIC_RANGE) + "");
-		tooltip.addPara("Increases the beam range by %s", opad, good, Math.round(BEAM_RANGE) + "");
-
-		tooltip.setBulletedListMode(null);
-	}
-	public String getUnapplicableReason(ShipAPI ship) {
-		if (ship.getVariant().getHullMods().contains("dedicated_targeting_core")) {
-			return "Incompatible with Dedicated Targeting Core";
-		}
-		if (ship.getVariant().getHullMods().contains("advancedcore")) {
-			return "Incompatible with Advanced Targeting Core";
-		}
-		if (ship.getVariant().getHullMods().contains(HullMods.DISTRIBUTED_FIRE_CONTROL)) {
-			return "Incompatible with Distributed Fire Control";
-		}
-		return null;
-	}
-	
+    @Override
+    public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
+        tooltip.addPara("Increases the non-beam PD range by %s, non-beam weapon range by %s, and beam range by %s.",
+            Format.OPAD, Format.GOOD, (int) PD_RANGE + "", (int) WEAPON_RANGE + "%", (int) BEAM_RANGE + "");
+        tooltip.addPara("Can not work in conjunction with %s, %s, and other range related hullmods.",
+            Format.OPAD, Format.BAD, "DTC", "ITU");
+    }
 }

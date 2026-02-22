@@ -1,7 +1,6 @@
 package TrueAvarus.UNSF.Industry;
 
-import com.fs.starfarer.api.campaign.econ.Industry;
-import com.fs.starfarer.api.campaign.econ.MutableCommodityQuantity;
+import TrueAvarus.UNSF.dunno.Items;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BaseIndustry;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 
@@ -14,14 +13,16 @@ public class Stargate_Complex extends BaseIndustry {
         int size = market.getSize();
         if (size < 5) {
             supply(Commodities.CREW, 3);
-            supply(Commodities.SUPPLIES, 3);
+            demand(Commodities.HEAVY_MACHINERY, 2);
+            demand(Commodities.SUPPLIES, 1);
         } else {
             supply(Commodities.CREW, 5);
-            supply(Commodities.SUPPLIES, 5);
+            demand(Commodities.HEAVY_MACHINERY, 3);
+            demand(Commodities.SUPPLIES, 2);
         }
 
         // Check if the special item "unsf_zpm" is installed
-        if (special != null && "unsf_zpm".equals(special.getId())) {
+        if (special != null && Items.UNSF_ZPM.equals(special.getId())) {
             // Apply the "stargate_zpmcohesion" market condition
             if (!market.hasCondition("stargate_zpmcohesion")) {
                 market.addCondition("stargate_zpmcohesion");

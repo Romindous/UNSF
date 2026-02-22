@@ -1,74 +1,84 @@
 package TrueAvarus.UNSF.Hullmods;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
-import com.fs.starfarer.api.ui.Alignment;
+import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.util.Misc;
 
 public class unsf_naqgenerator extends BaseHullMod {
 
-	public static final float PEAK_BONUS_PERCENT = 80f;
-	public static final float DEGRADE_REDUCTION_PERCENT = 50f;
+	private static final float PEAK_BONUS_PERCENT = 25f;
+    private static final float DEGRADE_REDUCTION_PERCENT = -20f;
+
+    private static final float EXPLOSION_POWER = 200f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		stats.getPeakCRDuration().modifyPercent(id, PEAK_BONUS_PERCENT);
-		stats.getCRLossPerSecondPercent().modifyMult(id, 1f - DEGRADE_REDUCTION_PERCENT / 100f);
+		stats.getCRLossPerSecondPercent().modifyPercent(id, DEGRADE_REDUCTION_PERCENT);
+
+        final float power = EXPLOSION_POWER / impactOf(hullSize);
+        stats.getDynamic().getStat(Stats.EXPLOSION_RADIUS_MULT).modifyPercent(id, power);
+        stats.getDynamic().getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyPercent(id, power);
 	}
 	
 
 	public String getDescriptionParam(int index, HullSize hullSize) {
-		if (index == 0) return "" + (int) PEAK_BONUS_PERCENT + "%";
-		if (index == 1) return "" + (int) DEGRADE_REDUCTION_PERCENT + "%";
-		return null;
-	}
+        return switch (index) {
+            case 0 -> (int) PEAK_BONUS_PERCENT + "%";
+            case 1 -> (int) DEGRADE_REDUCTION_PERCENT + "%";
+            case 2 -> ((int) EXPLOSION_POWER / impactOf(hullSize)) + "%";
+            default -> null;
+        };
+    }
 
-	public boolean isApplicableToShip(ShipAPI ship) {
+    private int impactOf(final HullSize size) {
+        return switch (size) {
+            case DESTROYER -> 2;
+            case CRUISER -> 3;
+            case CAPITAL_SHIP -> 4;
+            default -> 1;
+        };
+    }
+
+    public boolean isApplicableToShip(ShipAPI ship) {
 		return ship != null && (ship.getHullSpec().getNoCRLossTime() < 10000 || ship.getHullSpec().getCRLossPerSecond(ship.getMutableStats()) > 0); 
 	}
 	
 	
 	@Override
 	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
-		if (true) return;
-		
+		/*if (true) return;
+
 		if (ship == null || ship.getMutableStats() == null) return;
 
-		
+
 		MutableShipStatsAPI stats = ship.getMutableStats();
 		float decay = ship.getHullSpec().getCRLossPerSecond(stats);
 		if (decay <= 0) return;
-		
+
 		float crPerDep = stats.getCRPerDeploymentPercent().computeEffective(ship.getHullSpec().getCRToDeploy()) / 100f;
 		float minCRPerDep = Global.getSettings().getFloat("crDecayMinDeploymentCostForCalc");
 		float secondsPerDeplomentCR = Global.getSettings().getFloat("crDecaySecondsPerDeploymentCostPercent");
-		
+
 		if (crPerDep < minCRPerDep) crPerDep = minCRPerDep;
 		if (crPerDep <= 0) return;
-		
-		
-		float opad = 10f;
-		
-		tooltip.addSectionHeading("Combat readiness decay", Alignment.MID, opad);
-		
+
+		tooltip.addSectionHeading("Combat readiness decay", Alignment.MID, OPAD);
+
 		tooltip.addPara("Without this hullmor or any other modifiers, it would take %s seconds for "
-				+ "this ship to lose %s combat readiness, after its peak performance time has run out.", opad,
-				Misc.getHighlightColor(),
-				"" + (int) Math.round(secondsPerDeplomentCR),
-				"" + (int) Math.round(crPerDep * 100f) + "%");
-		
+				+ "this ship to lose %s combat readiness, after its peak performance time has run out.", OPAD,
+				Format.HIGH,
+				"" + Math.round(secondsPerDeplomentCR),
+				Math.round(crPerDep * 100f) + "%");
+
 		float crLossPerSecond = stats.getCRLossPerSecondPercent().computeEffective(decay);
 		float seconds = (crPerDep * 100f) / crLossPerSecond;
-		
+
 		tooltip.addPara("With all the modifications currently installed on the ship, it will take %s seconds.",
-				opad, Misc.getHighlightColor(),
-				"" + (int) Math.round(seconds));
-		
-		
-		
+				OPAD, HIGH,
+				"" + Math.round(seconds));*/
 	}
 
 

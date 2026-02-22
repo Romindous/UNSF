@@ -1,37 +1,35 @@
 package TrueAvarus.UNSF.Industry.Market_Conditions;
 
 
+import TrueAvarus.UNSF.dunno.Format;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MutableCommodityQuantity;
 import com.fs.starfarer.api.impl.campaign.econ.BaseMarketConditionPlugin;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.util.Misc;
-
-import java.awt.*;
 
 public class stargate_cohesion extends BaseMarketConditionPlugin {
-    private static final float BASE_ACCESSIBILITY = 0.50f; // 50% boost in decimal
-    private static final String desc = "Accessibility boost from market condition";
-    public static final float DEMAND_BONUS = -1f;
-    public static final float STAB_BONUS = 2f;
+    private static final float ACCESSIBILITY = 0.25f; // 25% boost in decimal
+    public static final float INDUSTRY_DEMAND = -1f;
+    public static final float STABILITY = 1f;
+    private static final String DEMAND_MOD = "Stargate_demand";
+    private static final String STABILITY_MOD = "Stargate_stab";
 
     public void apply(String id) {
+
+        //TODO make all this scale with number of "stargated" worlds
 
         // Apply demand decrease
         for (Industry industry : market.getIndustries()) {
             for (MutableCommodityQuantity mutableCommodityQuantity : industry.getAllDemand()) {
-                mutableCommodityQuantity.getQuantity().modifyFlat("Stargate_demand", DEMAND_BONUS, "Stargate supply train bonus");
+                mutableCommodityQuantity.getQuantity().modifyFlat(DEMAND_MOD, INDUSTRY_DEMAND, "Stargate supply chain bonus");
             }
         }
 
         // Apply stability bonus
-        this.market.getStability().modifyFlat("Stargate_stab", STAB_BONUS, "Stargate cohesion bonus");
+        this.market.getStability().modifyFlat(STABILITY_MOD, STABILITY, "Stargate cohesion bonus");
 
         // Apply the accessibility boost if it's greater than 0
-        float a = BASE_ACCESSIBILITY;
-        if (a > 0) {
-            market.getAccessibilityMod().modifyFlat(getModId(0), a, desc);
-        }
+        market.getAccessibilityMod().modifyFlat(getModId(0), ACCESSIBILITY, "Accessibility boost from stargate availability");
 
     }
 
@@ -39,42 +37,38 @@ public class stargate_cohesion extends BaseMarketConditionPlugin {
     @Override
     public void unapply(String id) {
 
-            // Revert demand decrease
-            for (Industry industry : market.getIndustries()) {
-                for (MutableCommodityQuantity mutableCommodityQuantity : industry.getAllDemand()) {
-                    mutableCommodityQuantity.getQuantity().unmodifyFlat("Stargate_demand");
-                }
-            // Revert stability bonus
-                this.market.getStability().unmodifyFlat("Stargate_stab");
+        // Revert demand decrease
+        for (Industry industry : market.getIndustries()) {
+            for (MutableCommodityQuantity mutableCommodityQuantity : industry.getAllDemand()) {
+                mutableCommodityQuantity.getQuantity().unmodifyFlat(DEMAND_MOD);
             }
+            // Revert stability bonus
+            this.market.getStability().unmodifyFlat(STABILITY_MOD);
+        }
         // Remove the accessibility boost modifiers
         market.getAccessibilityMod().unmodifyFlat(getModId(0));
         market.getAccessibilityMod().unmodifyFlat(getModId(1));
         market.getAccessibilityMod().unmodifyFlat(getModId(2));
-        }
+    }
 
     private String getModId(int index) {
         return "accessibility_boost_mod_" + index;
     }
     @Override
     public void createTooltip(TooltipMakerAPI tooltip, boolean expanded) {
-        float pad = 10f;
-        Color highlight = Misc.getHighlightColor();
 
         // Add the main title
         tooltip.addTitle("Stargate Cohesion");
 
         // Add description text
-        tooltip.addPara("The Stargate Complex enhances market cohesion, providing the following bonuses:", pad);
+        tooltip.addPara("The Stargate Complex enhances market cohesion, providing the following bonuses:", Format.PAD);
 
         // Add a bullet point list with details
-        tooltip.addPara("• Reduces demand for all commodities by %s.", pad, highlight, String.valueOf(DEMAND_BONUS));
-        tooltip.addPara("• Increases stability by %s.", pad, highlight, String.valueOf(STAB_BONUS));
-        tooltip.addPara("• Increases accessibility by %s.", pad, highlight,String.valueOf(BASE_ACCESSIBILITY*100));
-
-        // If there are more details to show when expanded, include them here
-
-            tooltip.addPara("This market condition represents THE ULTIMATE logistical advantages and stability brought by the Stargate Complex, allowing for better resource management and market accessibility.", pad);
+        tooltip.setBulletedListMode("• ");
+        tooltip.addPara("Reduces demand for all commodities by %s.", Format.PAD, Format.HIGH, (int) INDUSTRY_DEMAND + "");
+        tooltip.addPara("Increases stability by %s.", Format.PAD, Format.HIGH, (int) STABILITY + "");
+        tooltip.addPara("Increases accessibility by %s.", Format.PAD, Format.HIGH, (int) (ACCESSIBILITY * 100f) + "%");
+        tooltip.setBulletedListMode(null);
         }
     }
 

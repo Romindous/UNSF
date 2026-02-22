@@ -1,5 +1,6 @@
 package TrueAvarus.UNSF.gaylammas;
 
+import TrueAvarus.UNSF.dunno.Items;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.FleetDataAPI;
@@ -9,47 +10,34 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 
+import static TrueAvarus.UNSF.dunno.HullMods.*;
+
 public class unsf_zpm_hm2 extends BaseHullMod {
-    private static final String SPECIAL_ITEM_ID = "unsf_zpm"; // Replace with your special item ID
-    private static final String HULLMOD_ID = "unsf_zpm_hm2"; // Replace with your ZPM hullmod ID
-    private static final String ADDITIONAL_HULLMOD_1 = "unsf_zpm_shieldbooster"; // Replace with the first additional hullmod ID
-    private static final String ADDITIONAL_HULLMOD_2 = "unsf_zpm_drivebooster"; // Replace with the second additional hullmod ID
-    private static final String ADDITIONAL_HULLMOD_3 = "unsf_zpm_beambooster"; // Replace with the third additional hullmod ID
-    private static final String ADDITIONAL_HULLMOD_6 = "unsf_zpm_systembooster"; // Replace with the third additional hullmod ID
-    private static final String ADDITIONAL_HULLMOD_4 = "unsf_deletor"; // Replace with the third additional hullmod ID
-    private static final String ADDITIONAL_HULLMOD_5 = "unsf_primer"; // Replace with the third additional hullmod ID
-
-    private static final String ASGARD_HULLMOD_1 = "unsf_asgardshield"; // Replace with the third additional hullmod ID
-    private static final String ASGARD_HULLMOD_2 = "unsf_asgardhyperdrive"; // Replace with the third additional hullmod ID
-
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        ShipAPI ship = (ShipAPI) stats.getEntity();
+        if (!(stats.getEntity() instanceof final ShipAPI ship)) return; // Early return if the ship is null
 
-
-        if (ship == null) return; // Early return if the ship is null
-
-        boolean hasZpmHullmod = ship.getVariant().hasHullMod(HULLMOD_ID);
+        boolean hasZpmHullmod = ship.getVariant().hasHullMod(UNSF_ZPM);
         int shipsWithHullMod = countShipsWithHullMod();
         int specialItemCount = getSpecialItemCount();
 
         if (hasZpmHullmod) {
             if (specialItemCount >= shipsWithHullMod) {
                 // Add additional hullmods if ZPM hullmod is present and enough special items are available
-                addHullModIfMissing(ship, ADDITIONAL_HULLMOD_1);
-                addHullModIfMissing(ship, ADDITIONAL_HULLMOD_2);
-                addHullModIfMissing(ship, ADDITIONAL_HULLMOD_3);
-                addHullModIfMissing(ship, ADDITIONAL_HULLMOD_5);
-                addHullModIfMissing(ship, ADDITIONAL_HULLMOD_6);
-                removeHullModIfPresent(ship, ASGARD_HULLMOD_1);
-                removeHullModIfPresent(ship, ASGARD_HULLMOD_2);
+                addHullModIfMissing(ship, UNSF_ZPM_SHIELDS);
+                addHullModIfMissing(ship, UNSF_ZPM_DRIVE);
+                addHullModIfMissing(ship, UNSF_ZPM_BEAMS);
+                addHullModIfMissing(ship, ZPM_PRIMER);
+                addHullModIfMissing(ship, UNSF_ZPM_SYSTEM);
+                removeHullModIfPresent(ship, UNSF_ASGARD_SHIELD);
+                removeHullModIfPresent(ship, UNSF_ASGARD_HYPERDRIVE);
 
             }
-            else {addHullModIfMissing(ship, ADDITIONAL_HULLMOD_4); }
+            else {addHullModIfMissing(ship, ZPM_DELETOR); }
             // If there are not enough special items, you might want to handle it but do not remove hullmods here
         } else {
-            addHullModIfMissing(ship, ADDITIONAL_HULLMOD_4);
+            addHullModIfMissing(ship, ZPM_DELETOR);
             // If ZPM hullmod is not present, no action is taken here
             return;
         }
@@ -74,7 +62,7 @@ public class unsf_zpm_hm2 extends BaseHullMod {
         }
 
         CargoAPI cargo = Global.getSector().getPlayerFleet().getCargo();
-        return (int) cargo.getQuantity(CargoAPI.CargoItemType.SPECIAL, new SpecialItemData(SPECIAL_ITEM_ID, null));
+        return (int) cargo.getQuantity(CargoAPI.CargoItemType.SPECIAL, new SpecialItemData(Items.UNSF_ZPM, null));
     }
 
     private int countShipsWithHullMod() {
@@ -91,7 +79,7 @@ public class unsf_zpm_hm2 extends BaseHullMod {
         int count = 0;
         for (FleetMemberAPI member : fleetData.getMembersListCopy()) {
             if (member != null && member.getVariant() != null) {
-                if (member.getVariant().hasHullMod(HULLMOD_ID)) {
+                if (member.getVariant().hasHullMod(UNSF_ZPM)) {
                     count++;
                 }
             }

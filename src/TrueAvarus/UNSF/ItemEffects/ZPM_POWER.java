@@ -2,6 +2,7 @@ package TrueAvarus.UNSF.ItemEffects;
 
 
 import TrueAvarus.UNSF.UNSFModPlugin;
+import TrueAvarus.UNSF.dunno.Items;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MutableCommodityQuantity;
 import com.fs.starfarer.api.combat.MutableStat;
@@ -31,7 +32,7 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
     private static final float MARINES_BONUS = 2f;
 
     public ZPM_POWER() {
-        super(UNSFModPlugin.Items.UNSF_ZPM, 0, 0);
+        super(Items.UNSF_ZPM, 0, 0);
     }
 
     @Override

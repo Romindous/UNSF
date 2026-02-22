@@ -4,53 +4,39 @@ import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 
+import static TrueAvarus.UNSF.dunno.HullMods.*;
+
 public class unsf_deletor extends BaseHullMod {
-
-    private static final String PRIMARY_HULLMOD_ID = "unsf_zpm_hm2"; // Replace with the actual hullmod ID to check for
-    private static final String HULLMOD_1 = "unsf_zpm_shieldbooster"; // Replace with the actual hullmod ID to remove
-    private static final String HULLMOD_2 = "unsf_zpm_drivebooster"; // Replace with the actual hullmod ID to remove
-    private static final String HULLMOD_3 = "unsf_zpm_beambooster"; // Replace with the actual hullmod ID to remove
-
-    private static final String HULLMOD_4 = "unsf_zpm_systembooster"; // Replace with the actual hullmod ID to remove
-    private static final String SELF_REMOVING_HULLMOD_ID = "unsf_deletor"; // Replace with the actual hullmod ID for itself
-    private static final String SELF_REMOVING_PRIMER_ID = "unsf_primer"; // Replace with the actual hullmod ID for itself
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        ShipAPI ship = (ShipAPI) stats.getEntity();
-        if (ship == null || ship.getVariant() == null) return; // Ensure ship and variant are not null
+        if (!(stats.getEntity() instanceof final ShipAPI ship) || ship.getVariant() == null) return;
 
-        boolean hasPrimaryHullmod = ship.getVariant().hasHullMod(PRIMARY_HULLMOD_ID);
-
-        if (!hasPrimaryHullmod) {
+        if (!ship.getVariant().hasHullMod(UNSF_ZPM)) {
             // Remove the three other hullmods if the primary hullmod is not present
-            removeHullModIfPresent(ship, HULLMOD_1);
-            removeHullModIfPresent(ship, HULLMOD_2);
-            removeHullModIfPresent(ship, HULLMOD_3);
-            removeHullModIfPresent(ship, HULLMOD_4);
-            removeHullModIfPresent(ship, SELF_REMOVING_PRIMER_ID);
-        }
-        else{
-            removeHullModIfPresent(ship, PRIMARY_HULLMOD_ID);
-            removeHullModIfPresent(ship, HULLMOD_1);
-            removeHullModIfPresent(ship, HULLMOD_2);
-            removeHullModIfPresent(ship, HULLMOD_3);
-            removeHullModIfPresent(ship, HULLMOD_4);
-            removeHullModIfPresent(ship, SELF_REMOVING_PRIMER_ID);
-
+            removeHullModIfPresent(ship, UNSF_ZPM_BEAMS);
+            removeHullModIfPresent(ship, UNSF_ZPM_DRIVE);
+            removeHullModIfPresent(ship, UNSF_ZPM_SHIELDS);
+            removeHullModIfPresent(ship, UNSF_ZPM_SYSTEM);
+            removeHullModIfPresent(ship, ZPM_PRIMER);
+        } else {
+            removeHullModIfPresent(ship, UNSF_ZPM);
+            removeHullModIfPresent(ship, UNSF_ZPM_BEAMS);
+            removeHullModIfPresent(ship, UNSF_ZPM_DRIVE);
+            removeHullModIfPresent(ship, UNSF_ZPM_SHIELDS);
+            removeHullModIfPresent(ship, UNSF_ZPM_SYSTEM);
+            removeHullModIfPresent(ship, ZPM_PRIMER);
         }
 
         // Check if all four hullmods are removed
-        boolean allHullmodsRemoved = !ship.getVariant().hasHullMod(PRIMARY_HULLMOD_ID)
-                && !ship.getVariant().hasHullMod(HULLMOD_1)
-                && !ship.getVariant().hasHullMod(HULLMOD_2)
-                && !ship.getVariant().hasHullMod(HULLMOD_3)
-                && !ship.getVariant().hasHullMod(HULLMOD_4)
-                && !ship.getVariant().hasHullMod(SELF_REMOVING_PRIMER_ID);
-
-        if (allHullmodsRemoved) {
+        if (!ship.getVariant().hasHullMod(UNSF_ZPM)
+            && !ship.getVariant().hasHullMod(UNSF_ZPM_BEAMS)
+            && !ship.getVariant().hasHullMod(UNSF_ZPM_DRIVE)
+            && !ship.getVariant().hasHullMod(UNSF_ZPM_SHIELDS)
+            && !ship.getVariant().hasHullMod(UNSF_ZPM_SYSTEM)
+            && !ship.getVariant().hasHullMod(ZPM_PRIMER)) {
             // Remove this hullmod if all four hullmods are removed
-            removeHullModIfPresent(ship, SELF_REMOVING_HULLMOD_ID);
+            removeHullModIfPresent(ship, ZPM_DELETOR);
         }
     }
 

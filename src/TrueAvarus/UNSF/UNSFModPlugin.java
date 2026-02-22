@@ -5,11 +5,11 @@ import TrueAvarus.UNSF.AIDS_cure.important_people;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
 import TrueAvarus.UNSF.WeaponAI.MIRV_proj_GPT;
 import TrueAvarus.UNSF.World.UNSFgen;
+import TrueAvarus.UNSF.dunno.Items;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.CampaignPlugin;
-import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
@@ -18,10 +18,6 @@ import exerelin.campaign.SectorManager;
 
 
 public class UNSFModPlugin extends BaseModPlugin {
-    public static class Items {
-        public static final String UNSF_ZPM = "unsf_zpm";
-
-    }
 
 
     @Override
@@ -42,9 +38,6 @@ public class UNSFModPlugin extends BaseModPlugin {
         // Call your personnel creation method
         important_people.createAtlantisPersonnel();
     }
-
-
-
 
     public static final String HORIZON_NUKE = "unsf_horizon_missile_subprojectile";
     @Override
