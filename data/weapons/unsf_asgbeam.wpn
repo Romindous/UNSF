@@ -2,7 +2,7 @@
   "id": "unsf_asgbeam",
   "specClass": "beam",
   "type": "ENERGY",
-  "size": "MEDIUM",
+  "size": "SMALL",
   "beamEffect": "com.fs.starfarer.api.impl.combat.TachyonLanceEffect",
   "collisionClass": "RAY",
   "collisionClassByFighter": "RAY_FIGHTER",

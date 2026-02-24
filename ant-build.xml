@@ -1,0 +1,11 @@
+<project name="UNSF" default="UNSF">
+  <target name="UNSF">
+    <zip destfile="UNSF.zip">
+      <zipfileset dir="data" prefix="United Nations Space Force/data"/>
+      <zipfileset dir="graphics" prefix="United Nations Space Force/graphics"/>
+      <zipfileset dir="sounds" prefix="United Nations Space Force/sounds"/>
+      <zipfileset dir="jars" prefix="United Nations Space Force/jars"/>
+      <zipfileset dir="" includes="mod_info.json" prefix="United Nations Space Force"/>
+    </zip>
+  </target>
+</project>

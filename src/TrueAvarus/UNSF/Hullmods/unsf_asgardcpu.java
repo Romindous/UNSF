@@ -50,8 +50,8 @@ public class unsf_asgardcpu extends BaseHullMod {
 
     @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
-        tooltip.addPara("Increases the non-beam PD range by %s, non-beam weapon range by %s, and beam range by %s.",
-            Format.OPAD, Format.GOOD, (int) PD_RANGE + "", (int) WEAPON_RANGE + "%", (int) BEAM_RANGE + "");
+        tooltip.addPara("Increases the non-beam weapon range by %s, non-beam PD range by %s, and beam range by %s.",
+            Format.OPAD, Format.GOOD, (int) WEAPON_RANGE + "%", (int) PD_RANGE + "", (int) BEAM_RANGE + "");
         tooltip.addPara("Can not work in conjunction with %s, %s, and other range related hullmods.",
             Format.OPAD, Format.BAD, "DTC", "ITU");
     }
