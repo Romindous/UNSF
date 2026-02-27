@@ -10,6 +10,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 public class unsf_zpm_beambooster extends BaseHullMod {
     public static final float BEAM_BOOSTER = 25f;
     public static final float ENERGY_FLUX = 15f;
+    public static final float WEAPON_RELOAD = 25f;
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
@@ -17,6 +18,7 @@ public class unsf_zpm_beambooster extends BaseHullMod {
         stats.getBeamWeaponTurnRateBonus().modifyPercent(id, BEAM_BOOSTER);
         stats.getBeamWeaponRangeBonus().modifyPercent(id, BEAM_BOOSTER);
         stats.getEnergyWeaponFluxCostMod().modifyPercent(id, -ENERGY_FLUX);
+        stats.getEnergyAmmoRegenMult().modifyPercent(id, WEAPON_RELOAD);
     }
 
     @Override
@@ -24,6 +26,7 @@ public class unsf_zpm_beambooster extends BaseHullMod {
         tooltip.setBulletedListMode("• ");
         tooltip.addPara("Increases most stats of beam weapons by %s.", Format.OPAD, Format.GOOD, (int) BEAM_BOOSTER + "%");
         tooltip.addPara("Decreases energy weapon flux use by %s.", Format.OPAD, Format.GOOD, (int) ENERGY_FLUX + "%");
+        tooltip.addPara("Increases energy weapon reload speed by %s.", Format.OPAD, Format.GOOD, (int) WEAPON_RELOAD + "%");
         tooltip.setBulletedListMode(null);
     }
 

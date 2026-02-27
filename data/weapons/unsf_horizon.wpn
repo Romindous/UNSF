@@ -3,7 +3,7 @@
   "specClass": "projectile",
   "projectileSpecId": "unsf_horizon_missile",
   "type": "MISSILE",
-  "size": "SMALL",
+  "size": "MEDIUM",
   "displayArcRadius": 500,
   "turretSprite": "graphics/weapons/unsf_vls.png",
   "hardpointSprite": "graphics/weapons/unsf_vls.png",

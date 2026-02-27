@@ -6,6 +6,7 @@
   "size": "SMALL",
   "displayArcRadius": 500,
   "turretSprite": "graphics/weapons/unsf_vls.png",
+  "turretUnderSprite": "graphics/weapons/unsf_vls.png",
   "hardpointSprite": "graphics/weapons/unsf_vls.png",
   "renderHints":[RENDER_BARREL_BELOW],
   "turretOffsets": [

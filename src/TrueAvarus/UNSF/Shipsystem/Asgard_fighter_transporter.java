@@ -14,26 +14,16 @@ public class Asgard_fighter_transporter extends BaseShipSystemScript {
 	public static final Color JITTER_COLOR = new Color(200,200,255,155);
 
 
-	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
-		ShipAPI ship = null;
-		if (stats.getEntity() instanceof ShipAPI) {
-			ship = (ShipAPI) stats.getEntity();
-		} else {
-			return;
-		}
+	public void apply(MutableShipStatsAPI stats, String id, State state, float jitterLevel) {
+        if (!(stats.getEntity() instanceof final ShipAPI ship)) return;
 
-
-		if (effectLevel > 0) {
-			float jitterLevel = effectLevel;
-
-			boolean firstTime = false;
-			final String fightersKey = ship.getId() + "_recall_device_target";
+        if (jitterLevel > 0) {
+            final String fightersKey = ship.getId() + "_recall_device_target";
 			List<ShipAPI> fighters = null;
 			if (!Global.getCombatEngine().getCustomData().containsKey(fightersKey)) {
 				fighters = getFighters(ship);
 				Global.getCombatEngine().getCustomData().put(fightersKey, fighters);
-				firstTime = true;
-			} else {
+            } else {
 				fighters = (List<ShipAPI>) Global.getCombatEngine().getCustomData().get(fightersKey);
 			}
 			if (fighters == null) { // shouldn't be possible, but still
@@ -43,7 +33,7 @@ public class Asgard_fighter_transporter extends BaseShipSystemScript {
 			for (ShipAPI fighter : fighters) {
 				if (fighter.isHulk()) continue;
 
-				float maxRangeBonus = fighter.getCollisionRadius() * 1f;
+				float maxRangeBonus = fighter.getCollisionRadius();
 				float jitterRangeBonus = 5f + jitterLevel * maxRangeBonus;
 
 
@@ -53,11 +43,11 @@ public class Asgard_fighter_transporter extends BaseShipSystemScript {
 				}
 
 				if (state == State.IN) {
-					float alpha = 1f - effectLevel * 0.5f;
+					float alpha = 1f - jitterLevel * 0.5f;
 					fighter.setExtraAlphaMult(alpha);
 				}
 
-				if (effectLevel == 1) {
+				if (jitterLevel == 1) {
 					if (fighter.getWing() != null && fighter.getWing().getSource() != null) {
 						fighter.getWing().getSource().makeCurrentIntervalFast();
 						fighter.getWing().getSource().land(fighter);
@@ -85,12 +75,7 @@ public class Asgard_fighter_transporter extends BaseShipSystemScript {
 
 
 	public void unapply(MutableShipStatsAPI stats, String id) {
-		ShipAPI ship = null;
-		if (stats.getEntity() instanceof ShipAPI) {
-			ship = (ShipAPI) stats.getEntity();
-		} else {
-			return;
-		}
+        if (!(stats.getEntity() instanceof final ShipAPI ship)) return;
 
 		final String fightersKey = ship.getId() + "_recall_device_target";
 		Global.getCombatEngine().getCustomData().remove(fightersKey);

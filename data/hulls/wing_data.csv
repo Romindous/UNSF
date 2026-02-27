@@ -1,8 +1,8 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base value,,,,,,,,,,,,,number
-unsf_302_wing,unsf_302_variant,"fighter18, fighter, rapid_reform, independent_of_carrier",1,,22,0,DIAMOND,3000,1000,100,2,FIGHTER,Fighter,10,2000,,,,,,,,,,,,,
-unsf_b302_wing_bomber,unsf_b302_bomber,"bomber18, bomber, rapid_reform, independent_of_carrier",1,,30,0,V,4000,600,500,2,BOMBER,Bomber,10,2000,,,,,,,,,,,,,
-unsf_dd_wing,unsf_defense_drone_wing,"interceptor18, interceptor, rapid_reform,",1,,15,0,BOX,3000,1000,,3,SUPPORT,Escort,10,2000,,,,,,,,,,,,,
-unsf_sat_wing,unsf_sat_base,,1,,30,0,BOX,1000,1000,,1,FIGHTER,Fighter,10,2000,,,,,,,,,,,,,
+unsf_302_wing,unsf_302_variant,"fighter18, fighter, rapid_reform, independent_of_carrier",1,,22,8,DIAMOND,4000,1000,100,4,FIGHTER,Fighter,10,2000,,,,,,,,,,,,,
+unsf_b302_wing_bomber,unsf_b302_bomber,"bomber18, bomber, rapid_reform, independent_of_carrier",2,,30,12,V,5000,600,500,2,BOMBER,Bomber,10,2000,,,,,,,,,,,,,
+unsf_dd_wing,unsf_defense_drone_wing,"interceptor18, interceptor, rapid_reform,",2,,15,6,BOX,0,1000,,3,SUPPORT,Escort,10,2000,,,,,,,,,,,,,
+unsf_sat_wing,unsf_sat_base,,3,,30,0,BOX,1000,1000,,1,FIGHTER,Fighter,10,2000,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,

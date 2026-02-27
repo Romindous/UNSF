@@ -3,10 +3,10 @@
   "specClass": "projectile",
   "projectileSpecId": "unsf_vls_2_projectile",
   "type": "MISSILE",
-  "size": "SMALL",
-  "turretSprite": "",
+  "size": "MEDIUM",
+  "turretSprite": "graphics/weapons/unsf_vls.png",
   "turretUnderSprite": "graphics/weapons/unsf_vls.png",
-  "hardpointSprite": "",
+  "hardpointSprite": "graphics/weapons/unsf_vls.png",
   "turretOffsets": [
     0,
     2.5,

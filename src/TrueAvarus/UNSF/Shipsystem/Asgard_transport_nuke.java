@@ -30,7 +30,7 @@ public class Asgard_transport_nuke extends BaseShipSystemScript implements MineS
 	public static final float MIN_SPAWN_DIST = 75f;
 	public static final float MIN_SPAWN_DIST_FRIGATE = 110f;
 	
-	public static final float LIVE_TIME = 20f;
+	public static final float LIVE_TIME = 10f;
 	
 	public static final Color JITTER_COLOR = new Color(210,255,255,75);
 	public static final Color JITTER_UNDER_COLOR = new Color(210,255,255,155);
@@ -42,52 +42,42 @@ public class Asgard_transport_nuke extends BaseShipSystemScript implements MineS
 	}
 	
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
-		ShipAPI ship = null;
-		//boolean player = false;
-		if (stats.getEntity() instanceof ShipAPI) {
-			ship = (ShipAPI) stats.getEntity();
-		} else {
-			return;
-		}
-		
-		
+        if (!(stats.getEntity() instanceof final ShipAPI ship)) return;
+
 		float jitterLevel = effectLevel;
 		if (state == State.OUT) {
 			jitterLevel *= jitterLevel;
 		}
 		float maxRangeBonus = 25f;
 		float jitterRangeBonus = jitterLevel * maxRangeBonus;
-		if (state == State.OUT) {
-		}
-		
-		ship.setJitterUnder(this, JITTER_UNDER_COLOR, jitterLevel, 11, 0f, 3f + jitterRangeBonus);
+
+        ship.setJitterUnder(this, JITTER_UNDER_COLOR, jitterLevel, 11, 0f, 3f + jitterRangeBonus);
 		ship.setJitter(this, JITTER_COLOR, jitterLevel, 4, 0f, 0 + jitterRangeBonus);
-		
-		if (state == State.IN) {
-		} else if (effectLevel >= 1) {
-			Vector2f target = ship.getMouseTarget();
-			if (ship.getShipAI() != null && ship.getAIFlags().hasFlag(AIFlags.SYSTEM_TARGET_COORDS)){
-				target = (Vector2f) ship.getAIFlags().getCustom(AIFlags.SYSTEM_TARGET_COORDS);
-			}
-			if (target != null) {
-				float dist = Misc.getDistance(ship.getLocation(), target);
-				float max = getMaxRange(ship) + ship.getCollisionRadius();
-				if (dist > max) {
-					float dir = Misc.getAngleInDegrees(ship.getLocation(), target);
-					target = Misc.getUnitVectorAtDegreeAngle(dir);
-					target.scale(max);
-					Vector2f.add(target, ship.getLocation(), target);
-				}
-				
-				target = findClearLocation(ship, target);
-				
-				if (target != null) {
-					spawnMine(ship, target);
-				}
-			}
-			
-		} else if (state == State.OUT ) {
-		}
+
+		if (state == State.IN) return;
+        if (effectLevel >= 1) {
+            Vector2f target = ship.getMouseTarget();
+            if (ship.getShipAI() != null && ship.getAIFlags().hasFlag(AIFlags.SYSTEM_TARGET_COORDS)){
+                target = (Vector2f) ship.getAIFlags().getCustom(AIFlags.SYSTEM_TARGET_COORDS);
+            }
+            if (target != null) {
+                float dist = Misc.getDistance(ship.getLocation(), target);
+                float max = getMaxRange(ship) + ship.getCollisionRadius();
+                if (dist > max) {
+                    float dir = Misc.getAngleInDegrees(ship.getLocation(), target);
+                    target = Misc.getUnitVectorAtDegreeAngle(dir);
+                    target.scale(max);
+                    Vector2f.add(target, ship.getLocation(), target);
+                }
+
+                target = findClearLocation(ship, target);
+
+                if (target != null) {
+                    spawnMine(ship, target);
+                }
+            }
+
+        }
 	}
 	
 	
@@ -130,13 +120,11 @@ public class Asgard_transport_nuke extends BaseShipSystemScript implements MineS
 															  currLoc, 
 															  (float) Math.random() * 360f, null);
 		if (source != null) {
-			Global.getCombatEngine().applyDamageModifiersToSpawnedProjectileWithNullWeapon(
-											source, WeaponType.MISSILE, false, mine.getDamage());
+			Global.getCombatEngine().applyDamageModifiersToSpawnedProjectileWithNullWeapon(source, WeaponType.MISSILE, false, mine.getDamage());
 //			float extraDamageMult = source.getMutableStats().getMissileWeaponDamageMult().getModifiedValue();
 //			mine.getDamage().setMultiplier(mine.getDamage().getMultiplier() * extraDamageMult);
 		}
-		
-		
+
 		float fadeInTime = 2f;
 		mine.getVelocity().scale(0);
 		mine.fadeOutThenIn(fadeInTime);
@@ -144,9 +132,8 @@ public class Asgard_transport_nuke extends BaseShipSystemScript implements MineS
 		Global.getCombatEngine().addPlugin(createMissileJitterPlugin(mine, fadeInTime));
 		
 		//mine.setFlightTime((float) Math.random());
-		float liveTime = LIVE_TIME;
-		//liveTime = 0.01f;
-		mine.setFlightTime(mine.getMaxFlightTime() - liveTime);
+        //liveTime = 0.01f;
+		mine.setFlightTime(mine.getMaxFlightTime() - LIVE_TIME);
 		
 		Global.getSoundPlayer().playSound("system_asgard_nuke", 1f, 0.8f, mine.getLocation(), mine.getVelocity());
 	}

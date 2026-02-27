@@ -7,7 +7,7 @@
 	"center":[3,0],
 	"collisionRadius":30,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[242,194,27,220],  # purely visual, will get a white additively blended core on top of this color
+	"explosionColor":[242,124,27,220],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":350, # purely visual
 	"explosionSpec":{"duration":8f, # not visual
 					 "radius":100,
@@ -18,7 +18,7 @@
 					 "particleSizeRange":7.0,
 					 "particleDuration":3,
 					 "particleCount":200,
-					 "particleColor":[242,194,27,220]},
+					 "particleColor":[242,124,27,220]},
 #	"engineSpec":{"turnAcc":140,
 #				  "turnRate":35,
 #				  "acc":200,
@@ -42,7 +42,7 @@
 						"contrailMinSeg":5, # min segment length, in pixels
 						"contrailMaxSpeedMult":0.5f,
 						"contrailAngularVelocityMult":0.5f,
-						"contrailColor":[255,209,0,75],
+						"contrailColor":[255,129,0,75],
 						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
 					},
 				    "width":10.0,
