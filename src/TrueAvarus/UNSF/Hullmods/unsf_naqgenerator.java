@@ -9,7 +9,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
 public class unsf_naqgenerator extends BaseHullMod {
 
-	private static final float PEAK_BONUS_PERCENT = 25f;
+	private static final float PEAK_BONUS_PERCENT = 35f;
     private static final float DEGRADE_REDUCTION_PERCENT = -20f;
 
     private static final float EXPLOSION_POWER = 200f;

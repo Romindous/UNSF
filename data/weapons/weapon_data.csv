@@ -33,9 +33,9 @@ Type-2 Drone Launcher,unsf_dronelauncher,2,0.5,6500,1500,,450,,120,15,3,60,,,HIG
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #VERTICAL LAUNCH MISSILE PODS - because US navy go brrr,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10
 VLS Type-0 (pd),unsf_vls_4,0,0.5,1500,800,,75,50,120,100,2,30,2,6,FRAGMENTATION,,,0,1,6,0.10,0,0,0,0,,600,5,5,50,"DO_NOT_AIM, PD_ONLY, ANTI_FTR,","missile18, unsf_bp_wpn",,,,Anti Small Craft,Fast,Excellent,,,,,,,,14
-VLS Type-1 (small),unsf_vls_1,1,0.5,4500,1200,,650,100,50,50,5,40,,,KINETIC,,,0,10,5,0.25,0,0,0,0,,550,6,6,250,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike17, missile18, unsf_bp_wpn",,,,General,Fast,Excellent,,,,,,,,11
-VLS Type-2 (medium),unsf_vls_2,2,0.5,8000,1600,,1200,500,100,50,10,15,,,HIGH_EXPLOSIVE,,,0,15,3,0.5,0,0,0,0,,400,8,8,400,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike18, missile18, unsf_bp_wpn",,,,Against small/medium ships,,,,,,,,,,12
-VLS Type-3 (heavy),unsf_vls_3,3,0.5,25000,2000,,2500,800,250,50,14,8,,,ENERGY,,,0,25,,,0,0,0,0,,450,10,10,500,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike19, missile18, unsf_bp_wpn",,,,Against big ships,,,,,,,,,,13
+VLS Type-1 (small),unsf_vls_1,1,0.5,4500,1200,,650,100,50,50,5,40,,,KINETIC,,,0,10,5,0.25,0,0,0,0,,550,6,6,250,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike17, missile18, unsf_bp_wpn",,,,Anti Shield,Fast,Excellent,,,,,,,,11
+VLS Type-2 (medium),unsf_vls_2,2,0.5,8000,1600,,1200,500,100,50,10,15,,,HIGH_EXPLOSIVE,,,0,15,3,0.5,0,0,0,0,,400,8,8,400,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike18, missile18, unsf_bp_wpn",,,,Anti Armor,,,,,,,,,,12
+VLS Type-3 (heavy),unsf_vls_3,3,0.5,25000,2000,,2500,800,250,50,14,8,,,ENERGY,,,0,25,,,0,0,0,0,,450,10,10,500,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike19, missile18, unsf_bp_wpn",,,,General,,,,,,,,,,13
 VLS Type-X HORIZON,unsf_horizon,3,0.5,150000,2000,,3500,1000,250,50,20,1,0.01,1,ENERGY,1000,,0,40,,,0,0,0,0,,500,20,20,1000,"STRIKE, DO_NOT_AIM,","strike20, missile18, unsf_bp_wpn",,,,Superweapon,,,,,,,,,,
 # BALANCED - except costs,,,,,#balanced,,#balanced,,,,,,,,#balanced,,,,#balanced,#balanced,#balanced,,,,,,#balanced,#balanced,#balanced,,#balanced,#balanced,,,,#balanced,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

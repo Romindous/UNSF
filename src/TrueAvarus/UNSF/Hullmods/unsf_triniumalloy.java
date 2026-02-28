@@ -17,7 +17,7 @@ public class unsf_triniumalloy extends BaseHullMod {
     private static final Map<HullSize, Float> mag = new HashMap<>();
 
 	public static final float MANEUVERABILITY = 15f;
-	public static final float SMOD_MANEUVERABILITY = 15f;
+	public static final float SMOD_MANEUVERABILITY = 5f;
 
     public static final Set<String> BLOCKED = new HashSet<>();
     static {

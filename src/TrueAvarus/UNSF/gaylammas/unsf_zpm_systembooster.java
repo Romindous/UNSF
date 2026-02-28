@@ -6,9 +6,6 @@ import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.util.Misc;
-
-import java.awt.*;
 
 public class unsf_zpm_systembooster extends BaseHullMod {
 
@@ -16,7 +13,7 @@ public class unsf_zpm_systembooster extends BaseHullMod {
     public static final float FUEL_CONSUM = 40f;
     public static final float FLUX_CAPACITY = 25f;
     public static final float FLUX_DISSIPATION = 15f;
-    public static final float COMBAT_READINESS = 15f;
+    public static final float COMBAT_READINESS = 10f;
     public static final float SYSTEM_COOLDOWN = 15f;
     public static final int SYSTEM_USES = 1;
 

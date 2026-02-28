@@ -1,12 +1,13 @@
 package TrueAvarus.UNSF.ItemEffects;
 
 
-import TrueAvarus.UNSF.UNSFModPlugin;
+import java.util.List;
 import TrueAvarus.UNSF.dunno.Items;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MutableCommodityQuantity;
-import com.fs.starfarer.api.combat.MutableStat;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BoostIndustryInstallableItemEffect;
+
+import static com.fs.starfarer.api.impl.campaign.ids.Commodities.*;
 
 public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
 
@@ -19,7 +20,7 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
     private static final float ORGANICS_BONUS = 2f;
     private static final float SUPPLIES_BONUS = 2f;
     private static final float MACHINERY_BONUS = 2f;
-    private static final float SHIP_HULLS_BONUS = 2f;
+    private static final float SHIP_HULLS_BONUS = 1f;
     private static final float ARMS_BONUS = 2f;
     private static final float FUEL_BONUS = 2f;
     private static final float VOLATILES_BONUS = 2f;
@@ -31,6 +32,10 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
     private static final float FOOD_BONUS = 2f;
     private static final float MARINES_BONUS = 2f;
 
+    private static final float UPKEEP_BONUS = 35f;
+
+    private static final float DEMAND = 1f;
+
     public ZPM_POWER() {
         super(Items.UNSF_ZPM, 0, 0);
     }
@@ -39,8 +44,35 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
     public void apply(Industry industry) {
         if (industry == null) return;
 
+
+        final List<MutableCommodityQuantity> produced = industry.getAllSupply();
+
+        for (final MutableCommodityQuantity mcq : produced) {
+            mcq.getQuantity().modifyFlat(MODIFIER_ID, switch (mcq.getCommodityId()) {
+                case ORE -> ORE_BONUS;
+                case RARE_ORE -> RARE_ORE_BONUS;
+                case METALS -> METALS_BONUS;
+                case RARE_METALS -> RARE_METALS_BONUS;
+                case ORGANICS -> ORGANICS_BONUS;
+                case SUPPLIES -> SUPPLIES_BONUS;
+                case HEAVY_MACHINERY -> MACHINERY_BONUS;
+                case SHIPS -> SHIP_HULLS_BONUS;
+                case HAND_WEAPONS -> ARMS_BONUS;
+                case FUEL -> FUEL_BONUS;
+                case VOLATILES -> VOLATILES_BONUS;
+                case DRUGS -> DRUGS_BONUS;
+                case CREW -> CREW_BONUS;
+                case ORGANS -> ORGANS_BONUS;
+                case DOMESTIC_GOODS -> DOMESTIC_GOODS_BONUS;
+                case LUXURY_GOODS -> LUXURY_GOODS_BONUS;
+                case FOOD -> FOOD_BONUS;
+                case MARINES -> MARINES_BONUS;
+                default -> 1;
+            }, "ZPM BONUS");
+        }
+
         // Apply bonuses based on industry type
-        switch (industry.getId()) {
+        /*switch (industry.getId()) {
             case "millitarybase":
                 applyMillitaryBonuses(industry);
                 break;
@@ -67,15 +99,19 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
                 break;
             default:
                 break;
-        }
+        }*/
 
-        for (final MutableCommodityQuantity dm : industry.getAllDemand()) {
-            dm.getQuantity().modifyFlat(MODIFIER_ID, 1, "ZPM DEBUFF");
+        industry.getUpkeep().modifyPercent(MODIFIER_ID, UPKEEP_BONUS, "ZPM BONUS");
+
+        if (!produced.isEmpty()) {
+            for (final MutableCommodityQuantity dm : industry.getAllDemand()) {
+                dm.getQuantity().modifyFlat(MODIFIER_ID, DEMAND, "ZPM DEBUFF");
+            }
         }
     }
 
 
-    private void applyMillitaryBonuses(Industry industry) {
+    /*private void applyMillitaryBonuses(Industry industry) {
         applyBonus(industry, "crew", CREW_BONUS);
         applyBonus(industry, "marines", MARINES_BONUS);
     }
@@ -119,14 +155,18 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
 
     private void applyAgricultureBonuses(Industry industry) {
         applyBonus(industry, "food", FOOD_BONUS);
-    }
+    }*/
 
     @Override
     public void unapply(Industry industry) {
         if (industry == null) return;
 
+        for (final MutableCommodityQuantity mcq : industry.getAllSupply()) {
+            mcq.getQuantity().unmodifyFlat(MODIFIER_ID);
+        }
+
         // Remove bonuses based on industry type
-        switch (industry.getId()) {
+        /*switch (industry.getId()) {
             case "millitarybase":
                 removeMillitaryBonuses(industry);
                 break;
@@ -153,14 +193,14 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
                 break;
             default:
                 break;
-        }
+        }*/
 
         for (final MutableCommodityQuantity dm : industry.getAllDemand()) {
             dm.getQuantity().unmodifyFlat(MODIFIER_ID);
         }
     }
 
-    private void removeMillitaryBonuses(Industry industry) {
+    /*private void removeMillitaryBonuses(Industry industry) {
         removeBonus(industry, "crew");
         removeBonus(industry, "marines");
     }
@@ -201,16 +241,16 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
 
     private void removeAgricultureBonuses(Industry industry) {
         removeBonus(industry, "food");
-    }
+    }*/
 
-    private void applyBonus(Industry industry, String commodityId, float bonusAmount) {
+    /*private void applyBonus(Industry industry, String commodityId, float bonusAmount) {
         final MutableStat stat = industry.getSupply(commodityId).getQuantity();
         if (stat.getModifiedValue() > 0f) stat.modifyFlat(MODIFIER_ID, bonusAmount, "ZPM BONUS");
     }
 
     private void removeBonus(Industry industry, String commodityId) {
         industry.getSupply(commodityId).getQuantity().unmodifyFlat(MODIFIER_ID);
-    }
+    }*/
 
     @Override
     public String[] getSimpleReqs(Industry industry) {

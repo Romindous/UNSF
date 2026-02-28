@@ -16,10 +16,10 @@ import static TrueAvarus.UNSF.dunno.HullMods.UNSF_ZPM_SHIELDS;
 
 public class unsf_asgardshield extends BaseHullMod {
 	private static final String UNAPPLICABLE_REASON = "Dont cheat";
-    public static final float SHIELD_HURT = 15f;
+    public static final float SHIELD_HURT = 20f;
     public static final float SHIELD_PIERCE = 50f;
 	public static final float SHIELD_UPKEEP = 50f;
-    public static final float SHIELD_UNFOLD = 50f;
+    public static final float SHIELD_UNFOLD = 25f;
 
     public static final Set<String> BLOCKED = new HashSet<>();
     static {

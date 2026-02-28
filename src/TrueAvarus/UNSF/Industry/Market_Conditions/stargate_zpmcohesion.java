@@ -8,7 +8,7 @@ import com.fs.starfarer.api.impl.campaign.econ.BaseMarketConditionPlugin;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
 public class stargate_zpmcohesion extends BaseMarketConditionPlugin {
-    private static final float ACCESSIBILITY = 0.50f; // 25% boost in decimal
+    private static final float ACCESSIBILITY = 0.50f; // 50% boost in decimal
     private static final float INDUSTRY_DEMAND = -2f;
     private static final float STABILITY = 2f;
     private static final String DEMAND_MOD = "Stargate_demand";

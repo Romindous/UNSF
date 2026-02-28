@@ -18,7 +18,7 @@ public class unsf_asgardcpu extends BaseHullMod {
 
     public static final float WEAPON_RANGE = 25f;
     public static final float PD_RANGE = 200f;
-    public static final float BEAM_RANGE = 150f;
+    public static final float BEAM_RANGE = 250f;
 
     public static final Set<String> BLOCKED = new HashSet<>();
     static {

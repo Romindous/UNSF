@@ -15,8 +15,8 @@ public class unsf_zpm_shieldbooster extends BaseHullMod {
     private static final int ALPHA = 150;
     private static final Color SHIELD_COLOR = new Color(255, 255, 255, ALPHA);
     private static final float SHIELD_PIERCE = 0.0001f;
-    private static final float SHIELD_HURT = 25f;
-    private static final float SHIELD_UPKEEP = 50f;
+    private static final float SHIELD_HURT = 15f;
+    private static final float SHIELD_UPKEEP = 75f;
     private static final float SHIELD_UNFOLD = 100f;
 
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
