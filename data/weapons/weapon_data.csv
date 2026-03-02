@@ -27,16 +27,16 @@ Type-2 Ori Beam,unsf_ori_beam,3,0.5,10000,1000,2000,,400,0,15,14,,,,ENERGY,,2200
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #DRONE WEAPONS - very angry missile,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Type-2 Drone Launcher,unsf_dronelauncher,2,0.5,6500,1500,,450,,120,15,3,60,,,HIGH_EXPLOSIVE,30,,0,3,6,0.2,0,0,0,,,800,0,10,200,"DO_NOT_AIM, DO_NOT_CONSERVE, ANTI_FTR, MISSILE_SPREAD","missile18, unsf_bp_wpn",,,,General,,,,,,,,,,
+Type-2 Drone Launcher,unsf_dronelauncher,2,0.5,6500,1500,,250,,120,15,3,60,,,HIGH_EXPLOSIVE,30,,0,3,6,0.2,0,0,0,,,800,0,10,200,"DO_NOT_AIM, DO_NOT_CONSERVE, ANTI_FTR, MISSILE_SPREAD","missile18, unsf_bp_wpn",,,,General,,,,,,,,,,
 #Type-3 Drone Launcher - for now WIP,unsf_dronestorage,1,0.5,1500000,3000,,600,,120,15,3,500,,,HIGH_EXPLOSIVE,30,,0,0.2,10,0.01,0,0,0,,,800,0,30,800,"DO_NOT_AIM, DO_NOT_CONSERVE, MISSILE_SPREAD","missile18, unsf_bp_wpn",,,,General,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #VERTICAL LAUNCH MISSILE PODS - because US navy go brrr,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10
-VLS Type-0 (pd),unsf_vls_4,0,0.5,1500,800,,75,50,120,100,2,30,2,6,FRAGMENTATION,,,0,1,6,0.10,0,0,0,0,,600,5,5,50,"DO_NOT_AIM, PD_ONLY, ANTI_FTR,","missile18, unsf_bp_wpn",,,,Anti Small Craft,Fast,Excellent,,,,,,,,14
-VLS Type-1 (small),unsf_vls_1,1,0.5,4500,1200,,650,100,50,50,5,40,,,KINETIC,,,0,10,5,0.25,0,0,0,0,,550,6,6,250,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike17, missile18, unsf_bp_wpn",,,,Anti Shield,Fast,Excellent,,,,,,,,11
-VLS Type-2 (medium),unsf_vls_2,2,0.5,8000,1600,,1200,500,100,50,10,15,,,HIGH_EXPLOSIVE,,,0,15,3,0.5,0,0,0,0,,400,8,8,400,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike18, missile18, unsf_bp_wpn",,,,Anti Armor,,,,,,,,,,12
-VLS Type-3 (heavy),unsf_vls_3,3,0.5,25000,2000,,2500,800,250,50,14,8,,,ENERGY,,,0,25,,,0,0,0,0,,450,10,10,500,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike19, missile18, unsf_bp_wpn",,,,General,,,,,,,,,,13
-VLS Type-X HORIZON,unsf_horizon,3,0.5,150000,2000,,3500,1000,250,50,20,1,0.01,1,ENERGY,1000,,0,40,,,0,0,0,0,,500,20,20,1000,"STRIKE, DO_NOT_AIM,","strike20, missile18, unsf_bp_wpn",,,,Superweapon,,,,,,,,,,
+VLS Type-0 (pd),unsf_vls_4,0,0.5,1500,800,,75,50,120,100,2,30,2,6,FRAGMENTATION,,,0,1,4,0.10,0,0,0,0,,500,100,5,50,"DO_NOT_AIM, PD_ONLY, ANTI_FTR,","missile18, unsf_bp_wpn",,,,Anti Small Craft,Fast,Excellent,,,,,,,,14
+VLS Type-1 (small),unsf_vls_1,1,0.5,4500,1200,,200,100,50,50,5,40,,,KINETIC,,,0,15,5,0.25,0,0,0,0,,450,50,8,250,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike17, missile18, unsf_bp_wpn",,,,Anti Shield,Fast,Excellent,,,,,,,,11
+VLS Type-2 (medium),unsf_vls_2,2,0.5,8000,1600,,600,500,100,50,10,15,,,HIGH_EXPLOSIVE,,,0,20,3,0.5,0,0,0,0,,250,50,12,400,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike18, missile18, unsf_bp_wpn",,,,Anti Armor,,,,,,,,,,12
+VLS Type-3 (heavy),unsf_vls_3,3,0.5,25000,2000,,2500,800,250,50,14,8,,,ENERGY,,,0,25,,,0,0,0,0,,200,25,16,500,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike19, missile18, unsf_bp_wpn",,,,General,,,,,,,,,,13
+VLS Type-X HORIZON,unsf_horizon,3,0.5,150000,2000,,3500,1000,250,50,20,1,0.01,1,ENERGY,1000,,0,40,,,0,0,0,0,,250,25,20,1000,"STRIKE, DO_NOT_AIM,","strike20, missile18, unsf_bp_wpn",,,,Superweapon,,,,,,,,,,
 # BALANCED - except costs,,,,,#balanced,,#balanced,,,,,,,,#balanced,,,,#balanced,#balanced,#balanced,,,,,,#balanced,#balanced,#balanced,,#balanced,#balanced,,,,#balanced,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

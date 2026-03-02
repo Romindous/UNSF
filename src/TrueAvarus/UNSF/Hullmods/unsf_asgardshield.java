@@ -8,7 +8,6 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
-import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import org.magiclib.util.MagicIncompatibleHullmods;
 
 import static TrueAvarus.UNSF.dunno.HullMods.UNSF_ASGARD_SHIELD;
@@ -16,10 +15,10 @@ import static TrueAvarus.UNSF.dunno.HullMods.UNSF_ZPM_SHIELDS;
 
 public class unsf_asgardshield extends BaseHullMod {
 	private static final String UNAPPLICABLE_REASON = "Dont cheat";
-    public static final float SHIELD_HURT = 20f;
-    public static final float SHIELD_PIERCE = 50f;
-	public static final float SHIELD_UPKEEP = 50f;
-    public static final float SHIELD_UNFOLD = 25f;
+    public static final float SHIELD_HURT = 25f;
+	public static final float SHIELD_UPKEEP = 25f;
+    public static final float SHIELD_UNFOLD = 50f;
+    public static final float SHIELD_ARC = 30f;
 
     public static final Set<String> BLOCKED = new HashSet<>();
     static {
@@ -40,7 +39,8 @@ public class unsf_asgardshield extends BaseHullMod {
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		stats.getShieldDamageTakenMult().modifyPercent(id, -SHIELD_HURT);
-		stats.getDynamic().getStat(Stats.SHIELD_PIERCED_MULT).modifyPercent(id, -SHIELD_PIERCE);
+//		stats.getDynamic().getStat(Stats.SHIELD_PIERCED_MULT).modifyPercent(id, -SHIELD_PIERCE);
+        stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC);
         stats.getShieldUpkeepMult().modifyPercent(id, SHIELD_UPKEEP);
         stats.getShieldUnfoldRateMult().modifyPercent(id, -SHIELD_UNFOLD);
 	}
@@ -48,7 +48,7 @@ public class unsf_asgardshield extends BaseHullMod {
 	public String getDescriptionParam(int index, HullSize hullSize) {
         return switch (index) {
             case 0 -> (int) SHIELD_HURT + "%";
-            case 1 -> (int) SHIELD_PIERCE + "%";
+            case 1 -> (int) SHIELD_ARC + "";
             case 2 -> (int) SHIELD_UPKEEP + "%";
             case 3 -> (int) SHIELD_UNFOLD + "%";
             default -> null;

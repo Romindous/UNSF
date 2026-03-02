@@ -1,36 +1,36 @@
 name,id,designation,tech/manufacturer,system id,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,fighter bays,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,range,max burn,base value,cr %/day,CR to deploy,peak CR sec,CR loss/sec,supplies/rec,supplies/mo,c/s,c/f,f/s,f/f,crew/s,crew/f,hints,tags,rarity,breakProb,minPieces,maxPieces,travel drive,number
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #FRIGATES,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fenrir,unsf_Fenrir,Frigate,UNSF Tech,maneuveringjets,14,1500,130,3300,4167,270,65,,100,50,50,20,20,300,FRONT,,180,0.2,1,,,5,8,50,20,1,40,6,10000,3,3,180,,5,5,,,,,,,"COMBAT,",unsf_bp_hull,,1,2,4,,505
-Prometheus,unsf_prometheus,Heavy Frigate,UNSF Tech,maneuveringjets,14,3500,350,3300,4167,270,100,1,70,35,35,18,18,800,FRONT,,180,0.2,1,,,45,60,100,70,1,40,6,30000,3,3,180,,5,5,,,,,,,"COMBAT, CARRIER,",unsf_bp_hull,,1,2,4,,401
+Fenrir,unsf_Fenrir,Frigate,UNSF Tech,ammofeed,6,1600,120,3200,1875,240,65,,120,100,80,40,80,250,FRONT,,160,0.2,1,,,20,25,50,20,1,25,10,15000,5,5,200,0.25,5,5,,,,,,,"COMBAT,",unsf_bp_hull,,1,2,4,,212
+Prometheus,unsf_prometheus,Heavy Frigate,UNSF Tech,damper,10,3500,350,2800,1875,200,80,1,100,60,40,25,40,400,OMNI,,150,0.2,1,,,45,60,100,70,1,40,9,28000,5,5,180,0.25,6,6,,,,,,,"COMBAT, CARRIER,",unsf_bp_hull,,1,2,4,,252
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Vanguard - heavy frigate,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Aegis - dedicated antiair,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #DESTEROYERS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Abydos freighter,unsf_abydos,Medium freighter,UNSF Tech,maneuveringjets,10,4000,450,4000,2250,450,150,,60,30,30,16,16,1500,OMNI,,120,0.4,1,,,25,450,750,750,1,40,6,75000,3,6,180,,20,20,,,,,,,"CIVILIAN, FREIGHTER,",unsf_bp_hull,,1,2,4,,401
-Tempest freighter,unsf_tempest,Medium freighter,UNSF Tech,maneuveringjets,8,2500,350,4000,2250,450,150,,50,25,25,16,16,1000,OMNI,,120,0.2,1,,,15,20,250,250,1,40,6,50000,3,6,180,,20,20,,,,,,,"CIVILIAN, FREIGHTER, TANKER, SHIP_WITH_MODULES",unsf_bp_hull,,1,2,4,,401
-Dauntless crew tender,unsf_dauntless,Crew tender,UNSF Tech,maneuveringjets,10,4000,400,4000,2250,450,150,,60,30,30,16,16,1700,OMNI,,120,0.2,1,,,15,750,150,150,1,40,6,75000,3,6,180,,20,20,,,,,,,"CIVILIAN, LINER,",unsf_bp_hull,,1,2,4,,401
+Abydos freighter,unsf_abydos,Medium freighter,UNSF Tech,damper,8,6000,550,4000,2250,250,90,,75,50,40,20,40,800,OMNI,,90,0.25,1,,,50,250,750,750,2,45,9,50000,5,10,240,0.25,8,8,,,,,,,"CIVILIAN, FREIGHTER,",unsf_bp_hull,,1,2,4,,322
+Tempest freighter,unsf_tempest,Medium freighter,UNSF Tech,flarelauncher,8,2500,350,3600,2250,200,80,,60,45,25,15,30,1000,OMNI,,120,0.2,1,,,25,40,250,250,2.5,50,8,80000,5,10,240,0.25,12,12,,,,,,,"CIVILIAN, FREIGHTER, TANKER, SHIP_WITH_MODULES",unsf_bp_hull,,1,2,4,,332
+Dauntless crew tender,unsf_dauntless,Crew tender,UNSF Tech,microburn,12,4500,450,4800,2250,450,100,,80,60,50,25,45,750,FRONT,,180,0.2,1,,,75,750,250,250,2,45,9,75000,5,10,240,0.25,10,10,,,,,,,"CIVILIAN, LINER,",unsf_bp_hull,,1,2,4,,312
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Valkyrie - invasion vessel,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Phalanx - dedicated anti-destroyer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #CRUISERS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Daedalus cruiser,unsf_daedalus,Cruiser,UNSF Tech,Asgard_transport_nuke,23,10000,900,10000,5000,400,370,3,50,25,25,15,15,2000,OMNI,,120,0.2,1,,,120,140,200,300,3,50,6,200000,3,12,180,0.25,20,20,,,,,,,"CARRIER, COMBAT,",unsf_bp_hull,,1,4,8,,103
-Daedalus carrier refit,unsf_daedalus_refit,Battlecarrier,UNSF Tech,recalldevice2,24,9000,955,8000,4167,300,370,6,45,25,25,14,14,2200,OMNI,,120,0.2,1,,,250,270,200,300,3,50,6,250000,3,12,180,0.25,20,20,,,,,,,"COMBAT, CARRIER,",unsf_bp_hull,,1,4,8,,200
-Helios heavy cruiser,unsf_helios,Heavy cruiser,UNSF Tech,burndrive,26,12000,1100,12850,11000,600,450,,40,20,20,12,12,2500,OMNI,,120,0.2,1,,,95,110,1200,1200,5,50,6,300000,3,12,180,0.25,20,20,,,,,,,"COMBAT,",unsf_bp_hull,,1,4,8,,402
+Daedalus cruiser,unsf_daedalus,Cruiser,UNSF Tech,Asgard_transport_nuke,18,10000,900,10000,5000,500,165,2,60,45,25,20,25,1600,OMNI,,120,0.2,1,,,140,250,200,250,3,40,8,160000,5,15,280,0.25,21,21,,,,,,,"CARRIER, COMBAT,",unsf_bp_hull,,1,4,8,,412
+Daedalus carrier refit,unsf_daedalus_refit,Battlecarrier,UNSF Tech,recalldevice2,18,8000,850,8000,4167,450,165,4,55,40,20,20,25,1600,FRONT,,160,0.2,1,,,150,250,200,250,3,40,8,160000,5,15,280,0.25,21,21,,,,,,,"COMBAT, CARRIER,",unsf_bp_hull,,1,4,8,,412
+Helios heavy cruiser,unsf_helios,Heavy cruiser,UNSF Tech,burndrive,20,12500,1100,12500,11000,650,180,,45,25,15,15,20,2000,OMNI,,120,0.2,1,,,250,400,1200,1200,5,45,8,250000,5,15,280,0.25,24,24,,,,,,,"COMBAT,",unsf_bp_hull,,1,4,8,,452
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Perseus - something something drones,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Icarus - high tech helios,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Phonenix - high tech daedalus,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #FREIGHTERS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hyperion freighter,unsf_hyperion,Heavy freighter,UNSF Tech,flarelauncher,12,9500,350,4000,5000,200,100,2,35,17,17,7,7,3000,OMNI,,90,0.2,1,,,50,60,2500,400,6,70,6,150000,3,20,180,0.25,15,15,,,,,,,"CIVILIAN, FREIGHTER",unsf_bp_hull,,1,4,8,,502
+Hyperion freighter,unsf_hyperion,Heavy freighter,UNSF Tech,flarelauncher,12,9500,350,4000,5000,200,100,2,35,17,17,7,7,3000,OMNI,,90,0.2,1,,,50,60,2500,400,6,70,6,150000,5,20,180,0.25,15,15,,,,,,,"CIVILIAN, FREIGHTER",unsf_bp_hull,,1,4,8,,512
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #BATTLE CRUISERS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Astraios,unsf_astraios,Battlecruiser,UNSF Tech,Asgard_transport_sat,28,16500,1500,15300,15000,700,400,,45,20,20,6,6,3500,OMNI,,120,0.2,1,,,450,650,4500,4500,5,70,6,650000,3,6,180,0.25,40,40,,,,,,,"COMBAT,",unsf_bp_hull,,1,6,10,,200
+Astraios,unsf_astraios,Battlecruiser,UNSF Tech,Asgard_transport_sat,28,16500,1500,15300,15000,700,400,,45,20,20,6,6,3500,OMNI,,120,0.2,1,,,450,650,4500,4500,5,70,6,650000,5,6,180,0.25,40,40,,,,,,,"COMBAT,",unsf_bp_hull,,1,6,10,,200
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Aquila - flight deck carrier,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Titan - tank among ships,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -40,7 +40,7 @@ Offensive satellite,unsf_sat,Frigate,UNSF Tech,,0,500,50,8000,4167,300,420,,15,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #SUPER-CAPITAL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Zenith,unsf_zenith,Capital Ship,UNSF Tech,ammofeed,200,40000,4000,30000,15000,500,450,,45,25,25,8,8,5000,OMNI,,100,0.1,1,,,1200,1500,1000,1500,15,100,6,8000000,7,15,1080,0.45,100,100,,,,,,,"COMBAT, SHIP_WITH_MODULES, RENDER_ENGINES_BELOW_HULL",,,1,6,10,,505
+Zenith,unsf_zenith,Capital Ship,UNSF Tech,ammofeed,200,40000,4000,30000,15000,500,450,,45,25,25,8,8,5000,OMNI,,100,0.1,1,,,1200,1500,1000,1500,15,100,6,8000000,7,20,1080,0.45,100,100,,,,,,,"COMBAT, SHIP_WITH_MODULES, RENDER_ENGINES_BELOW_HULL",,,1,6,10,,522
 Armor Module AFL,unsf_zenith_AFL,Front armor L,UNSF Tech,,0,8000,800,1500,5000,200,100,,0,0,0,0,0,1500,NONE,,0,0.1,1,,,0,0,0,0,1,0,,75000,,1,840,0.25,0,0,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX, UNDER_PARENT,",module_hull_bar_only,,1,2,4,,506
 Armor Module AFR,unsf_zenith_AFR,Front armor R,UNSF Tech,,0,8000,800,1500,5000,200,100,,0,0,0,0,0,1500,NONE,,0,0.1,1,,,0,0,0,0,1,0,,75000,,1,840,0.25,0,0,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX, UNDER_PARENT,",module_hull_bar_only,,1,2,4,,506
 Armor Module ABL,unsf_zenith_ABL,Back armor L,UNSF Tech,,0,8000,800,1500,5000,200,100,,0,0,0,0,0,1500,NONE,,0,0.1,1,,,0,0,0,0,1,0,,75000,,1,840,0.25,0,0,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX, UNDER_PARENT,",module_hull_bar_only,,1,2,4,,506
@@ -73,7 +73,7 @@ D-302,unsf_defense_drone,,UNSF Tech,flarelauncher_fighter,,600,100,800,,100,0,,2
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#maneuveringjets fastmissileracks flarelauncher damper ammofeed fastmissileracks highenergyfocus reservewing,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Xyphos,xyphos,,High Tech,,,450,50,600,,50,0,,160,300,250,90,180,30,OMNI,,160,0,1,,,2,2,,,,,,,,,,,,,,,,,,,,,,0,,,,103
 #Wolf,wolf,Frigate,High Tech,displacer,5,1500,150,2250,1875,150,55,,150,130,100,60,120,200,FRONT,,150,0.4,0.7,,,15,30,50,20,1,20,10,12000,10,20,180,0.25,5,5,,,,,,,,"hightech_bp, merc, ind",,0.5,2,2,,200

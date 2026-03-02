@@ -9,14 +9,14 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
 public class unsf_naqgenerator extends BaseHullMod {
 
-	private static final float PEAK_BONUS_PERCENT = 35f;
-    private static final float DEGRADE_REDUCTION_PERCENT = -20f;
+	private static final float PEAK_PERF_TIME = 100f;
+    private static final float PPT_CR_LOSS = 45f;
 
-    private static final float EXPLOSION_POWER = 200f;
+    private static final float EXPLOSION_POWER = 500f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getPeakCRDuration().modifyPercent(id, PEAK_BONUS_PERCENT);
-		stats.getCRLossPerSecondPercent().modifyPercent(id, DEGRADE_REDUCTION_PERCENT);
+		stats.getPeakCRDuration().modifyFlat(id, PEAK_PERF_TIME);
+		stats.getCRLossPerSecondPercent().modifyPercent(id, -PPT_CR_LOSS);
 
         final float power = EXPLOSION_POWER / impactOf(hullSize);
         stats.getDynamic().getStat(Stats.EXPLOSION_RADIUS_MULT).modifyPercent(id, power);
@@ -26,8 +26,8 @@ public class unsf_naqgenerator extends BaseHullMod {
 
 	public String getDescriptionParam(int index, HullSize hullSize) {
         return switch (index) {
-            case 0 -> (int) PEAK_BONUS_PERCENT + "%";
-            case 1 -> (int) DEGRADE_REDUCTION_PERCENT + "%";
+            case 0 -> (int) PEAK_PERF_TIME + "";
+            case 1 -> (int) PPT_CR_LOSS + "%";
             case 2 -> ((int) EXPLOSION_POWER / impactOf(hullSize)) + "%";
             default -> null;
         };

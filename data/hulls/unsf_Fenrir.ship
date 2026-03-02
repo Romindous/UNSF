@@ -26,8 +26,8 @@
             "id": "WS 000",
             "size": "MEDIUM",
             "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 228,
+            "mount": "HARDPOINT",
+            "arc": 30,
             "angle": 0,
             "locations": [
                    -44.5,    -22.5
@@ -37,8 +37,8 @@
             "id": "WS 001",
             "size": "MEDIUM",
             "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 228,
+            "mount": "HARDPOINT",
+            "arc": 30,
             "angle": 0,
             "locations": [
                    -44.5,     22.5
@@ -49,7 +49,7 @@
             "size": "SMALL",
             "type": "BALLISTIC",
             "mount": "TURRET",
-            "arc": 359,
+            "arc": 270,
             "angle": 0,
             "locations": [
                        9,      0.5
@@ -60,7 +60,7 @@
             "size": "SMALL",
             "type": "BALLISTIC",
             "mount": "TURRET",
-            "arc": 359,
+            "arc": 270,
             "angle": 0,
             "locations": [
                     -8.5,      0.5
@@ -71,7 +71,7 @@
             "size": "MEDIUM",
             "type": "BUILT_IN",
             "mount": "HIDDEN",
-            "arc": 91,
+            "arc": 90,
             "angle": 0,
             "locations": [
                     71.5,      0.5
