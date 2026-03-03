@@ -10,25 +10,22 @@ import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.abilities.BaseDurationAbility;
 import com.fs.starfarer.api.impl.campaign.ids.Pings;
 import com.fs.starfarer.api.impl.campaign.tutorial.TutorialMissionIntel;
-import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 public class HyperspaceWindowGenerator extends BaseDurationAbility {
-	private Vector2f lockedDirection = null; // Variable to store initial direction
+	public static final Color FUEL_CLR = Global.getSettings().getColor("progressBarFuelColor");
+	private static final float EXTRA_DST = 1000f;
+	private static final float MIN_SPEED = 100f;
+	private static final float FUEL_USE_MULT = 2f;
+	private static final boolean HYPER_TO_SYSTEM = true;
+	private static final boolean SYSTEM_TO_HYPER = true;
 
-	public static final float FUEL_USE_MULT = 2f;
-	protected boolean canUseToJumpToHyper() {
-		return true;
-	}
-	protected boolean canUseToJumpToSystem() {
-		return true;
-	}
-	protected Boolean primed = null;
-	protected EveryFrameScript ping = null;
+	private Vector2f lockedDirection = null; // Variable to store initial direction
+	private Boolean primed = null;
+	private EveryFrameScript ping = null;
 
 	@Override
 	protected void activateImpl() {
@@ -39,7 +36,7 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 		if (fleet.isInHyperspaceTransition()) return;
 
 		// Check if fleet is in hyperspace and can jump to a system
-		if (fleet.isInHyperspace() && canUseToJumpToSystem()) {
+		if (fleet.isInHyperspace() && HYPER_TO_SYSTEM) {
 			// Start priming the jump
 			ping = Global.getSector().addPing(fleet, Pings.TRANSVERSE_JUMP);
 			primed = true;
@@ -61,14 +58,14 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 				float distanceInFront = 170f; // Distance in front of the fleet
 				float facing = fleet.getFacing();
 				Vector2f forwardOffset = new Vector2f(
-						(float) Math.cos(Math.toRadians(facing)) * distanceInFront,
-						(float) Math.sin(Math.toRadians(facing)) * distanceInFront
+					(float) Math.cos(Math.toRadians(facing)) * distanceInFront,
+					(float) Math.sin(Math.toRadians(facing)) * distanceInFront
 				);
 
 				// Calculate the base particle position in front of the fleet
 				Vector2f baseParticlePosition = new Vector2f(
-						fleet.getLocation().x + forwardOffset.x,
-						fleet.getLocation().y + forwardOffset.y
+					fleet.getLocation().x + forwardOffset.x,
+					fleet.getLocation().y + forwardOffset.y
 				);
 
 				// Add a random offset to the particle position for a more organic look
@@ -76,8 +73,8 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 				float randomOffsetY = (float) (Math.random() * 30 - 15); // Random offset between -15 and 15
 
 				Vector2f particlePosition = new Vector2f(
-						baseParticlePosition.x + randomOffsetX,
-						baseParticlePosition.y + randomOffsetY
+					baseParticlePosition.x + randomOffsetX,
+					baseParticlePosition.y + randomOffsetY
 				);
 
 				// Set particle parameters for effect
@@ -90,8 +87,8 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 				Misc.addGlowyParticle(location, particlePosition, particleVelocity, initialSize, rampUp, duration, particleColor);
 			}
 
-		} else if (!fleet.isInHyperspace() && canUseToJumpToHyper() &&
-				fleet.getContainingLocation() instanceof StarSystemAPI) {
+		} else if (!fleet.isInHyperspace() && SYSTEM_TO_HYPER &&
+			fleet.getContainingLocation() instanceof StarSystemAPI) {
 			ping = Global.getSector().addPing(fleet, Pings.TRANSVERSE_JUMP);
 			primed = true;
 			// Play sound when ability is primed
@@ -112,14 +109,14 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 				float distanceInFront = 170f; // Distance in front of the fleet
 				float facing = fleet.getFacing();
 				Vector2f forwardOffset = new Vector2f(
-						(float) Math.cos(Math.toRadians(facing)) * distanceInFront,
-						(float) Math.sin(Math.toRadians(facing)) * distanceInFront
+					(float) Math.cos(Math.toRadians(facing)) * distanceInFront,
+					(float) Math.sin(Math.toRadians(facing)) * distanceInFront
 				);
 
 				// Calculate the base particle position in front of the fleet
 				Vector2f baseParticlePosition = new Vector2f(
-						fleet.getLocation().x + forwardOffset.x,
-						fleet.getLocation().y + forwardOffset.y
+					fleet.getLocation().x + forwardOffset.x,
+					fleet.getLocation().y + forwardOffset.y
 				);
 
 				// Add a random offset to the particle position for a more organic look
@@ -127,8 +124,8 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 				float randomOffsetY = (float) (Math.random() * 30 - 15); // Random offset between -15 and 15
 
 				Vector2f particlePosition = new Vector2f(
-						baseParticlePosition.x + randomOffsetX,
-						baseParticlePosition.y + randomOffsetY
+					baseParticlePosition.x + randomOffsetX,
+					baseParticlePosition.y + randomOffsetY
 				);
 
 				// Set particle parameters for effect
@@ -140,8 +137,6 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 				// Add the glowing particle effect on the campaign map
 				Misc.addGlowyParticle(location, particlePosition, particleVelocity, initialSize, rampUp, duration, particleColor);
 			}
-
-
 		} else {
 			deactivate();
 		}
@@ -165,9 +160,6 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 		//AT THE SAME TIME IT LOCKS DIRECTION OF FLEET SO FLEET SLAMS INTO HYPERSPACE WINDOW
 		//CHAT GPT DID THIS SO LETS HOPE IT WONT BREAK SOMETHING IMPORTANT
 
-		// Set minimum speed threshold
-		float minSpeed = 100f;  // Adjust this to your desired minimum speed
-
 		if (level > 0 && level < 1 && amount > 0) {
 			float activateSeconds = getActivationDays() * Global.getSector().getClock().getSecondsPerDay();
 			float speed = fleet.getVelocity().length();
@@ -187,15 +179,15 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 			float ds = acc * amount;
 
 			// Adjust ds to prevent speed from dropping below minSpeed
-			if (speed - ds < minSpeed) {
-				ds = speed - minSpeed;  // Ensure final speed equals minSpeed
+			if (speed - ds < MIN_SPEED) {
+				ds = speed - MIN_SPEED;  // Ensure final speed equals minSpeed
 			} else if (ds > speed) {
 				ds = speed; // Cap ds to speed to prevent increasing speed
 			}
 
 			// Scale locked direction to new speed and apply it
 			Vector2f newVelocity = new Vector2f(lockedDirection);
-			newVelocity.scale(Math.max(speed - ds, minSpeed)); // Ensure it doesn't drop below minSpeed
+			newVelocity.scale(Math.max(speed - ds, MIN_SPEED)); // Ensure it doesn't drop below minSpeed
 
 			// Set the new velocity
 			fleet.setVelocity(newVelocity.x, newVelocity.y);
@@ -208,77 +200,76 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 			lockedDirection = null;
 		}
 
-		if (level == 1 && primed != null) {
-			// Get the nearest star system to jump into
-			StarSystemAPI nearestStar = findNearestStar();
+		if (level != 1 || primed == null) return;
 
-			if (nearestStar != null && fleet.isInHyperspace() && canUseToJumpToSystem()) {
-				// Get the location of the player fleet
-				Vector2f fleetLocation = fleet.getLocation();
+		if (!fleet.isInHyperspace()) {
+            if (!SYSTEM_TO_HYPER || !(fleet.getContainingLocation() instanceof
+				final StarSystemAPI system) || system.getHyperspaceAnchor() == null) {
+				primed = null;
+				return;
+            }
+			// System exit to hyperspace
+			float cost = computeFuelCost();
+			fleet.getCargo().removeFuel(cost);
 
-				// Calculate the distance scaling based on the distance to the nearest star and its maximum radius
-				float distanceToStar = MathUtils.getDistance(fleetLocation, nearestStar.getLocation());
-				float distScale = distanceToStar / nearestStar.getMaxRadiusInHyperspace();
+			final Vector2f distSystem = Vector2f.sub(fleet.getLocation(), system.getCenter().getLocation(), null);
+			final float inSysFactor = Math.max(distFactor(system), 1);
 
-				// Calculate the entry distance in the system based on the scaling factor
-				float distInSystem = distScale * 25000f; // Using the provided magic number for system width
+			// Scaling factor constrained to 0.5f maximum
+			final Vector2f distHyper = (Vector2f) distSystem.scale(1f / inSysFactor);
 
-				// Calculate the angle between the nearest star and the player fleet
-				float angle = VectorUtils.getAngle(nearestStar.getLocation(), fleetLocation);
+			// Place fleet in hyperspace with calculated offset
+			SectorEntityToken token = Global.getSector().getHyperspace()
+				.createToken(Vector2f.add(system.getLocation(), distHyper, null));
 
-				// Determine the exact location to jump into the star system
-				Vector2f entryLocation = MathUtils.getPointOnCircumference(Misc.ZERO, distInSystem, angle);
-
-				// Create a jump destination at the calculated location
-				SectorEntityToken token = nearestStar.createToken(entryLocation.x, entryLocation.y);
-				JumpDestination destination = new JumpDestination(token, null);
-
-				// Perform the hyperspace transition
-				Global.getSector().doHyperspaceTransition(fleet, fleet, destination);
-
-
-			} else if (!fleet.isInHyperspace() && canUseToJumpToHyper()
-				&& fleet.getContainingLocation() instanceof final StarSystemAPI system) {
-				// System exit to hyperspace
-				float cost = computeFuelCost();
-				fleet.getCargo().removeFuel(cost);
-
-                Vector2f offset = Vector2f.sub(fleet.getLocation(), system.getCenter().getLocation(), new Vector2f());
-
-				float maxInSystem = 20000f;
-				float maxInHyper = 2000f;
-
-				// Scaling factor constrained to 0.5f maximum
-				float f = Math.min(offset.length() / maxInSystem, 0.5f);
-
-				// Calculate angle and offset for exit position in hyperspace
-				float angle = Misc.getAngleInDegreesStrict(offset);
-				Vector2f destOffset = Misc.getUnitVectorAtDegreeAngle(angle);
-				destOffset.scale(f * maxInHyper);
-
-				// Place fleet in hyperspace with calculated offset
-				Vector2f.add(system.getLocation(), destOffset, destOffset);
-				SectorEntityToken token = Global.getSector().getHyperspace().createToken(destOffset.x, destOffset.y);
-
-				JumpDestination dest = new JumpDestination(token, null);
-				Global.getSector().doHyperspaceTransition(fleet, fleet, dest);
-
-			}
-			primed = null;
+            Global.getSector().doHyperspaceTransition(fleet, fleet, new JumpDestination(token, null));
+            primed = null;
+			return;
 		}
+
+		// Get the nearest star system to jump into
+		StarSystemAPI system = findNearestStar();
+        if (system == null || !HYPER_TO_SYSTEM) {
+			primed = null;
+			return;
+        }
+
+		final Vector2f distHyper = Vector2f.sub(fleet.getLocation(), system.getLocation(), null);
+		final float inSysFactor = Math.max(distFactor(system), 1);
+
+		final Vector2f distSystem = (Vector2f) distHyper.scale(inSysFactor);
+
+        // Perform the hyperspace transition
+		Global.getSector().doHyperspaceTransition(fleet, fleet,
+			new JumpDestination(system.createToken(distSystem), null));
+
+		primed = null;
+	}
+
+	private static final float DEF_FACTOR = 10f;
+	private float distFactor(final StarSystemAPI system) {
+		if (system.getAutogeneratedJumpPointsInHyper().isEmpty()) return DEF_FACTOR;
+		Vector2f ftSum = new Vector2f(); int ftCnt = 0;
+		for (final JumpPointAPI jp : system.getAutogeneratedJumpPointsInHyper()) {
+			if (jp.getDestinations().isEmpty()) continue;
+			final JumpDestination jd = jp.getDestinations().getFirst();
+//			if (jp.getContainingLocation() == null) continue;
+			final Vector2f inSl = jd.getDestination().getLocation(), outSl = jp.getLocation();
+			Vector2f.add(ftSum, new Vector2f(inSl.x / outSl.x, inSl.y / outSl.y), ftSum);
+			ftCnt++;
+		}
+		return ftCnt == 0 ? DEF_FACTOR : ftSum.length() / ftCnt;
 	}
 
 	private StarSystemAPI findNearestStar() {
 		CampaignFleetAPI fleet = getFleet();
 		StarSystemAPI nearestStar = null;
 		float minDistance = Float.MAX_VALUE;
-		float maxDistance = 3000f;  // Example max distance in hyperspace units
-
 		for (StarSystemAPI system : Global.getSector().getStarSystems()) {
 			final SectorEntityToken anchor = system.getHyperspaceAnchor();
 			if (anchor == null) continue;
 			float distance = MathUtils.getDistance(fleet.getLocation(), anchor.getLocation());
-			if (distance < minDistance && distance <= maxDistance) {
+			if (distance < minDistance && distance < system.getMaxRadiusInHyperspace() + EXTRA_DST) {
 				minDistance = distance;
 				nearestStar = system;
 			}
@@ -313,27 +304,11 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 
 		if (TutorialMissionIntel.isTutorialInProgress()) return false;
 
-		// Check for the nearest star
-		StarSystemAPI nearestStar = findNearestStar();
-		float distanceToStar = Float.MAX_VALUE; // Initialize to a large value
-
-		// Calculate the distance to the nearest star if it exists
-		if (nearestStar != null) {
-			distanceToStar = MathUtils.getDistance(fleet.getLocation(), nearestStar.getLocation());
-		}
-
-		// Check if the fleet can jump to the system and is in hyperspace while being more than 1500 units from the star
-		if (canUseToJumpToSystem() && fleet.isInHyperspace() && distanceToStar < 1500f) {
-			return true;
-		}
-
-		// Check if the fleet can jump to hyperspace
-		if (canUseToJumpToHyper() && !fleet.isInHyperspace()) {
-            return fleet.isAIMode() || computeFuelCost() <= fleet.getCargo().getFuel();
-		}
-
-		return false;
-	}
+        if (fleet.isInHyperspace())
+			return HYPER_TO_SYSTEM && findNearestStar() != null;
+        else return SYSTEM_TO_HYPER
+			&& (fleet.isAIMode() || computeFuelCost() <= fleet.getCargo().getFuel());
+    }
 
 	/*
 	public NascentGravityWellAPI getNearestWell(float maxDist) {
@@ -363,29 +338,20 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 		CampaignFleetAPI fleet = getFleet();
 		if (fleet == null) return;
 
-		Color gray = Misc.getGrayColor();
-		Color highlight = Misc.getHighlightColor();
-		Color fuel = Global.getSettings().getColor("progressBarFuelColor");
-		Color bad = Misc.getNegativeHighlightColor();
-
-		LabelAPI title = tooltip.addTitle("Hyperspace window generator");
+		tooltip.addTitle("Hyperspace Window Generator");
 
 		tooltip.addPara("Jump into hyperspace without the use of a jump-point, or " +
-						"jump into a star system across the hyperspace boundary near a nascent gravity well, " +
-						"emerging near the entity corresponding to the gravity well.", Format.PAD);
+			"jump into a star system across hyperspace, exiting at an approximately " +
+			"similar location, relative to the celestial body.", Format.PAD);
 
 		float fuelCost = computeFuelCost();
 
 		if (!fleet.isInHyperspace()) {
 			if (fuelCost > fleet.getCargo().getFuel()) {
-				tooltip.addPara("Not enough fuel.", bad, Format.PAD);
+				tooltip.addPara("Not enough fuel.", Format.BAD, Format.PAD);
 			}
 		}
 		addIncompatibleToTooltip(tooltip, expanded);
-	}
-
-	public boolean hasTooltip() {
-		return true;
 	}
 
 	@Override
@@ -405,7 +371,7 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 		CampaignFleetAPI fleet = getFleet();
 		if (fleet == null) return 0f;
 
-        return fleet.getLogistics().getFuelCostPerLightYear() * FUEL_USE_MULT;
+		return fleet.getLogistics().getFuelCostPerLightYear() * FUEL_USE_MULT;
 	}
 
 	@Override
