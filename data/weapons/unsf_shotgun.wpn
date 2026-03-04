@@ -7,6 +7,7 @@
   "turretSprite": "graphics/weapons/unsf_shotgun_turret.png",
   "turretGunSprite": "graphics/weapons/unsf_shotgun_barrel.png",
   "hardpointSprite": "graphics/weapons/unsf_shotgun_turret.png",
+  "hardpointGunSprite": "graphics/weapons/unsf_shotgun_barrel.png",
   "visualRecoil": 10,
   "separateRecoilForLinkedBarrels":true,
   "renderHints":[RENDER_BARREL_BELOW],
@@ -51,8 +52,30 @@
     0
   ],
   "hardpointOffsets": [
-    0,
-    0
+    26.5,
+    2.5,
+    26.5,
+    1.5,
+    26.5,
+    0.5,
+    25.5,
+    2.5,
+    25.5,
+    -2.5,
+    26.5,
+    -0.5,
+    26.5,
+    -1.5,
+    25.5,
+    -1.5,
+    26.5,
+    -2.5,
+    25.5,
+    0.5,
+    25.5,
+    1.5,
+    25.5,
+    -0.5
   ],
   "hardpointAngleOffsets": [
     0

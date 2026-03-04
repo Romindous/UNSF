@@ -9,6 +9,8 @@
   "turretGunSprite": "graphics/weapons/flak_big_recoil.png",
   "turretUnderSprite": "graphics/weapons/flak_big_base.png",
   "hardpointSprite": "graphics/weapons/flak_big_turret.png",
+  "hardpointGunSprite": "graphics/weapons/flak_big_recoil.png",
+  "hardpointUnderSprite": "graphics/weapons/flak_big_base.png",
   "visualRecoil": 10,
   "renderHints":[RENDER_BARREL_BELOW],
   "turretOffsets": [
@@ -22,8 +24,10 @@
     0
   ],
   "hardpointOffsets": [
-    0,
-    0
+    19,
+    3,
+    19,
+    -3
   ],
   "hardpointAngleOffsets": [
     0

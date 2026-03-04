@@ -7,6 +7,7 @@
   "turretSprite": "graphics/weapons/unsf_railgun_small.png",
   "turretGunSprite": "graphics/weapons/unsf_railgun_small_recoil.png",
   "hardpointSprite": "graphics/weapons/unsf_railgun_small.png",
+  "hardpointGunSprite": "graphics/weapons/unsf_railgun_small_recoil.png",
   "visualRecoil": 1,
   "renderHints":[RENDER_BARREL_BELOW],
   "turretOffsets": [
@@ -17,7 +18,7 @@
     0
   ],
   "hardpointOffsets": [
-    0,
+    7.5,
     0
   ],
   "hardpointAngleOffsets": [
