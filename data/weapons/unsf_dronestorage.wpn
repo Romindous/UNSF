@@ -5,9 +5,9 @@
   "type": "MISSILE",
   "mountTypeOverride": "MISSILE",
   "size": "LARGE",
-  "turretSprite": "graphics/weapons/null.png",
+  "turretSprite": "graphics/weapons/flak_big_base.png",
   "turretUnderSprite": "graphics/weapons/flak_big_base.png",
-  "hardpointSprite": "",
+  "hardpointSprite": "graphics/weapons/flak_big_base.png",
   "turretOffsets": [
     8.5,
     -1,

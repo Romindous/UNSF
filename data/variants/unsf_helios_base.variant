@@ -7,6 +7,7 @@
     "hullMods": [
         "unsf_asgardcpu",
         "unsf_asgardhyperdrive",
+        "auxiliarythrusters",
         "unsf_asgardsensors",
         "unsf_asgardshield",
         "unsf_triniumalloy",
@@ -21,9 +22,7 @@
             "mode": "ALTERNATING",
             "weapons": {
                 "WS 020": "unsf_asgbeam",
-                "WS 001": "unsf_asgbeam",
-                "WS 019": "unsf_asgbeam",
-                "WS 000": "unsf_asgbeam"
+                "WS 019": "unsf_asgbeam"
             }
         },
         {

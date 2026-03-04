@@ -41,8 +41,8 @@ public class unsf_NeutrinoIonreactor extends BaseLogisticsHullMod {
     }
 
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getSuppliesPerMonth().modifyPercent(id, MAINTENANCE);
-		stats.getFuelUseMod().modifyPercent(id, MAINTENANCE);
+		stats.getSuppliesPerMonth().modifyPercent(id, -MAINTENANCE);
+		stats.getFuelUseMod().modifyPercent(id, -MAINTENANCE);
 		stats.getFluxCapacity().modifyPercent(id, FLUX_CAPACITY);
 		stats.getFluxDissipation().modifyPercent(id, FLUX_DISIP);
         stats.getVentRateMult().modifyPercent(id, VENT_RATE);

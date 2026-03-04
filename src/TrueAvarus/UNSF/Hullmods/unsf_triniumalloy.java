@@ -16,8 +16,7 @@ public class unsf_triniumalloy extends BaseHullMod {
     public static final float EMP_RESISTANCE = 25f;
     private static final Map<HullSize, Float> mag = new HashMap<>();
 
-	public static final float MANEUVERABILITY = 15f;
-	public static final float SMOD_MANEUVERABILITY = 5f;
+	public static final float SMOD_MANEUVERABILITY = 10f;
 
     public static final Set<String> BLOCKED = new HashSet<>();
     static {
@@ -49,12 +48,13 @@ public class unsf_triniumalloy extends BaseHullMod {
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		stats.getArmorBonus().modifyFlat(id, mag.get(hullSize));
         stats.getEmpDamageTakenMult().modifyPercent(id, EMP_RESISTANCE);
-		
-		final float mvMod = isSMod(stats) ? -SMOD_MANEUVERABILITY : MANEUVERABILITY;
-        stats.getAcceleration().modifyPercent(id, mvMod);
-        stats.getDeceleration().modifyPercent(id, mvMod);
-        stats.getTurnAcceleration().modifyPercent(id, mvMod);
-        stats.getMaxTurnRate().modifyPercent(id, mvMod);
+
+        if (isSMod(stats)) {
+            stats.getAcceleration().modifyPercent(id, -SMOD_MANEUVERABILITY);
+            stats.getDeceleration().modifyPercent(id, -SMOD_MANEUVERABILITY);
+            stats.getTurnAcceleration().modifyPercent(id, -SMOD_MANEUVERABILITY);
+            stats.getMaxTurnRate().modifyPercent(id, -SMOD_MANEUVERABILITY);
+        }
 	}
 	
 	public String getDescriptionParam(int index, HullSize hullSize) {
@@ -63,7 +63,6 @@ public class unsf_triniumalloy extends BaseHullMod {
 		if (index == 2) return "" + mag.get(HullSize.CRUISER).intValue();
 		if (index == 3) return "" + mag.get(HullSize.CAPITAL_SHIP).intValue();
         if (index == 4) return (int) EMP_RESISTANCE + "%";
-		if (index == 5) return (int) MANEUVERABILITY + "%";
 		return null;
 	}
 	

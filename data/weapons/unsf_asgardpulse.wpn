@@ -5,10 +5,10 @@
   "type": "ENERGY",
   "size": "MEDIUM",
   "turretSprite": "graphics/weapons/unsf_asgardpulse.png",
+  "hardpointSprite": "graphics/weapons/unsf_asgardpulse.png",
   "turretGlowSprite": "",
   "turretGunSprite": "",
   "turretUnderSprite": "",
-  "hardpointSprite": "",
   "hardpointGlowSprite": "",
   "glowColor": [
     100,

@@ -5,7 +5,7 @@
   "type": "MISSILE",
   "size": "SMALL",
   "turretSprite": "graphics/weapons/unsf_vls.png",
-  "hardpointSprite": "",
+  "hardpointSprite": "graphics/weapons/unsf_vls.png",
   "turretOffsets": [
     0,
     0

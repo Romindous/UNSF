@@ -7,6 +7,7 @@
     "hullMods": [
         "unsf_asgardcpu",
         "unsf_asgardhyperdrive",
+        "auxiliarythrusters",
         "unsf_asgardsensors",
         "unsf_asgardshield",
         "unsf_transporter",
@@ -21,8 +22,6 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "unsf_railgun_small",
-                "WS 000": "unsf_railgun_small",
                 "WS 002": "unsf_railgun_small",
                 "WS 003": "unsf_railgun_small",
                 "WS 004": "unsf_railgun_small",
@@ -36,8 +35,6 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 016": "unsf_railgun",
-                "WS 015": "unsf_railgun",
-                "WS 014": "unsf_railgun",
                 "WS 017": "unsf_railgun"
             }
         },
@@ -46,11 +43,15 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 011": "unsf_railgun_pd",
-                "WS 012": "unsf_railgun_pd",
-                "WS 010": "unsf_railgun_pd",
-                "WS 013": "unsf_railgun_pd",
-                "WS 006": "unsf_railgun_pd",
-                "WS 007": "unsf_railgun_pd"
+                "WS 010": "unsf_railgun_pd"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 012": "unsf_asgbeam",
+                "WS 013": "unsf_asgbeam"
             }
         },
         {

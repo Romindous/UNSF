@@ -6,7 +6,7 @@
   "size": "MEDIUM",
   "turretSprite": "graphics/weapons/unsf_shotgun_turret.png",
   "turretGunSprite": "graphics/weapons/unsf_shotgun_barrel.png",
-  "hardpointSprite": "",
+  "hardpointSprite": "graphics/weapons/unsf_shotgun_turret.png",
   "visualRecoil": 10,
   "separateRecoilForLinkedBarrels":true,
   "renderHints":[RENDER_BARREL_BELOW],

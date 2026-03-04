@@ -7,7 +7,7 @@
   "turretSprite": "graphics/weapons/unsf_railgun3_turret.png",
   "turretGunSprite": "graphics/weapons/unsf_railgun3_recoil.png",
   "turretUnderSprite": "graphics/weapons/unsf_railgun3_base.png",
-  "hardpointSprite": "",
+  "hardpointSprite": "graphics/weapons/unsf_railgun3_turret.png",
   "visualRecoil": 6,
   "renderHints": [
     RENDER_BARREL_BELOW

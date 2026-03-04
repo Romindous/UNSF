@@ -6,7 +6,7 @@
   "size": "SMALL",
   "turretSprite": "graphics/weapons/unsf_railgun_small.png",
   "turretGunSprite": "graphics/weapons/unsf_railgun_small_recoil.png",
-  "hardpointSprite": "",
+  "hardpointSprite": "graphics/weapons/unsf_railgun_small.png",
   "visualRecoil": 1,
   "renderHints":[RENDER_BARREL_BELOW],
   "turretOffsets": [
