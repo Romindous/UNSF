@@ -199,8 +199,8 @@
             "id": "WS 020",
             "size": "LARGE",
             "type": "COMPOSITE",
-            "mount": "HARDPOINT",
-            "arc": 15,
+            "mount": "TURRET",
+            "arc": 60,
             "angle": 0,
             "locations": [
                       -115,       -28
