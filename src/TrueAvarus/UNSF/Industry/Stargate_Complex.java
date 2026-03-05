@@ -6,6 +6,10 @@ import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 
 
 public class Stargate_Complex extends BaseIndustry {
+
+    private static final String COND_DEF = "stargate_cohesion";
+    private static final String COND_ZPM = "stargate_zpmcohesion";
+
     @Override
     public void apply() {
         super.apply(true);
@@ -24,13 +28,13 @@ public class Stargate_Complex extends BaseIndustry {
         // Check if the special item "unsf_zpm" is installed
         if (special != null && Items.UNSF_ZPM.equals(special.getId())) {
             // Apply the "stargate_zpmcohesion" market condition
-            if (!market.hasCondition("stargate_zpmcohesion")) {
-                market.addCondition("stargate_zpmcohesion");
+            if (!market.hasCondition(COND_ZPM)) {
+                market.addCondition(COND_ZPM);
             }
         } else {
             // Apply the "stargate_cohesion" market condition
-            if (!market.hasCondition("stargate_cohesion")) {
-                market.addCondition("stargate_cohesion");
+            if (!market.hasCondition(COND_DEF)) {
+                market.addCondition(COND_DEF);
             }
         }
     }
@@ -40,13 +44,13 @@ public class Stargate_Complex extends BaseIndustry {
         super.unapply();
 
         // Remove "stargate_cohesion" if it exists
-        if (market.hasCondition("stargate_cohesion")) {
-            market.removeCondition("stargate_cohesion");
+        if (market.hasCondition(COND_DEF)) {
+            market.removeCondition(COND_DEF);
         }
 
         // Remove "stargate_zpmcohesion" if it exists
-        if (market.hasCondition("stargate_zpmcohesion")) {
-            market.removeCondition("stargate_zpmcohesion");
+        if (market.hasCondition(COND_ZPM)) {
+            market.removeCondition(COND_ZPM);
         }
     }
 

@@ -261,24 +261,23 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 
 	private static final float DEF_FACTOR = 6f;
 	private float distFactor(final StarSystemAPI system) {
-        return DEF_FACTOR;
-        /*final List<?> jumpPoints = system.getEntities(JumpPointAPI.class);
+        final List<?> jumpPoints = system.getEntities(JumpPointAPI.class);
         if (jumpPoints == null || jumpPoints.isEmpty()) return DEF_FACTOR;
 		Vector2f ftSum = new Vector2f(); int ftCnt = 0;
         System.out.println("checking system " + system.getBaseName());
         final Vector2f sysLoc = system.getLocation();
 		for (final Object ojp : jumpPoints) {
             if (!(ojp instanceof final JumpPointAPI jp)) continue;
-            System.out.println("hyper jump point " + jp.getFullName() + " loc=" + Vector2f.sub(jp.getLocation(), sysLoc, null).toString());
+            System.out.println("1 jump point " + jp.getFullName() + " hyper?=" + jp.isInHyperspace() + " loc=" + Vector2f.sub(jp.getLocation(), sysLoc, null).toString());
 			if (jp.getDestinations().isEmpty()) continue;
 			final JumpDestination jd = jp.getDestinations().get(0);
 //			if (jp.getContainingLocation() == null) continue;
-            System.out.println("system jump point " + jd.getDestination().getFullName() + " loc=" + jd.getDestination().getLocation().toString());
+            System.out.println("2 jump point " + jd.getDestination().getFullName() + " hyper?=" + jd.getDestination().isInHyperspace() + " loc=" + jd.getDestination().getLocation().toString());
             final Vector2f inSl = jd.getDestination().getLocation(), outSl = Vector2f.sub(jp.getLocation(), sysLoc, null);
 			Vector2f.add(ftSum, new Vector2f(inSl.x / outSl.x, inSl.y / outSl.y), ftSum);
 			ftCnt++;
 		}
-		return ftCnt == 0 ? DEF_FACTOR : ftSum.length() / ftCnt;*/
+		return ftCnt == 0 ? DEF_FACTOR : ftSum.length() / ftCnt;
 	}
 
 	private StarSystemAPI findNearestStar() {

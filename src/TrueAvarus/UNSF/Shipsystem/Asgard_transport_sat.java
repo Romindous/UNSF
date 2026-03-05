@@ -21,12 +21,12 @@ public class Asgard_transport_sat extends BaseShipSystemScript implements MineSt
 
 	// literally the vanilla mine strike script, but with commented unused lines stripped to save filesize
 		// and i tweaked it and added some fuckery to make it spawn a drone platform instead of a mine
-	protected static float MINE_RANGE = 1000f;
-	public static final float MIN_SPAWN_DIST = 70f;
-	public static final float MIN_SPAWN_DIST_FRIGATE = 100f;
-	private static final Object JITTER_KEY = new Object();
-	public static final Color JITTER_COLOR = new Color(210,255,255,75);
-	public static final Color JITTER_UNDER_COLOR = new Color(210,255,255,155);
+	private static final float MINE_RANGE = 1000f;
+	private static final float MIN_SPAWN_DIST = 70f;
+	private static final float MIN_SPAWN_DIST_FRIGATE = 100f;
+	private static final Color JITTER_COLOR = new Color(210,255,255,75);
+	private static final Color JITTER_UNDER_COLOR = new Color(210,255,255,155);
+
 	public static float getRange(ShipAPI ship) {
 		if (ship == null) return MINE_RANGE;
 		return ship.getMutableStats().getSystemRangeBonus().computeEffective(MINE_RANGE);
@@ -71,11 +71,8 @@ public class Asgard_transport_sat extends BaseShipSystemScript implements MineSt
 			}
 		}
 	}
-	
-	public void unapply(MutableShipStatsAPI stats, String id) {
-	}
-	
-	public void spawnMine(ShipAPI source, Vector2f mineLoc) {
+
+    public void spawnMine(ShipAPI source, Vector2f mineLoc) {
 		CombatEngineAPI engine = Global.getCombatEngine();
 		Vector2f currLoc = Misc.getPointAtRadius(mineLoc, 30f + (float) Math.random() * 30f);
 		float start = (float) Math.random() * 360f;
