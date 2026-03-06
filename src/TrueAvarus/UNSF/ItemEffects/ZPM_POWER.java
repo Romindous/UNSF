@@ -32,6 +32,9 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
     private static final float FOOD_BONUS = 2f;
     private static final float MARINES_BONUS = 2f;
 
+    private static final float OTHER_BONUS = 1f;
+    private static final float OTHER_ADDON = 1f;
+
     private static final float UPKEEP_BONUS = 35f;
 
     private static final float DEMAND = 1f;
@@ -48,7 +51,7 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
         final List<MutableCommodityQuantity> produced = industry.getAllSupply();
 
         for (final MutableCommodityQuantity mcq : produced) {
-            mcq.getQuantity().modifyFlat(MODIFIER_ID, switch (mcq.getCommodityId()) {
+            mcq.getQuantity().modifyFlat(MODIFIER_ID, switch (mcq.getSpec().getDemandClass()) {
                 case ORE -> ORE_BONUS;
                 case RARE_ORE -> RARE_ORE_BONUS;
                 case METALS -> METALS_BONUS;
@@ -67,7 +70,11 @@ public class ZPM_POWER extends BoostIndustryInstallableItemEffect {
                 case LUXURY_GOODS -> LUXURY_GOODS_BONUS;
                 case FOOD -> FOOD_BONUS;
                 case MARINES -> MARINES_BONUS;
-                default -> 1;
+                default -> {
+                    if (mcq.getSpec().isNonEcon()) yield 0;
+                    yield mcq.getSpec().hasTag(TAG_EXPENSIVE)
+                        ? OTHER_BONUS : OTHER_BONUS + OTHER_ADDON;
+                }
             }, "ZPM BONUS");
         }
 

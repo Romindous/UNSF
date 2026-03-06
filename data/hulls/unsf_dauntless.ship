@@ -40,7 +40,7 @@
         {
             "id": "WS 001",
             "size": "SMALL",
-            "type": "BALLISTIC",
+            "type": "HYBRID",
             "mount": "TURRET",
             "arc": 250,
             "angle": 270,
@@ -51,12 +51,12 @@
         {
             "id": "WS 002",
             "size": "SMALL",
-            "type": "BALLISTIC",
+            "type": "HYBRID",
             "mount": "TURRET",
             "arc": 250,
             "angle": 90,
             "locations": [
-                      -3,     25.5
+                      -2,     26
             ]
         },
         {
