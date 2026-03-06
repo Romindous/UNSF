@@ -217,13 +217,14 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 			final float inSysFactor = Math.max(distFactor(system), 1);
 
 			// Scaling factor constrained to 0.5f maximum
-			final Vector2f distHyper = (Vector2f) distSystem.scale(1f / inSysFactor);
+			final Vector2f distHyper = new Vector2f(distSystem.x / inSysFactor, distSystem.y / inSysFactor);
 
-            System.out.println("fleet=" + fleet.getLocation().toString() + ", center=" + system.getCenter().getLocation().toString());
+            /*System.out.println("fleet=" + fleet.getLocation().toString() + ", center=" + system.getCenter().getLocation().toString());
             System.out.println("distSystem=" + distSystem.toString());
             System.out.println("distHyper=" + distHyper.toString());
             System.out.println("factor=" + inSysFactor);
-            System.out.println("finHyper=" + system.getLocation().toString());
+            System.out.println("system=" + system.getLocation().toString());
+            System.out.println("finHyper=" + Vector2f.add(system.getLocation(), distHyper, null).toString());*/
 
 			// Place fleet in hyperspace with calculated offset
 			SectorEntityToken token = Global.getSector().getHyperspace()
@@ -244,13 +245,14 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 		final Vector2f distHyper = Vector2f.sub(fleet.getLocation(), system.getLocation(), null);
 		final float inSysFactor = Math.max(distFactor(system), 1);
 
-		final Vector2f distSystem = (Vector2f) distHyper.scale(inSysFactor);
+        final Vector2f distSystem = new Vector2f(distHyper.x * inSysFactor, distHyper.y * inSysFactor);
 
-        System.out.println("fleet=" + fleet.getLocation().toString() + ", center=" + system.getCenter().getLocation().toString());
+        /*System.out.println("fleet=" + fleet.getLocation().toString() + ", center=" + system.getCenter().getLocation().toString());
         System.out.println("distHyper=" + distHyper.toString());
         System.out.println("distSystem=" + distSystem.toString());
         System.out.println("factor=" + inSysFactor);
-        System.out.println("finHyper=" + system.getLocation().toString());
+        System.out.println("system=" + system.getLocation().toString());
+        System.out.println("finHyper=" + distSystem.toString());*/
 
         // Perform the hyperspace transition
 		Global.getSector().doHyperspaceTransition(fleet, fleet,
@@ -262,21 +264,28 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 	private static final float DEF_FACTOR = 6f;
 	private float distFactor(final StarSystemAPI system) {
         final List<?> jumpPoints = system.getEntities(JumpPointAPI.class);
-        if (jumpPoints == null || jumpPoints.isEmpty()) return DEF_FACTOR;
+        final List<?> gravWells = system.getEntities(NascentGravityWellAPI.class);
+        if (jumpPoints.isEmpty() && gravWells.isEmpty()) return DEF_FACTOR;
 		Vector2f ftSum = new Vector2f(); int ftCnt = 0;
-        System.out.println("checking system " + system.getBaseName());
+//        System.out.println("checking system " + system.getBaseName());
         final Vector2f sysLoc = system.getLocation();
 		for (final Object ojp : jumpPoints) {
             if (!(ojp instanceof final JumpPointAPI jp)) continue;
-            System.out.println("1 jump point " + jp.getFullName() + " hyper?=" + jp.isInHyperspace() + " loc=" + Vector2f.sub(jp.getLocation(), sysLoc, null).toString());
+//            System.out.println("1 jump point " + jp.getFullName() + " hyper?=" + jp.isInHyperspace() + " loc=" + jp.getLocation().toString());
 			if (jp.getDestinations().isEmpty()) continue;
 			final JumpDestination jd = jp.getDestinations().get(0);
-//			if (jp.getContainingLocation() == null) continue;
-            System.out.println("2 jump point " + jd.getDestination().getFullName() + " hyper?=" + jd.getDestination().isInHyperspace() + " loc=" + jd.getDestination().getLocation().toString());
-            final Vector2f inSl = jd.getDestination().getLocation(), outSl = Vector2f.sub(jp.getLocation(), sysLoc, null);
+//            System.out.println("2 jump point " + jd.getDestination().getFullName() + " hyper?=" + jd.getDestination().isInHyperspace() + " loc=" + Vector2f.sub(jd.getDestination().getLocation(), sysLoc, null).toString());
+            final Vector2f inSl = jp.getLocation(), outSl = Vector2f.sub(jd.getDestination().getLocation(), sysLoc, null);
 			Vector2f.add(ftSum, new Vector2f(inSl.x / outSl.x, inSl.y / outSl.y), ftSum);
 			ftCnt++;
 		}
+        for (final Object ojp : gravWells) {
+            if (!(ojp instanceof final NascentGravityWellAPI gv)) continue;
+            if (gv.getTarget() == null) continue;
+            final Vector2f inSl = gv.getTarget().getLocation(), outSl = Vector2f.sub(gv.getLocation(), sysLoc, null);
+            Vector2f.add(ftSum, new Vector2f(inSl.x / outSl.x, inSl.y / outSl.y), ftSum);
+            ftCnt++;
+        }
 		return ftCnt == 0 ? DEF_FACTOR : ftSum.length() / ftCnt;
 	}
 
@@ -307,10 +316,7 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 	}
 
 	@Override
-	protected void cleanupImpl() {
-		CampaignFleetAPI fleet = getFleet();
-		if (fleet == null) return;
-	}
+	protected void cleanupImpl() {}
 
 	@Override
 	public boolean isUsable() {

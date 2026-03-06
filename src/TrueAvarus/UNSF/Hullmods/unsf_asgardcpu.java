@@ -17,8 +17,8 @@ import static TrueAvarus.UNSF.dunno.HullMods.UNSF_TRINIUM;
 public class unsf_asgardcpu extends BaseHullMod {
 
     public static final float WEAPON_RANGE = 25f;
-    public static final float PD_RANGE = 200f;
-    public static final float BEAM_RANGE = 250f;
+    public static final float PD_RANGE = 250f;
+    public static final float BEAM_RANGE = 400f;
 
     public static final Set<String> BLOCKED = new HashSet<>();
     static {
@@ -42,8 +42,8 @@ public class unsf_asgardcpu extends BaseHullMod {
     }
 
     public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        stats.getBallisticWeaponRangeBonus().modifyFlat(id, WEAPON_RANGE);
-        stats.getEnergyWeaponRangeBonus().modifyFlat(id, WEAPON_RANGE);
+        stats.getBallisticWeaponRangeBonus().modifyPercent(id, WEAPON_RANGE);
+        stats.getEnergyWeaponRangeBonus().modifyPercent(id, WEAPON_RANGE);
         stats.getBeamWeaponRangeBonus().modifyFlat(id, BEAM_RANGE);
         stats.getNonBeamPDWeaponRangeBonus().modifyFlat(id, PD_RANGE);
     }

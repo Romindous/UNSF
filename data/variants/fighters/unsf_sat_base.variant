@@ -12,15 +12,15 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "unsf_ori_beam"
+                "WS 000": "unsf_asgbeam_heavy"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "unsf_railgun_small",
-                "WS 002": "unsf_railgun_small"
+                "WS 001": "unsf_railgun_pd",
+                "WS 002": "unsf_railgun_pd"
             }
         }
     ]

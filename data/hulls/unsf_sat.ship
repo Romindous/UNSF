@@ -18,6 +18,9 @@
     "viewOffset": 0,
     "builtInWings": [],
     "builtInModules": null,
+    "builtInMods": [
+        "unsf_asgardcpu"
+    ],
     "weaponSlots": [
         {
             "id": "WS 000",

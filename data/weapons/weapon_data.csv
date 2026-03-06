@@ -1,10 +1,10 @@
 name,id,tier,rarity,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs,ammo,ammo/sec,reload size,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,hints,tags,groupTag,tech/manufacturer,for weapon tooltip>>,primaryRoleStr,speedStr,trackingStr,turnRateStr,accuracyStr,customPrimary,customPrimaryHL,customAncillary,customAncillaryHL,noDPSInTooltip,number
 #RAILGUNS - basicaly PD with extra steps,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Type-1 PD Railgun,unsf_railgun_pd,1,0.5,1500,500,,80,2,4,65,5,,,,FRAGMENTATION,25,,0,0.4,2,0.1,0,5,0.5,4,,800,,,,"ANTI_FTR, PD","pd5, unsf_bp_wpn",,,,Point Defense,,,,,,,,,,
-Type-1 Railgun small,unsf_railgun_small,0,0.5,500,600,,20,2,5,80,6,,,,KINETIC,15,,0,0.4,5,0.1,0,5,0.5,4,,600,,,,"ANTI_FTR, PD_ALSO","kinetic5, unsf_bp_wpn, merc",,,,General,,,,,,,,,,
+Type-1 Railgun small,unsf_railgun_small,0,0.5,500,650,,20,2,5,80,6,,,,KINETIC,15,,0,0.4,5,0.1,0,5,0.5,4,,600,,,,"STRIKE, USE_VS_FRIGATES, ANTI_FTR","kinetic5, unsf_bp_wpn, merc",,,,General,,,,,,,,,,
 Type-2 Railgun medium,unsf_railgun,1,0.5,2500,1000,,40,10,10,40,11,,,,KINETIC,35,,0,1.4,4,0.05,0,10,0.5,2,,1000,,,,PD_ALSO,"kinetic10, unsf_bp_wpn, LR",,,,Anti Shield,,,,,,,,,,
 Type-3 Flak,unsf_flk,2,0.5,6000,600,,5,10,10,25,16,,,,FRAGMENTATION,240,,0,0.8,,,0,15,5,2,,750,750,0.8,,"ANTI_FTR, PD, DO_NOT_CONSERVE","pd15, unsf_bp_wpn, SR, merc",,,,Point Defense (Area),,,,,,,,,,
-Type-1 Shotgun,unsf_shotgun,2,0.5,2000,550,,80,15,10,40,10,60,10,20,HIGH_EXPLOSIVE,25,,0,0.5,2,0,50,50,50,0,,1000,,,,"STRIKE, USE_VS_FRIGATES,","he10, unsf_bp_wpn, SR, merc",,,,,,,,,,,,,,
+Type-1 Shotgun,unsf_shotgun,2,0.5,2000,550,,80,15,10,40,10,60,10,20,HIGH_EXPLOSIVE,25,,0,0.5,2,0,50,50,50,0,,1000,,,,"STRIKE, USE_VS_FRIGATES","he10, unsf_bp_wpn, SR, merc",,,,,,,,,,,,,,
 "#PULSE WEAPONS - long range, medium damage",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Type-3 Pulse Railgun,unsf_railgun_3,2,0.5,4000,800,,90,,20,30,13,,,,HIGH_EXPLOSIVE,75,,0,0.4,2,0.25,1,15,2,2,,600,,,,"STRIKE, USE_VS_FRIGATES","he10, unsf_bp_wpn, LR, merc",,,,Anti Armor,,,,,,,,,,
 Type-4 Pulse Railgun,unsf_railgun_4,2,0.5,8000,1200,,650,50,25,20,28,,,,FRAGMENTATION,160,,0,0.25,,,0,10,0.5,1,,1000,,,,"STRIKE, USE_VS_FRIGATES","kinetic15, unsf_bp_wpn, LR, merc",,,,Suppression,,,,,,,,,,
