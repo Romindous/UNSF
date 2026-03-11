@@ -1,125 +1,117 @@
 {
-    "hullName": "Fenrir",
-    "hullId": "unsf_Fenrir",
-    "hullSize": "FRIGATE",
-    "style": "UNSF_TECH",
-    "spriteName": "graphics/ships/UNSF_Fenrir.png",
-    "height": 180,
-    "width": 180,
-    "center": [
-        90, 85.5
-    ],
-    "collisionRadius": 85.5,
-    "coversColor": "",
-    "shieldCenter": [
-        0, 0
-    ],
-    "shieldRadius": 87.5,
-    "viewOffset": 0,
-    "builtInWeapons": {
-        "WS 004": "unsf_asgbeam"
+  "hullName": "Fenrir",
+  "hullId": "unsf_Fenrir",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/UNSF_Fenrir.png",
+  "style": "UNSF_TECH",
+  "height": 180,
+  "width": 180,
+  "center": [90, 85.5],
+  "collisionRadius": 85.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 87.5,
+  "viewOffset": 0,
+  "builtInWeapons": {
+    "WS 004": "unsf_asgbeam"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS 000",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 0,
+      "locations": [-44.5, -22.5]
     },
-    "builtInWings": [],
-    "builtInModules": null,
-    "weaponSlots": [
-        {
-            "id": "WS 000",
-            "size": "MEDIUM",
-            "type": "BALLISTIC",
-            "mount": "HARDPOINT",
-            "arc": 30,
-            "angle": 0,
-            "locations": [
-                   -44.5,    -22.5
-            ]
-        },
-        {
-            "id": "WS 001",
-            "size": "MEDIUM",
-            "type": "BALLISTIC",
-            "mount": "HARDPOINT",
-            "arc": 30,
-            "angle": 0,
-            "locations": [
-                   -44.5,     22.5
-            ]
-        },
-        {
-            "id": "WS 002",
-            "size": "SMALL",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 270,
-            "angle": 0,
-            "locations": [
-                       9,      0.5
-            ]
-        },
-        {
-            "id": "WS 003",
-            "size": "SMALL",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 270,
-            "angle": 0,
-            "locations": [
-                    -8.5,      0.5
-            ]
-        },
-        {
-            "id": "WS 004",
-            "size": "MEDIUM",
-            "type": "BUILT_IN",
-            "mount": "HIDDEN",
-            "arc": 90,
-            "angle": 0,
-            "locations": [
-                    71.5,      0.5
-            ]
-        }
-    ],
-    "engineSlots": [
-        {
-            "location": [
-                -76.5, -22.5
-            ],
-            "length": 36.5,
-            "width": 18,
-            "angle": 180,
-            "contrailSize": 12,
-            "style": "HIGH_TECH"
-        },
-        {
-            "location": [
-                -76.5, 22.5
-            ],
-            "length": 36.5,
-            "width": 18,
-            "angle": 180,
-            "contrailSize": 12,
-            "style": "HIGH_TECH"
-        }
-    ],
-    "bounds": [
-            80.5,       10,
-              12,     14.5,
-             7.5,     22.5,
-           -30.5,       22,
-             -39,     30.5,
-        
-           -46.5,       36,
-           -67.5,       36,
-           -77.5,     30.5,
-           -77.5,    -30.5,
-           -67.5,      -36,
-        
-           -46.5,      -36,
-             -39,    -30.5,
-           -30.5,      -22,
-             7.5,    -22.5,
-              12,    -14.5,
-        
-            80.5,      -10
-    # 16 points total.
-    ]
+    {
+      "id": "WS 001",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 0,
+      "locations": [-44.5, 22.5]
+    },
+    {
+      "id": "WS 002",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 270,
+      "angle": 0,
+      "locations": [9, 0.5]
+    },
+    {
+      "id": "WS 003",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 270,
+      "angle": 0,
+      "locations": [-8.5, 0.5]
+    },
+    {
+      "id": "WS 004",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 90,
+      "angle": 0,
+      "locations": [71.5, 0.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-76.5, -22.5],
+      "length": 36.5,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-76.5, 22.5],
+      "length": 36.5,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [42, 12.5],
+      "length": 16.129999,
+      "width": 8.2,
+      "angle": 133,
+      "contrailSize": 8.2,
+      "style": "CUSTOM",
+      "styleId": "HIGH_TECH"
+    },
+    {
+      "location": [42, -12.5],
+      "length": 16.130161,
+      "width": 8.201933,
+      "angle": -133,
+      "contrailSize": 8.201933,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    80.5, 10,
+    12, 14.5,
+    7.5, 22.5,
+    -30.5, 22,
+    -39, 30.5,
+    -46.5, 36,
+    -67.5, 36,
+    -77.5, 30.5,
+    -77.5, -30.5,
+    -67.5, -36,
+    -46.5, -36,
+    -39, -30.5,
+    -30.5, -22,
+    7.5, -22.5,
+    12, -14.5,
+    80.5, -10
+  ]
 }
