@@ -11,7 +11,7 @@ import com.fs.starfarer.api.util.Misc;
 import java.awt.*;
 
 public class unsf_zpm_drivebooster extends BaseLogisticsHullMod {
-    private static final int BURN_LEVEL = 3;
+    private static final int BURN_LEVEL = 2;
     private static final float MOVEMENT = 20f;
 
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {

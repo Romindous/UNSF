@@ -13,7 +13,7 @@ public class unsf_zpm_systembooster extends BaseHullMod {
     public static final float FUEL_CONSUM = 40f;
     public static final float FLUX_CAPACITY = 25f;
     public static final float FLUX_DISSIPATION = 15f;
-    public static final float COMBAT_READINESS = 10f;
+    public static final float COMBAT_READINESS = 0.1f;
     public static final float SYSTEM_COOLDOWN = 15f;
     public static final int SYSTEM_USES = 1;
 
@@ -24,7 +24,7 @@ public class unsf_zpm_systembooster extends BaseHullMod {
         stats.getFuelUseMod().modifyPercent(id, -FUEL_CONSUM);
         stats.getFluxCapacity().modifyPercent(id, FLUX_CAPACITY);
         stats.getFluxDissipation().modifyPercent(id, FLUX_DISSIPATION);
-        stats.getMaxCombatReadiness().modifyFlat(id, COMBAT_READINESS);
+        stats.getMaxCombatReadiness().modifyFlat(id, COMBAT_READINESS, "ZPM Boost");
         stats.getSystemCooldownBonus().modifyPercent(id, SYSTEM_COOLDOWN);
         stats.getSystemRegenBonus().modifyPercent(id, SYSTEM_COOLDOWN);
         stats.getSystemUsesBonus().modifyFlat(id, SYSTEM_USES);
