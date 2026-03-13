@@ -54,8 +54,8 @@
       "type": "BALLISTIC",
       "mount": "TURRET",
       "arc": 240,
-      "angle": 223,
-      "locations": [-149.5, -90.5]
+      "angle": -135,
+      "locations": [-146, -90]
     },
     {
       "id": "WS 007",
@@ -63,8 +63,8 @@
       "type": "BALLISTIC",
       "mount": "TURRET",
       "arc": 240,
-      "angle": 137,
-      "locations": [-149.5, 90.5]
+      "angle": 135,
+      "locations": [-146, 90]
     },
     {
       "id": "WS 008",
@@ -72,8 +72,8 @@
       "type": "BALLISTIC",
       "mount": "TURRET",
       "arc": 240,
-      "angle": 311,
-      "locations": [-39.5, -89.5]
+      "angle": -45,
+      "locations": [-39, -90]
     },
     {
       "id": "WS 009",
@@ -81,8 +81,8 @@
       "type": "BALLISTIC",
       "mount": "TURRET",
       "arc": 240,
-      "angle": 49,
-      "locations": [-39.5, 89.5]
+      "angle": 45,
+      "locations": [-39, 90]
     },
     {
       "id": "WS 010",
@@ -91,7 +91,7 @@
       "mount": "TURRET",
       "arc": 200,
       "angle": 330,
-      "locations": [102, -33]
+      "locations": [106, -34]
     },
     {
       "id": "WS 011",
@@ -100,7 +100,7 @@
       "mount": "TURRET",
       "arc": 200,
       "angle": 30,
-      "locations": [102, 33]
+      "locations": [106, 35]
     },
     {
       "id": "WS 014",
@@ -127,7 +127,7 @@
       "mount": "TURRET",
       "arc": 200,
       "angle": 270,
-      "locations": [66.5, -33]
+      "locations": [69, -34]
     },
     {
       "id": "WS 017",
@@ -136,7 +136,7 @@
       "mount": "TURRET",
       "arc": 200,
       "angle": 90,
-      "locations": [66.5, 33]
+      "locations": [69, 35]
     },
     {
       "id": "WS 018",
@@ -145,7 +145,7 @@
       "mount": "TURRET",
       "arc": 200,
       "angle": 0,
-      "locations": [43, -17]
+      "locations": [44, -17.5]
     },
     {
       "id": "WS 019",
@@ -154,7 +154,7 @@
       "mount": "TURRET",
       "arc": 200,
       "angle": 0,
-      "locations": [43, 17]
+      "locations": [44, 17.5]
     },
     {
       "id": "WS 020",
