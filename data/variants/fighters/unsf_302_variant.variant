@@ -20,16 +20,16 @@
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 001": "unsf_vls4_fighter",
-                "WS 002": "unsf_vls4_fighter"
+                "WS 001": "unsf_vls_4_fighter",
+                "WS 002": "unsf_vls_4_fighter"
             }
         },
         {
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 003": "unsf_vls1_fighter",
-                "WS 004": "unsf_vls1_fighter"
+                "WS 003": "unsf_vls_1_fighter",
+                "WS 004": "unsf_vls_1_fighter"
             }
         }
     ]

@@ -4,5 +4,5 @@ name,id,flux/second,f/s (base rate),f/s (base cap),flux/use,f/u (base rate),f/u 
 # Maneuvering Jets,maneuveringjets,,,,,,,,,,1,5,1,5,,,,,,,,,,,,,graphics/icons/hullsys/maneuvering_jets.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Asgard Recall Device,recalldevice2,,,,,,0.25,,,,1,,0.5,10,,,,,,,,,,,,movement,graphics/icons/hullsys/recall_device.png
-Asgard Nuke Transporter,Asgard_transport_nuke,,,,,,0.4,,4,0.05,0.01,,0.25,10,,,,,,,,,,,,offensive,graphics/icons/hullsys/interdictor_array.png
+Asgard Nuke Transporter,Asgard_transport_nuke,,,,,,0.4,,4,0.05,0.004,,0.25,10,,,,,,,,,,,,offensive,graphics/icons/hullsys/interdictor_array.png
 Asgard Satelite,Asgard_transport_sat,,,,,,0.2,,2,0.02,0.01,,0.25,5,,,,,,,,,,,,offensive,graphics/icons/hullsys/interdictor_array.png

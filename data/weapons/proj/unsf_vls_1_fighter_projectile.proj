@@ -1,5 +1,5 @@
 {
-	"id":"unsf_vls3_fighter",
+	"id":"unsf_vls_1_fighter_projectile",
 	"specClass":"missile",	
 	"missileType":"MISSILE",
 	"sprite":"graphics/missles/unsf_vls2.png",
@@ -11,17 +11,18 @@
 	"explosionColor":[255,165,50,255],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":60, # purely visual
 	"fadeTime":1, # fadeout duration
-	"engineSpec":{"turnAcc":420,
-				  "turnRate":240,
-				  "acc":800,
-				  "dec":400},				  
+	"engineSpec":{"maxSpeed":500,
+                "turnAcc":1500,
+                "turnRate":1500,
+                "acc":300,
+                "dec":0},
 	"engineSlots":[{"id":"ES1",
 					"loc":[-3, 0],
 				    #"style":"MISSILE_HIGH_TECH",
 				    "style":"CUSTOM",
 					"styleSpec":{
 						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
-						"engineColor":[255,209,0,70],
+						"engineColor":[94,170,250,70],
 						"contrailDuration":2,
 						"contrailWidthMult":1,
 						"contrailWidthAddedFractionAtEnd":2.5,  # can be negative. makes trail spread out/narrow at the end

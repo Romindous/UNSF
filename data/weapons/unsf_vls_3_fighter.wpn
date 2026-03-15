@@ -1,7 +1,7 @@
 {
-  "id": "unsf_vls4_fighter",
+  "id": "unsf_vls_3_fighter",
   "specClass": "projectile",
-  "projectileSpecId": "unsf_vls_4_projectile",
+  "projectileSpecId": "unsf_vls_3_fighter",
   "type": "MISSILE",
   "size": "SMALL",
   "displayArcRadius": 500,

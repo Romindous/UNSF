@@ -19,8 +19,8 @@
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 002": "unsf_vls4_fighter",
-                "WS 000": "unsf_vls4_fighter"
+                "WS 002": "unsf_vls_4_fighter",
+                "WS 000": "unsf_vls_4_fighter"
             }
         }
     ]

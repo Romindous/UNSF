@@ -24,7 +24,7 @@ public class unsf_zpm_systembooster extends BaseHullMod {
         stats.getFuelUseMod().modifyPercent(id, -FUEL_CONSUM);
         stats.getFluxCapacity().modifyPercent(id, FLUX_CAPACITY);
         stats.getFluxDissipation().modifyPercent(id, FLUX_DISSIPATION);
-        stats.getMaxCombatReadiness().modifyFlat(id, COMBAT_READINESS, "ZPM Boost");
+        stats.getMaxCombatReadiness().modifyFlat(id, COMBAT_READINESS, "ZPM boost");
         stats.getSystemCooldownBonus().modifyPercent(id, SYSTEM_COOLDOWN);
         stats.getSystemRegenBonus().modifyPercent(id, SYSTEM_COOLDOWN);
         stats.getSystemUsesBonus().modifyFlat(id, SYSTEM_USES);
