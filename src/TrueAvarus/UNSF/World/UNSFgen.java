@@ -2,12 +2,12 @@ package TrueAvarus.UNSF.World;
 
 
 //import TrueAvarus.UNSF.World.Systems.nebelheim;
+
 import TrueAvarus.UNSF.World.Systems.niltrof;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
-import com.fs.starfarer.api.impl.campaign.shared.SharedData;
 
 public class UNSFgen {
 
