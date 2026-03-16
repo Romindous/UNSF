@@ -9,7 +9,15 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.shared.SharedData;
 
-public class UNSFgen{
+public class UNSFgen {
+
+    // THIS IS WHERE YOU PUT REGISTER FOR NEW SYSTEMS YOU BROTHER BLOWING SISTER FUCKING NAKED MOTHER WATCHING ALABAMA ENJOYING DUMB FUCK MORON
+    public void generate(SectorAPI sector) {
+        initFactionRelationships(sector);
+        //new nebelheim().generate(sector);
+        new niltrof().generate(sector);
+    }
+
     public static void initFactionRelationships(SectorAPI sector) {
         FactionAPI hegemony = sector.getFaction(Factions.HEGEMONY);
         FactionAPI tritachyon = sector.getFaction(Factions.TRITACHYON);
@@ -27,15 +35,6 @@ public class UNSFgen{
         myfaction.setRelationship(church.getId(), RepLevel.INHOSPITABLE);
         myfaction.setRelationship(kol.getId(), RepLevel.FAVORABLE);
         myfaction.setRelationship(league.getId(), RepLevel.SUSPICIOUS);
-
-    }
-    // THIS IS WHERE YOU PUT REGISTER FOR NEW SYSTEMS YOU BROTHER BLOWING SISTER FUCKING NAKED MOTHER WATCHING ALABAMA ENJOYING DUMB FUCK MORON
-    public void generate(SectorAPI sector) {
-
-        initFactionRelationships(sector);
-        //new nebelheim().generate(sector);
-        new niltrof().generate(sector);
-
 
     }
 }
