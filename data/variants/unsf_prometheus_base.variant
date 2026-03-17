@@ -1,36 +1,39 @@
 {
-    "displayName": "Prometheus base",
-    "fluxCapacitors": 10,
-    "fluxVents": 10,
-    "goalVariant": true,
-    "hullId": "unsf_prometheus",
-    "hullMods": [
-        "unsf_asgardhyperdrive",
-        "unsf_asgardshield",
-        "unsf_NeutrinoIonreactor",
-        "unsf_triniumalloy"
-    ],
-    "quality": 1.0,
-    "variantId": "unsf_prometheus_base",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "unsf_vls_2"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "unsf_railgun_small",
-                "WS 002": "unsf_railgun_small",
-                "WS 001": "unsf_railgun_small"
-            }
-        }
-    ],
-    "wings": [
-        "unsf_302_wing"
-    ]
+  "variantId": "unsf_prometheus_base",
+  "hullId": "unsf_prometheus",
+  "displayName": "Prometheus base",
+  "goalVariant": true,
+  "fluxCapacitors": 6,
+  "fluxVents": 8,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "unsf_asgardshield",
+    "unsf_NeutrinoIonreactor",
+    "unsf_triniumalloy",
+    "auxiliarythrusters",
+    "unsf_asgardcpu"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "unsf_railgun",
+        "WS 003": "unsf_vls_2"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "unsf_railgun_small",
+        "WS 002": "unsf_railgun_small"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "unsf_302_wing"
+  ]
 }

@@ -1,6 +1,6 @@
 package TrueAvarus.UNSF.dunno;
 
-public class HullMods {
+public class HullMods extends com.fs.starfarer.api.impl.campaign.ids.HullMods {
     public static final String UNSF_ZPM = "unsf_zpm_hm2";
 
     public static final String UNSF_ASGARD_SHIELD = "unsf_asgardshield";

@@ -4,14 +4,16 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.MusicPlayerPluginImpl;
-import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.procgen.PlanetConditionGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator.StarSystemType;
 import com.fs.starfarer.api.impl.campaign.terrain.AsteroidFieldTerrainPlugin.AsteroidFieldParams;
 import com.fs.starfarer.api.impl.campaign.terrain.BaseTiledTerrain;
 import com.fs.starfarer.api.util.Misc;
+import TrueAvarus.UNSF.dunno.Items;
+import TrueAvarus.UNSF.dunno.Industries;
 
 import java.awt.*;
 
@@ -33,26 +35,26 @@ public class niltrof {
         final SectorEntityToken center = system.addCustomEntity(
             "niltrof_stable_point",
             "Niltrof Center Point",
-            "stable_location",
+            Entities.BASE_INTEL_ICON,
             Factions.NEUTRAL
         );
         center.setLocation(0, 0); // Set it to the center of the star system
 
         SectorEntityToken star_orbit_1 = system.addCustomEntity(
             "lycaon_stable_point",
-            "Niltrof Lycaon Star",
-            "stable_location",
+            "Niltrof Lycaon Point",
+            Entities.BASE_INTEL_ICON,
             Factions.NEUTRAL
         );
-        star_orbit_1.setCircularOrbit(center, 40, 18000, 612); // Make it orbit around the central location at 0 distance
+        star_orbit_1.setCircularOrbit(center, 40, 10000, 412); // Make it orbit around the central location at 0 distance
 
         SectorEntityToken star_orbit_2 = system.addCustomEntity(
             "nyxara_stable_point",
-            "Niltrof Nyxara Star",
-            "stable_location",
+            "Niltrof Nyxara Point",
+            Entities.BASE_INTEL_ICON,
             Factions.NEUTRAL
         );
-        star_orbit_2.setCircularOrbit(center, 200, 20000, 717); // Make it orbit around the central location at 0 distance
+        star_orbit_2.setCircularOrbit(center, 200, 16000, 717); // Make it orbit around the central location at 0 distance
 
         //The orbital periods (in time units) for the given distances are approximately:
         //
@@ -155,23 +157,23 @@ public class niltrof {
         // Lycaon Relay
         SectorEntityToken comm = system.addCustomEntity("lycaon_relay", // unique id
             "Lycaon Relay", // name - if null, defaultName from custom_entities.json will be used
-            "comm_relay", // type of object, defined in custom_entities.json
+            Entities.COMM_RELAY, // type of object, defined in custom_entities.json
             FACTION); // faction
-        comm.setCircularOrbit(system.getEntityById("lycaon_star"), 200, 4000, 65);
+        comm.setCircularOrbit(lycaon_star, 200, 4000, 65);
 
         // Nyxara Sensor Array
         SectorEntityToken sensor = system.addCustomEntity("nyxara_sensor_array", // unique id
             "Nyxara Sensor Array", // name - if null, defaultName from custom_entities.json will be used
-            "sensor_array", // type of object, defined in custom_entities.json
+            Entities.SENSOR_ARRAY, // type of object, defined in custom_entities.json
             FACTION); // faction
-        sensor.setCircularOrbit(system.getEntityById("nyxara_star"), 200, 4000, 65);
+        sensor.setCircularOrbit(nyxara_star, 200, 4000, 65);
 
         // Solgar Nav Buoy
         SectorEntityToken nav = system.addCustomEntity("solgar_nav_buoy", // unique id
             "Solgar Nav Buoy", // name - if null, defaultName from custom_entities.json will be used
-            "nav_buoy", // type of object, defined in custom_entities.json
+            Entities.NAV_BUOY, // type of object, defined in custom_entities.json
             FACTION); // faction
-        nav.setCircularOrbit(system.getEntityById("solgar_star"), 200, 4000, 65);
+        nav.setCircularOrbit(solgar_star, 200, 4000, 65);
 
         // IGNARA GAS GIANT JUMP POINT
 
@@ -215,8 +217,8 @@ public class niltrof {
 
         atlantis_market.addCondition(Conditions.POPULATION_5);
         atlantis_market.addCondition(Conditions.HABITABLE);
-        atlantis_market.addCondition(Conditions.RUINS_EXTENSIVE);
-        atlantis_market.addCondition(Conditions.FRONTIER);
+        atlantis_market.addCondition(Conditions.OUTPOST);
+        atlantis_market.addCondition(Conditions.FREE_PORT);
 
         Misc.setFullySurveyed(atlantis_market, null, true);
         atlantis_market.addIndustry(Industries.POPULATION);
@@ -224,12 +226,13 @@ public class niltrof {
         atlantis_market.addIndustry(Industries.HEAVYBATTERIES);
         atlantis_market.getIndustry(Industries.HEAVYBATTERIES).setSpecialItem(new SpecialItemData(Items.DRONE_REPLICATOR, null));
         atlantis_market.addIndustry(Industries.HIGHCOMMAND);
-        atlantis_market.getIndustry(Industries.HIGHCOMMAND).setAICoreId(Commodities.ALPHA_CORE);
+        atlantis_market.getIndustry(Industries.HIGHCOMMAND).setSpecialItem(new SpecialItemData(Items.UNSF_ZPM, null));
         atlantis_market.addIndustry(Industries.PLANETARYSHIELD);
         atlantis_market.addIndustry(Industries.FUELPROD);
+        atlantis_market.getIndustry(Industries.FUELPROD).setSpecialItem(new SpecialItemData(Items.FULLERENE_SPOOL, null));
         atlantis_market.addIndustry(Industries.WAYSTATION);
         atlantis_market.addIndustry(Industries.LIGHTINDUSTRY);
-        atlantis_market.addIndustry("stargate_complex");
+        atlantis_market.addIndustry(Industries.STARGATE_COMPLEX);
 
         atlantis_market.addSubmarket(Submarkets.SUBMARKET_OPEN);
         atlantis_market.addSubmarket("unsf_submarket");
@@ -257,18 +260,20 @@ public class niltrof {
         aegirast_market.addCondition(Conditions.POPULATION_4);
         aegirast_market.addCondition(Conditions.ORE_RICH);
         aegirast_market.addCondition(Conditions.RARE_ORE_ABUNDANT);
-        aegirast_market.addCondition(Conditions.VOLATILES_DIFFUSE);
+        aegirast_market.addCondition(Conditions.VOLATILES_TRACE);
+        aegirast_market.addCondition(Conditions.INDUSTRIAL_POLITY);
+        aegirast_market.addCondition(Conditions.RUINS_EXTENSIVE);
 
         Misc.setFullySurveyed(aegirast_market, null, true);
         aegirast_market.addIndustry(Industries.POPULATION);
         aegirast_market.addIndustry(Industries.SPACEPORT);
         aegirast_market.addIndustry(Industries.MINING);
-        atlantis_market.getIndustry(Industries.MINING).setSpecialItem(new SpecialItemData(Items.SYNCHROTRON, null));
+        atlantis_market.getIndustry(Industries.MINING).setSpecialItem(new SpecialItemData(Items.UNSF_ZPM, null));
         aegirast_market.addIndustry(Industries.PATROLHQ);
         aegirast_market.addIndustry(Industries.GROUNDDEFENSES);
         aegirast_market.addIndustry(Industries.REFINING);
         aegirast_market.getIndustry(Industries.REFINING).setSpecialItem(new SpecialItemData(Items.CATALYTIC_CORE, null));
-        aegirast_market.addIndustry("stargate_complex");
+        aegirast_market.addIndustry(Industries.STARGATE_COMPLEX);
 
         aegirast_market.addSubmarket(Submarkets.SUBMARKET_OPEN);
         aegirast_market.addSubmarket(Submarkets.SUBMARKET_BLACK);
@@ -290,20 +295,20 @@ public class niltrof {
         nidavellir_market.setPrimaryEntity(NidavellirSt);
 
         nidavellir_market.addCondition(Conditions.POPULATION_5);
+        nidavellir_market.addCondition(Conditions.HOT);
+        nidavellir_market.addCondition(Conditions.INDUSTRIAL_POLITY);
+        nidavellir_market.addCondition(Conditions.FRONTIER);
 
         Misc.setFullySurveyed(nidavellir_market, null, true);
         nidavellir_market.addIndustry(Industries.POPULATION);
-        nidavellir_market.addIndustry(Industries.MEGAPORT);
+        nidavellir_market.addIndustry(Industries.SPACEPORT);
         nidavellir_market.addIndustry(Industries.REFINING);
         nidavellir_market.addIndustry(Industries.ORBITALWORKS);
-        nidavellir_market.getIndustry(Industries.ORBITALWORKS).setSpecialItem(new SpecialItemData("pristine_nanoforge", null));
-        nidavellir_market.addIndustry(Industries.HIGHCOMMAND);
-        nidavellir_market.addIndustry(Industries.HEAVYBATTERIES);
-        nidavellir_market.addIndustry("stargate_complex");
-        /*  nidavellir_market.getIndustry("stargate_complex").setSpecialItem(new SpecialItemData("unsf_zpm", null)); */ // THIS BITCH IS TO ADD ZPMS TO INDUSTIRES
-
-        nidavellir_market.getIndustry("heavybatteries").setSpecialItem(new SpecialItemData("drone_replicator", null));
-        nidavellir_market.getIndustry(Industries.HIGHCOMMAND).setAICoreId(Commodities.ALPHA_CORE);
+        nidavellir_market.getIndustry(Industries.ORBITALWORKS).setSpecialItem(new SpecialItemData(Items.PRISTINE_NANOFORGE, null));
+        nidavellir_market.addIndustry(Industries.MILITARYBASE);
+        nidavellir_market.getIndustry(Industries.MILITARYBASE).setSpecialItem(new SpecialItemData(Items.CRYOARITHMETIC_ENGINE, null));
+        nidavellir_market.addIndustry(Industries.GROUNDDEFENSES);
+        nidavellir_market.addIndustry(Industries.STARGATE_COMPLEX);
 
         nidavellir_market.addSubmarket(Submarkets.SUBMARKET_OPEN);
         nidavellir_market.addSubmarket(Submarkets.SUBMARKET_BLACK);
@@ -314,49 +319,36 @@ public class niltrof {
 
         Global.getSector().getEconomy().addMarket(nidavellir_market, true);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         //OBERON
 
-
         MarketAPI oberon_market = Global.getFactory().createMarket("oberon_planet_market", lycaon_water.getName(), 0);
-        oberon_market.setSize(5);
+        oberon_market.setSize(6);
         oberon_market.setFactionId(FACTION);
         oberon_market.setPrimaryEntity(lycaon_water);
         oberon_market.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
         //oberon_market.setFactionId(lycaon_water.getFaction().getId());
-        oberon_market.addCondition(Conditions.POPULATION_5);
+        oberon_market.addCondition(Conditions.POPULATION_6);
         oberon_market.addCondition(Conditions.HABITABLE);
         oberon_market.addCondition(Conditions.MILD_CLIMATE);
         oberon_market.addCondition(Conditions.WATER_SURFACE);
+        oberon_market.addCondition(Conditions.ORGANICS_PLENTIFUL);
+        oberon_market.addCondition(Conditions.VOLTURNIAN_LOBSTER_PENS);
         oberon_market.addCondition(Conditions.RUINS_VAST);
         oberon_market.addCondition(Conditions.REGIONAL_CAPITAL);
 
         Misc.setFullySurveyed(oberon_market, null, true);
         oberon_market.addIndustry(Industries.POPULATION);
         oberon_market.addIndustry(Industries.MEGAPORT);
+        oberon_market.addIndustry(Industries.MINING);
         oberon_market.addIndustry(Industries.AQUACULTURE);
         oberon_market.addIndustry(Industries.LIGHTINDUSTRY);
-        oberon_market.addIndustry(Industries.HIGHCOMMAND);
+        oberon_market.getIndustry(Industries.LIGHTINDUSTRY).setSpecialItem(new SpecialItemData(Items.BIOFACTORY_EMBRYO, null));
+        oberon_market.addIndustry(Industries.MILITARYBASE);
+        oberon_market.getIndustry(Industries.MILITARYBASE).setSpecialItem(new SpecialItemData(Items.UNSF_ZPM, null));
         oberon_market.addIndustry(Industries.STARFORTRESS_HIGH);
+        oberon_market.getIndustry(Industries.STARFORTRESS_HIGH).setAICoreId(Commodities.ALPHA_CORE);
         oberon_market.addIndustry(Industries.HEAVYBATTERIES);
-        oberon_market.addIndustry("stargate_complex");
-        /*  nidavellir_market.getIndustry("stargate_complex").setSpecialItem(new SpecialItemData("unsf_zpm", null)); */ // THIS BITCH IS TO ADD ZPMS TO INDUSTIRES
-
-        oberon_market.getIndustry("lightindustry").setSpecialItem(new SpecialItemData("biofactory_embryo", null));
-        oberon_market.getIndustry("heavybatteries").setSpecialItem(new SpecialItemData("drone_replicator", null));
-
+        oberon_market.addIndustry(Industries.STARGATE_COMPLEX);
 
         oberon_market.addSubmarket(Submarkets.SUBMARKET_OPEN);
         oberon_market.addSubmarket(Submarkets.SUBMARKET_BLACK);
@@ -366,35 +358,34 @@ public class niltrof {
         lycaon_water.setMarket(oberon_market);
         Global.getSector().getEconomy().addMarket(oberon_market, true);
         oberon_market.getIndustry(Industries.HIGHCOMMAND).setAICoreId(Commodities.ALPHA_CORE);
-        oberon_market.getIndustry(Industries.STARFORTRESS_HIGH).setAICoreId(Commodities.ALPHA_CORE);
 
-
+        //ARGOS
 
         MarketAPI argos_market = Global.getFactory().createMarket("argos_planet_market", nyxara_frozen.getName(), 0);
-        argos_market.setSize(5);
+        argos_market.setSize(4);
         argos_market.setFactionId(FACTION);
         argos_market.setPrimaryEntity(nyxara_frozen);
         argos_market.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
-        //oberon_market.setFactionId(lycaon_water.getFaction().getId());
+        //argos_market.setFactionId(lycaon_water.getFaction().getId());
         argos_market.addCondition(Conditions.POPULATION_4);
-        argos_market.addCondition(Conditions.HABITABLE);
-        argos_market.addCondition(Conditions.MILD_CLIMATE);
-        argos_market.addCondition(Conditions.VERY_COLD);
+        argos_market.addCondition(Conditions.NO_ATMOSPHERE);
+        argos_market.addCondition(Conditions.POOR_LIGHT);
+        argos_market.addCondition(Conditions.COLD);
+        argos_market.addCondition(Conditions.ORE_MODERATE);
+        argos_market.addCondition(Conditions.VOLATILES_ABUNDANT);
         argos_market.addCondition(Conditions.FREE_PORT);
-        argos_market.addCondition(Conditions.RUINS_EXTENSIVE);
 
         Misc.setFullySurveyed(argos_market, null, true);
         argos_market.addIndustry(Industries.POPULATION);
-        argos_market.addIndustry(Industries.MEGAPORT);
+        argos_market.addIndustry(Industries.SPACEPORT);
+        argos_market.addIndustry(Industries.MINING);
+        argos_market.getIndustry(Industries.MINING).setSpecialItem(new SpecialItemData(Items.SYNCHROTRON, null));
         argos_market.addIndustry(Industries.FUELPROD);
-        argos_market.addIndustry(Industries.HIGHCOMMAND);
+        argos_market.getIndustry(Industries.FUELPROD).setSpecialItem(new SpecialItemData(Items.UNSF_ZPM, null));
+        argos_market.addIndustry(Industries.PATROLHQ);
         argos_market.addIndustry(Industries.HEAVYBATTERIES);
-        argos_market.addIndustry("stargate_complex");
-        /*  nidavellir_market.getIndustry("stargate_complex").setSpecialItem(new SpecialItemData("unsf_zpm", null)); */ // THIS BITCH IS TO ADD ZPMS TO INDUSTIRES
-
-
-        argos_market.getIndustry("heavybatteries").setSpecialItem(new SpecialItemData("drone_replicator", null));
-        argos_market.getIndustry("fuelprod").setSpecialItem(new SpecialItemData("unsf_zpm", null));
+        argos_market.addIndustry(Industries.ORBITALSTATION_HIGH);
+        argos_market.addIndustry(Industries.STARGATE_COMPLEX);
 
         argos_market.addSubmarket(Submarkets.SUBMARKET_OPEN);
         argos_market.addSubmarket(Submarkets.SUBMARKET_BLACK);
@@ -403,7 +394,6 @@ public class niltrof {
 
         nyxara_frozen.setMarket(argos_market);
         Global.getSector().getEconomy().addMarket(argos_market, true);
-        argos_market.getIndustry(Industries.HIGHCOMMAND).setAICoreId(Commodities.ALPHA_CORE);
 
 
 
