@@ -1,10 +1,12 @@
 package TrueAvarus.UNSF.World.Systems;
 
+import java.awt.*;
+import TrueAvarus.UNSF.dunno.Industries;
+import TrueAvarus.UNSF.dunno.Items;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.MusicPlayerPluginImpl;
-import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.procgen.PlanetConditionGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.StarAge;
@@ -12,10 +14,6 @@ import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator.StarSystem
 import com.fs.starfarer.api.impl.campaign.terrain.AsteroidFieldTerrainPlugin.AsteroidFieldParams;
 import com.fs.starfarer.api.impl.campaign.terrain.BaseTiledTerrain;
 import com.fs.starfarer.api.util.Misc;
-import TrueAvarus.UNSF.dunno.Items;
-import TrueAvarus.UNSF.dunno.Industries;
-
-import java.awt.*;
 
 public class niltrof {
 
@@ -28,6 +26,7 @@ public class niltrof {
 
         // Position the star system
         system.getLocation().set(10000, 15000);
+        system.initNonStarCenter();
         system.addTag(Tags.THEME_CORE_POPULATED);
         system.setBackgroundTextureFilename("graphics/backgrounds/background5.jpg");
 
@@ -46,7 +45,7 @@ public class niltrof {
             Entities.BASE_INTEL_ICON,
             Factions.NEUTRAL
         );
-        star_orbit_1.setCircularOrbit(center, 40, 10000, 412); // Make it orbit around the central location at 0 distance
+        star_orbit_1.setCircularOrbit(center, 40, 12500, 412); // Make it orbit around the central location at 0 distance
 
         SectorEntityToken star_orbit_2 = system.addCustomEntity(
             "nyxara_stable_point",
@@ -66,22 +65,22 @@ public class niltrof {
         system.setLightColor(new Color(200, 229, 255, 255));
 
         // Create the star
-        PlanetAPI solgar_star = system.initStar("solgar_star",
+        PlanetAPI niltrof_star = system.initStar("niltrof_star",
             StarTypes.BLUE_SUPERGIANT, 1500f, 500);
-        solgar_star.setCircularOrbit(center, 0, 2500, 32); // Make it orbit around the central location at 0 distance
-//        solgar_star.setName("Solgar");
+        niltrof_star.setCircularOrbit(center, 0, 2500, 32); // Make it orbit around the central location at 0 distance
+//        niltrof_star.setName("niltrof");
 
-        PlanetAPI solgar_gas_giant = system.addPlanet("solgar_gas_giant",
+        PlanetAPI niltrof_gas_giant = system.addPlanet("niltrof_gas_giant",
             center, "Ignara", Planets.GAS_GIANT,
             0, 300f, 6000, 117f);
-        PlanetConditionGenerator.generateConditionsForPlanet(solgar_gas_giant, StarAge.YOUNG);
+        PlanetConditionGenerator.generateConditionsForPlanet(niltrof_gas_giant, StarAge.YOUNG);
 
 
-        solgar_gas_giant.setCustomDescriptionId("unsf_ignara_planet");
+        niltrof_gas_giant.setCustomDescriptionId("unsf_ignara_planet");
         // Create other star bodies and make them orbit around the center location
         PlanetAPI lycaon_star = system.addPlanet("lycaon_star",
             star_orbit_1, "Lycaon", StarTypes.YELLOW,
-            40, 800, 6000, 117);
+            40, 800, 2000, 117);
         system.setSecondary(lycaon_star);
         system.setType(StarSystemType.TRINARY_2FAR);
 
@@ -160,6 +159,7 @@ public class niltrof {
             Entities.COMM_RELAY, // type of object, defined in custom_entities.json
             FACTION); // faction
         comm.setCircularOrbit(lycaon_star, 200, 4000, 65);
+        comm.setFaction(FACTION);
 
         // Nyxara Sensor Array
         SectorEntityToken sensor = system.addCustomEntity("nyxara_sensor_array", // unique id
@@ -167,25 +167,42 @@ public class niltrof {
             Entities.SENSOR_ARRAY, // type of object, defined in custom_entities.json
             FACTION); // faction
         sensor.setCircularOrbit(nyxara_star, 200, 4000, 65);
+        sensor.setFaction(FACTION);
 
-        // Solgar Nav Buoy
-        SectorEntityToken nav = system.addCustomEntity("solgar_nav_buoy", // unique id
-            "Solgar Nav Buoy", // name - if null, defaultName from custom_entities.json will be used
+        // Niltrof Nav Buoy
+        SectorEntityToken nav = system.addCustomEntity("niltrof_nav_buoy", // unique id
+            "Niltrof Nav Buoy", // name - if null, defaultName from custom_entities.json will be used
             Entities.NAV_BUOY, // type of object, defined in custom_entities.json
             FACTION); // faction
-        nav.setCircularOrbit(solgar_star, 200, 4000, 65);
+        nav.setCircularOrbit(niltrof_star, 200, 4000, 65);
+        nav.setFaction(FACTION);
 
-        // IGNARA GAS GIANT JUMP POINT
+        // JUMP POINTS
 
-        final JumpPointAPI ignaraJumpPoint = Global.getFactory().createJumpPoint("niltrof_gas_giant_jump", "Ignara gravity well");
-        ignaraJumpPoint.setCircularOrbit(system.getEntityById("solgar_gas_giant"), 200-60, 1000, 120);
-        ignaraJumpPoint.setRelatedPlanet(solgar_gas_giant);
+        final JumpPointAPI innerJumpPoint = Global.getFactory().createJumpPoint("niltrof_inner_jump", "Inner Jump Point");
+        innerJumpPoint.setCircularOrbit(center, 200, 4800, 80);
+        innerJumpPoint.setStandardWormholeToHyperspaceVisual();
+        innerJumpPoint.setAutoCreateEntranceFromHyperspace(true);
+        system.addEntity(innerJumpPoint);
 
-        ignaraJumpPoint.setStandardWormholeToHyperspaceVisual();
-        system.addEntity(ignaraJumpPoint);
+        final JumpPointAPI nyxaraJumpPoint = Global.getFactory().createJumpPoint("niltrof_nyxara_jump", "Nyxara Jump Point");
+        nyxaraJumpPoint.setCircularOrbit(nyxara_star, 140, 2800, 40);
+        nyxaraJumpPoint.setStandardWormholeToHyperspaceVisual();
+        nyxaraJumpPoint.setAutoCreateEntranceFromHyperspace(true);
+        system.addEntity(nyxaraJumpPoint);
 
         // Autogenerate hyperspace jump points - FUCK THAT - FALSES YOU
-        system.autogenerateHyperspaceJumpPoints(false, false);
+        system.autogenerateHyperspaceJumpPoints(true, false);
+
+        /*nyxaraJumpPoint.clearDestinations();
+        nyxaraJumpPoint.setLocation(11000, 15000);
+        nyxaraJumpPoint.setCircularOrbit(system.getCenter(), 0f, 600f, 20f);
+        nyxaraJumpPoint.addDestination(new JumpPointAPI.JumpDestination(niltrof_gas_giant, "Ignara Gravity Well"));
+        Global.getSector().getHyperspace().addEntity(nyxaraJumpPoint);
+        System.out.println("11221133" + system.getCenter());
+        System.out.println(system.getLocation());
+        System.out.println(system.getHyperspaceAnchor());
+        System.out.println(nyxaraJumpPoint.isInHyperspace());*/
 
         // MARKETS
 
@@ -219,6 +236,7 @@ public class niltrof {
         atlantis_market.addCondition(Conditions.HABITABLE);
         atlantis_market.addCondition(Conditions.OUTPOST);
         atlantis_market.addCondition(Conditions.FREE_PORT);
+        atlantis_market.addCondition(Conditions.RUINS_SCATTERED);
 
         Misc.setFullySurveyed(atlantis_market, null, true);
         atlantis_market.addIndustry(Industries.POPULATION);
@@ -232,6 +250,8 @@ public class niltrof {
         atlantis_market.getIndustry(Industries.FUELPROD).setSpecialItem(new SpecialItemData(Items.FULLERENE_SPOOL, null));
         atlantis_market.addIndustry(Industries.WAYSTATION);
         atlantis_market.addIndustry(Industries.LIGHTINDUSTRY);
+        atlantis_market.addIndustry(Industries.STARFORTRESS_HIGH);
+        atlantis_market.getIndustry(Industries.STARFORTRESS_HIGH).setAICoreId(Commodities.ALPHA_CORE);
         atlantis_market.addIndustry(Industries.STARGATE_COMPLEX);
 
         atlantis_market.addSubmarket(Submarkets.SUBMARKET_OPEN);
@@ -268,11 +288,12 @@ public class niltrof {
         aegirast_market.addIndustry(Industries.POPULATION);
         aegirast_market.addIndustry(Industries.SPACEPORT);
         aegirast_market.addIndustry(Industries.MINING);
-        atlantis_market.getIndustry(Industries.MINING).setSpecialItem(new SpecialItemData(Items.UNSF_ZPM, null));
+        aegirast_market.getIndustry(Industries.MINING).setSpecialItem(new SpecialItemData(Items.UNSF_ZPM, null));
         aegirast_market.addIndustry(Industries.PATROLHQ);
         aegirast_market.addIndustry(Industries.GROUNDDEFENSES);
         aegirast_market.addIndustry(Industries.REFINING);
         aegirast_market.getIndustry(Industries.REFINING).setSpecialItem(new SpecialItemData(Items.CATALYTIC_CORE, null));
+        aegirast_market.addIndustry(Industries.BATTLESTATION_HIGH);
         aegirast_market.addIndustry(Industries.STARGATE_COMPLEX);
 
         aegirast_market.addSubmarket(Submarkets.SUBMARKET_OPEN);
@@ -308,6 +329,8 @@ public class niltrof {
         nidavellir_market.addIndustry(Industries.MILITARYBASE);
         nidavellir_market.getIndustry(Industries.MILITARYBASE).setSpecialItem(new SpecialItemData(Items.CRYOARITHMETIC_ENGINE, null));
         nidavellir_market.addIndustry(Industries.GROUNDDEFENSES);
+        nidavellir_market.addIndustry(Industries.BATTLESTATION_HIGH);
+        nidavellir_market.getIndustry(Industries.BATTLESTATION_HIGH).setAICoreId(Commodities.ALPHA_CORE);
         nidavellir_market.addIndustry(Industries.STARGATE_COMPLEX);
 
         nidavellir_market.addSubmarket(Submarkets.SUBMARKET_OPEN);
@@ -331,7 +354,7 @@ public class niltrof {
         oberon_market.addCondition(Conditions.HABITABLE);
         oberon_market.addCondition(Conditions.MILD_CLIMATE);
         oberon_market.addCondition(Conditions.WATER_SURFACE);
-        oberon_market.addCondition(Conditions.ORGANICS_PLENTIFUL);
+        oberon_market.addCondition(Conditions.ORGANICS_ABUNDANT);
         oberon_market.addCondition(Conditions.VOLTURNIAN_LOBSTER_PENS);
         oberon_market.addCondition(Conditions.RUINS_VAST);
         oberon_market.addCondition(Conditions.REGIONAL_CAPITAL);
@@ -357,7 +380,6 @@ public class niltrof {
 
         lycaon_water.setMarket(oberon_market);
         Global.getSector().getEconomy().addMarket(oberon_market, true);
-        oberon_market.getIndustry(Industries.HIGHCOMMAND).setAICoreId(Commodities.ALPHA_CORE);
 
         //ARGOS
 
