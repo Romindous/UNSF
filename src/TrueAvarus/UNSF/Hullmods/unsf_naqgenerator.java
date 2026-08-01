@@ -10,9 +10,11 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 public class unsf_naqgenerator extends BaseHullMod {
 
 	private static final float PEAK_PERF_TIME = 100f;
-    private static final float PPT_CR_LOSS = 45f;
+    private static final float PPT_CR_LOSS = 25f;
 
     private static final float EXPLOSION_POWER = 500f;
+
+    private static final float SMOD_SYSTEM_COOLDOWN = 15f;
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
 		stats.getPeakCRDuration().modifyFlat(id, PEAK_PERF_TIME);
@@ -21,8 +23,12 @@ public class unsf_naqgenerator extends BaseHullMod {
         final float power = EXPLOSION_POWER / impactOf(hullSize);
         stats.getDynamic().getStat(Stats.EXPLOSION_RADIUS_MULT).modifyPercent(id, power);
         stats.getDynamic().getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyPercent(id, power);
+
+        if (isSMod(stats)) {
+            stats.getSystemCooldownBonus().modifyPercent(id, SMOD_SYSTEM_COOLDOWN);
+            stats.getSystemRegenBonus().modifyPercent(id, SMOD_SYSTEM_COOLDOWN);
+        }
 	}
-	
 
 	public String getDescriptionParam(int index, HullSize hullSize) {
         return switch (index) {
@@ -33,11 +39,15 @@ public class unsf_naqgenerator extends BaseHullMod {
         };
     }
 
+    public String getSModDescriptionParam(int index, HullSize hullSize) {
+        return index == 0 ? (int) SMOD_SYSTEM_COOLDOWN + "%" : null;
+    }
+
     private int impactOf(final HullSize size) {
         return switch (size) {
-            case DESTROYER -> 2;
-            case CRUISER -> 3;
             case CAPITAL_SHIP -> 4;
+            case CRUISER -> 3;
+            case DESTROYER -> 2;
             default -> 1;
         };
     }

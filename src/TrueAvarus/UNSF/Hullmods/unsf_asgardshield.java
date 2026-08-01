@@ -3,26 +3,28 @@ package TrueAvarus.UNSF.Hullmods;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import TrueAvarus.UNSF.dunno.HullMods;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
+import com.fs.starfarer.api.combat.ShieldAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
-import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import org.magiclib.util.MagicIncompatibleHullmods;
-
-import static TrueAvarus.UNSF.dunno.HullMods.UNSF_ASGARD_SHIELD;
-import static TrueAvarus.UNSF.dunno.HullMods.UNSF_ZPM_SHIELDS;
 
 public class unsf_asgardshield extends BaseHullMod {
 	private static final String UNAPPLICABLE_REASON = "Dont cheat";
-    public static final float SHIELD_HURT = 25f;
-	public static final float SHIELD_UPKEEP = 25f;
-    public static final float SHIELD_UNFOLD = 50f;
+    public static final float SHIELD_SOFT_FLUX = 45f;
     public static final float SHIELD_ARC = 30f;
+
+    public static final float SHIELD_UPKEEP = 25f;
+
+    public static final float SMOD_SHIELD_ARC = SHIELD_ARC;
+    public static final float SMOD_SHIELD_HURT = 5f;
 
     public static final Set<String> BLOCKED = new HashSet<>();
     static {
         BLOCKED.add(HullMods.HARDENED_SHIELDS);
+        BLOCKED.add(HullMods.EXTENDED_SHIELDS);
         BLOCKED.add("ix_reactive_combat_shields");
     }
 
@@ -33,24 +35,44 @@ public class unsf_asgardshield extends BaseHullMod {
             //if someone tries to install blocked hullmod, remove it
             if (hullMods.contains(tmp))
                 MagicIncompatibleHullmods.removeHullmodWithWarning(
-                    ship.getVariant(), tmp, UNSF_ASGARD_SHIELD);
+                    ship.getVariant(), tmp, HullMods.UNSF_ASGARD_SHIELD);
+        }
+
+        final ShieldAPI shield = ship.getShield();
+        if (shield == null) return;
+        final MutableShipStatsAPI stats = ship.getMutableStats();
+        if (!isSMod(ship)) {
+            stats.getShieldArcBonus().modifyPercent(id, SHIELD_ARC);
+            return;
+        }
+        if (shield.getType() == ShieldAPI.ShieldType.OMNI)
+            stats.getShieldArcBonus().modifyPercent(id, SHIELD_ARC + SMOD_SHIELD_ARC);
+        else {
+            stats.getShieldArcBonus().modifyPercent(id, SHIELD_ARC);
+            shield.setType(ShieldAPI.ShieldType.OMNI);
         }
     }
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getShieldDamageTakenMult().modifyPercent(id, -SHIELD_HURT);
-//		stats.getDynamic().getStat(Stats.SHIELD_PIERCED_MULT).modifyPercent(id, -SHIELD_PIERCE);
-        stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC);
+		stats.getShieldSoftFluxConversion().modifyPercent(id, SHIELD_SOFT_FLUX);
         stats.getShieldUpkeepMult().modifyPercent(id, SHIELD_UPKEEP);
-        stats.getShieldUnfoldRateMult().modifyPercent(id, -SHIELD_UNFOLD);
 	}
-	
+/*Rewires shield systems to absorb %s of damage taken as soft flux. Also extends the shield arc by %s degrees.
+These modifications cause upkeep cost to increase by %s.*/
 	public String getDescriptionParam(int index, HullSize hullSize) {
         return switch (index) {
-            case 0 -> (int) SHIELD_HURT + "%";
+            case 0 -> (int) SHIELD_SOFT_FLUX + "%";
             case 1 -> (int) SHIELD_ARC + "";
             case 2 -> (int) SHIELD_UPKEEP + "%";
-            case 3 -> (int) SHIELD_UNFOLD + "%";
+            default -> null;
+        };
+    }
+
+/*Shield emitters become %s more damage resistant. Converts front emitters to omni, or extends omni emitters by a further %s degrees.*/
+    public String getSModDescriptionParam(int index, HullSize hullSize) {
+        return switch (index) {
+            case 0 -> (int) SMOD_SHIELD_HURT + "%";
+            case 1 -> (int) SMOD_SHIELD_ARC + "";
             default -> null;
         };
     }
@@ -58,7 +80,7 @@ public class unsf_asgardshield extends BaseHullMod {
 	@Override
 	public boolean isApplicableToShip(ShipAPI ship) {
         return ship != null && ship.getVariant() != null && ship.getShield() != null
-            && !ship.getVariant().hasHullMod(UNSF_ZPM_SHIELDS);
+            && !ship.getVariant().hasHullMod(HullMods.UNSF_ZPM_SHIELDS);
     }
 
 	@Override
@@ -67,12 +89,10 @@ public class unsf_asgardshield extends BaseHullMod {
 		if (ship.getShield() == null) return "Ship does not have a shield.";
 
 		// Return reason if the specific incompatible hullmod is present
-		if (ship.getVariant().hasHullMod(UNSF_ZPM_SHIELDS)) {
+		if (ship.getVariant().hasHullMod(HullMods.UNSF_ZPM_SHIELDS)) {
 			return UNAPPLICABLE_REASON;
 		}
 		// If no issues found
 		return null;
 	}
-
-
 }

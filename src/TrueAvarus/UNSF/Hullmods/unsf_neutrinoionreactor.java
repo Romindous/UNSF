@@ -10,18 +10,20 @@ import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.hullmods.BaseLogisticsHullMod;
 import org.magiclib.util.MagicIncompatibleHullmods;
 
-import static TrueAvarus.UNSF.dunno.HullMods.UNSF_NEUTRINO_ION;
+import static TrueAvarus.UNSF.dunno.HullMods.UNSF_REACTOR;
 
-public class unsf_NeutrinoIonreactor extends BaseLogisticsHullMod {
+public class unsf_neutrinoionreactor extends BaseLogisticsHullMod {
 
-	private static final float MAINTENANCE = 10f;
-    private static final float FLUX_CAPACITY = 15f;
+	private static final float MAINTENANCE = 15f;
+    private static final float FLUX_CAPACITY = 10f;
     private static final float FLUX_DISIP = 5f;
     private static final float VENT_RATE = 15f;
 
     private static final float REPAIR_RATE = 50f;
     private static final float SHIP_SPACE = 75f;
     private static final float EMP_HURT = 25f;
+
+    private static final float SMOD_ARMOR = 10f;
 
     public static final Set<String> BLOCKED = new HashSet<>();
     static {
@@ -36,7 +38,7 @@ public class unsf_NeutrinoIonreactor extends BaseLogisticsHullMod {
             //if someone tries to install blocked hullmod, remove it
             if (hullMods.contains(tmp))
                 MagicIncompatibleHullmods.removeHullmodWithWarning(
-                    ship.getVariant(), tmp, UNSF_NEUTRINO_ION);
+                    ship.getVariant(), tmp, UNSF_REACTOR);
         }
     }
 
@@ -52,6 +54,10 @@ public class unsf_NeutrinoIonreactor extends BaseLogisticsHullMod {
         stats.getCombatEngineRepairTimeMult().modifyPercent(id, REPAIR_RATE);
         stats.getCombatWeaponRepairTimeMult().modifyPercent(id, REPAIR_RATE);
         stats.getEmpDamageTakenMult().modifyPercent(id, EMP_HURT);
+
+        if (isSMod(stats)) {
+            stats.getArmorBonus().modifyPercent(id, -SMOD_ARMOR);
+        }
 	}
 	
 	public String getDescriptionParam(int index, HullSize hullSize, ShipAPI ship) {
@@ -65,6 +71,10 @@ public class unsf_NeutrinoIonreactor extends BaseLogisticsHullMod {
             case 6 -> (int) REPAIR_RATE + "%";
             default -> null;
         };
+    }
+
+    public String getSModDescriptionParam(int index, HullSize hullSize, ShipAPI ship) {
+        return index == 0 ? (int) SMOD_ARMOR + "%" : null;
     }
 
 	

@@ -42,7 +42,7 @@ public class unsf_transporter extends BaseHullMod {
         dynamic.getStat(Stats.FIGHTER_CREW_LOSS_MULT).modifyPercent(id, -CREW_SAVED);
         dynamic.getStat(Stats.FIGHTER_REARM_TIME_MULT).modifyPercent(id, -FIGHTER_REARM);
         stats.getFighterRefitTimeMult().modifyPercent(id, -FIGHTER_REARM);
-        stats.getFluxCapacity().modifyPercent(id, -FLUX_CAPACITY);
+        if (!isSMod(stats)) stats.getFluxCapacity().modifyPercent(id, -FLUX_CAPACITY);
 	}
 
 	public String getDescriptionParam(int index, HullSize hullSize) {

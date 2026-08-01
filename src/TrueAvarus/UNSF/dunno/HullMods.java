@@ -8,7 +8,7 @@ public class HullMods extends com.fs.starfarer.api.impl.campaign.ids.HullMods {
     public static final String UNSF_ASGARD_SENSORS = "unsf_asgardsensors";
     public static final String UNSF_ASGARD_TRANS = "unsf_transporter";
     public static final String UNSF_NAQ_GENERATOR = "unsf_naqgenerator";
-    public static final String UNSF_NEUTRINO_ION = "unsf_NeutrinoIonreactor";
+    public static final String UNSF_REACTOR = "unsf_neutrinoionreactor";
     public static final String UNSF_RINGS = "unsf_rings";
     public static final String UNSF_TRINIUM = "unsf_triniumalloy";
     public static final String UNSF_ZPM_SHIELDS = "unsf_zpm_shieldbooster"; // Replace with the first additional hullmod ID
