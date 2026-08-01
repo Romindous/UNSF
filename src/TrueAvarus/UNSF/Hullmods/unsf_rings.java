@@ -20,6 +20,7 @@ public class unsf_rings extends BaseHullMod {
 		}
 	}
 
+/*Transportation rings deployment enhances ground support capabilities of up to %s marines on board. Medevac operations decrease causualities during raids by %s.*/
 	@Override
 	public String getDescriptionParam(int index, ShipAPI.HullSize hullSize) {
 		if (index == 0) return "" + (impactOf(hullSize) * (int) GROUND_SUPPORT);
@@ -27,6 +28,7 @@ public class unsf_rings extends BaseHullMod {
 		return null;
 	}
 
+/*Transport rings are integrated into logistics systems, reducing supply consumption per month by %s.*/
 	@Override
 	public String getSModDescriptionParam(int index, ShipAPI.HullSize hullSize) {
         return index == 0 ? (int) SMOD_MAINTENANCE + "%" : null;

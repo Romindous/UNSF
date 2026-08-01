@@ -56,7 +56,8 @@ public class unsf_triniumalloy extends BaseHullMod {
             stats.getMaxTurnRate().modifyPercent(id, -SMOD_MANEUVERABILITY);
         }
 	}
-	
+
+/*Increases the ship's armor by %s/%s/%s/%s points, depending on hull size. Also increases EMP resistance by %s, due to the alloy's composition.*/
 	public String getDescriptionParam(int index, HullSize hullSize) {
 		if (index == 0) return "" + mag.get(HullSize.FRIGATE).intValue();
 		if (index == 1) return "" + mag.get(HullSize.DESTROYER).intValue();
@@ -65,8 +66,8 @@ public class unsf_triniumalloy extends BaseHullMod {
         if (index == 4) return (int) EMP_RESISTANCE + "%";
 		return null;
 	}
-	
-	
+
+/*Lightweight materials increase the ship's maneuverability by %s.*/
 	@Override
 	public String getSModDescriptionParam(int index, HullSize hullSize, ShipAPI ship) {
         return index == 0 ? (int) SMOD_MANEUVERABILITY + "%" : null;

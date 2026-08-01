@@ -59,7 +59,10 @@ public class unsf_neutrinoionreactor extends BaseLogisticsHullMod {
             stats.getArmorBonus().modifyPercent(id, -SMOD_ARMOR);
         }
 	}
-	
+
+/*Lowers supply demands and fuel consumption by %s, thanks to the reactor's energy management systems.
+Augments the ship’s flux capacity by %s and enhances dissipation by %s. Interfacing of the reactor-flux modules increases vent speed by %s, but causes the ship to take %s more EMP damage.
+Equipment needed for the reactor both takes up %s of cargo space and results in %s slower ship repairs (in and out of combat).*/
 	public String getDescriptionParam(int index, HullSize hullSize, ShipAPI ship) {
         return switch (index) {
             case 0 -> (int) MAINTENANCE + "%";
@@ -73,6 +76,7 @@ public class unsf_neutrinoionreactor extends BaseLogisticsHullMod {
         };
     }
 
+/*Reduces armor by %s to accomodate for reactor integration.*/
     public String getSModDescriptionParam(int index, HullSize hullSize, ShipAPI ship) {
         return index == 0 ? (int) SMOD_ARMOR + "%" : null;
     }

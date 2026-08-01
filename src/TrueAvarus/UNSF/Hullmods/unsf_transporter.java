@@ -45,6 +45,7 @@ public class unsf_transporter extends BaseHullMod {
         if (!isSMod(stats)) stats.getFluxCapacity().modifyPercent(id, -FLUX_CAPACITY);
 	}
 
+/*Reduces the casualties suffered by fighter pilots by %s. Also lowers fighter refit time by %s, but uses up %s of the ship's flux capacity.*/
 	public String getDescriptionParam(int index, HullSize hullSize) {
         if (index == 0) return (int) CREW_SAVED + "%";
         if (index == 1) return (int) FIGHTER_REARM + "%";

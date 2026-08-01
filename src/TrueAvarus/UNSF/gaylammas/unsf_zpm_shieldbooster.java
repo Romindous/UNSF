@@ -27,13 +27,12 @@ public class unsf_zpm_shieldbooster extends BaseHullMod {
     }
 
     @Override
-    public void advanceInCombat(ShipAPI ship, float amount) {
-        // Check if the ship is alive
-        if (!ship.isAlive()) return;
-
+    public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
+        if (ship.getShield() == null) return;
         // Set the shield color to white with the specified alpha value
         ship.getShield().setInnerColor(SHIELD_COLOR);
     }
+
     @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
         tooltip.setBulletedListMode("• ");
@@ -43,6 +42,7 @@ public class unsf_zpm_shieldbooster extends BaseHullMod {
         tooltip.addPara("Changes color of shield to white.", Format.OPAD, Format.GOOD);
         tooltip.setBulletedListMode(null);
     }
+
     @Override
     public boolean isApplicableToShip(ShipAPI ship) {
         // This hullmod cannot be applied if the dependency hullmod is not present

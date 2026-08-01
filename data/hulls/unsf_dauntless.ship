@@ -70,7 +70,7 @@
       "type": "BUILT_IN",
       "mount": "HIDDEN",
       "arc": 240,
-      "angle": 0,
+      "angle": -90,
       "locations": [49.5, -12]
     },
     {
@@ -79,7 +79,7 @@
       "type": "BUILT_IN",
       "mount": "HIDDEN",
       "arc": 240,
-      "angle": 0,
+      "angle": 90,
       "locations": [49.5, 12]
     }
   ],
@@ -90,7 +90,7 @@
       "width": 17,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-125, 35.5],
@@ -98,7 +98,7 @@
       "width": 17,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-122, -46],
@@ -106,7 +106,7 @@
       "width": 15,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-122, 46],
@@ -114,7 +114,7 @@
       "width": 15,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     }
   ],
   "bounds": [

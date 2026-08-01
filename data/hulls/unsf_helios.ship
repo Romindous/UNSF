@@ -11,6 +11,9 @@
   "shieldCenter": [0, -0],
   "shieldRadius": 260.5,
   "viewOffset": 0,
+  "builtInWeapons": {
+    "WS 017": "unsf_dronelauncher"
+  },
   "weaponSlots": [
     {
       "id": "WS 002",
@@ -107,8 +110,8 @@
       "size": "LARGE",
       "type": "COMPOSITE",
       "mount": "TURRET",
-      "arc": 60,
-      "angle": 345,
+      "arc": 90,
+      "angle": -60,
       "locations": [-58, -99]
     },
     {
@@ -116,8 +119,8 @@
       "size": "LARGE",
       "type": "COMPOSITE",
       "mount": "TURRET",
-      "arc": 60,
-      "angle": 15,
+      "arc": 90,
+      "angle": 60,
       "locations": [-58, 99]
     },
     {
@@ -168,8 +171,8 @@
     {
       "id": "WS 017",
       "size": "SMALL",
-      "type": "UNIVERSAL",
-      "mount": "TURRET",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
       "arc": 270,
       "angle": 0,
       "locations": [141, -0]
@@ -182,7 +185,7 @@
       "width": 23,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-184, 16],
@@ -190,7 +193,7 @@
       "width": 23,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-176.5, -67.5],
@@ -198,7 +201,7 @@
       "width": 22,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-176.5, 67.5],
@@ -206,7 +209,7 @@
       "width": 22,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-176.5, -100],
@@ -214,7 +217,7 @@
       "width": 21,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-176.5, 100],
@@ -222,7 +225,7 @@
       "width": 21,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     }
   ],
   "bounds": [

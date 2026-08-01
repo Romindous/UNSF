@@ -86,51 +86,51 @@
   "engineSlots": [
     {
       "location": [-120, -74.5],
-      "length": 17.5,
+      "length": 32,
       "width": 12,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-120, 74.5],
-      "length": 17.5,
+      "length": 32,
       "width": 12,
-      "angle": 180,
+      "angle": -180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-120, -103.5],
-      "length": 17.5,
-      "width": 13,
+      "length": 24,
+      "width": 14,
       "angle": 180,
-      "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "contrailSize": 14,
+      "style": "MIDLINE"
     },
     {
       "location": [-120, 103.5],
-      "length": 17.5,
-      "width": 13,
+      "length": 24,
+      "width": 14,
       "angle": 180,
-      "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "contrailSize": 14,
+      "style": "MIDLINE"
     },
     {
       "location": [-122, -117.5],
-      "length": 45.5,
-      "width": 16,
+      "length": 36,
+      "width": 14,
       "angle": 180,
-      "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "contrailSize": 14,
+      "style": "MIDLINE"
     },
     {
       "location": [-122, 117.5],
-      "length": 45.5,
-      "width": 16,
+      "length": 36,
+      "width": 14,
       "angle": 180,
-      "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "contrailSize": 14,
+      "style": "MIDLINE"
     },
     {
       "location": [-120, -130],
@@ -138,7 +138,7 @@
       "width": 13,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-120, 130],
@@ -146,23 +146,23 @@
       "width": 13,
       "angle": 180,
       "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "style": "MIDLINE"
     },
     {
       "location": [-122, -88.5],
-      "length": 45.5,
+      "length": 42,
       "width": 16,
       "angle": 180,
-      "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "contrailSize": 16,
+      "style": "MIDLINE"
     },
     {
       "location": [-122, 88.5],
-      "length": 45.5,
+      "length": 42,
       "width": 16,
       "angle": 180,
-      "contrailSize": 12,
-      "style": "HIGH_TECH"
+      "contrailSize": 16,
+      "style": "MIDLINE"
     }
   ],
   "bounds": [
@@ -174,14 +174,12 @@
     26.5, 106.5,
     46, 105.5,
     98, 50.5,
-    140.5, 15.5,
-    176.5, 14,
-    176.5, 7,
-    141.5, 5.5,
-    141.5, -5.5,
-    176.5, -7,
-    176.5, -14,
-    140.5, -15.5,
+    140, 15.5,
+    140, 4.5,
+    133.5, 2.5,
+    133.5, -4.5,
+    140, -6.5,
+    140, -15.5,
     98, -50.5,
     46, -105.5,
     26.5, -106.5,

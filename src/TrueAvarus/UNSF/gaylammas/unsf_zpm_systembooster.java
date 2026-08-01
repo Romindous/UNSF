@@ -9,7 +9,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
 public class unsf_zpm_systembooster extends BaseHullMod {
 
-    public static final float SUPPLY_CONSUM = 15f;
+    public static final float SUPPLY_USE = 15f;
     public static final float FUEL_CONSUM = 40f;
     public static final float FLUX_CAPACITY = 25f;
     public static final float FLUX_DISSIPATION = 15f;
@@ -20,7 +20,7 @@ public class unsf_zpm_systembooster extends BaseHullMod {
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        stats.getSuppliesPerMonth().modifyPercent(id, -SUPPLY_CONSUM);
+        stats.getSuppliesPerMonth().modifyPercent(id, -SUPPLY_USE);
         stats.getFuelUseMod().modifyPercent(id, -FUEL_CONSUM);
         stats.getFluxCapacity().modifyPercent(id, FLUX_CAPACITY);
         stats.getFluxDissipation().modifyPercent(id, FLUX_DISSIPATION);
@@ -33,7 +33,7 @@ public class unsf_zpm_systembooster extends BaseHullMod {
     @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
         tooltip.setBulletedListMode("• ");
-        tooltip.addPara("Decreses supply consumption by %s and fuel use by %s.", Format.OPAD, Format.GOOD, (int) SUPPLY_CONSUM + "%", (int) FUEL_CONSUM + "%");
+        tooltip.addPara("Decreses supply consumption by %s and fuel use by %s.", Format.OPAD, Format.GOOD, (int) SUPPLY_USE + "%", (int) FUEL_CONSUM + "%");
         tooltip.addPara("Increases flux capacity by %s and dissipation by %s.", Format.OPAD, Format.GOOD, (int) FLUX_CAPACITY + "%", (int) FLUX_DISSIPATION + "%");
         tooltip.addPara("Increases max combat readiness by %s.", Format.OPAD, Format.GOOD, (int) COMBAT_READINESS + "");
         tooltip.addPara("Increases system uses by %s, lowers system cooldown and regen time by %s.", Format.OPAD, Format.GOOD, SYSTEM_USES + "", (int) SYSTEM_COOLDOWN + "%");

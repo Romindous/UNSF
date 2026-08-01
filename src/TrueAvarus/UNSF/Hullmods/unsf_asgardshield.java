@@ -42,13 +42,14 @@ public class unsf_asgardshield extends BaseHullMod {
         if (shield == null) return;
         final MutableShipStatsAPI stats = ship.getMutableStats();
         if (!isSMod(ship)) {
-            stats.getShieldArcBonus().modifyPercent(id, SHIELD_ARC);
+            stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC);
             return;
         }
+        stats.getShieldDamageTakenMult().modifyPercent(id, -SMOD_SHIELD_HURT);
         if (shield.getType() == ShieldAPI.ShieldType.OMNI)
-            stats.getShieldArcBonus().modifyPercent(id, SHIELD_ARC + SMOD_SHIELD_ARC);
+            stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC + SMOD_SHIELD_ARC);
         else {
-            stats.getShieldArcBonus().modifyPercent(id, SHIELD_ARC);
+            stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC);
             shield.setType(ShieldAPI.ShieldType.OMNI);
         }
     }
@@ -57,6 +58,7 @@ public class unsf_asgardshield extends BaseHullMod {
 		stats.getShieldSoftFluxConversion().modifyPercent(id, SHIELD_SOFT_FLUX);
         stats.getShieldUpkeepMult().modifyPercent(id, SHIELD_UPKEEP);
 	}
+
 /*Rewires shield systems to absorb %s of damage taken as soft flux. Also extends the shield arc by %s degrees.
 These modifications cause upkeep cost to increase by %s.*/
 	public String getDescriptionParam(int index, HullSize hullSize) {
