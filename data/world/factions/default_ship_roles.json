@@ -3,18 +3,18 @@
 	# for example, no Hyperions or fast beam-based kiting loadouts, or ships with damper field
 	"combatSmallForSmallFleet":{
 		
-		"unsf_Fenrir_base":5,
+		"unsf_fenrir_base":5,
 		"unsf_prometheus_base":5,
 	},
 	"combatSmall":{
 		
-		"unsf_Fenrir_base":5,
+		"unsf_fenrir_base":5,
 		"unsf_prometheus_base":5,
 		
 	},
 	
 	"combatMedium":{
-		"unsf_daedalus_refit_base":4,
+		"unsf_daedalus_carrier_base":4,
 		"unsf_daedalus_base":6,
 	},
 	
@@ -53,7 +53,7 @@
 		
 	},
 	"carrierLarge":{
-		"unsf_daedalus_refit_base":8,
+		"unsf_daedalus_carrier_base":8,
 		
 	},
 

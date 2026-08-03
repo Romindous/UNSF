@@ -3,28 +3,30 @@
   "hullId": "unsf_helios",
   "displayName": "Helios Base",
   "goalVariant": true,
-  "fluxCapacitors": 10,
-  "fluxVents": 25,
+  "fluxCapacitors": 8,
+  "fluxVents": 20,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
     "unsf_asgardcpu",
     "auxiliarythrusters",
-    "unsf_asgardsensors",
-    "unsf_asgardshield",
     "unsf_triniumalloy",
-    "unsf_NeutrinoIonreactor"
+    "armoredweapons",
+    "unsf_asgardhyperdrive",
+    "insulatedengine"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS 012": "unsf_railgun_3",
-        "WS 013": "unsf_railgun_3",
+        "WS 012": "unsf_asgard_pulse",
+        "WS 013": "unsf_asgard_pulse",
         "WS 016": "harpoon_single",
         "WS 017": "unsf_dronelauncher",
         "WS 018": "harpoon_single",
+        "WS 019": "unsf_asgard_lance",
+        "WS 020": "unsf_asgard_lance",
         "WS 022": "harpoon_single"
       }
     },

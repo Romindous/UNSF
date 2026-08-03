@@ -40,22 +40,22 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 020": "unsf_railgun_3",
-                "WS 013": "unsf_railgun_3",
-                "WS 018": "unsf_railgun_3",
-                "WS 016": "unsf_railgun_3",
-                "WS 014": "unsf_railgun_3"
+                "WS 020": "unsf_recoiler",
+                "WS 013": "unsf_recoiler",
+                "WS 018": "unsf_recoiler",
+                "WS 016": "unsf_recoiler",
+                "WS 014": "unsf_recoiler"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 033": "unsf_railgun_3",
-                "WS 019": "unsf_railgun_3",
-                "WS 015": "unsf_railgun_3",
-                "WS 017": "unsf_railgun_3",
-                "WS 021": "unsf_railgun_3"
+                "WS 033": "unsf_recoiler",
+                "WS 019": "unsf_recoiler",
+                "WS 015": "unsf_recoiler",
+                "WS 017": "unsf_recoiler",
+                "WS 021": "unsf_recoiler"
             }
         },
         {

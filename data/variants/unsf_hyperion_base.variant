@@ -1,29 +1,35 @@
 {
-    "displayName": "Hyperion Base",
-    "fluxCapacitors": 0,
-    "fluxVents": 0,
-    "goalVariant": false,
-    "hullId": "unsf_hyperion",
-    "hullMods": [
-        "unsf_asgardhyperdrive",
-        "unsf_asgardshield",
-        "unsf_transporter",
-        "unsf_triniumalloy",
-        "unsf_NeutrinoIonreactor",
-        "unsf_asgardcpu"
-    ],
-    "quality": 0.0,
-    "variantId": "unsf_hyperion_base",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "unsf_railgun_small",
-                "WS 000": "unsf_railgun_small",
-                "WS 002": "unsf_railgun_small",
-                "WS 003": "unsf_railgun_small"
-            }
-        }
-    ]
+  "variantId": "unsf_hyperion_base",
+  "hullId": "unsf_hyperion",
+  "displayName": "Hyperion Base",
+  "goalVariant": false,
+  "fluxCapacitors": 14,
+  "fluxVents": 4,
+  "quality": 0,
+  "permaMods": [],
+  "hullMods": [
+    "unsf_asgardhyperdrive",
+    "unsf_asgardshield",
+    "unsf_triniumalloy",
+    "armoredweapons",
+    "expanded_cargo_holds",
+    "insulatedengine",
+    "targetingunit"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "unsf_railgun_small",
+        "WS0002": "unsf_railgun_small",
+        "WS0003": "heavymortar",
+        "WS0004": "heavymortar",
+        "WS0005": "unsf_railgun_pd",
+        "WS0006": "unsf_railgun_pd"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
 }

@@ -79,7 +79,7 @@
     ],
 
     "startShipsCombatLarge": [
-        ["unsf_daedalus_base", "unsf_daedalus_refit_base", "unsf_helios_base"]
+        ["unsf_daedalus_base", "unsf_daedalus_carrier_base", "unsf_helios_base"]
     ],
 
     "startShipsSuper": [

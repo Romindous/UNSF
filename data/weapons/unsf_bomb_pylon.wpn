@@ -4,18 +4,18 @@
   "projectileSpecId": "unsf_jdam",
   "type": "BALLISTIC",
   "size": "SMALL",
-  "turretSprite": "graphics/weapons/unsf_asgardbeam.png",
-  "hardpointSprite": "graphics/weapons/unsf_asgardbeam.png",
+  "turretSprite": "graphics/weapons/unsf_vls.png",
+  "hardpointSprite": "graphics/weapons/unsf_vls.png",
   "turretOffsets": [
-    -1.5,
-    -1
+    0,
+    0
   ],
   "turretAngleOffsets": [
     0
   ],
   "hardpointOffsets": [
-    1.5,
-    -1
+    6.5,
+    0
   ],
   "hardpointAngleOffsets": [
     0

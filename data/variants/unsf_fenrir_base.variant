@@ -1,0 +1,44 @@
+{
+  "variantId": "unsf_fenrir_base",
+  "hullId": "unsf_fenrir",
+  "displayName": "Fenrir Base",
+  "goalVariant": true,
+  "fluxCapacitors": 2,
+  "fluxVents": 6,
+  "quality": 0,
+  "permaMods": [],
+  "hullMods": [
+    "unsf_asgardcpu",
+    "unsf_asgardshield",
+    "unsf_triniumalloy",
+    "unsf_naqgenerator",
+    "insulatedengine",
+    "extendedshieldemitter",
+    "hardenedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "unsf_railgun_medium",
+        "WS 001": "unsf_railgun_medium",
+        "WS 002": "lightmortar",
+        "WS 003": "unsf_railgun_pd",
+        "WS 004": "unsf_asgard_beam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

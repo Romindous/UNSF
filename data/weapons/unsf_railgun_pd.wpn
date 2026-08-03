@@ -1,26 +1,26 @@
 {
   "id": "unsf_railgun_pd",
   "specClass": "projectile",
-  "projectileSpecId": "unsf_railgun_pd_shell",
+  "projectileSpecId": "unsf_railgun_pd_shot",
   "type": "BALLISTIC",
   "size": "SMALL",
-  "turretSprite": "graphics/weapons/unsf_railgun_pd_turret.png",
-  "turretGunSprite": "graphics/weapons/unsf_railgun_pd_recoil.png",
-  "turretUnderSprite": "graphics/weapons/unsf_railgun_pd_base.png",
-  "hardpointSprite": "graphics/weapons/unsf_railgun_pd_turret.png",
-  "hardpointGunSprite": "graphics/weapons/unsf_railgun_pd_recoil.png",
-  "hardpointUnderSprite": "graphics/weapons/unsf_railgun_pd_base.png",
+  "turretSprite": "graphics/weapons/unsf_railgun_pd_base_tr.png",
+  "turretGunSprite": "graphics/weapons/unsf_railgun_pd_recoil_tr.png",
+  "hardpointSprite": "graphics/weapons/unsf_railgun_pd_base_hp.png",
+  "hardpointGunSprite": "graphics/weapons/unsf_railgun_pd_recoil_hp.png",
   "visualRecoil": 4,
-  "renderHints":[RENDER_BARREL_BELOW],
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
   "turretOffsets": [
-    6.5,
+    9,
     0
   ],
   "turretAngleOffsets": [
     0
   ],
   "hardpointOffsets": [
-    6.5,
+    9,
     0
   ],
   "hardpointAngleOffsets": [

@@ -3,37 +3,38 @@
   "hullId": "unsf_prometheus",
   "displayName": "Prometheus base",
   "goalVariant": true,
-  "fluxCapacitors": 6,
-  "fluxVents": 8,
+  "fluxCapacitors": 10,
+  "fluxVents": 5,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
-    "unsf_asgardshield",
-    "unsf_NeutrinoIonreactor",
     "unsf_triniumalloy",
     "auxiliarythrusters",
-    "unsf_asgardcpu"
+    "unsf_asgardcpu",
+    "insulatedengine",
+    "hardenedshieldemitter",
+    "extendedshieldemitter",
+    "armoredweapons"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS 000": "unsf_railgun",
+        "WS 000": "unsf_railgun_medium",
+        "WS 001": "unsf_railgun_pd",
+        "WS 002": "unsf_railgun_pd",
         "WS 003": "unsf_vls_2"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "WS 001": "unsf_railgun_small",
-        "WS 002": "unsf_railgun_small"
-      }
+      "weapons": {}
     }
   ],
   "modules": [],
   "wings": [
-    "unsf_302_wing"
+    "unsf_f302"
   ]
 }

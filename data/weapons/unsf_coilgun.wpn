@@ -1,0 +1,51 @@
+{
+  "id": "unsf_coilgun",
+  "specClass": "projectile",
+  "projectileSpecId": "unsf_coilgun_shot",
+  "type": "BALLISTIC",
+  "size": "MEDIUM",
+  "turretSprite": "graphics/weapons/unsf_coilgun_base_tr.png",
+  "turretGunSprite": "graphics/weapons/unsf_coilgun_recoil_tr.png",
+  "hardpointSprite": "graphics/weapons/unsf_coilgun_base_hp.png",
+  "hardpointGunSprite": "graphics/weapons/unsf_coilgun_recoil_hp.png",
+  "visualRecoil": 6,
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
+  "turretOffsets": [
+    16,
+    4,
+    16,
+    -4
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    16,
+    4,
+    16,
+    -4
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "MUZZLE_FLASH",
+  "muzzleFlashSpec": {
+    "length": 8,
+    "spread": 3,
+    "particleSizeMin": 2,
+    "particleSizeRange": 5,
+    "particleDuration": 0.2,
+    "particleCount": 25,
+    "particleColor": [
+      255,
+      228,
+      0,
+      150
+    ]
+  },
+  "fireSoundTwo": "railgun3_sound"
+}

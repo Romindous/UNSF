@@ -89,9 +89,9 @@
 	],
 
 "railgun3_sound":[
-		{"file":"sounds/weapons/unsf_railgun3_sound.ogg","pitch":0.90,"volume":0.1},
-		{"file":"sounds/weapons/unsf_railgun3_sound.ogg","pitch":1.0,"volume":0.1},		
-		{"file":"sounds/weapons/unsf_railgun3_sound.ogg","pitch":1.10,"volume":0.1},		
+		{"file":"sounds/weapons/unsf_recoiler_shot.ogg","pitch":0.90,"volume":0.1},
+		{"file":"sounds/weapons/unsf_recoiler_shot.ogg","pitch":1.0,"volume":0.1},
+		{"file":"sounds/weapons/unsf_recoiler_shot.ogg","pitch":1.10,"volume":0.1},
 	],
 
 

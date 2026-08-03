@@ -13,8 +13,8 @@
   "viewOffset": 0,
   "builtInWeapons": {
     "WS 018": "unsf_dronelauncher",
-    "WS 019": "unsf_asgbeam_heavy",
-    "WS 020": "unsf_asgbeam_heavy"
+    "WS 019": "unsf_asgard_beam",
+    "WS 020": "unsf_asgard_beam"
   },
   "weaponSlots": [
     {
@@ -172,7 +172,7 @@
     },
     {
       "id": "WS 019",
-      "size": "MEDIUM",
+      "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "HIDDEN",
       "arc": 81,
@@ -181,7 +181,7 @@
     },
     {
       "id": "WS 020",
-      "size": "MEDIUM",
+      "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "HIDDEN",
       "arc": 81,
@@ -191,7 +191,7 @@
     {
       "id": "WS 021",
       "size": "LARGE",
-      "type": "COMPOSITE",
+      "type": "MISSILE",
       "mount": "TURRET",
       "arc": 240,
       "angle": 0,

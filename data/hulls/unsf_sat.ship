@@ -1,69 +1,61 @@
 {
-    "hullName": "Offensive Satellite",
-    "hullId": "unsf_sat",
-    "hullSize": "FIGHTER",
-    "style": "UNSF_TECH",
-    "spriteName": "graphics/ships/unsf_sattelite.png",
-    "height": 59,
-    "width": 86,
-    "center": [
-        43, 22.5
-    ],
-    "collisionRadius": 47,
-    "coversColor": "",
-    "shieldCenter": [
-        0.5, 0
-    ],
-    "shieldRadius": 46.5,
-    "viewOffset": 0,
-    "builtInWings": [],
-    "builtInModules": null,
-    "builtInMods": [
-        "unsf_asgardcpu"
-    ],
-    "weaponSlots": [
-        {
-            "id": "WS 000",
-            "size": "LARGE",
-            "type": "BUILT_IN",
-            "mount": "HIDDEN",
-            "arc": 14,
-            "angle": 0,
-            "locations": [
-                     0.5,        0
-            ]
-        },
-        {
-            "id": "WS 001",
-            "size": "SMALL",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 290,
-            "angle": 270,
-            "locations": [
-                    -8.5,      -36
-            ]
-        },
-        {
-            "id": "WS 002",
-            "size": "SMALL",
-            "type": "BALLISTIC",
-            "mount": "TURRET",
-            "arc": 290,
-            "angle": 90,
-            "locations": [
-                    -8.5,       36
-            ]
-        }
-    ],
-    "engineSlots": [],
-    "bounds": [
-              27,     30.5,
-            -8.5,     35.5,
-             -16,     17.5,
-             -16,    -17.5,
-            -8.5,    -35.5,
-        
-              27,    -30.5
-    ]
+  "hullName": "Offensive Satellite",
+  "hullId": "unsf_sat",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/unsf_sattelite.png",
+  "style": "UNSF_TECH",
+  "height": 59,
+  "width": 86,
+  "center": [43, 22.5],
+  "collisionRadius": 47,
+  "shieldCenter": [0.5, 0],
+  "shieldRadius": 46.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "unsf_asgardcpu",
+    "advancedoptics",
+    "auxiliarythrusters",
+    "solar_shielding"
+  ],
+  "builtInWeapons": {
+    "WS 000": "unsf_ori_lance"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS 000",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 14,
+      "angle": 0,
+      "locations": [0.5, 0]
+    },
+    {
+      "id": "WS 001",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 290,
+      "angle": 270,
+      "locations": [-8.5, -36]
+    },
+    {
+      "id": "WS 002",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 290,
+      "angle": 90,
+      "locations": [-8.5, 36]
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    27, 30.5,
+    -8.5, 35.5,
+    -16, 17.5,
+    -16, -17.5,
+    -8.5, -35.5,
+    27, -30.5
+  ]
 }

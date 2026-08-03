@@ -12,8 +12,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "unsf_railgun_3",
-                "WS 001": "unsf_railgun_3"
+                "WS 000": "unsf_recoiler",
+                "WS 001": "unsf_recoiler"
             }
         },
         {

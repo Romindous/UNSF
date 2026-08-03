@@ -1,18 +1,20 @@
 {
   "variantId": "unsf_daedalus_base",
   "hullId": "unsf_daedalus",
-  "displayName": "Daedalus Base",
+  "displayName": "Daedalus (A) Base",
   "goalVariant": true,
-  "fluxCapacitors": 0,
-  "fluxVents": 6,
+  "fluxCapacitors": 5,
+  "fluxVents": 14,
   "quality": 0,
   "permaMods": [],
   "hullMods": [
-    "unsf_asgardshield",
     "auxiliarythrusters",
-    "unsf_asgardcpu",
-    "unsf_NeutrinoIonreactor",
-    "unsf_triniumalloy"
+    "unsf_triniumalloy",
+    "insulatedengine",
+    "targetingunit",
+    "stabilizedshieldemitter",
+    "armoredweapons",
+    "expanded_deck_crew"
   ],
   "weaponGroups": [
     {
@@ -21,48 +23,23 @@
       "weapons": {
         "WS 006": "unsf_railgun_pd",
         "WS 007": "unsf_railgun_pd",
-        "WS 008": "unsf_railgun_pd",
-        "WS 009": "unsf_railgun_pd",
-        "WS 010": "unsf_railgun_small",
-        "WS 011": "unsf_railgun_small",
+        "WS 008": "mininglaser",
+        "WS 009": "mininglaser",
+        "WS 010": "lightag",
+        "WS 011": "lightag",
+        "WS 014": "unsf_railgun_medium",
+        "WS 015": "unsf_railgun_medium",
         "WS 016": "unsf_railgun_pd",
         "WS 017": "unsf_railgun_pd",
-        "WS 020": "squall"
+        "WS 018": "lightmortar",
+        "WS 019": "lightmortar",
+        "WS 020": "pilum_large"
       }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "WS 014": "unsf_railgun",
-        "WS 015": "unsf_railgun"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": false,
-      "mode": "LINKED",
-      "weapons": {}
     }
   ],
   "modules": [],
   "wings": [
-    "unsf_302_wing",
-    "unsf_302_wing",
-    "unsf_302_wing"
+    "unsf_f302",
+    "unsf_d302"
   ]
 }

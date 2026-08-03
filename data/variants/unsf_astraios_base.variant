@@ -1,73 +1,75 @@
 {
-    "displayName": "Astraios Base",
-    "fluxCapacitors": 50,
-    "fluxVents": 50,
-    "goalVariant": true,
-    "hullId": "unsf_astraios",
-    "hullMods": [
-        "unsf_asgardhyperdrive",
-        "unsf_asgardshield",
-        "unsf_asgardsensors",
-        "unsf_asgardcpu",
-        "unsf_naqgenerator",
-        "unsf_NeutrinoIonreactor",
-        "unsf_triniumalloy"
-    ],
-    "quality": 1.0,
-    "variantId": "unsf_astraios_base",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 020": "unsf_asgbeam_heavy",
-                "WS 019": "unsf_asgbeam_heavy"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 022": "unsf_railgun_4",
-                "WS 023": "unsf_railgun_4",
-                "WS 021": "unsf_railgun_4",
-                "WS 024": "unsf_flk"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 015": "unsf_railgun_3",
-                "WS 014": "unsf_railgun_3",
-                "WS 011": "unsf_railgun_small",
-                "WS 016": "unsf_railgun_small",
-                "WS 017": "unsf_railgun_small",
-                "WS 010": "unsf_railgun_small"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "unsf_railgun_pd",
-                "WS 003": "unsf_railgun_pd",
-                "WS 006": "unsf_railgun_pd",
-                "WS 007": "unsf_railgun_pd",
-                "WS 001": "unsf_railgun_pd",
-                "WS 004": "unsf_railgun_small",
-                "WS 005": "unsf_railgun_small",
-                "WS 008": "unsf_railgun_small",
-                "WS 009": "unsf_railgun_small",
-                "WS 000": "unsf_railgun_pd"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 018": "unsf_dronelauncher"
-            }
-        }
-    ]
+  "variantId": "unsf_astraios_base",
+  "hullId": "unsf_astraios",
+  "displayName": "Astraios Base",
+  "goalVariant": true,
+  "fluxCapacitors": 5,
+  "fluxVents": 14,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "unsf_asgardhyperdrive",
+    "unsf_triniumalloy",
+    "armoredweapons",
+    "auxiliarythrusters",
+    "insulatedengine",
+    "fluxbreakers",
+    "stabilizedshieldemitter",
+    "extendedshieldemitter"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS 010": "unsf_railgun_pd",
+        "WS 011": "unsf_railgun_pd",
+        "WS 014": "unsf_coilgun",
+        "WS 015": "unsf_coilgun",
+        "WS 019": "unsf_asgard_beam",
+        "WS 020": "unsf_asgard_beam",
+        "WS 021": "hurricane",
+        "WS 022": "devastator",
+        "WS 023": "unsf_pulsar"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 016": "unsf_railgun_small",
+        "WS 017": "unsf_railgun_small"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "unsf_railgun_pd",
+        "WS 001": "unsf_railgun_pd",
+        "WS 002": "unsf_railgun_pd",
+        "WS 003": "unsf_railgun_pd",
+        "WS 004": "unsf_railgun_small",
+        "WS 005": "unsf_railgun_small",
+        "WS 006": "unsf_railgun_pd",
+        "WS 007": "unsf_railgun_pd",
+        "WS 008": "unsf_railgun_small",
+        "WS 009": "unsf_railgun_small"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 018": "unsf_dronelauncher"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
 }

@@ -1,0 +1,52 @@
+{
+  "id": "unsf_railgun_medium",
+  "specClass": "projectile",
+  "projectileSpecId": "unsf_railgun_shot",
+  "type": "BALLISTIC",
+  "size": "MEDIUM",
+  "turretSprite": "graphics/weapons/unsf_railgun_medium_base_tr.png",
+  "turretGunSprite": "graphics/weapons/unsf_railgun_medium_recoil_tr.png",
+  "hardpointSprite": "graphics/weapons/unsf_railgun_medium_base_hp.png",
+  "hardpointGunSprite": "graphics/weapons/unsf_railgun_medium_recoil_hp.png",
+  "visualRecoil": 10,
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
+  "turretOffsets": [
+    17,
+    3.5,
+    17,
+    -3.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    18,
+    3.5,
+    18,
+    -3.5
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "LINKED",
+  "animationType": "MUZZLE_FLASH",
+  "requiresFullCharge": false,
+  "muzzleFlashSpec": {
+    "length": 10,
+    "spread": 2,
+    "particleSizeMin": 5,
+    "particleSizeRange": 5,
+    "particleDuration": 0.02,
+    "particleCount": 10,
+    "particleColor": [
+      90,
+      160,
+      255,
+      170
+    ]
+  },
+  "fireSoundTwo": "unsf_railgun_shot"
+}

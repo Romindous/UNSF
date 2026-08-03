@@ -1,24 +1,26 @@
 {
   "id": "unsf_railgun_small",
   "specClass": "projectile",
-  "projectileSpecId": "unsf_railgun_slug",
+  "projectileSpecId": "unsf_railgun_shot",
   "type": "BALLISTIC",
   "size": "SMALL",
-  "turretSprite": "graphics/weapons/unsf_railgun_small.png",
-  "turretGunSprite": "graphics/weapons/unsf_railgun_small_recoil.png",
-  "hardpointSprite": "graphics/weapons/unsf_railgun_small.png",
-  "hardpointGunSprite": "graphics/weapons/unsf_railgun_small_recoil.png",
+  "turretSprite": "graphics/weapons/unsf_railgun_small_base_tr.png",
+  "turretGunSprite": "graphics/weapons/unsf_railgun_small_recoil_tr.png",
+  "hardpointSprite": "graphics/weapons/unsf_railgun_small_base_hp.png",
+  "hardpointGunSprite": "graphics/weapons/unsf_railgun_small_recoil_hp.png",
   "visualRecoil": 1,
-  "renderHints":[RENDER_BARREL_BELOW],
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
   "turretOffsets": [
-    7.5,
+    9,
     0
   ],
   "turretAngleOffsets": [
     0
   ],
   "hardpointOffsets": [
-    7.5,
+    9,
     0
   ],
   "hardpointAngleOffsets": [
@@ -40,5 +42,5 @@
       170
     ]
   },
-  "fireSoundTwo": "unsf_railgun"
+  "fireSoundTwo": "unsf_railgun_shot"
 }

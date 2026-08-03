@@ -1,26 +1,29 @@
 {
   "id": "unsf_railgun_fighter",
   "specClass": "projectile",
-  "projectileSpecId": "unsf_railgun_slug",
+  "projectileSpecId": "unsf_railgun_shot",
   "type": "BALLISTIC",
   "size": "MEDIUM",
-  "turretSprite": "graphics/weapons/unsf_railgun_base.png",
-  "hardpointSprite": "",
+  "turretSprite": "graphics/weapons/unsf_railgun_medium.png",
+  "hardpointSprite": "graphics/weapons/unsf_railgun_medium.png",
   "turretOffsets": [
-    8,
-    1,
-    8,
-    -1
+    16.5,
+    3.5,
+    16.5,
+    -3.5
   ],
   "turretAngleOffsets": [
     0,
     0
   ],
   "hardpointOffsets": [
-    0,
-    0
+    26.5,
+    3.5,
+    26.5,
+    -3.5
   ],
   "hardpointAngleOffsets": [
+    0,
     0
   ],
   "barrelMode": "DUAL",
@@ -41,5 +44,5 @@
       255
     ]
   },
-  "fireSoundTwo": "unsf_railgun"
+  "fireSoundTwo": "unsf_railgun_shot"
 }

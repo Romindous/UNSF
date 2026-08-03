@@ -1,0 +1,39 @@
+{
+  "variantId": "unsf_f302",
+  "hullId": "unsf_f302",
+  "displayName": "F-302 Fighter Wing",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "unsf_railgun_fighter",
+        "WS 005": "unsf_railgun_fighter"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "unsf_vls_1_fighter",
+        "WS 002": "unsf_vls_1_fighter"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 003": "unsf_vls_4_fighter",
+        "WS 004": "unsf_vls_4_fighter"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

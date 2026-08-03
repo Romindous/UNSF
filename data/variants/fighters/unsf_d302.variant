@@ -1,0 +1,24 @@
+{
+  "variantId": "unsf_d302",
+  "hullId": "unsf_d302",
+  "displayName": "D-302 Support Wing",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "unsf_vls_4_fighter",
+        "WS 001": "unsf_railgun_pd_fighter",
+        "WS 002": "unsf_vls_4_fighter"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

@@ -1,7 +1,7 @@
 name,id,designation,tech/manufacturer,system id,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,fighter bays,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,range,max burn,base value,cr %/day,CR to deploy,peak CR sec,CR loss/sec,supplies/rec,supplies/mo,c/s,c/f,f/s,f/f,crew/s,crew/f,hints,tags,rarity,breakProb,minPieces,maxPieces,travel drive,number
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #FRIGATES,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fenrir,unsf_Fenrir,Frigate,UNSF Tech,ammofeed,6,1600,120,3200,1875,240,65,,120,100,80,40,80,250,FRONT,,160,0.2,0.85,,,20,25,50,20,1,25,10,15000,5,5,200,0.25,5,5,,,,,,,"COMBAT,",unsf_bp_hull,,1,2,4,,212
+Fenrir,unsf_fenrir,Frigate,UNSF Tech,ammofeed,6,1600,120,3200,1875,240,65,,120,100,80,40,80,250,FRONT,,160,0.2,0.85,,,20,25,50,20,1,25,10,15000,5,5,200,0.25,5,5,,,,,,,"COMBAT,",unsf_bp_hull,,1,2,4,,212
 Prometheus,unsf_prometheus,Heavy Frigate,UNSF Tech,damper,10,3500,350,2800,1875,200,80,1,100,60,40,25,40,400,OMNI,,150,0.2,0.85,,,45,60,100,70,1,40,9,28000,5,5,180,0.25,6,6,,,,,,,"COMBAT, CARRIER,",unsf_bp_hull,,1,2,4,,252
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Vanguard - heavy frigate,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -19,7 +19,7 @@ Dauntless,unsf_dauntless,Crew Tender,UNSF Tech,microburn,12,4500,450,4800,2250,4
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #CRUISERS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Daedalus (A),unsf_daedalus,Cruiser,UNSF Tech,Asgard_transport_nuke,18,10000,900,10000,5000,550,185,2,60,45,25,20,25,1600,OMNI,,120,0.2,0.85,,,140,250,200,250,3,50,8,160000,5,15,280,0.25,21,21,,,,,,,"CARRIER, COMBAT,",unsf_bp_hull,,1,4,8,,412
-Daedalus (C),unsf_daedalus_refit,Battlecarrier,UNSF Tech,recalldevice2,18,8000,850,8000,4167,450,185,4,55,40,20,20,25,1600,FRONT,,160,0.2,0.85,,,150,250,200,250,3,50,8,160000,5,15,280,0.25,21,21,,,,,,,"COMBAT, CARRIER,",unsf_bp_hull,,1,4,8,,412
+Daedalus (C),unsf_daedalus_carrier,Battlecarrier,UNSF Tech,recalldevice2,18,8000,850,8000,4167,450,185,4,55,40,20,20,25,1600,FRONT,,160,0.2,0.85,,,150,250,200,250,3,50,8,160000,5,15,280,0.25,21,21,,,,,,,"COMBAT, CARRIER,",unsf_bp_hull,,1,4,8,,412
 Helios,unsf_helios,Heavy Cruiser,UNSF Tech,burndrive,20,12500,1100,12500,11000,650,210,,45,25,15,15,20,2000,OMNI,,120,0.2,0.85,,,250,400,600,600,5,150,7,250000,5,10,320,0.25,24,24,,,,,,,"COMBAT,",unsf_bp_hull,,1,4,8,,452
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Perseus - something something drones,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -56,9 +56,9 @@ Shield generator,unsf_shield_generator,Shield generator,UNSF Tech,,0,5000,200,15
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #WINGS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-F-302,unsf_302,,UNSF Tech,ammofeed,,400,50,800,,120,0,,250,400,200,250,300,100,NONE,,120,0,0.85,,,2,2,,,,,,,,,,,,,,,,,,,,unsf_bp_wing,,,,,,309
+F-302,unsf_f302,,UNSF Tech,ammofeed,,400,50,800,,120,0,,250,400,200,250,300,100,NONE,,120,0,0.85,,,2,2,,,,,,,,,,,,,,,,,,,,unsf_bp_wing,,,,,,309
 B-302,unsf_b302,,UNSF Tech,damper,,500,80,1000,,60,0,,150,200,100,100,150,200,NONE,,120,0,0.85,,,2,4,,,,,,,,,,,,,,,,,,,,unsf_bp_wing,,,,,,310
-D-302,unsf_defense_drone,,UNSF Tech,flarelauncher_fighter,,600,100,800,,100,0,,200,250,200,250,300,150,OMNI,,240,0,0.85,,,,,,,,,,,,,,,,,,,,,,,,unsf_bp_wing,,,,,,311
+D-302,unsf_d302,,UNSF Tech,flarelauncher_fighter,,600,100,800,,100,0,,200,250,200,250,300,150,OMNI,,240,0,0.85,,,,,,,,,,,,,,,,,,,,,,,,unsf_bp_wing,,,,,,311
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #puddle jumper,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #F-312/322,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

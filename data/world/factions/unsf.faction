@@ -67,10 +67,10 @@
 		"tags":["unsf_bp_hull"],
 		"hulls":[
 			
-			"unsf_Fenrir",
+			"unsf_fenrir",
 			"unsf_prometheus",
 			"unsf_daedalus",
-			"unsf_daedalus_refit",
+			"unsf_daedalus_carrier",
 			"unsf_helios",
 			"unsf_astraios",
 			"unsf_hyperion",
@@ -86,10 +86,10 @@
 			"unsf_bp_hull":2
 		},
 		"hulls": {
-        "unsf_Fenrir": 0.8,
+        "unsf_fenrir": 0.8,
         "unsf_prometheus": 0.7,
         "unsf_daedalus": 0.6,
-        "unsf_daedalus_refit": 0.5,
+        "unsf_daedalus_carrier": 0.5,
         "unsf_helios": 0.4,
         "unsf_astraios": 0.2,
         "unsf_hyperion": 0.4,
@@ -133,7 +133,7 @@
 			"unsf_railgun_pd",
 			"unsf_railgun_small",
 			"unsf_railgun",
-			"unsf_railgun_3",
+			"unsf_recoiler",
 			"unsf_railgun_4",
 			"unsf_asgbeam",
 			"unsf_asgbeam_heavy",
@@ -153,10 +153,10 @@
 	"priorityShips":{
 		"tags":["unsf_bp_hull"],
 		"hulls":[
-			"unsf_Fenrir",
+			"unsf_fenrir",
 			"unsf_prometheus",
 			"unsf_daedalus",
-			"unsf_daedalus_refit",
+			"unsf_daedalus_carrier",
 			"unsf_helios",
 			"unsf_astraios",
 			"unsf_hyperion",
@@ -184,7 +184,7 @@
 			"unsf_railgun_pd",
 			"unsf_railgun_small",
 			"unsf_railgun",
-			"unsf_railgun_3",
+			"unsf_recoiler",
 			"unsf_railgun_4",
 			"unsf_asgbeam",
 			"unsf_asgbeam_heavy",

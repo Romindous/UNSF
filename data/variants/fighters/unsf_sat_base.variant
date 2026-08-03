@@ -1,27 +1,32 @@
 {
-    "displayName": "Base",
-    "fluxCapacitors": 0,
-    "fluxVents": 0,
-    "goalVariant": false,
-    "hullId": "unsf_sat",
-    "hullMods": [],
-    "quality": 0.0,
-    "variantId": "unsf_sat_base",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "unsf_asgbeam_heavy"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "unsf_railgun_pd",
-                "WS 002": "unsf_railgun_pd"
-            }
-        }
-    ]
+  "variantId": "unsf_sat_base",
+  "hullId": "unsf_sat",
+  "displayName": "Offensive Satellite",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 0,
+  "permaMods": [],
+  "hullMods": [
+    "blast_doors"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "unsf_ori_lance"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "unsf_railgun_pd",
+        "WS 002": "unsf_railgun_pd"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
 }

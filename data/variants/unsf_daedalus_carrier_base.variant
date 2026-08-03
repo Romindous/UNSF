@@ -1,0 +1,62 @@
+{
+  "variantId": "unsf_daedalus_carrier_base",
+  "hullId": "unsf_daedalus_carrier",
+  "displayName": "Daedalus (C) Base",
+  "goalVariant": true,
+  "fluxCapacitors": 10,
+  "fluxVents": 15,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "auxiliarythrusters",
+    "unsf_triniumalloy",
+    "insulatedengine",
+    "targetingunit",
+    "stabilizedshieldemitter",
+    "armoredweapons",
+    "expanded_deck_crew"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 002": "unsf_railgun_pd",
+        "WS 003": "unsf_railgun_pd",
+        "WS 004": "unsf_railgun_small",
+        "WS 005": "unsf_railgun_small",
+        "WS 008": "unsf_railgun_pd",
+        "WS 009": "unsf_railgun_pd",
+        "WS 016": "unsf_asgard_lance",
+        "WS 017": "unsf_asgard_lance",
+        "WS 018": "unsf_vls_1",
+        "WS 021": "unsf_vls_1"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "unsf_f302",
+    "unsf_f302"
+  ]
+}
