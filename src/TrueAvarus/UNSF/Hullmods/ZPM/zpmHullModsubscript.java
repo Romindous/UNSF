@@ -1,6 +1,8 @@
-package TrueAvarus.UNSF.dunno;
+package TrueAvarus.UNSF.Hullmods.ZPM;
 
 
+import TrueAvarus.UNSF.Constants.HullMods;
+import TrueAvarus.UNSF.Constants.Items;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.*;
@@ -40,7 +42,7 @@ public class zpmHullModsubscript implements CampaignPlugin {
             ShipVariantAPI variant = member.getVariant();
 
             // Check if the ship's ID is in the persistent data and if the hullmod "unsf_zpm_hm" is no longer installed.
-            if (data.contains(memberId) && !variant.hasHullMod("unsf_zpm_hm")) {
+            if (data.contains(memberId) && !variant.hasHullMod(HullMods.UNSF_ZPM)) {
                 // Remove the ship's ID from the persistent data set.
                 data.remove(memberId);
 
@@ -48,18 +50,14 @@ public class zpmHullModsubscript implements CampaignPlugin {
                 Global.getSector().getPersistentData().put(PERSISTENT_KEY, data);
 
                 // Add the special item "unsf_zpm" back to the player's cargo.
-                cargo.addSpecial((SpecialItemData) Global.getSettings().getSpecialItemSpec("unsf_zpm"), 1);
+                cargo.addSpecial((SpecialItemData) Global.getSettings().getSpecialItemSpec(Items.UNSF_ZPM), 1);
             }
         }
     }
 
     private Set<String> getPersistentData() {
         Object data = Global.getSector().getPersistentData().get(PERSISTENT_KEY);
-        if (data instanceof Set) {
-            return (Set<String>) data;
-        } else {
-            return new HashSet<>();
-        }
+        return data instanceof Set ? (Set<String>) data : new HashSet<>();
     }
 
 

@@ -1,10 +1,10 @@
-package TrueAvarus.UNSF.gaylammas;
+package TrueAvarus.UNSF.Hullmods.ZPM;
 
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 
-import static TrueAvarus.UNSF.dunno.HullMods.*;
+import static TrueAvarus.UNSF.Constants.HullMods.*;
 
 public class unsf_deletor extends BaseHullMod {
 

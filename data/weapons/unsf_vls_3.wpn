@@ -5,26 +5,20 @@
   "type": "MISSILE",
   "size": "MEDIUM",
   "displayArcRadius": 500,
-  "turretSprite": "graphics/weapons/unsf_vls.png",
-  "hardpointSprite": "graphics/weapons/unsf_vls.png",
+  "turretSprite": "graphics/weapons/unsf_vls_3_hp.png",
+  "hardpointSprite": "graphics/weapons/unsf_vls_3_hp.png",
   "turretOffsets": [
-    0,
-    -2.5,
-    0,
-    2.5
+    8,
+    0
   ],
   "turretAngleOffsets": [
-    0,
     0
   ],
   "hardpointOffsets": [
-    6.5,
-    -2.5,
-    6.5,
-    2.5
+    23,
+    0
   ],
   "hardpointAngleOffsets": [
-    0,
     0
   ],
   "barrelMode": "ALTERNATING",

@@ -12,7 +12,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.DynamicStatsAPI;
 import org.magiclib.util.MagicIncompatibleHullmods;
 
-import static TrueAvarus.UNSF.dunno.HullMods.UNSF_ASGARD_TRANS;
+import static TrueAvarus.UNSF.Constants.HullMods.UNSF_ASGARD_TRANS;
 
 public class unsf_transporter extends BaseHullMod {
 

@@ -1,7 +1,7 @@
 package TrueAvarus.UNSF.Industry.Market_Conditions;
 
 
-import TrueAvarus.UNSF.dunno.Format;
+import TrueAvarus.UNSF.Constants.Format;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MutableCommodityQuantity;
 import com.fs.starfarer.api.impl.campaign.econ.BaseMarketConditionPlugin;

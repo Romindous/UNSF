@@ -1,4 +1,4 @@
-package TrueAvarus.UNSF.dunno;
+package TrueAvarus.UNSF.Constants;
 
 
 public class Items extends com.fs.starfarer.api.impl.campaign.ids.Items {

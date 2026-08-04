@@ -1,4 +1,4 @@
-package TrueAvarus.UNSF.AIDS_cure;
+package TrueAvarus.UNSF.NPCs;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PersonImportance;

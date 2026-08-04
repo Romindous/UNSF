@@ -1,30 +1,50 @@
 {
-  "id": "unsf_vls_4",
+  "id": "unsf_vls_0",
   "specClass": "projectile",
-  "projectileSpecId": "unsf_vls_4_projectile",
+  "projectileSpecId": "unsf_vls_0_projectile",
   "type": "MISSILE",
   "size": "SMALL",
   "displayArcRadius": 500,
-  "turretSprite": "graphics/weapons/unsf_vls.png",
-  "hardpointSprite": "graphics/weapons/unsf_vls.png",
-  "renderHints":[RENDER_BARREL_BELOW],
+  "turretSprite": "graphics/weapons/unsf_vls_0_tr.png",
+  "hardpointSprite": "graphics/weapons/unsf_vls_0_hp.png",
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
   "turretOffsets": [
-    0,
-    -2.5,
-    0,
-    2.5
+    7,
+    6,
+    7,
+    -6,
+    9,
+    3,
+    9,
+    -3,
+    8,
+    0
   ],
   "turretAngleOffsets": [
+    0,
+    0,
+    0,
     0,
     0
   ],
   "hardpointOffsets": [
-    6.5,
-    -2.5,
-    6.5,
-    2.5
+    9,
+    6,
+    9,
+    -6,
+    11,
+    3,
+    11,
+    -3,
+    10,
+    0
   ],
   "hardpointAngleOffsets": [
+    0,
+    0,
+    0,
     0,
     0
   ],

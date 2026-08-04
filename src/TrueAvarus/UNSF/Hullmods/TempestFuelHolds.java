@@ -1,14 +1,11 @@
 package TrueAvarus.UNSF.Hullmods;
 
-import java.awt.Color;
-
-import TrueAvarus.UNSF.dunno.Format;
+import TrueAvarus.UNSF.Constants.Format;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.hullmods.BaseLogisticsHullMod;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.util.Misc;
 
 public class TempestFuelHolds extends BaseLogisticsHullMod {
 

@@ -1,6 +1,6 @@
-package TrueAvarus.UNSF.gaylammas;
+package TrueAvarus.UNSF.Hullmods.ZPM;
 
-import TrueAvarus.UNSF.dunno.Items;
+import TrueAvarus.UNSF.Constants.Items;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.FleetDataAPI;
@@ -10,9 +10,9 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 
-import static TrueAvarus.UNSF.dunno.HullMods.*;
+import static TrueAvarus.UNSF.Constants.HullMods.*;
 
-public class unsf_zpm_hm2 extends BaseHullMod {
+public class unsf_zpm extends BaseHullMod {
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {

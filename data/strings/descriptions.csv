@@ -39,7 +39,7 @@ unsf_dronelauncher,WEAPON,"A lot could be said but Alteran poem describes it bes
 unsf_vls_1,WEAPON,Standard issue anti-ship missile with focus against frigates and destroyers.,,,,,,,
 unsf_vls_2,WEAPON,"Naquadah enhanced anti-ship missiles, slower but more powerful with focus against cruisers.",,,,,,,
 unsf_vls_3,WEAPON,First standard issue nuclear warhead tipped missiles with focus against capital ships.,,,,,,,
-unsf_vls_4,WEAPON,Specialist anti-air missiles with proximity fused warhead disperse deadly cloud of flak near enemy fighters.,,,,,,,
+unsf_vls_0,WEAPON,Specialist anti-air missiles with proximity fused warhead disperse deadly cloud of flak near enemy fighters.,,,,,,,
 unsf_horizon,WEAPON,"Only specialist anti-capital weapon, originaly deployed for planetary nuclear strikes was repurposed to anti-ship use. Due for lack of mines supplying Naquadria warheads are equiped with nuclear warheads with only parcial yield of original weapon.",,,,,,,
 ,,,,,,,,,
 unsf_302,SHIP,"Wing of F-302 space fighters, were first space fighter developed by UNSF. Their versatility as space supperiority fighter and anti-ship capabilities makes them inexpendable part of every UNSF fleet.",,,,,,,

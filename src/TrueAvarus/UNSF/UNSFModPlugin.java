@@ -1,11 +1,11 @@
 package TrueAvarus.UNSF;
 
 
-import TrueAvarus.UNSF.AIDS_cure.important_people;
+import TrueAvarus.UNSF.NPCs.important_people;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
 import TrueAvarus.UNSF.WeaponAI.MIRV_proj_GPT;
 import TrueAvarus.UNSF.World.UNSFgen;
-import TrueAvarus.UNSF.dunno.Items;
+import TrueAvarus.UNSF.Constants.Items;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;

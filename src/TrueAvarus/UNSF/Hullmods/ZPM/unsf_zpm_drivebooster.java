@@ -1,14 +1,11 @@
-package TrueAvarus.UNSF.gaylammas;
+package TrueAvarus.UNSF.Hullmods.ZPM;
 
-import TrueAvarus.UNSF.dunno.Format;
-import TrueAvarus.UNSF.dunno.HullMods;
+import TrueAvarus.UNSF.Constants.Format;
+import TrueAvarus.UNSF.Constants.HullMods;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.impl.hullmods.BaseLogisticsHullMod;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
-import com.fs.starfarer.api.util.Misc;
-
-import java.awt.*;
 
 public class unsf_zpm_drivebooster extends BaseLogisticsHullMod {
     private static final int BURN_LEVEL = 2;

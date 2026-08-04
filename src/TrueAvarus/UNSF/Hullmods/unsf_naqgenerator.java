@@ -1,6 +1,6 @@
 package TrueAvarus.UNSF.Hullmods;
 
-import TrueAvarus.UNSF.dunno.Format;
+import TrueAvarus.UNSF.Constants.Format;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;

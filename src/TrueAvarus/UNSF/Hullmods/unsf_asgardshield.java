@@ -3,7 +3,7 @@ package TrueAvarus.UNSF.Hullmods;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import TrueAvarus.UNSF.dunno.HullMods;
+import TrueAvarus.UNSF.Constants.HullMods;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShieldAPI;

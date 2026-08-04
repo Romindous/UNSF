@@ -1,4 +1,4 @@
-package TrueAvarus.UNSF.dunno;
+package TrueAvarus.UNSF.Constants;
 
 import java.awt.*;
 import com.fs.starfarer.api.util.Misc;

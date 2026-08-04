@@ -13,9 +13,9 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS 000": "unsf_vls_4_fighter",
+        "WS 000": "unsf_vls_0_fighter",
         "WS 001": "unsf_railgun_pd_fighter",
-        "WS 002": "unsf_vls_4_fighter"
+        "WS 002": "unsf_vls_0_fighter"
       }
     }
   ],

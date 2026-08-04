@@ -4,14 +4,14 @@ name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hid
 ,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 #ZPM HULLMODS - NEED ZPM ,,,,,,,,,,,,,,,,,,,
-ZPM,unsf_zpm_hm2,,,UNSF,,Special,10000,TRUE,,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_hm2,"Special hullmod that can be installed only when ZPM is present in inventory. Installation removes all installed Asgard hullmods. 
+ZPM,unsf_zpm,,,UNSF,,Special,10000,TRUE,,,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_zpm,"Special hullmod that can be installed only when ZPM is present in inventory. Installation removes all installed Asgard hullmods.
 Your fleet currently requires %s ZPMs to be operational, you have %s ZPMs in inventory.
 If your number of ZPMs in inventory falls under %s, all ships loose equiped ZPM hullmods, connected boosts and will have to be re-equiped with ZPM hullmod again.
 ",,,graphics/hullmods/unsf_zpm_hm.png
-ZPM-Powered Shields,unsf_zpm_shieldbooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_shieldbooster,"ZPM overcharges shield systems to increased durability, arc and unfold speed.",,,graphics/hullmods/unsf_zpm_shieldoobst.png
-ZPM-Powered Engines,unsf_zpm_drivebooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_drivebooster,"ZPM overcharges drive systems to increased speeds in hyperspace, star systems and battle.",,,graphics/hullmods/unsf_zpm_driveboost.png
-ZPM-Powered Energy Weapons,unsf_zpm_beambooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_beambooster,"ZPM overcharges energy weapon systems to increased to increased damage, range and decreased flux cost.",,,graphics/hullmods/unsf_zpm_beamboost.png
-ZPM-Flux System Bypass,unsf_zpm_systembooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_zpm_systembooster,"ZPM supplements ship systems, decreases supply consumption, and improves its flux stats.",,,graphics/hullmods/unsf_zpm_sysboost.png
+ZPM-Powered Shields,unsf_zpm_shieldbooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_zpm_shieldbooster,"ZPM overcharges shield systems to increased durability, arc and unfold speed.",,,graphics/hullmods/unsf_zpm_shieldoobst.png
+ZPM-Powered Engines,unsf_zpm_drivebooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_zpm_drivebooster,"ZPM overcharges drive systems to increased speeds in hyperspace, star systems and battle.",,,graphics/hullmods/unsf_zpm_driveboost.png
+ZPM-Powered Energy Weapons,unsf_zpm_beambooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_zpm_beambooster,"ZPM overcharges energy weapon systems to increased to increased damage, range and decreased flux cost.",,,graphics/hullmods/unsf_zpm_beamboost.png
+ZPM-Flux System Bypass,unsf_zpm_systembooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_zpm_systembooster,"ZPM supplements ship systems, decreases supply consumption, and improves its flux stats.",,,graphics/hullmods/unsf_zpm_sysboost.png
 ,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 #ASGARD MODS - MAKES SHIPS NOT BEING SHIT ,,,,,,,,,,,,,,,,,,,
@@ -42,6 +42,6 @@ Transport Rings,unsf_rings,0,,UNSF,,Ground attack,2500,,,,3,6,9,12,TrueAvarus.UN
 #DONT TOUCH BREAKS MOD !!! ,,,,,,,,,,,,,,,,,,,
 Tempest Fuel Holds,unsf_tempest_fuel,,,,,,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.TempestFuelHolds,Tempest is tugging fuel along.,,,graphics/hullmods/unsf_tempest_fuel.png
 Tempest Cargo Holds,unsf_tempest_cargo,,,,,,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.TempestCargoHolds,Tempest is tugging cargo along.,,,graphics/hullmods/unsf_tempest_cargo.png
-Hullmod Remover,unsf_deletor,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_deletor,,,,
-Remover Primer,unsf_primer,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.gaylammas.unsf_primer,,,,
+Hullmod Remover,unsf_deletor,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_deletor,,,,
+Remover Primer,unsf_primer,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_primer,,,,
 Modular Ship Controller,unsf_msc,,,,,,,,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.unsf_msc,,,graphics/hullmods/vast_bulk.png,
