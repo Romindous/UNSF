@@ -1,37 +1,32 @@
 {
-  "id": "unsf_flk",
+  "id": "unsf_flak_ted",
   "specClass": "projectile",
   "projectileSpecId": "unsf_flak_canister",
   "type": "MISSILE",
   "mountTypeOverride": "BALLISTIC",
   "size": "LARGE",
-  "turretSprite": "graphics/weapons/flak_big_turret.png",
-  "turretGunSprite": "graphics/weapons/flak_big_recoil.png",
-  "turretUnderSprite": "graphics/weapons/flak_big_base.png",
-  "hardpointSprite": "graphics/weapons/flak_big_turret.png",
-  "hardpointGunSprite": "graphics/weapons/flak_big_recoil.png",
-  "hardpointUnderSprite": "graphics/weapons/flak_big_base.png",
+  "turretSprite": "graphics/weapons/unsf_flak_ted_base_tr.png",
+  "turretGunSprite": "graphics/weapons/unsf_flak_ted_recoil_tr.png",
+  "hardpointSprite": "graphics/weapons/unsf_flak_ted_base_hp.png",
+  "hardpointGunSprite": "graphics/weapons/unsf_flak_ted_recoil_hp.png",
   "visualRecoil": 10,
   "renderHints":[RENDER_BARREL_BELOW],
   "turretOffsets": [
-    19,
-    3,
-    19,
-    -3
+    20,
+    0
   ],
   "turretAngleOffsets": [
-    0,
     0
   ],
   "hardpointOffsets": [
-    19,
-    3,
-    19,
-    -3
+    22,
+    0
   ],
   "hardpointAngleOffsets": [
     0
   ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "NONE",
   "barrelMode": "ALTERNATING",
   "animationType": "SMOKE",
   "requiresFullCharge": false,

@@ -54,19 +54,35 @@
   ],
   "engineSlots": [
     {
-      "location": [-126.5, -17],
-      "length": 22.5,
-      "width": 18,
+      "location": [-127, -21],
+      "length": 20,
+      "width": 12,
       "angle": 180,
       "contrailSize": 12,
       "style": "MIDLINE"
     },
     {
-      "location": [-126.5, 17],
-      "length": 22.5,
-      "width": 18,
+      "location": [-127, 21],
+      "length": 20,
+      "width": 12,
       "angle": 180,
       "contrailSize": 12,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-126, 10.5],
+      "length": 16,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "MIDLINE"
+    },
+    {
+      "location": [-126, -10.5],
+      "length": 16,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 8,
       "style": "MIDLINE"
     }
   ],
@@ -81,10 +97,12 @@
     -14, 29,
     -23, 38,
     -100.5, 38.5,
-    -111, 25.5,
-    -127, 23,
-    -127, -23,
-    -111, -25.5,
+    -110.5, 26.5,
+    -110.5, 21,
+    -124.5, 24,
+    -124.5, -24,
+    -110.5, -21,
+    -110.5, -26.5,
     -100.5, -38.5,
     -23, -38,
     -14, -29,

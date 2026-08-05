@@ -1,7 +1,7 @@
 {
-  "variantId": "unsf_daedalus_carrier_base",
-  "hullId": "unsf_daedalus_carrier",
-  "displayName": "Daedalus (C) Base",
+  "variantId": "unsf_theseus_base",
+  "hullId": "unsf_theseus",
+  "displayName": "Theseus Base",
   "goalVariant": true,
   "fluxCapacitors": 10,
   "fluxVents": 15,

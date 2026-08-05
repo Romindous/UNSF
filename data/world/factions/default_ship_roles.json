@@ -14,7 +14,7 @@
 	},
 	
 	"combatMedium":{
-		"unsf_daedalus_carrier_base":4,
+		"unsf_theseus_base":4,
 		"unsf_daedalus_base":6,
 	},
 	
@@ -53,7 +53,7 @@
 		
 	},
 	"carrierLarge":{
-		"unsf_daedalus_carrier_base":8,
+		"unsf_theseus_base":8,
 		
 	},
 
