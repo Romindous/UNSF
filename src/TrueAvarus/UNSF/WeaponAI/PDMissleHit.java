@@ -20,38 +20,25 @@ public class PDMissleHit implements OnHitEffectPlugin {
     private static final int NUM_PARTICLES = 20;
 
     @Override
-    public void onHit(DamagingProjectileAPI projectile, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine) {
+    public void onHit(DamagingProjectileAPI projectile, CombatEntityAPI target,
+        Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine) {
 
-        DamagingExplosionSpec boom = new DamagingExplosionSpec(
-            0.1f,
-            100,
-            50,
-            projectile.getDamageAmount(),
-            50,
-            CollisionClass.PROJECTILE_NO_FF,
-            CollisionClass.PROJECTILE_FIGHTER,
-            2,
-            5,
-            5,
-            25,
-            new Color(225,100,0),
-            new Color(200,100,25)
-        );
+        final DamagingExplosionSpec boom = new DamagingExplosionSpec(
+            0.1f, 100, 50, projectile.getDamageAmount(),
+            50, CollisionClass.PROJECTILE_NO_FF, CollisionClass.PROJECTILE_FIGHTER,
+            2, 5, 5, 25,
+            new Color(225,100,0), new Color(200,100,25));
+
         boom.setDamageType(DamageType.FRAGMENTATION);
         boom.setShowGraphic(false);
         boom.setSoundSetId("explosion_flak");
         engine.spawnDamagingExplosion(boom, projectile.getSource(), projectile.getLocation());
 
-        if(MagicRender.screenCheck(0.1f, projectile.getLocation())){
-            engine.addHitParticle(
-                projectile.getLocation(),
-                new Vector2f(),
-                100,
-                1,
-                0.25f,
-                EXPLOSION_COLOR
-            );
-            for (int i=0; i<NUM_PARTICLES; i++){
+        if (MagicRender.screenCheck(0.1f, projectile.getLocation())) {
+            engine.addHitParticle(projectile.getLocation(), new Vector2f(),
+                100, 1, 0.25f, EXPLOSION_COLOR);
+
+            for (int i=0; i < NUM_PARTICLES; i++){
                 float axis = (float)Math.random()*360;
                 float range = (float)Math.random()*100;
                 engine.addHitParticle(
@@ -63,16 +50,10 @@ public class PDMissleHit implements OnHitEffectPlugin {
                     PARTICLE_COLOR
                 );
             }
-            engine.applyDamage(
-                projectile,
-                projectile.getLocation(),
-                projectile.getHitpoints() * 2f,
-                DamageType.FRAGMENTATION,
-                0f,
-                false,
-                false,
-                projectile
-            );
+
+            engine.applyDamage(projectile, projectile.getLocation(),
+                projectile.getHitpoints() * 2f, DamageType.FRAGMENTATION,
+                0f, false, false, projectile);
         }
     }
 }

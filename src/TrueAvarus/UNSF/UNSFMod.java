@@ -1,11 +1,12 @@
 package TrueAvarus.UNSF;
 
 
-import TrueAvarus.UNSF.NPCs.important_people;
+import java.util.Random;
+import TrueAvarus.UNSF.Constants.Items;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
+import TrueAvarus.UNSF.NPCs.important_people;
 import TrueAvarus.UNSF.WeaponAI.MIRV_proj_GPT;
 import TrueAvarus.UNSF.World.UNSFgen;
-import TrueAvarus.UNSF.Constants.Items;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
@@ -17,8 +18,10 @@ import com.fs.starfarer.api.impl.campaign.econ.impl.ItemEffectsRepo;
 import exerelin.campaign.SectorManager;
 
 
-public class UNSFModPlugin extends BaseModPlugin {
+public class UNSFMod extends BaseModPlugin {
 
+
+    public static final Random rnd = new Random();
 
     @Override
     public void onNewGame() {
@@ -58,7 +61,6 @@ public class UNSFModPlugin extends BaseModPlugin {
     public void onApplicationLoad() {
         // Register the custom item effect
         ItemEffectsRepo.ITEM_EFFECTS.put(Items.UNSF_ZPM, new ZPM_POWER());
-
 
     }
 
