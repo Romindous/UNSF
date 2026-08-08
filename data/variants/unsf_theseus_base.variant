@@ -21,14 +21,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 002": "unsf_railgun_pd",
-        "WS 003": "unsf_railgun_pd",
-        "WS 004": "unsf_railgun_small",
-        "WS 005": "unsf_railgun_small",
-        "WS 008": "unsf_railgun_pd",
-        "WS 009": "unsf_railgun_pd",
         "WS 016": "unsf_asgard_lance",
-        "WS 017": "unsf_asgard_lance",
+        "WS 017": "unsf_asgard_lance"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
         "WS 018": "unsf_vls_1",
         "WS 021": "unsf_vls_1"
       }
@@ -36,21 +36,34 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS 004": "unsf_railgun_small",
+        "WS 005": "unsf_railgun_small"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS 002": "unsf_railgun_pd",
+        "WS 003": "unsf_railgun_pd",
+        "WS 008": "unsf_railgun_pd",
+        "WS 009": "unsf_railgun_pd"
+      }
     },
     {
       "autofire": true,
       "mode": "ALTERNATING",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
       "weapons": {}
     }
   ],

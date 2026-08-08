@@ -21,13 +21,7 @@
       "mode": "ALTERNATING",
       "weapons": {
         "WS 012": "unsf_asgard_pulse",
-        "WS 013": "unsf_asgard_pulse",
-        "WS 016": "harpoon_single",
-        "WS 017": "unsf_dronelauncher",
-        "WS 018": "harpoon_single",
-        "WS 019": "unsf_asgard_lance",
-        "WS 020": "unsf_asgard_lance",
-        "WS 022": "harpoon_single"
+        "WS 013": "unsf_asgard_pulse"
       }
     },
     {
@@ -41,7 +35,14 @@
     {
       "autofire": true,
       "mode": "ALTERNATING",
-      "weapons": {}
+      "weapons": {
+        "WS 016": "harpoon_single",
+        "WS 017": "unsf_dronelauncher",
+        "WS 018": "harpoon_single",
+        "WS 019": "unsf_asgard_lance",
+        "WS 020": "unsf_asgard_lance",
+        "WS 022": "harpoon_single"
+      }
     },
     {
       "autofire": true,

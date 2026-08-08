@@ -3,8 +3,8 @@
   "hullId": "unsf_astraios",
   "displayName": "Based",
   "goalVariant": true,
-  "fluxCapacitors": 5,
-  "fluxVents": 14,
+  "fluxCapacitors": 6,
+  "fluxVents": 16,
   "quality": 1,
   "permaMods": [],
   "hullMods": [
@@ -14,50 +14,33 @@
     "auxiliarythrusters",
     "insulatedengine",
     "fluxbreakers",
-    "stabilizedshieldemitter",
-    "extendedshieldemitter"
+    "targetingunit",
+    "advancedshieldemitter"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS 010": "unsf_railgun_pd",
-        "WS 011": "unsf_railgun_pd",
-        "WS 014": "unsf_coilgun",
-        "WS 015": "unsf_coilgun",
-        "WS 019": "unsf_asgard_beam",
-        "WS 020": "unsf_asgard_beam",
-        "WS 021": "hurricane",
-        "WS 022": "devastator",
         "WS 023": "unsf_pulsar"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
       "weapons": {
-        "WS 016": "unsf_railgun_small",
-        "WS 017": "unsf_railgun_small"
+        "WS 014": "unsf_coilgun",
+        "WS 015": "unsf_coilgun"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 000": "unsf_railgun_pd",
-        "WS 001": "unsf_railgun_pd",
-        "WS 002": "unsf_railgun_pd",
-        "WS 003": "unsf_railgun_pd",
+        "WS 000": "unsf_railgun_small",
+        "WS 001": "unsf_railgun_small",
         "WS 004": "unsf_railgun_small",
         "WS 005": "unsf_railgun_small",
-        "WS 006": "unsf_railgun_pd",
-        "WS 007": "unsf_railgun_pd",
         "WS 008": "unsf_railgun_small",
         "WS 009": "unsf_railgun_small"
       }
@@ -66,7 +49,35 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 018": "unsf_dronelauncher"
+        "WS 018": "unsf_dronelauncher",
+        "WS 021": "hurricane"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 019": "unsf_asgard_beam",
+        "WS 020": "unsf_asgard_beam"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 022": "devastator"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 002": "unsf_railgun_pd",
+        "WS 003": "unsf_railgun_pd",
+        "WS 010": "unsf_railgun_pd",
+        "WS 011": "unsf_railgun_pd",
+        "WS 016": "unsf_railgun_pd",
+        "WS 017": "unsf_railgun_pd"
       }
     }
   ],

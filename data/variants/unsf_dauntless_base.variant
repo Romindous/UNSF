@@ -3,8 +3,8 @@
   "hullId": "unsf_dauntless",
   "displayName": "Based",
   "goalVariant": true,
-  "fluxCapacitors": 12,
-  "fluxVents": 16,
+  "fluxCapacitors": 14,
+  "fluxVents": 15,
   "quality": 1,
   "permaMods": [
     "unsf_rings"
@@ -23,11 +23,22 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS 000": "unsf_railgun_medium",
         "WS 001": "unsf_asgard_beam",
         "WS 002": "unsf_asgard_beam",
-        "WS 003": "unsf_railgun_small",
-        "WS 004": "unsf_railgun_pd",
+        "WS 003": "unsf_railgun_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "unsf_railgun_medium"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
         "WS 005": "unsf_dronelauncher",
         "WS 006": "unsf_dronelauncher"
       }
@@ -35,7 +46,9 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS 004": "unsf_railgun_pd"
+      }
     }
   ],
   "modules": [],

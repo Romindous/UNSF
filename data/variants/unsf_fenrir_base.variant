@@ -4,7 +4,7 @@
   "displayName": "Based",
   "goalVariant": true,
   "fluxCapacitors": 2,
-  "fluxVents": 6,
+  "fluxVents": 8,
   "quality": 0,
   "permaMods": [],
   "hullMods": [
@@ -14,29 +14,37 @@
     "unsf_naqgenerator",
     "insulatedengine",
     "extendedshieldemitter",
-    "hardenedshieldemitter"
+    "auxiliarythrusters"
   ],
   "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 000": "heavymg",
+        "WS 001": "heavymg"
+      }
+    },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 000": "unsf_railgun_medium",
-        "WS 001": "unsf_railgun_medium",
-        "WS 002": "lightmortar",
-        "WS 003": "unsf_railgun_pd",
         "WS 004": "unsf_asgard_beam"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS 002": "lightmortar"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS 003": "unsf_railgun_pd"
+      }
     }
   ],
   "modules": [],

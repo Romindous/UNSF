@@ -21,16 +21,23 @@
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
-        "WS 000": "unsf_railgun_medium",
-        "WS 001": "unsf_railgun_pd",
-        "WS 002": "unsf_railgun_pd",
         "WS 003": "unsf_vls_2"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS 000": "unsf_railgun_medium",
+        "WS 002": "unsf_railgun_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 001": "unsf_railgun_pd"
+      }
     }
   ],
   "modules": [],

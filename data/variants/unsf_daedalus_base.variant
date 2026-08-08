@@ -3,8 +3,8 @@
   "hullId": "unsf_daedalus",
   "displayName": "Based",
   "goalVariant": true,
-  "fluxCapacitors": 5,
-  "fluxVents": 14,
+  "fluxCapacitors": 8,
+  "fluxVents": 20,
   "quality": 0,
   "permaMods": [],
   "hullMods": [
@@ -13,28 +13,58 @@
     "insulatedengine",
     "targetingunit",
     "stabilizedshieldemitter",
-    "armoredweapons",
-    "expanded_deck_crew"
+    "armoredweapons"
   ],
   "weaponGroups": [
     {
       "autofire": false,
       "mode": "LINKED",
       "weapons": {
+        "WS 020": "unsf_pulsar"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 014": "unsf_railgun_medium",
+        "WS 015": "unsf_railgun_medium"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS 010": "lightmortar",
+        "WS 011": "lightmortar",
+        "WS 018": "lightmortar",
+        "WS 019": "lightmortar"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
         "WS 006": "unsf_railgun_pd",
         "WS 007": "unsf_railgun_pd",
-        "WS 008": "mininglaser",
-        "WS 009": "mininglaser",
-        "WS 010": "lightag",
-        "WS 011": "lightag",
-        "WS 014": "unsf_railgun_medium",
-        "WS 015": "unsf_railgun_medium",
         "WS 016": "unsf_railgun_pd",
-        "WS 017": "unsf_railgun_pd",
-        "WS 018": "lightmortar",
-        "WS 019": "lightmortar",
-        "WS 020": "pilum_large"
+        "WS 017": "unsf_railgun_pd"
       }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
     }
   ],
   "modules": [],

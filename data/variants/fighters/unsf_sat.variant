@@ -1,7 +1,7 @@
 {
   "variantId": "unsf_sat",
   "hullId": "unsf_sat",
-  "displayName": "Offensive Satellite",
+  "displayName": "Offensive",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,
