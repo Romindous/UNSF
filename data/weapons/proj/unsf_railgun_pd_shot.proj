@@ -1,5 +1,5 @@
 {
-	"id":"unsf_railgun_pd_shell",
+	"id":"unsf_railgun_pd_shot",
 	"specClass":"projectile",
 	"spawnType":"BALLISTIC",
 	"collisionClass":"PROJECTILE_FF",

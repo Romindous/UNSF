@@ -26,8 +26,6 @@
     0
   ],
   "barrelMode": "ALTERNATING",
-  "animationType": "NONE",
-  "barrelMode": "ALTERNATING",
   "animationType": "SMOKE",
   "requiresFullCharge": false,
   "smokeSpec": {
@@ -47,5 +45,5 @@
       255
     ]
   },
-  "fireSoundTwo": "railgun3_sound"
+  "fireSoundTwo": "unsf_flak_shot"
 }

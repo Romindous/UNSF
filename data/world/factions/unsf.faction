@@ -119,9 +119,9 @@
 	"knownFighters":{
 		"tags":["unsf_bp_wing"],
 		"fighters":[
-			"unsf_302_wing",
-			"unsf_b302_wing_bomber",
-			"unsf_dd_wing",
+			"unsf_f302",
+			"unsf_b302",
+			"unsf_d302",
 		],
 	},
 	
@@ -132,11 +132,11 @@
 		"weapons":[
 			"unsf_railgun_pd",
 			"unsf_railgun_small",
-			"unsf_railgun",
-			"unsf_recoiler",
-			"unsf_railgun_4",
-			"unsf_asgbeam",
-			"unsf_asgbeam_heavy",
+			"unsf_railgun_medium",
+			"unsf_coilgun",
+			"unsf_pulsar",
+			"unsf_asgard_beam",
+			"unsf_asgard_lance",
 			"unsf_dronelauncher",
 			"unsf_vls_1",
 			"unsf_vls_2",
@@ -171,9 +171,9 @@
 	"priorityFighters":{
 		"tags":[],
 		"fighters":[
-			"unsf_302_wing",
-			"unsf_b302_wing_bomber",
-			"unsf_dd_wing",
+			"unsf_f302",
+			"unsf_b302",
+			"unsf_d302",
 		],
 	},
 	
@@ -183,11 +183,11 @@
 		"weapons":[
 			"unsf_railgun_pd",
 			"unsf_railgun_small",
-			"unsf_railgun",
-			"unsf_recoiler",
-			"unsf_railgun_4",
-			"unsf_asgbeam",
-			"unsf_asgbeam_heavy",
+			"unsf_railgun_medium",
+			"unsf_coilgun",
+			"unsf_pulsar",
+			"unsf_asgard_beam",
+			"unsf_asgard_lance",
 			"unsf_dronelauncher",
 			"unsf_vls_1",
 			"unsf_vls_2",

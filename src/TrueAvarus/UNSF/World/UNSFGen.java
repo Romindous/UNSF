@@ -9,7 +9,7 @@ import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 
-public class UNSFgen {
+public class UNSFGen {
 
     // THIS IS WHERE YOU PUT REGISTER FOR NEW SYSTEMS YOU BROTHER BLOWING SISTER FUCKING NAKED MOTHER WATCHING ALABAMA ENJOYING DUMB FUCK MORON
     public void generate(SectorAPI sector) {

@@ -6,7 +6,7 @@ import TrueAvarus.UNSF.Constants.Items;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
 import TrueAvarus.UNSF.NPCs.important_people;
 import TrueAvarus.UNSF.WeaponAI.MIRV_proj_GPT;
-import TrueAvarus.UNSF.World.UNSFgen;
+import TrueAvarus.UNSF.World.UNSFGen;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
@@ -30,7 +30,7 @@ public class UNSFMod extends BaseModPlugin {
         boolean isNexerelinEnabled = Global.getSettings().getModManager().isModEnabled("nexerelin");
 
         if (!isNexerelinEnabled || SectorManager.getManager().isCorvusMode()) {
-            new UNSFgen().generate(Global.getSector());
+            new UNSFGen().generate(Global.getSector());
         }
     }
 

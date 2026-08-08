@@ -1,7 +1,7 @@
 {
   "id": "unsf_pulsar",
   "specClass": "projectile",
-  "projectileSpecId": "pulsar_shot",
+  "projectileSpecId": "unsf_pulsar_shot",
   "type": "BALLISTIC",
   "size": "LARGE",
   "turretSprite": "graphics/weapons/unsf_pulsar_base_tr.png",

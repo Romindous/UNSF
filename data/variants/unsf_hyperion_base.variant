@@ -1,7 +1,7 @@
 {
   "variantId": "unsf_hyperion_base",
   "hullId": "unsf_hyperion",
-  "displayName": "Hyperion Base",
+  "displayName": "Based",
   "goalVariant": false,
   "fluxCapacitors": 14,
   "fluxVents": 4,

@@ -12,15 +12,15 @@
             "autofire": true,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 000": "unsf_railgun_4"
+                "WS 000": "unsf_pulsar"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "unsf_railgun",
-                "WS 002": "unsf_railgun"
+                "WS 001": "unsf_railgun_medium",
+                "WS 002": "unsf_railgun_medium"
             }
         }
     ]

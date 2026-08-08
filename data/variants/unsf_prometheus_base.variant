@@ -1,7 +1,7 @@
 {
   "variantId": "unsf_prometheus_base",
   "hullId": "unsf_prometheus",
-  "displayName": "Prometheus base",
+  "displayName": "Based",
   "goalVariant": true,
   "fluxCapacitors": 10,
   "fluxVents": 5,

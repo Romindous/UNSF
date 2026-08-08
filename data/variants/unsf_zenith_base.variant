@@ -18,55 +18,55 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 023": "unsf_railgun",
-                "WS 025": "unsf_railgun",
-                "WS 027": "unsf_railgun",
-                "WS 029": "unsf_railgun"
+                "WS 023": "unsf_railgun_medium",
+                "WS 025": "unsf_railgun_medium",
+                "WS 027": "unsf_railgun_medium",
+                "WS 029": "unsf_railgun_medium"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 026": "unsf_railgun",
-                "WS 022": "unsf_railgun",
-                "WS 028": "unsf_railgun",
-                "WS 031": "unsf_railgun",
-                "WS 024": "unsf_railgun",
-                "WS 032": "unsf_railgun"
+                "WS 026": "unsf_railgun_medium",
+                "WS 022": "unsf_railgun_medium",
+                "WS 028": "unsf_railgun_medium",
+                "WS 031": "unsf_railgun_medium",
+                "WS 024": "unsf_railgun_medium",
+                "WS 032": "unsf_railgun_medium"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 020": "unsf_recoiler",
-                "WS 013": "unsf_recoiler",
-                "WS 018": "unsf_recoiler",
-                "WS 016": "unsf_recoiler",
-                "WS 014": "unsf_recoiler"
+                "WS 020": "unsf_coilgun",
+                "WS 013": "unsf_coilgun",
+                "WS 018": "unsf_coilgun",
+                "WS 016": "unsf_coilgun",
+                "WS 014": "unsf_coilgun"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 033": "unsf_recoiler",
-                "WS 019": "unsf_recoiler",
-                "WS 015": "unsf_recoiler",
-                "WS 017": "unsf_recoiler",
-                "WS 021": "unsf_recoiler"
+                "WS 033": "unsf_coilgun",
+                "WS 019": "unsf_coilgun",
+                "WS 015": "unsf_coilgun",
+                "WS 017": "unsf_coilgun",
+                "WS 021": "unsf_coilgun"
             }
         },
         {
             "autofire": true,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 030": "unsf_railgun_4",
-                "WS 012": "unsf_railgun_4",
-                "WS 010": "unsf_railgun_4",
-                "WS 009": "unsf_railgun_4",
-                "WS 011": "unsf_railgun_4"
+                "WS 030": "unsf_pulsar",
+                "WS 012": "unsf_pulsar",
+                "WS 010": "unsf_pulsar",
+                "WS 009": "unsf_pulsar",
+                "WS 011": "unsf_pulsar"
             }
         }
     ],

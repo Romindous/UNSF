@@ -1,7 +1,7 @@
 {
   "variantId": "unsf_astraios_base",
   "hullId": "unsf_astraios",
-  "displayName": "Astraios Base",
+  "displayName": "Based",
   "goalVariant": true,
   "fluxCapacitors": 5,
   "fluxVents": 14,

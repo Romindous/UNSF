@@ -1,5 +1,5 @@
 {
-	"id":"pulsar_shot",
+	"id":"unsf_pulsar_shot",
 	"specClass":"projectile",
 	#"spawnType":"BALLISTIC_AS_BEAM",
 	#"collisionClass":"RAY",

@@ -1,5 +1,5 @@
 {
-  "id": "unsf_asuranbeam",
+  "id": "unsf_asuran_ray_cont",
   "specClass": "beam",
   "type": "ENERGY",
   "size": "MEDIUM",
@@ -52,5 +52,5 @@
     MISSILE_FF,
     MISSILE_NO_FF
   ],
-  "fireSoundTwo": "unsf_asuranbeam"
+  "fireSoundTwo": "unsf_asuran_ray_cont"
 }

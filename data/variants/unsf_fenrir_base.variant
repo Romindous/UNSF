@@ -1,7 +1,7 @@
 {
   "variantId": "unsf_fenrir_base",
   "hullId": "unsf_fenrir",
-  "displayName": "Fenrir Base",
+  "displayName": "Based",
   "goalVariant": true,
   "fluxCapacitors": 2,
   "fluxVents": 6,

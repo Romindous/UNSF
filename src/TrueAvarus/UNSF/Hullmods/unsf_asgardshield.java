@@ -55,7 +55,7 @@ public class unsf_asgardshield extends BaseHullMod {
     }
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getShieldSoftFluxConversion().modifyPercent(id, SHIELD_SOFT_FLUX);
+		stats.getShieldSoftFluxConversion().modifyFlat(id, SHIELD_SOFT_FLUX);
         stats.getShieldUpkeepMult().modifyPercent(id, SHIELD_UPKEEP);
 	}
 

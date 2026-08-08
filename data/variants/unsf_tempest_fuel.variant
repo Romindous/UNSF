@@ -4,7 +4,6 @@
   "fluxVents": 6,
   "goalVariant": true,
   "hullId": "unsf_tempest",
-  "hullMods": [],
   "permaMods": [
       "unsf_tempest_fuel"
   ],

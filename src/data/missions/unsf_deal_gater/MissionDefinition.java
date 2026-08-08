@@ -1,4 +1,4 @@
-package TrueAvarus.UNSF.Missions.unsf_deal_gater;
+package data.missions.unsf_deal_gater;
 
 
 import TrueAvarus.UNSF.UNSFMod;
@@ -15,18 +15,71 @@ public class MissionDefinition implements MissionDefinitionPlugin {
      * Feel free to expand this list with whatever vanilla or modded variants
      * you want to appear on the title screen.
      */
-    private static final String[] ENEMY_POOL = {
-        "lasher_Standard",
-        "vigilance_Strike",
+    private static final String[] BIG_ENEMY_POOL = {
+        // Capitals
+        "onslaught_Standard",
+        "onslaught_Outdated",
+        "onslaught_Elite",
+        "onslaught_xiv_Elite",
+        // Capital ships
+        "legion_Assault",
+        "legion_Escort",
+        "legion_Strike",
+        "legion_FS",
+        "legion_xiv_Elite",
+    };
+    private static final String[] MED_ENEMY_POOL = {
+        // Destroyers / Medium Escorts
+        "enforcer_Escort",
+        "enforcer_Balanced",
+        "enforcer_Outdated",
+        "enforcer_CS",
         "hammerhead_Balanced",
-        "sunder_Assault",
         "enforcer_Elite",
-        "mule_Standard",
+        "enforcer_XIV_Elite",
+        "hammerhead_Elite",
+
+        // Medium Combat
+        "enforcer_Assault",
+        "sunder_CS",
+        "sunder_Assault",
+
+        // Cruisers
         "falcon_Attack",
+        "falcon_CS",
+        "falcon_xiv_Elite",
+        "falcon_xiv_Escort",
+
+        "eagle_Assault",
         "eagle_Balanced",
+        "eagle_xiv_Elite",
+
+        "dominator_Support",
         "dominator_Assault",
-        "heron_Attack",
-        "onslaught_Standard"
+        "dominator_AntiCV",
+        "dominator_Outdated",
+        "dominator_XIV_Elite",
+
+        "gryphon_Standard",
+        "gryphon_FS",
+    };
+    private static final String[] SML_ENEMY_POOL = {
+        // Frigates / Fast Attack
+        "lasher_Standard",
+        "lasher_Strike",
+        "hound_hegemony_Standard",
+        "wolf_hegemony_Assault",
+
+        // Small Escorts / Combat
+        "lasher_CS",
+        "lasher_PD",
+        "wolf_hegemony_CS",
+        "wolf_hegemony_PD",
+        "vigilance_FS",
+        "vigilance_Standard",
+        "vigilance_Strike",
+        "brawler_Assault",
+        "centurion_Assault",
     };
 
     @Override
@@ -61,11 +114,9 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         // Enemy Fleet
         //-----------------------------------
 
-        for (int i = 0; i < 6; i++) {
-            api.addToFleet(FleetSide.ENEMY,
-                ENEMY_POOL[UNSFMod.rnd.nextInt(ENEMY_POOL.length)],
-                FleetMemberType.SHIP, i == 0);
-        }
+        addToFleet(api, BIG_ENEMY_POOL, 1);
+        addToFleet(api, MED_ENEMY_POOL, 2);
+        addToFleet(api, SML_ENEMY_POOL, 3);
 
         //-----------------------------------
         // Battlefield
@@ -94,5 +145,13 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         // Asteroid field
         api.addAsteroidField(0f, 0f, UNSFMod.rnd.nextFloat() * 360f,
             9000f, 20f, 70f, 80);
+    }
+
+    private static void addToFleet(MissionDefinitionAPI api, String[] pool, int num) {
+        for (int i = 0; i < num; i++) {
+            api.addToFleet(FleetSide.ENEMY,
+                pool[UNSFMod.rnd.nextInt(pool.length)],
+                FleetMemberType.SHIP, i == 0);
+        }
     }
 }

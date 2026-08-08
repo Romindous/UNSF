@@ -1,7 +1,7 @@
 {
   "variantId": "unsf_theseus_base",
   "hullId": "unsf_theseus",
-  "displayName": "Theseus Base",
+  "displayName": "Based",
   "goalVariant": true,
   "fluxCapacitors": 10,
   "fluxVents": 15,

@@ -107,7 +107,7 @@ public class Asgard_transport_sat extends BaseShipSystemScript implements MineSt
 		
 		CombatFleetManagerAPI FleetManager = engine.getFleetManager(source.getOwner());
 		FleetManager.setSuppressDeploymentMessages(true);
-		FleetMemberAPI missileMember = Global.getFactory().createFleetMember(FleetMemberType.FIGHTER_WING, "unsf_sat_wing");
+		FleetMemberAPI missileMember = Global.getFactory().createFleetMember(FleetMemberType.FIGHTER_WING, "unsf_sat");
 		missileMember.getRepairTracker().setCrashMothballed(false);
 		missileMember.getRepairTracker().setMothballed(false);
 		missileMember.getRepairTracker().setCR(1f);

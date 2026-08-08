@@ -12,15 +12,15 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "unsf_recoiler",
-                "WS 002": "unsf_recoiler"
+                "WS 001": "unsf_coilgun",
+                "WS 002": "unsf_coilgun"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "unsf_railgun"
+                "WS 000": "unsf_railgun_medium"
             }
         }
     ]
