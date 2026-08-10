@@ -34,5 +34,5 @@
 				    "angle":180.0},
 				    ],
     "renderTargetIndicator":false,
-    "onHitEffect":"TrueAvarus.UNSF.WeaponAI.PDMissleHit",
+    "onHitEffect":"TrueAvarus.UNSF.WeaponAI.PDMissileHit",
 }

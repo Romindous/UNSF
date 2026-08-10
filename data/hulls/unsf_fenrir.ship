@@ -36,7 +36,7 @@
     {
       "id": "WS 002",
       "size": "SMALL",
-      "type": "BALLISTIC",
+      "type": "HYBRID",
       "mount": "TURRET",
       "arc": 270,
       "angle": 0,

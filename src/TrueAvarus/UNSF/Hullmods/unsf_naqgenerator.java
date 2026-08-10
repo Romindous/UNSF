@@ -1,13 +1,10 @@
 package TrueAvarus.UNSF.Hullmods;
 
-import TrueAvarus.UNSF.Constants.Format;
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
-import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
 public class unsf_naqgenerator extends BaseHullMod {
@@ -15,7 +12,7 @@ public class unsf_naqgenerator extends BaseHullMod {
 	private static final float PEAK_PERF_TIME = 100f;
     private static final float PPT_CR_LOSS = 25f;
 
-    private static final float EXPLOSION_POWER = 500f;
+    private static final float EXPLOSION_POWER = 1000f;
 
     private static final float SMOD_SYSTEM_COOLDOWN = 15f;
 	
@@ -67,7 +64,7 @@ Upon destruction of the ship, generators on board will go critical, increasing s
 	
 	@Override
 	public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
-		if (ship == null || ship.getMutableStats() == null) return;
+		/*if (ship == null || ship.getMutableStats() == null) return;
 
 		final MutableShipStatsAPI stats = ship.getMutableStats();
 		final float decay = ship.getHullSpec().getCRLossPerSecond(stats);
@@ -90,7 +87,7 @@ Upon destruction of the ship, generators on board will go critical, increasing s
 		float seconds = (crPerDep * 100f) / crLossPerSecond;
 
 		tooltip.addPara("With all the modifications currently installed on the ship, it will take %s seconds.",
-            Format.OPAD, Format.HIGH, "" + Math.round(seconds));
+            Format.OPAD, Format.HIGH, "" + Math.round(seconds));*/
 	}
 
 	public String getUnapplicableReason(ShipAPI ship) {

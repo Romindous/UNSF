@@ -13,7 +13,7 @@ import org.magiclib.util.MagicIncompatibleHullmods;
 
 public class unsf_asgardshield extends BaseHullMod {
 	private static final String UNAPPLICABLE_REASON = "Dont cheat";
-    public static final float SHIELD_SOFT_FLUX = 45f;
+    public static final float SHIELD_SOFT_FLUX = 40f;
     public static final float SHIELD_ARC = 30f;
 
     public static final float SHIELD_UPKEEP = 25f;
@@ -41,22 +41,17 @@ public class unsf_asgardshield extends BaseHullMod {
         final ShieldAPI shield = ship.getShield();
         if (shield == null) return;
         final MutableShipStatsAPI stats = ship.getMutableStats();
-        if (!isSMod(ship)) {
-            stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC);
-            return;
-        }
-        stats.getShieldDamageTakenMult().modifyPercent(id, -SMOD_SHIELD_HURT);
-        if (shield.getType() == ShieldAPI.ShieldType.OMNI)
-            stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC + SMOD_SHIELD_ARC);
-        else {
-            stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC);
+        if (!isSMod(ship)) return;
+        stats.getShieldDamageTakenMult().modifyPercent(id, SMOD_SHIELD_HURT);
+        if (shield.getType() != ShieldAPI.ShieldType.OMNI) {
             shield.setType(ShieldAPI.ShieldType.OMNI);
         }
     }
 	
 	public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-		stats.getShieldSoftFluxConversion().modifyFlat(id, SHIELD_SOFT_FLUX);
+		stats.getShieldSoftFluxConversion().modifyFlat(id, SHIELD_SOFT_FLUX * 0.01f);
         stats.getShieldUpkeepMult().modifyPercent(id, SHIELD_UPKEEP);
+        stats.getShieldArcBonus().modifyFlat(id, SHIELD_ARC + (isSMod(stats) ? SMOD_SHIELD_ARC : 0));
 	}
 
 /*Rewires shield systems to absorb %s of damage taken as soft flux. Also extends the shield arc by %s degrees.

@@ -16,7 +16,7 @@ public class unsf_asgardcpu extends BaseHullMod {
 
     public static final float HYBRID_RANGE = 25f;
     public static final float PD_RANGE = 250f;
-    public static final float BEAM_RANGE = 500f;
+    public static final float BEAM_RANGE = 400f;
 
     public static final float SMOD_WEAPON_RANGE = 40;
     public static final float SMOD_PROJ_SPEED = 15;

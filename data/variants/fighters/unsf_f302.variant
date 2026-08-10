@@ -1,7 +1,7 @@
 {
   "variantId": "unsf_f302",
   "hullId": "unsf_f302",
-  "displayName": "F-302 Fighter Wing",
+  "displayName": "Fighter Wing",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,
@@ -10,7 +10,7 @@
   "hullMods": [],
   "weaponGroups": [
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS 000": "unsf_railgun_fighter",

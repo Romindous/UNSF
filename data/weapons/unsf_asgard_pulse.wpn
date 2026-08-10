@@ -31,5 +31,5 @@
   "barrelMode": "ALTERNATING",
   "animationType": "GLOW",
   "autocharge": true,
-  "fireSoundTwo": "asgardpulse_fire"
+  "fireSoundTwo": "unsf_asgard_pulse_shot"
 }

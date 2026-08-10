@@ -5,6 +5,7 @@ import java.util.Random;
 import TrueAvarus.UNSF.Constants.Items;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
 import TrueAvarus.UNSF.NPCs.important_people;
+import TrueAvarus.UNSF.WeaponAI.PDMissileAI;
 import TrueAvarus.UNSF.WeaponAI.MIRV_proj_GPT;
 import TrueAvarus.UNSF.World.UNSFGen;
 import com.fs.starfarer.api.BaseModPlugin;
@@ -43,13 +44,18 @@ public class UNSFMod extends BaseModPlugin {
     }
 
     public static final String HORIZON_NUKE = "unsf_horizon_missile_subprojectile";
+    public static final String VLS_0_MISSLE = "unsf_vls_0_projectile";
     @Override
     public PluginPick<MissileAIPlugin> pickMissileAI(MissileAPI missile, ShipAPI launchingShip) {
-        String specID = missile.getProjectileSpecId();
-
-        if (specID.equals(HORIZON_NUKE)) {
-            MissileAIPlugin newAIPlugin = new MIRV_proj_GPT(missile, launchingShip);
-            return new PluginPick<>(newAIPlugin, CampaignPlugin.PickPriority.MOD_SET);
+        final MissileAIPlugin map;
+        switch (missile.getProjectileSpecId()) {
+            case VLS_0_MISSLE:
+                map = new PDMissileAI(missile, launchingShip);
+                missile.getSpec().setOnHitClassName("TrueAvarus.UNSF.WeaponAI.PDMissileHit");
+                return new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);
+            case HORIZON_NUKE:
+                map = new MIRV_proj_GPT(missile, launchingShip);
+                return new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);
         }
         return null;  // Only one return null at the end
     }

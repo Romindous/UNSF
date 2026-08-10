@@ -13,7 +13,7 @@ import org.magiclib.util.MagicRender;
 import java.awt.Color;
 import org.lazywizard.lazylib.MathUtils;
 
-public class PDMissleHit implements OnHitEffectPlugin {
+public class PDMissileHit implements OnHitEffectPlugin {
 
     private static final Color EXPLOSION_COLOR = new Color(255, 0, 0, 255);
     private static final Color PARTICLE_COLOR = new Color(240, 200, 50, 255);

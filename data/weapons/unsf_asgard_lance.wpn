@@ -43,7 +43,7 @@
     255,
     255
   ],
-  "width": 80,
+  "width": 60,
   "textureType": ROUGH,
   "textureScrollSpeed": 64,
   "pixelsPerTexel": 1,
@@ -54,5 +54,6 @@
     MISSILE_FF,
     MISSILE_NO_FF
   ],
-  "fireSoundOne": "unsf_asgard_ray_burst"
+  "fireSoundOne": "unsf_asgard_ray_burst",
+  "fireSoundTwo": "unsf_asgard_ray_cont"
 }

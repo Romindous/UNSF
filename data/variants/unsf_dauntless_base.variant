@@ -23,17 +23,16 @@
       "autofire": false,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS 001": "unsf_asgard_beam",
-        "WS 002": "unsf_asgard_beam",
+        "WS 000": "unsf_asgard_lance",
+        "WS 001": "unsf_railgun_small",
+        "WS 002": "unsf_railgun_small",
         "WS 003": "unsf_railgun_pd"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "WS 000": "unsf_railgun_medium"
-      }
+      "weapons": {}
     },
     {
       "autofire": true,

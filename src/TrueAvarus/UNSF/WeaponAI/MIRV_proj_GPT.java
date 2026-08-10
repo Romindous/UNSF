@@ -132,14 +132,9 @@ public class MIRV_proj_GPT implements MissileAIPlugin, GuidedMissileAI {
     @Override
     public void advance(float amount) {
 
-        if (engine != Global.getCombatEngine()) {
-            this.engine = Global.getCombatEngine();
-        }
-
+        if (engine == null) this.engine = Global.getCombatEngine();
         // Skip the AI if the game is paused, the missile is engineless, or fading
-        if (Global.getCombatEngine().isPaused() || MISSILE.isFading() || MISSILE.isFizzling()) {
-            return;
-        }
+        if (engine.isPaused() || MISSILE.isFading() || MISSILE.isFizzling()) return;
 
         // Increment the activation timer
         activationTimer += amount;

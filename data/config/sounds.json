@@ -102,7 +102,7 @@
 
 
 
-  "asgardpulse_fire":[
+  "unsf_asgard_pulse_shot":[
     {"file":"sounds/sfx_wpn_energy/minipulser_fire_01.ogg","pitch":1.60,"volume":0.4},
     {"file":"sounds/sfx_wpn_energy/minipulser_fire_02.ogg","pitch":1.60,"volume":0.4},
     {"file":"sounds/sfx_wpn_energy/minipulser_fire_03.ogg","pitch":1.60,"volume":0.4},

@@ -1,8 +1,8 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base value,,,,,,,,,,,,,number
-unsf_f302,unsf_f302,"fighter18, fighter, rapid_reform, independent_of_carrier",1,,22,8,DIAMOND,4000,1000,100,4,FIGHTER,Fighter,10,4000,,,,,,,,,,,,,
-unsf_b302,unsf_b302,"bomber18, bomber, rapid_reform, independent_of_carrier",2,,30,12,V,5000,1000,500,2,BOMBER,Bomber,10,16000,,,,,,,,,,,,,
-unsf_d302,unsf_d302,"support0, interceptor, rapid_reform, stay_in_front_of_ship, drone, low, base_bp, ind",2,,15,6,BOX,100,1000,,3,SUPPORT,Escort,10,8000,,,,,,,,,,,,,
-unsf_sat,unsf_sat,,3,,30,0,BOX,1000,1000,,1,FIGHTER,Fighter,10,2000,,,,,,,,,,,,,
+unsf_f302,unsf_f302,"fighter4, fighter, rapid_reform, independent_of_carrier, merc, ind",1,0.2,12,8,DIAMOND,4000,1000,100,4,FIGHTER,Fighter,10,4000,,,,,,,,,,,,,
+unsf_b302,unsf_b302,"bomber4, bomber, rapid_reform, independent_of_carrier, hist1t, merc, ind",2,0.1,16,14,V,5000,1000,500,2,BOMBER,Bomber,20,16000,,,,,,,,,,,,,
+unsf_d302,unsf_d302,"stay_in_front_of_ship, support3, drone, auto_fighter, hist1t, merc, ind",3,0.5,6,6,BOX,0,500,,2,SUPPORT,Support,5,8000,,,,,,,,,,,,,2
+unsf_sat,unsf_sat,,3,,30,0,BOX,1000,1000,,1,FIGHTER,Fighter,0,2000,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
