@@ -44,12 +44,12 @@ public class UNSFMod extends BaseModPlugin {
     }
 
     public static final String HORIZON_NUKE = "unsf_horizon_missile_subprojectile";
-    public static final String VLS_0_MISSLE = "unsf_vls_0_projectile";
+    public static final String VLS_0_MISSILE = "unsf_vls_0_projectile";
     @Override
     public PluginPick<MissileAIPlugin> pickMissileAI(MissileAPI missile, ShipAPI launchingShip) {
         final MissileAIPlugin map;
         switch (missile.getProjectileSpecId()) {
-            case VLS_0_MISSLE:
+            case VLS_0_MISSILE:
                 map = new PDMissileAI(missile, launchingShip);
                 missile.getSpec().setOnHitClassName("TrueAvarus.UNSF.WeaponAI.PDMissileHit");
                 return new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);

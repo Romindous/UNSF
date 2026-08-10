@@ -1,6 +1,7 @@
 package TrueAvarus.UNSF.WeaponAI;
 
 import TrueAvarus.UNSF.Objects.IntHashMap;
+import TrueAvarus.UNSF.Utils.NumUtil;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import org.lazywizard.lazylib.MathUtils;
@@ -16,6 +17,7 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
     private static CombatEngineAPI engine;
 
     private final MissileAPI missile;
+    private final int id;
     private final float maxDstSq;
     private final float maxOnTarget;
     private CombatEntityAPI target;
@@ -24,8 +26,9 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
     private float timeSinceLaunch = 0f; // Time since the missile was launched
     private int tickCounter = 0; // Counter to track ticks
 
-    public PDMissileAI(MissileAPI missile, ShipAPI launchingShip) {
+    public PDMissileAI(MissileAPI missile, ShipAPI ship) {
         this.missile = missile;
+        this.id = NumUtil.vecode(missile.getSpawnLocation());
         final float acc = missile.getAcceleration();
         final float speed = missile.getMaxSpeed();
         final float time = speed / acc;
@@ -67,6 +70,7 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
         if (target != null) {
             if (MathUtils.getDistanceSquared(missile.getLocation(),
                 target.getLocation()) < PROXIMITY_SQ) {
+                System.out.println("Missile " + id + " exploded");
                 missile.explode();
                 counts.clear();
                 return;
@@ -108,7 +112,7 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
     }
 
     private boolean hasOnTarget(MissileAPI ms) {
-        final int id = ms.getStart().hashCode();
+        final int id = NumUtil.vecode(ms.getStart());
         final Integer cnt = counts.get(id);
         if (cnt == null) counts.put(id, 1);
         else {
@@ -125,7 +129,7 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
         if (tgtLoc == null) return;
         final Vector2f dst = Vector2f.sub(tgtLoc, missile.getLocation(), new Vector2f());
         float absoluteAngle = VectorUtils.getFacing(dst);
-        int relativeAngle = (int) (absoluteAngle - missile.getFacing());
+        int relativeAngle = (int) (absoluteAngle - missile.getFacing()) + NumUtil.rndSignNum(2, 2);
         relativeAngle = (relativeAngle - relativeAngle / 180 * 360) % 360;
         final float turnSpeed = Math.min(relativeAngle,
             Integer.signum(relativeAngle) * missile.getMaxTurnRate() * amount);
