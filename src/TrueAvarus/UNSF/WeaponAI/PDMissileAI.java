@@ -12,6 +12,7 @@ import org.lwjgl.util.vector.Vector2f;
 public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
 
     public static final IntHashMap<Integer> counts = new IntHashMap<>();
+    private static final String HIT_CLASS_NAME = PDMissileHit.class.getName();
 
     private static CombatEngineAPI engine;
 
@@ -25,7 +26,7 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
     private float timeSinceLaunch = 0f; // Time since the missile was launched
     private int tickCounter = 0; // Counter to track ticks
 
-    public PDMissileAI(MissileAPI missile, ShipAPI ship) {
+    public PDMissileAI(MissileAPI missile) {
         this.missile = missile;
         final float acc = missile.getAcceleration();
         final float speed = missile.getMaxSpeed();
@@ -36,6 +37,7 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
         this.maxOnMissle = missile.getWeaponSpec().getBurstSize() >> 2;
         this.maxOnWing = missile.getWeaponSpec().getBurstSize() >> 1;
         this.target = null;
+        missile.getSpec().setOnHitClassName(HIT_CLASS_NAME);
     }
 
     @Override
@@ -61,7 +63,9 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
             return;
         }
 
-        if (target instanceof final MissileAPI ms && (ms.isFizzling() || ms.isFading())) {
+        if (!engine.isEntityInPlay(target)) {
+            target = null; tgtLoc = null; return;
+        } else if (target instanceof final MissileAPI ms && (ms.isFizzling() || ms.isFading())) {
             target = null; tgtLoc = null; return;
         } else if (target instanceof final ShipAPI shp && (!shp.isAlive() || shp.isPhased())) {
             target = null; tgtLoc = null; return;
@@ -102,7 +106,6 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
             lastDstSq = dstSq;
             target = ms;
         }
-        if (target != null) return target;
 
         for (final ShipAPI shp : engine.getShips()) {
             if (shp.getOwner() == ally || !shp.isAlive() || shp.isPhased()) continue;
@@ -132,7 +135,7 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
     }
 
     private boolean hasOnTarget(MissileAPI ms) {
-        final int id = NumUtil.vecode(ms.getStart());
+        final int id = ms.hashCode();
         final Integer cnt = counts.get(id);
         if (cnt == null) counts.put(id, 1);
         else {
@@ -143,7 +146,7 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
     }
 
     private static final int ACC_ANGLE = 60;
-    private static final int OFFSET = 4;
+    private static final int OFFSET = 2;
     private void move(MissileAPI missile, float amount) {
         if (tgtLoc == null) tgtLoc = AIUtils.getBestInterceptPoint(
             missile.getLocation(), missile.getMoveSpeed(),
@@ -151,12 +154,15 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
         if (tgtLoc == null) return;
         final Vector2f dst = Vector2f.sub(tgtLoc, missile.getLocation(), new Vector2f());
         float absoluteAngle = VectorUtils.getFacing(dst);
-        int relativeAngle = (int) (absoluteAngle - missile.getFacing()) + NumUtil.rndSignNum(OFFSET, OFFSET);
+        int relativeAngle = (int) (absoluteAngle - missile.getFacing());
         relativeAngle = (relativeAngle - relativeAngle / 180 * 360) % 360;
-        final float turnSpeed = Math.min(relativeAngle,
+        final float turn = Math.min(relativeAngle,
             Integer.signum(relativeAngle) * missile.getMaxTurnRate() * amount);
 
-        missile.setFacing(missile.getFacing() + turnSpeed);
-        if (relativeAngle < ACC_ANGLE) missile.giveCommand(ShipCommand.ACCELERATE);
+        if (relativeAngle < ACC_ANGLE)
+            missile.giveCommand(ShipCommand.ACCELERATE);
+        missile.setFacing(missile.getFacing() +
+            turn + NumUtil.rndSignNum(OFFSET, OFFSET));
+        missile.setAngularVelocity(0f);
     }
 }

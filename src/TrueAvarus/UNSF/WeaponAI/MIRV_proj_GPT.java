@@ -114,7 +114,7 @@ public class MIRV_proj_GPT implements MissileAIPlugin, GuidedMissileAI {
     //  DATA COLLECTING //
     //////////////////////
 
-    public MIRV_proj_GPT(MissileAPI missile, ShipAPI launchingShip) {
+    public MIRV_proj_GPT(MissileAPI missile) {
         this.MISSILE = missile;
         MAX_SPEED = missile.getMaxSpeed();
         if (missile.getSource().getVariant().getHullMods().contains("eccm")) {

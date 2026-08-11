@@ -1,6 +1,7 @@
 package TrueAvarus.UNSF;
 
 
+import java.security.SecureRandom;
 import java.util.Random;
 import TrueAvarus.UNSF.Constants.Items;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
@@ -22,7 +23,7 @@ import exerelin.campaign.SectorManager;
 public class UNSFMod extends BaseModPlugin {
 
 
-    public static final Random rnd = new Random();
+    public static final Random srnd = new SecureRandom();
 
     @Override
     public void onNewGame() {
@@ -48,16 +49,17 @@ public class UNSFMod extends BaseModPlugin {
     @Override
     public PluginPick<MissileAIPlugin> pickMissileAI(MissileAPI missile, ShipAPI launchingShip) {
         final MissileAIPlugin map;
-        switch (missile.getProjectileSpecId()) {
-            case VLS_0_MISSILE:
-                map = new PDMissileAI(missile, launchingShip);
-                missile.getSpec().setOnHitClassName("TrueAvarus.UNSF.WeaponAI.PDMissileHit");
-                return new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);
-            case HORIZON_NUKE:
-                map = new MIRV_proj_GPT(missile, launchingShip);
-                return new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);
-        }
-        return null;  // Only one return null at the end
+        return switch (missile.getProjectileSpecId()) {
+            case VLS_0_MISSILE -> {
+                map = new PDMissileAI(missile);
+                yield new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);
+            }
+            case HORIZON_NUKE -> {
+                map = new MIRV_proj_GPT(missile);
+                yield new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);
+            }
+            default -> null;
+        };
     }
 
     // You can add more methods from ModPlugin here. Press Control-O in IntelliJ to see options.

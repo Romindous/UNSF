@@ -135,22 +135,22 @@ public class MissionDefinition implements MissionDefinitionPlugin {
             height / 2f
         );
 
-        for (int i = 15 + UNSFMod.rnd.nextInt(10); i > 0; i--) {
-            float x = minX + UNSFMod.rnd.nextFloat() * width;
-            float y = minY + UNSFMod.rnd.nextFloat() * height;
-            float radius = 300f + UNSFMod.rnd.nextFloat() * 900f;
+        for (int i = 15 + UNSFMod.srnd.nextInt(10); i > 0; i--) {
+            float x = minX + UNSFMod.srnd.nextFloat() * width;
+            float y = minY + UNSFMod.srnd.nextFloat() * height;
+            float radius = 300f + UNSFMod.srnd.nextFloat() * 900f;
             api.addNebula(x, y, radius);
         }
 
         // Asteroid field
-        api.addAsteroidField(0f, 0f, UNSFMod.rnd.nextFloat() * 360f,
+        api.addAsteroidField(0f, 0f, UNSFMod.srnd.nextFloat() * 360f,
             9000f, 20f, 70f, 80);
     }
 
     private static void addToFleet(MissionDefinitionAPI api, String[] pool, int num) {
         for (int i = 0; i < num; i++) {
             api.addToFleet(FleetSide.ENEMY,
-                pool[UNSFMod.rnd.nextInt(pool.length)],
+                pool[UNSFMod.srnd.nextInt(pool.length)],
                 FleetMemberType.SHIP, i == 0);
         }
     }
