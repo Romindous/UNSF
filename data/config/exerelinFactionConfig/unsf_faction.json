@@ -5,12 +5,12 @@
     "difficultyString": "easy",
     "ngcTooltip": "You might come to help rebuild and expand our lost empire or don't come at all.",
     
-    "asteroidMiningFleetName": "Mining Fleet",
-    "gasMiningFleetName": "Snorchel Fleet",
-    "invasionFleetName": "UNSF Invasion Fleet",
-    "responseFleetName": "UNSF Defense Fleet",
-    "invasionSupportFleetName": "UNSF Logistical Support",
-    "defenceFleetName": "UNSF Deterence Fleet",
+    "asteroidMiningFleetName": "UNSF Mining Convoy",
+    "gasMiningFleetName": "UNSF Extraction Convoy",
+    "invasionFleetName": "UNSF Invasion Armada",
+    "responseFleetName": "UNSF Response Fleet",
+    "invasionSupportFleetName": "UNSF Logistical Group",
+    "defenceFleetName": "UNSF Deterence Armada",
 
     "startRelationships": {
         "independent": 0.6,					
@@ -21,10 +21,11 @@
         "lions_guard": 0,				
         "sindrian_diktat": 0,			
         "luddic_church": 0.2,					
-        "luddic_path": 0,					
+        "luddic_path": -0.4,
         "remnant": -0.6,
         "scalartech": 0.15,					
-        "vic": 0.15,						
+        "vic": 0.15,
+        "al_ars": 0.6,
         "default": 0.25
     },
 
@@ -67,19 +68,19 @@
     "dropPrisoners": true,
 
     "startShipsSolo": [
-        ["unsf_abydos_base"]
+        ["unsf_prometheus_base"]
     ],
 
     "startShipsCombatSmall": [
-        ["unsf_fenrir_base", "unsf_fenrir_base", "unsf_prometheus_base", "unsf_prometheus_base", "unsf_abydos_base"]
+        ["unsf_fenrir_base", "unsf_prometheus_base", "unsf_abydos_base"]
     ],
 
     "startShipsTradeSmall": [
-        ["unsf_tempest_cargo", "unsf_tempest_fuel", "unsf_abydos_base"]
+        ["unsf_tempest_cargo", "unsf_fenrir_base", "unsf_abydos_base"]
     ],
 
     "startShipsCombatLarge": [
-        ["unsf_daedalus_base", "unsf_theseus_base", "unsf_helios_base"]
+        ["unsf_astraios_base", "unsf_theseus_base", "unsf_dauntless_base", "unsf_prometheus_base"]
     ],
 
     "startShipsSuper": [

@@ -202,13 +202,41 @@
 
 "music":{
 
-"unsf_market_friendly":[
-{"file":"unsf_theme.ogg","source":"sounds/music/","volume":0.15,"randomStart":false},
+"unsf_market_hostile":[
+{"file":"unsf_market_hostile.ogg","source":"sounds/music/","volume":0.5,"randomStart":false},
 ],
 
-"AtlantisStation_music": [
-{"file": "unsf_atlantis_music_v2.ogg", "source": "sounds/music/", "volume":0.4,"randomStart":false},
+"unsf_market_neutral":[
+{"file":"unsf_market_neutral.ogg","source":"sounds/music/","volume":0.5,"randomStart":false},
 ],
+
+"unsf_market_friendly":[
+{"file":"unsf_market_friendly.ogg","source":"sounds/music/","volume":0.5,"randomStart":false},
+],
+
+"unsf_atlantis_hostile": [
+{"file": "unsf_atlantis_hostile.ogg", "source": "sounds/music/", "volume":0.4,"randomStart":false},
+],
+
+"unsf_atlantis_neutral": [
+{"file": "unsf_atlantis_neutral.ogg", "source": "sounds/music/", "volume":0.4,"randomStart":false},
+],
+
+"unsf_atlantis_friendly": [
+{"file": "unsf_atlantis_friendly.ogg", "source": "sounds/music/", "volume":0.4,"randomStart":false},
+],
+
+"unsf_fleet_hostile":[
+{"file":"unsf_fleet_hostile.ogg","source":"sounds/music/","volume":0.5,"randomStart":false},
+],
+
+"unsf_fleet_neutral":[
+{"file":"unsf_fleet_neutral.ogg","source":"sounds/music/","volume":0.5,"randomStart":false},
+],
+
+"unsf_fleet_friendly":[
+{"file":"unsf_fleet_friendly.ogg","source":"sounds/music/","volume":0.5,"randomStart":false},
+]
 
 }
 

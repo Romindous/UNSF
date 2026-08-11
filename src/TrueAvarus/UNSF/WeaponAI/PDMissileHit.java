@@ -29,6 +29,8 @@ public class PDMissileHit implements OnHitEffectPlugin {
             2, 5, 5, 25,
             new Color(225,100,0), new Color(200,100,25));
 
+        System.out.println("Missile Hit exploded");
+        PDMissileAI.counts.clear();
         boom.setDamageType(DamageType.FRAGMENTATION);
         boom.setShowGraphic(false);
         boom.setSoundSetId("explosion_flak");

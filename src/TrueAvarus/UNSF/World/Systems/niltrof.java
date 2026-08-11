@@ -265,7 +265,7 @@ public class niltrof {
         Global.getSector().getEconomy().addMarket(atlantis_market, true);
 
         //todo THIS ADDS CUSTOM MUSIC TO MARKET !!!!!!!!!!!!!!!!!!!!!
-        atlantis_market.getMemoryWithoutUpdate().set(MusicPlayerPluginImpl.MUSIC_SET_MEM_KEY, "AtlantisStation_music");
+        atlantis_market.getMemoryWithoutUpdate().set(MusicPlayerPluginImpl.MUSIC_SET_MEM_KEY, "unsf_atlantis_neutral");
 
         //AEGIRAST
 
