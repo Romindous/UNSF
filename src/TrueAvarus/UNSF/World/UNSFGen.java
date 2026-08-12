@@ -28,13 +28,13 @@ public class UNSFGen {
         FactionAPI league = sector.getFaction(Factions.PERSEAN);
         FactionAPI myfaction= sector.getFaction("unsf_faction");
 
-        myfaction.setRelationship(path.getId(), RepLevel.SUSPICIOUS);
+        myfaction.setRelationship(path.getId(), RepLevel.INHOSPITABLE);
         myfaction.setRelationship(hegemony.getId(), RepLevel.FAVORABLE);
         myfaction.setRelationship(pirates.getId(), RepLevel.HOSTILE);
-        myfaction.setRelationship(tritachyon.getId(), RepLevel.FAVORABLE);
-        myfaction.setRelationship(church.getId(), RepLevel.INHOSPITABLE);
+        myfaction.setRelationship(tritachyon.getId(), RepLevel.SUSPICIOUS);
+        myfaction.setRelationship(church.getId(), RepLevel.SUSPICIOUS);
         myfaction.setRelationship(kol.getId(), RepLevel.FAVORABLE);
-        myfaction.setRelationship(league.getId(), RepLevel.SUSPICIOUS);
+        myfaction.setRelationship(league.getId(), RepLevel.FAVORABLE);
 
     }
 }
