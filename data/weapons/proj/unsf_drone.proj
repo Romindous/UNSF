@@ -2,7 +2,7 @@
 	"id":"unsf_drone",
 	"specClass":"missile",	
 	"missileType":"MISSILE",
-	"sprite":"graphics/missles/unsf_drone.png",
+	"sprite":"graphics/missiles/unsf_drone.png",
 	"size":[6,14],
 	"onHitEffect":"com.fs.starfarer.api.impl.combat.IonCannonOnHitEffect",
 	"center":[3,7],

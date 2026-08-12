@@ -3,7 +3,7 @@
 	"specClass":"missile",
 	"spawnType":"BALLISTIC",
 	"missileType":"MIRV",
-	"sprite":"graphics/missles/unsf_vls_nuke.png",
+	"sprite":"graphics/missiles/unsf_vls_nuke.png",
 	"size":[12,28],	
 	"center":[6,14],
 	"collisionRadius":16,

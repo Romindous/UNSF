@@ -2,51 +2,51 @@
 	"id":"unsf_vls_2_projectile",
 	"specClass":"missile",	
 	"missileType":"MISSILE",
-	"sprite":"graphics/missles/unsf_vls_missle.png",
-	"size":[18,30],	
-	"center":[3,0],
-	"collisionRadius":30,
+	"sprite":"graphics/missiles/unsf_vls_medium.png",
+	"size":[8,16],
+	"center":[4,8],
+	"collisionRadius":25,
 	"collisionClass":"MISSILE_NO_FF",
 	"explosionColor":[242,124,27,220],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":350, # purely visual
-	"explosionSpec":{"duration":8f, # not visual
-					 "radius":100,
-					 "coreRadius":60, # full damage within core radius
-					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
-					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
-					 "particleSizeMin":3.0,
-					 "particleSizeRange":7.0,
-					 "particleDuration":3,
-					 "particleCount":200,
-					 "particleColor":[242,124,27,220]},
-#	"engineSpec":{"turnAcc":140,
-#				  "turnRate":35,
-#				  "acc":200,
-#				  "dec":100},
+	"explosionSpec":{
+        "duration":8f, # not visual
+        "radius":100,
+        "coreRadius":60, # full damage within core radius
+        "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+        "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
+        "particleSizeMin":3.0,
+        "particleSizeRange":7.0,
+        "particleDuration":3,
+        "particleCount":200,
+        "particleColor":[242,124,27,220]
+    },
 	"engineSpec":{
-	                "maxSpeed":500,
-                    "turnAcc":1500,
-                    "turnRate":1500,
-                    "acc":300,
-                    "dec":0},
-	"engineSlots":[{"id":"ES1",
-					"loc":[-3, -6],
-				    #"style":"MISSILE_HIGH_TECH",
-				    "style":"CUSTOM",
-					"styleSpec":{
-						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
-						"engineColor":[255,209,0,100],
-						"contrailDuration":2,
-						"contrailWidthMult":1,
-						"contrailWidthAddedFractionAtEnd":2.5,  # can be negative. makes trail spread out/narrow at the end
-						"contrailMinSeg":5, # min segment length, in pixels
-						"contrailMaxSpeedMult":0.5f,
-						"contrailAngularVelocityMult":0.5f,
-						"contrailColor":[255,129,0,75],
-						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
-					},
-				    "width":10.0,
-				    "length":60.0,
-				    "angle":180.0},
-				    ]
+        "maxSpeed":500,
+        "turnAcc":1500,
+        "turnRate":1500,
+        "acc":300,
+        "dec":0
+    },
+	"engineSlots":[
+	    {"id":"ES1",
+        "loc":[-3, -6],
+        #"style":"MISSILE_HIGH_TECH",
+        "style":"CUSTOM",
+        "styleSpec":{
+            "mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+            "engineColor":[255,209,0,100],
+            "contrailDuration":2,
+            "contrailWidthMult":1,
+            "contrailWidthAddedFractionAtEnd":2.5,  # can be negative. makes trail spread out/narrow at the end
+            "contrailMinSeg":5, # min segment length, in pixels
+            "contrailMaxSpeedMult":0.5f,
+            "contrailAngularVelocityMult":0.5f,
+            "contrailColor":[255,129,0,75],
+            "type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+        },
+        "width":10.0,
+        "length":60.0,
+        "angle":180.0},
+    ]
 }

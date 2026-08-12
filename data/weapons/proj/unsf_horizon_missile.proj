@@ -2,7 +2,7 @@
 	"id":"unsf_horizon_missile",
 	"specClass":"missile",	
 	"missileType":"MIRV",
-	"sprite":"graphics/missles/unsf_horizon.png",
+	"sprite":"graphics/missiles/unsf_horizon.png",
 	"size":[12,28],	
 	"center":[6,14],
 	"collisionRadius":16,

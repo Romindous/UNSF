@@ -2,7 +2,7 @@
 	"id":"unsf_horizon_missile_subprojectile",
 	"specClass":"missile",	
 	"missileType":"HEATSEEKER",
-	"sprite":"graphics/missles/unsf_vls_nuke.png",
+	"sprite":"graphics/missiles/unsf_vls_nuke.png",
 	"size":[9,12],	
 	"center":[5,6],
 	"collisionRadius":50,

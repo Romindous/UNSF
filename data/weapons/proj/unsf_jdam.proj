@@ -4,7 +4,7 @@
 	"missileType":"BOMB",
 	#"missileType":"BOMB_WITH_SLOW",
 	#"missileType":"ROCKET",
-	"sprite":"graphics/missles/unsf_jdam.png",
+	"sprite":"graphics/missiles/unsf_jdam.png",
 	"size":[7,32],	
 	"center":[4,17],
 	"collisionRadius":16,

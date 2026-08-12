@@ -2,7 +2,7 @@
 	"id":"unsf_vls_0_projectile",
 	"specClass":"missile",
 	"missileType":"MISSILE",
-	"sprite":"graphics/missles/shell_small.png",
+	"sprite":"graphics/missiles/unsf_vls_tiny.png",
 	"size":[6,14],
 	"center":[3,7],
 	"collisionRadius":60,

@@ -3,7 +3,7 @@
   "specClass": "projectile",
   "projectileSpecId": "unsf_vls_3_projectile",
   "type": "MISSILE",
-  "size": "MEDIUM",
+  "size": "LARGE",
   "displayArcRadius": 500,
   "turretSprite": "graphics/weapons/unsf_vls_3_hp.png",
   "hardpointSprite": "graphics/weapons/unsf_vls_3_hp.png",
@@ -40,5 +40,5 @@
       130
     ]
   },
-  "fireSoundTwo": "swarmer_fire"
+  "fireSoundTwo": "unsf_vls_launch" #"dragonfire_fire"
 }
