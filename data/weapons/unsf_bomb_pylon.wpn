@@ -4,8 +4,8 @@
   "projectileSpecId": "unsf_jdam",
   "type": "BALLISTIC",
   "size": "SMALL",
-  "turretSprite": "graphics/weapons/unsf_vls.png",
-  "hardpointSprite": "graphics/weapons/unsf_vls.png",
+  "turretSprite": "graphics/weapons/unsf_shotgun_barrel_tr.png",
+  "hardpointSprite": "graphics/weapons/unsf_shotgun_barrel_hp.png",
   "turretOffsets": [
     0,
     0

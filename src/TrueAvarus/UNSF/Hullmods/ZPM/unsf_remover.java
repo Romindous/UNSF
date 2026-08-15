@@ -6,7 +6,7 @@ import com.fs.starfarer.api.combat.ShipAPI;
 
 import static TrueAvarus.UNSF.Constants.HullMods.*;
 
-public class unsf_deletor extends BaseHullMod {
+public class unsf_remover extends BaseHullMod {
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {

@@ -15,33 +15,33 @@ ZPM-Flux System Bypass,unsf_zpm_systembooster,,,UNSF,,Special,,TRUE,TRUE,,0,0,0,
 ,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 #ASGARD MODS - MAKES SHIPS NOT BEING SHIT ,,,,,,,,,,,,,,,,,,,
-Asgard Sensors,unsf_asgardsensors,1,,UNSF,,"Logistics, Requires Dock",9000,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_asgardsensors,<Tooltip created in script>,Increases fleet's sensor range.,"Increases the ship's in-combat vision range by %s/%s/%s/%s, based on hull size.",graphics/hullmods/unsf_asgardsensors.png
-Asgard Computer Core,unsf_asgardcpu,3,,UNSF,,Weapons,10000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_asgardcpu,"Increases the non-beam weapon range by %s, non-beam PD range by %s, and beam range by %s.
+Asgard Sensors,unsf_asgardsensors,1,,UNSF,"unsf_bp_hm, req_spaceport","Logistics, Requires Dock",9000,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_asgardsensors,<Tooltip created in script>,Increases fleet's sensor range.,"Increases the ship's in-combat vision range by %s/%s/%s/%s, based on hull size.",graphics/hullmods/unsf_asgardsensors.png
+Asgard Computer Core,unsf_asgardcpu,3,,UNSF,"unsf_bp_hm, offensive",Weapons,10000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_asgardcpu,"Increases the non-beam weapon range by %s, non-beam PD range by %s, and beam range by %s.
 Can not work in conjunction with %s, %s, and other range related hullmods.","Increases weapon range, more so for larger ships.","Increases projectile speed by %s, as well as their distance traveled, past weapon range, by %s.",graphics/hullmods/unsf_asgardcpu.png
-Asgard Shield,unsf_asgardshield,2,,UNSF,,Shields,10000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_asgardshield,"Rewires shield systems to absorb %s of damage taken as soft flux. Also extends the shield arc by %s degrees.
+Asgard Shield,unsf_asgardshield,2,,UNSF,"unsf_bp_hm, defensive",Shields,10000,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_asgardshield,"Rewires shield systems to absorb %s of damage taken as soft flux. Also extends the shield arc by %s degrees.
 These modifications cause upkeep cost to increase by %s.",Lets shields absorb more soft flux on hit.,"Shield emitters become %s more damage resistant. Converts front emitters to omni, or extends omni emitters by a further %s degrees.",graphics/hullmods/asgard_shield.png
-Asgard hyperdrive,unsf_asgardhyperdrive,3,,UNSF,,"Logistics, Requires Dock",8000,,,,5,10,15,20,TrueAvarus.UNSF.Hullmods.unsf_asgardhyperdrive,"Increases maximum burn level by %s for frigates & destroyers, with an additional +1 for cruisers & capitals.
+Asgard Hyperdrive,unsf_asgardhyperdrive,3,,UNSF,"unsf_bp_hm, engines, req_spaceport","Logistics, Requires Dock",8000,,,,5,10,15,20,TrueAvarus.UNSF.Hullmods.unsf_asgardhyperdrive,"Increases maximum burn level by %s for frigates & destroyers, with an additional +1 for cruisers & capitals.
 Restructure of the drive bubble reduces the impact of solar storms and other hazards by %s.
 Hyperdrive emissions scale poorly with size, increasing cruiser & capital sensor profile by %s.",Increases maximum burn level.,Further reduces solar and hyperspace hazardous impacts by %s.,graphics/hullmods/unsf_asgardhyperdrive.png
-Asgard Transporter,unsf_transporter,1,,UNSF,,Fighters,4000,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_transporter,"Reduces the casualties suffered by fighter pilots by %s. Also lowers fighter refit time by %s, but uses up %s of the ship's flux capacity.",Reduces fighter pilot casualties.,Separation of energy modules negates the flux capacity reduction.,graphics/hullmods/unsf_transporter.png
+Asgard Transporter,unsf_transporter,1,,UNSF,"unsf_bp_hm, special, non_phase",Fighters,4000,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_transporter,"Reduces the casualties suffered by fighter pilots by %s. Also lowers fighter refit time by %s, but uses up %s of the ship's flux capacity.",Reduces fighter pilot casualties.,Separation of energy modules negates the flux capacity reduction.,graphics/hullmods/unsf_transporter.png
 ,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 #UPGRADED VANILLA HULLMODS FOR STARGATE FEEL,,,,,,,,,,,,,,,,,,,
-Neutrino Ion Reactor,unsf_NeutrinoIonreactor,3,,UNSF,,Special,4000,,,,8,15,20,25,TrueAvarus.UNSF.Hullmods.unsf_neutrinoionreactor,"Lowers supply demands and fuel consumption by %s, thanks to the reactor's energy management systems.
+Neutrino Ion Reactor,unsf_NeutrinoIonreactor,3,,UNSF,"unsf_bp_hm, special, non_phase, merc",Special,4000,,,,8,15,20,25,TrueAvarus.UNSF.Hullmods.unsf_neutrinoionreactor,"Lowers supply demands and fuel consumption by %s, thanks to the reactor's energy management systems.
 Augments the ship’s flux capacity by %s and enhances dissipation by %s. Interfacing of the reactor-flux modules increases vent speed by %s, but causes the ship to take %s more EMP damage.
 Equipment needed for the reactor both takes up %s of cargo space and results in %s slower ship repairs (in and out of combat).",A fragile reactor that reduces supply costs and increases flux stats.,Reduces armor by %s to accomodate for reactor integration. ,graphics/hullmods/unsf_NeutrinoIonreactor.png
-Trinium Alloys,unsf_triniumalloy,1,,UNSF,,Defenses,2500,,,,5,10,15,20,TrueAvarus.UNSF.Hullmods.unsf_triniumalloy,"Increases the ship's armor by %s/%s/%s/%s points, depending on hull size. Also increases EMP resistance by %s, due to the alloy's composition.","Increases armor, maneuverability, and EMP resistance.",Lightweight materials increase the ship's maneuverability by %s.,graphics/hullmods/unsf_triniumalloy.png
-Naquadah Generators,unsf_naqgenerator,2,,UNSF,,Special,2500,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_naqgenerator,"Increases peak operating time of this ship by %s seconds.
+Trinium Alloys,unsf_triniumalloy,1,,UNSF,"unsf_bp_hm, defensive, merc",Defenses,2500,,,,5,10,15,20,TrueAvarus.UNSF.Hullmods.unsf_triniumalloy,"Increases the ship's armor by %s/%s/%s/%s points, depending on hull size. Also increases EMP resistance by %s, due to the alloy's composition.","Increases armor, maneuverability, and EMP resistance.",Lightweight materials increase the ship's maneuverability by %s.,graphics/hullmods/unsf_triniumalloy.png
+Naquadah Generators,unsf_naqgenerator,2,,UNSF,"unsf_bp_hm, special, merc",Special,2500,,,,4,8,12,16,TrueAvarus.UNSF.Hullmods.unsf_naqgenerator,"Increases peak operating time of this ship by %s seconds.
 Also reduces the rate at which combat readiness degrades by %s.
 
 Upon destruction of the ship, generators on board will go critical, increasing ship explosion power by %s.","Increases peak time, CR degrades more slowly.",Integrated generators improve ship system reload times by %s.,graphics/hullmods/unsf_naqgenerator.png
-Transport Rings,unsf_rings,0,,UNSF,,Ground attack,2500,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_rings,"Transportation rings deployment enhances ground support capabilities of up to %s marines on board. Medevac operations decrease causualities during raids by %s.
+Transport Rings,unsf_rings,0,,UNSF,"unsf_bp_hm, special, merc",Ground attack,2500,,,,3,6,9,12,TrueAvarus.UNSF.Hullmods.unsf_rings,"Transportation rings deployment enhances ground support capabilities of up to %s marines on board. Medevac operations decrease causualities during raids by %s.
 ",Gives bonuses to ground attack and reduces casualities.,"Transport rings are integrated into logistics systems, reducing supply consumption per month by %s.",graphics/hullmods/unsf_rings.png
 ,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
-#DONT TOUCH BREAKS MOD !!! ,,,,,,,,,,,,,,,,,,,
+#DONT TOUCH ,,,,,,,,,,,,,,,,,,,
 Tempest Fuel Holds,unsf_tempest_fuel,,,,,,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.TempestFuelHolds,Tempest is tugging fuel along.,,,graphics/hullmods/unsf_tempest_fuel.png
 Tempest Cargo Holds,unsf_tempest_cargo,,,,,,,TRUE,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.TempestCargoHolds,Tempest is tugging cargo along.,,,graphics/hullmods/unsf_tempest_cargo.png
-Hullmod Remover,unsf_deletor,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_deletor,,,,
+Hullmod Remover,unsf_remover,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_remover,,,,
 Remover Primer,unsf_primer,,,,,,,,TRUE,TRUE,0,0,0,0,TrueAvarus.UNSF.Hullmods.ZPM.unsf_primer,,,,
 Modular Ship Controller,unsf_msc,,,,,,,,TRUE,,0,0,0,0,TrueAvarus.UNSF.Hullmods.unsf_msc,,,graphics/hullmods/vast_bulk.png,

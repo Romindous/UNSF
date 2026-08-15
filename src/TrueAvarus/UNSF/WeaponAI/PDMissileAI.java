@@ -53,21 +53,16 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
 
     @Override
     public void advance(float amount) {
-        System.out.println("en-" + engine + " time " + (System.currentTimeMillis() & 1023));
         engine = Global.getCombatEngine();
         if (engine == null || engine.isPaused() || missile.isFizzling() || missile.isFading()) return;
 
         timeSinceLaunch += amount; // Increment the time since launch
         tickCounter++; // Increment tick counter
 
-        System.out.println("1ms-" + missile + " target " + target);
-
         if (target == null) {
             target = findTarget();
             return;
         }
-
-        System.out.println("2ms-" + missile + " target " + target);
 
         if (!engine.isEntityInPlay(target)) {
             target = null; tgtLoc = null; return;
@@ -77,7 +72,6 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
             target = null; tgtLoc = null; return;
         }
 
-        System.out.println("moving to " + tgtLoc);
         // Move towards the current target
         move(amount);
     }
@@ -126,8 +120,6 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
             target = shp;
         }
 
-
-        System.out.println("taken " + taken + " target " + target);
         return target != null && (taken == null || !(target instanceof ShipAPI shp) || shp.isFighter()) ? target : taken;
     }
 

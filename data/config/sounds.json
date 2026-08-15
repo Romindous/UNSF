@@ -215,15 +215,15 @@
 ],
 
 "unsf_atlantis_hostile": [
-{"file": "unsf_atlantis_hostile.ogg", "source": "sounds/music/", "volume":0.4,"randomStart":false},
+{"file": "unsf_atlantis_hostile.ogg", "source": "sounds/music/", "volume":0.5,"randomStart":false},
 ],
 
 "unsf_atlantis_neutral": [
-{"file": "unsf_atlantis_neutral.ogg", "source": "sounds/music/", "volume":0.4,"randomStart":false},
+{"file": "unsf_atlantis_neutral.ogg", "source": "sounds/music/", "volume":0.5,"randomStart":false},
 ],
 
 "unsf_atlantis_friendly": [
-{"file": "unsf_atlantis_friendly.ogg", "source": "sounds/music/", "volume":0.4,"randomStart":false},
+{"file": "unsf_atlantis_friendly.ogg", "source": "sounds/music/", "volume":0.5,"randomStart":false},
 ],
 
 "unsf_fleet_hostile":[

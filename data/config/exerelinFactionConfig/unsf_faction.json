@@ -2,8 +2,8 @@
     "playableFaction": true,
     "corvusCompatible": true,
     "marketSpawnWeight": 0.75,
-    "difficultyString": "easy",
-    "ngcTooltip": "You might come to help rebuild and expand our lost empire or don't come at all.",
+    "difficultyString": "",
+    "ngcTooltip": "Help reclaim the lost power of the Ancients, or use it for your own needs...",
     
     "asteroidMiningFleetName": "UNSF Mining Convoy",
     "gasMiningFleetName": "UNSF Extraction Convoy",

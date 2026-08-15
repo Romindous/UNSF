@@ -56,7 +56,7 @@
 	
 	
 	"knownShips":{
-		"tags":["unsf_bp_hull"],
+		"tags":["unsf_bp_hull", "base_bp"],
 		"hulls":[
 			"unsf_fenrir",
 			"unsf_prometheus",
@@ -74,7 +74,8 @@
 	
 	"hullFrequency":{
 		"tags":{
-			"unsf_bp_hull":2
+			"unsf_bp_hull":1,
+			"base_bp":0.4
 		},
 		"hulls": {
         "unsf_fenrir": 0.8,
@@ -93,9 +94,9 @@
 	
 	
 	"knownHullMods":{
-		"tags":[],
+		"tags":["unsf_bp_hm", "standard"],
 		"hullMods":[
-			"unsf_asgardshield", # accelerated
+			"unsf_asgardshield",
 			"unsf_NeutrinoIonreactor",
 			"unsf_asgardhyperdrive",
 			"unsf_triniumalloy",
@@ -108,7 +109,7 @@
 	},
 	
 	"knownFighters":{
-		"tags":["unsf_bp_wing"],
+		"tags":["unsf_bp_wing", "base_bp"],
 		"fighters":[
 			"unsf_f302",
 			"unsf_b302",
@@ -119,7 +120,7 @@
 	
 	
 	"knownWeapons":{
-		"tags":["unsf_bp_wpn"],
+		"tags":["unsf_bp_wpn", "base_bp"],
 		"weapons":[
 			"unsf_railgun_pd",
 			"unsf_railgun_small",
@@ -142,7 +143,7 @@
 	
 	# listing ships here will make the faction mostly use them even if other hulls become available
 	"priorityShips":{
-		"tags":["unsf_bp_hull"],
+		"tags":["unsf_bp_hull", "base_bp"],
 		"hulls":[
 			"unsf_fenrir",
 			"unsf_prometheus",
@@ -160,7 +161,7 @@
 	
 	
 	"priorityFighters":{
-		"tags":[],
+		"tags":["unsf_bp_wing", "base_bp"],
 		"fighters":[
 			"unsf_f302",
 			"unsf_b302",
@@ -170,7 +171,7 @@
 	
 	
 	"priorityWeapons":{
-		"tags":[],
+		"tags":["unsf_bp_wpn", "base_bp"],
 		"weapons":[
 			"unsf_railgun_pd",
 			"unsf_railgun_small",
@@ -257,15 +258,14 @@
 		#"mercPatrol":"Contracted Patrol",
 		#"mercArmada":"Contracted Armada",
 	},
-	
-	
+
 	"music":{
-		"theme":"unsf_market_friendly",
-		"market_neutral":"unsf_market_friendly",
-		"market_hostile":"unsf_market_friendly",
+		"theme":"unsf_market_neutral",
+		"market_neutral":"unsf_market_neutral",
+		"market_hostile":"unsf_market_hostile",
 		"market_friendly":"unsf_market_friendly",
-		"encounter_neutral":"music_none",
-		"encounter_hostile":"music_none",
-		"encounter_friendly":"music_none",
+		"encounter_neutral":"unsf_fleet_neutral",
+		"encounter_hostile":"unsf_fleet_hostile",
+		"encounter_friendly":"unsf_fleet_friendly",
 	},
 }

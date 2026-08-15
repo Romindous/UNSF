@@ -2,8 +2,8 @@ id,type,text1,text2,text3,text4,notes,Column 08,Column 09,Column 10
 # Types: WEAPON,SHIP,RESOURCE,CUSTOM,ACTION_TOOLTIP,ASTEROID,PLANET,SHIP_SYSTEM,FACTION,TERRAIN
 #astral,SHIP,Text goes here,,,,,,,
 ,,,,,,,,,
-unsf_faction,FACTION,"Faction lost it space by experimental drive mounted on city ship, wormhole drive as it was called then suffered malfuncion and dropped city and its inhabitants near planet Oberon without power to engines. Rest is history.",,,,,,,
-unsf_requisition,FACTION,"UNSF Requisition branch supplies the biggest, most powerful ships, weapons, and wings. Outsiders are usually not trusted to be issued such tools, but well cooperating parties might get their hands on some.",,,,,,,
+unsf_faction,FACTION,"Originally traveled to the Persean sector via an experimental wormhole drive mounted on city-ship. The drive suffered a malfunction soon after, leaving the city and its inhabitants on a nearby planet Oberon, without any contact home. The faction now settles in to the system, while maintaining fragile relations with others.",,,,,,,
+unsf_requisition,FACTION,"The Requisition branch supplies the biggest, most powerful ships, weapons, and wings. Outsiders are usually not trusted to be issued such tools, but well cooperating parties might get their hands on some.",,,,,,,
 ,,,,,,,,,
 ,,,,,,,,,
 ,,,,,,,,,
