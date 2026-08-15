@@ -6,12 +6,15 @@
   "size": "MEDIUM",
   "turretSprite": "graphics/weapons/unsf_vls_2_tr.png",
   "hardpointSprite": "graphics/weapons/unsf_vls_2_hp.png",
+  "renderHints": [
+    RENDER_LOADED_MISSILES
+  ],
   "turretOffsets": [
+    5,
     8,
-    8,
-    8,
+    5,
     -8,
-    10,
+    7,
     0
   ],
   "turretAngleOffsets": [
@@ -20,11 +23,11 @@
     0
   ],
   "hardpointOffsets": [
-    17,
+    14,
     0,
-    15,
+    12,
     8,
-    15,
+    12,
     -8
   ],
   "hardpointAngleOffsets": [

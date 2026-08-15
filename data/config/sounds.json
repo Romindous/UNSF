@@ -18,13 +18,13 @@
   ],
 
 
-  "unsf_dronelauncher":
+  "unsf_drone_launcher":
   [
-    {"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":0.95,"volume":0.2},
-    {"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":1,"volume":0.2},
-    {"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":1.05,"volume":0.2},
-    {"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":1.1,"volume":0.2},
-    {"file":"sounds/weapons/unsf_dronelauncher.ogg","pitch":0.9,"volume":0.2},
+    {"file":"sounds/weapons/unsf_drone_launcher.ogg","pitch":0.95,"volume":0.2},
+    {"file":"sounds/weapons/unsf_drone_launcher.ogg","pitch":1,"volume":0.2},
+    {"file":"sounds/weapons/unsf_drone_launcher.ogg","pitch":1.05,"volume":0.2},
+    {"file":"sounds/weapons/unsf_drone_launcher.ogg","pitch":1.1,"volume":0.2},
+    {"file":"sounds/weapons/unsf_drone_launcher.ogg","pitch":0.9,"volume":0.2},
   ],
 
   "unsf_dronestorage":

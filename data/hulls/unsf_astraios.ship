@@ -12,7 +12,7 @@
   "shieldRadius": 311.5,
   "viewOffset": 0,
   "builtInWeapons": {
-    "WS 018": "unsf_dronelauncher",
+    "WS 018": "unsf_drone_launcher",
     "WS 019": "unsf_asgard_beam",
     "WS 020": "unsf_asgard_beam"
   },

@@ -2,13 +2,13 @@
 	"id":"unsf_horizon_missile_subprojectile",
 	"specClass":"missile",	
 	"missileType":"HEATSEEKER",
-	"sprite":"graphics/missiles/unsf_vls_nuke.png",
+	"sprite":"graphics/missiles/unsf_vls_large.png",
 	"size":[9,12],	
 	"center":[5,6],
 	"collisionRadius":50,
 	"collisionClass":"MISSILE_NO_FF",
 	"explosionColor":[100,100,255,220],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":2500, # purely visual
+	"explosionRadius":250, # purely visual
 	"explosionSpec":{"duration":5f, # not visual
 					 "radius":75,
 					 "coreRadius":50, # full damage within core radius

@@ -37,7 +37,7 @@
       "mode": "ALTERNATING",
       "weapons": {
         "WS 016": "harpoon_single",
-        "WS 017": "unsf_dronelauncher",
+        "WS 017": "unsf_drone_launcher",
         "WS 018": "harpoon_single",
         "WS 019": "unsf_asgard_lance",
         "WS 020": "unsf_asgard_lance",

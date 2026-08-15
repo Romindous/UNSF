@@ -12,7 +12,7 @@
   "shieldRadius": 138,
   "viewOffset": 0,
   "builtInWeapons": {
-    "WS 002": "unsf_dronelauncher"
+    "WS 002": "unsf_drone_launcher"
   },
   "weaponSlots": [
     {

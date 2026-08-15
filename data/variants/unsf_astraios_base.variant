@@ -49,7 +49,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 018": "unsf_dronelauncher",
+        "WS 018": "unsf_drone_launcher",
         "WS 021": "hurricane"
       }
     },

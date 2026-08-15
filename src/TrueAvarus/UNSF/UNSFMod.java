@@ -7,7 +7,7 @@ import TrueAvarus.UNSF.Constants.Items;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
 import TrueAvarus.UNSF.NPCs.important_people;
 import TrueAvarus.UNSF.WeaponAI.PDMissileAI;
-import TrueAvarus.UNSF.WeaponAI.MIRV_proj_GPT;
+import TrueAvarus.UNSF.WeaponAI.HorizonMissleAI;
 import TrueAvarus.UNSF.World.UNSFGen;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
@@ -55,7 +55,7 @@ public class UNSFMod extends BaseModPlugin {
                 yield new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);
             }
             case HORIZON_NUKE -> {
-                map = new MIRV_proj_GPT(missile);
+                map = new HorizonMissleAI(missile);
                 yield new PluginPick<>(map, CampaignPlugin.PickPriority.MOD_SET);
             }
             default -> null;

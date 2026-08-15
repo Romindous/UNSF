@@ -33,7 +33,7 @@ unsf_ori_lance,WEAPON,"Adapted from weapons of defeated gods, this lance collect
 ,,,,,,,,,
 ,,,,,,,,,
 #DRONES - very angry missile,,,,,,,,,
-unsf_dronelauncher,WEAPON,"""Craft of minds from ancient days, forged in wisdom's endless gaze, I seek no throne, no crown, no name, but strike with force from which I came.""
+unsf_drone_launcher,WEAPON,"""Craft of minds from ancient days, forged in wisdom's endless gaze, I seek no throne, no crown, no name, but strike with force from which I came.""
 - Inscription on a hull of an unknown design.",,,,,,,
 ,,,,,,,,,
 #VERTICAL LAUNCH MISSILES - because US navy go brrr,,,,,,,,,

@@ -13,8 +13,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 000": "unsf_railgun_fighter",
-        "WS 005": "unsf_railgun_fighter"
+        "WS 000": "unsf_railgun_small_fighter",
+        "WS 005": "unsf_railgun_small_fighter"
       }
     },
     {

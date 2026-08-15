@@ -48,20 +48,26 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
     @Override
     public void setTarget(CombatEntityAPI target) {
         this.target = target;
+        tgtLoc = locateTgt();
     }
 
     @Override
     public void advance(float amount) {
-        if (engine == null) engine = Global.getCombatEngine();
-        if (engine == null || missile.isFizzling() || missile.isFading()) return;
+        System.out.println("en-" + engine + " time " + (System.currentTimeMillis() & 1023));
+        engine = Global.getCombatEngine();
+        if (engine == null || engine.isPaused() || missile.isFizzling() || missile.isFading()) return;
 
         timeSinceLaunch += amount; // Increment the time since launch
         tickCounter++; // Increment tick counter
+
+        System.out.println("1ms-" + missile + " target " + target);
 
         if (target == null) {
             target = findTarget();
             return;
         }
+
+        System.out.println("2ms-" + missile + " target " + target);
 
         if (!engine.isEntityInPlay(target)) {
             target = null; tgtLoc = null; return;
@@ -71,8 +77,9 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
             target = null; tgtLoc = null; return;
         }
 
+        System.out.println("moving to " + tgtLoc);
         // Move towards the current target
-        move(missile, amount);
+        move(amount);
     }
 
     /*public void explode() {
@@ -119,19 +126,9 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
             target = shp;
         }
 
-        if (target != null) return target;
-        return taken;
-    }
 
-    private boolean hasOnTarget(ShipAPI shp) {
-        final int id = shp.hashCode();
-        final Integer cnt = counts.get(id);
-        if (cnt == null) counts.put(id, 1);
-        else {
-            if (cnt > maxOnWing) return true;
-            counts.put(id, cnt + 1);
-        }
-        return false;
+        System.out.println("taken " + taken + " target " + target);
+        return target != null && (taken == null || !(target instanceof ShipAPI shp) || shp.isFighter()) ? target : taken;
     }
 
     private boolean hasOnTarget(MissileAPI ms) {
@@ -145,13 +142,23 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
         return false;
     }
 
+    private boolean hasOnTarget(ShipAPI shp) {
+        final int id = shp.hashCode();
+        final Integer cnt = counts.get(id);
+        if (cnt == null) counts.put(id, 1);
+        else {
+            if (cnt > maxOnWing) return true;
+            counts.put(id, cnt + 1);
+        }
+        return false;
+    }
+
     private static final int ACC_ANGLE = 60;
     private static final int OFFSET = 2;
-    private void move(MissileAPI missile, float amount) {
-        if (tgtLoc == null) tgtLoc = AIUtils.getBestInterceptPoint(
-            missile.getLocation(), missile.getMoveSpeed(),
-            target.getLocation(), target.getVelocity());
-        if (tgtLoc == null) return;
+    private void move(float amount) {
+        if (target == null) return;
+        tgtLoc = locateTgt();
+        if (tgtLoc == null) tgtLoc = target.getLocation();
         final Vector2f dst = Vector2f.sub(tgtLoc, missile.getLocation(), new Vector2f());
         float absoluteAngle = VectorUtils.getFacing(dst);
         int relativeAngle = (int) (absoluteAngle - missile.getFacing());
@@ -164,5 +171,23 @@ public class PDMissileAI implements MissileAIPlugin, GuidedMissileAI {
         missile.setFacing(missile.getFacing() +
             turn + NumUtil.rndSignNum(OFFSET, OFFSET));
         missile.setAngularVelocity(0f);
+    }
+
+    private static final int DST_DEL = 1000;
+    private Vector2f locateTgt() {
+        if (target == null) return null;
+        if (tgtLoc == null) {
+            return AIUtils.getBestInterceptPoint(
+                missile.getLocation(), missile.getMoveSpeed(),
+                target.getLocation(), target.getVelocity());
+        }
+        final int del = (int) MathUtils.getDistanceSquared(missile.getLocation(), tgtLoc) / DST_DEL;
+        final int i = (1 << del) - 1;
+        if ((tickCounter & i) == 0) {
+            return AIUtils.getBestInterceptPoint(
+                missile.getLocation(), missile.getMoveSpeed(),
+                target.getLocation(), target.getVelocity());
+        }
+        return tgtLoc;
     }
 }

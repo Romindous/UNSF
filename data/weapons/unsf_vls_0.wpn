@@ -7,9 +7,6 @@
   "displayArcRadius": 500,
   "turretSprite": "graphics/weapons/unsf_vls_0_tr.png",
   "hardpointSprite": "graphics/weapons/unsf_vls_0_hp.png",
-  "renderHints": [
-    RENDER_BARREL_BELOW
-  ],
   "turretOffsets": [
     7,
     6,

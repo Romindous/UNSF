@@ -30,7 +30,7 @@
     },
 	"engineSlots":[
 	    {"id":"ES1",
-        "loc":[-3, -6],
+        "loc":[-2, 0],
         #"style":"MISSILE_HIGH_TECH",
         "style":"CUSTOM",
         "styleSpec":{

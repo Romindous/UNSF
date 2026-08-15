@@ -1,5 +1,5 @@
 {
-  "id": "unsf_dronestorage",
+  "id": "unsf_drone_storage",
   "specClass": "projectile",
   "projectileSpecId": "unsf_drone",
   "type": "MISSILE",
@@ -56,5 +56,5 @@
   "barrelMode": "ALTERNATING",
   "animationType": "NONE",
   "interruptibleBurst": true,
-  "fireSoundTwo": "unsf_dronestorage"
+  "fireSoundTwo": "unsf_drone_storage"
 }

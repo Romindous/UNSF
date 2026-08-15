@@ -7,10 +7,13 @@
   "displayArcRadius": 500,
   "turretSprite": "graphics/weapons/unsf_vls_1_tr.png",
   "hardpointSprite": "graphics/weapons/unsf_vls_1_hp.png",
+  "renderHints": [
+    RENDER_LOADED_MISSILES
+  ],
   "turretOffsets": [
-    6,
+    1,
     -5,
-    6,
+    1,
     5
   ],
   "turretAngleOffsets": [
@@ -18,9 +21,9 @@
     0
   ],
   "hardpointOffsets": [
-    8,
+    3,
     -5,
-    8,
+    3,
     5
   ],
   "hardpointAngleOffsets": [

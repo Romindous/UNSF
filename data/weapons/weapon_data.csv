@@ -1,9 +1,9 @@
 name,id,tier,rarity,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs,ammo,ammo/sec,reload size,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,hints,tags,groupTag,tech/manufacturer,for weapon tooltip>>,primaryRoleStr,speedStr,trackingStr,turnRateStr,accuracyStr,customPrimary,customPrimaryHL,customAncillary,customAncillaryHL,noDPSInTooltip,number
 #RAILGUNS - and PD with extra steps,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Type-0 PD Railgun,unsf_railgun_pd,0,0.5,1500,500,,80,2,4,65,4,,,,FRAGMENTATION,25,,0,0.4,2,0.1,0,2,0.5,4,,1200,,,,"ANTI_FTR, PD","pd5, unsf_bp_wpn",,,,Point Defense,,,,,,,,,,
-Type-1 Railgun Small,unsf_railgun_small,0,0.5,500,650,,20,2,5,80,5,,,,KINETIC,15,,0,0.4,5,0.1,0,4,0.5,4,,600,,,,"STRIKE, USE_VS_FRIGATES, ANTI_FTR","kinetic5, unsf_bp_wpn, merc",,,,General,,,,,,,,,,
-Type-2 Railgun Medium,unsf_railgun_medium,1,0.5,2500,1000,,40,10,10,40,11,,,,KINETIC,35,,0,1.4,4,0.05,0,8,0.5,2,,1000,,,,PD_ALSO,"kinetic10, unsf_bp_wpn, LR",,,,Anti Shield,,,,,,,,,,
-Type-3 Flak TED,unsf_flak_ted,2,0.5,6000,1000,,5,10,10,25,16,,,,FRAGMENTATION,240,,0,0.8,,,0,5,5,2,,750,750,0.8,,"ANTI_FTR, PD, DO_NOT_CONSERVE","pd15, unsf_bp_wpn, SR, merc",,,,Point Defense (Area),,,,,,,,,,
+Type-1 Small Railgun,unsf_railgun_small,0,0.5,500,650,,20,2,5,80,5,,,,KINETIC,15,,0,0.4,5,0.1,0,4,0.5,4,,600,,,,"STRIKE, USE_VS_FRIGATES, ANTI_FTR","kinetic5, unsf_bp_wpn, merc",,,,General,,,,,,,,,,
+Type-2 Medium Railgun,unsf_railgun_medium,1,0.5,2500,1000,,40,10,10,40,11,,,,KINETIC,35,,0,1.4,4,0.05,0,8,0.5,2,,1000,,,,PD_ALSO,"kinetic10, unsf_bp_wpn, LR",,,,Anti Shield,,,,,,,,,,
+Type-3 Flak TED,unsf_flak_ted,2,0.5,6000,1000,,5,10,10,25,16,,,,FRAGMENTATION,240,,0,0.8,,,0,5,5,2,,750,750,1,,"ANTI_FTR, PD, DO_NOT_CONSERVE","pd15, unsf_bp_wpn, SR, merc",,,,Point Defense (Area),,,,,,,,,,
 Type-2 Shotgun,unsf_shotgun,1,0.5,2000,650,,50,15,10,40,10,60,10,20,HIGH_EXPLOSIVE,25,,0,0.5,2,0,25,25,25,0,,1000,,,,"STRIKE, USE_VS_FRIGATES","he10, unsf_bp_wpn, SR, merc",,,,,,,,,,,,,,
 "#PULSE WEAPONS - long range, medium damage",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Type-2 Coilgun,unsf_coilgun,2,0.5,4000,800,,90,,20,30,13,,,,HIGH_EXPLOSIVE,75,,0,0.4,2,0.25,1,10,2,2,,800,,,,"STRIKE, USE_VS_FRIGATES","he10, unsf_bp_wpn, LR, merc",,,,Anti Armor,,,,,,,,,,
@@ -11,10 +11,10 @@ Type-3 Burst Pulsar,unsf_pulsar,3,0.5,8000,1200,,650,50,25,20,28,,,,FRAGMENTATIO
 Type-2 Asgard Pulse,unsf_asgard_pulse,2,0.5,4500,650,,150,20,0,25,11,15,2,5,ENERGY,120,,0,0.25,,,2,10,4,4,,1000,,,,"STRIKE, USE_VS_FRIGATES","energy10, unsf_bp_wpn, LR, merc",,,,Suppression,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #FIGHTER WEAPONS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Type-2 Railgun (Fighter),unsf_railgun_fighter,0,0.5,69,450,,10,,1,1,0,,,,KINETIC,5,,0,0.5,4,0.05,1,2,0.1,2,,1200,,,,"SYSTEM, ANTI_FTR, PD",,,,,Anti Small Craft,,,,,,,,,,
-Type-0 PD Railgun (Fighter),unsf_railgun_pd_fighter,0,0.5,69,500,,40,2,4,50,0,,,,FRAGMENTATION,5,,0,0.25,2,0.05,0,5,0.5,4,,800,,,,"ANTI_FTR, PD","pd5, unsf_bp_wpn",,,,Point Defense,,,,,,,,,,
-"VLS Type-0 (pd, fighter)",unsf_vls_0_fighter,1,0.5,69,600,,150,,120,100,0,5,,,FRAGMENTATION,0,,0,2,2,0.1,0,0,0,0,,600,50,3.75,100,"SYSTEM, ANTI_FTR, DIRECT_AIM, DO_NOT_CONSERVE",,,,,Point Defense,Fast,Excellent,,,,,,,,10
-"VLS Type-1 (small, fighter)",unsf_vls_1_fighter,2,0.5,69,1000,,200,50,5,50,0,2,,,KINETIC,0,,0,5,1,0.25,0,0,0,0,,600,50,3.75,200,"SYSTEM, STRIKE, USE_VS_FRIGATES, DIRECT_AIM",,,,,Anti Shield,Fast,Excellent,,,,,,,,10
+Type-1 Small Railgun (Fighter),unsf_railgun_small_fighter,0,0.5,69,650,,20,2,2,50,0,,,,KINETIC,5,,0,0.4,4,0.05,0,5,0.5,4,,600,,,,"SYSTEM, ANTI_FTR, PD",,,,,Anti Small Craft,,,,,,,,,,
+Type-0 PD Railgun (Fighter),unsf_railgun_pd_fighter,0,0.5,69,500,,40,2,1,50,0,,,,FRAGMENTATION,5,,0,0.25,2,0.05,0,4,0.5,4,,800,,,,"ANTI_FTR, PD","pd5, unsf_bp_wpn",,,,Point Defense,,,,,,,,,,
+"VLS Type-0 (pd, fighter)",unsf_vls_0_fighter,1,0.5,69,1000,,150,,0,100,0,8,,,FRAGMENTATION,0,,0,2,1,0.1,0,0,0,0,,600,50,5,100,"SYSTEM, ANTI_FTR, DIRECT_AIM, DO_NOT_CONSERVE",,,,,Point Defense,Fast,Excellent,,,,,,,,10
+"VLS Type-1 (small, fighter)",unsf_vls_1_fighter,2,0.5,69,1000,,100,50,5,50,0,4,,,KINETIC,0,,0,4,1,0.25,0,0,0,0,,500,50,8,200,"SYSTEM, STRIKE, USE_VS_FRIGATES, DIRECT_AIM",,,,,Anti Shield,Fast,Excellent,,,,,,,,10
 Space JDAM (bomber),unsf_bomb_pylon,2,0.5,69,1500,,500,,100,1,0,2,,,HIGH_EXPLOSIVE,0,,0,0.5,,,10,20,5,2,,250,250,10,400,"SYSTEM, STRIKE, USE_VS_FRIGATES",,,,,Anti Armor,Fast,None,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -23,20 +23,20 @@ Space JDAM (bomber),unsf_bomb_pylon,2,0.5,69,1500,,500,,100,1,0,2,,,HIGH_EXPLOSI
 Type-1 Asgard Beam,unsf_asgard_beam,1,0.5,2500,700,120,,100,0,20,8,,,,ENERGY,,125,0,0.5,,1,,,,,2800,,,,,"STRIKE, USE_VS_FRIGATES,","energy5, beam5, unsf_bp_wpn",,,,General,,,,,,,,,,
 Type-2 Asgard Lance,unsf_asgard_lance,2,0.5,5000,1200,800,,450,0,10,12,,,,ENERGY,,1000,0,0.2,4,4,,,,,1200,,,,,"STRIKE, USE_VS_FRIGATES,","energy17, beam13, unsf_bp_wpn",,,,Suppression,,,,,,,,,,
 Type-2 Ori Lance,unsf_ori_lance,3,0.5,10000,1000,2000,,200,0,15,14,,,,ENERGY,,2200,0,0.1,2.5,5,,,,,800,,,,,"STRIKE, USE_VS_FRIGATES,","energy17, beam13, unsf_bp_wpn",,,,Strike,,,,,,,,,,
-#Type-3 Asuran Beam,unsf_asuran_ray_cont,3,0.5,10000,1500,280,,400,0,15,14,,,,ENERGY,,240,0,0.5,,1,,,,,2400,,,,,FIRE_WHEN_INEFFICIENT,"energy17, beam13, unsf_bp_wpn",,,,Strike,,,,,,,,,,
+#Type-3 Asuran Beam,unsf_asuran_beam,3,0.5,10000,1500,280,,400,0,15,14,,,,ENERGY,,240,0,0.5,,1,,,,,2400,,,,,FIRE_WHEN_INEFFICIENT,"energy17, beam13, unsf_bp_wpn",,,,Strike,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #DRONE WEAPONS - very angry missile,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Type-2 Drone Launcher,unsf_dronelauncher,2,0.5,6500,1500,,250,,120,15,3,60,,,HIGH_EXPLOSIVE,30,,0,12,6,0.2,0,0,0,,,800,0,10,200,"DO_NOT_AIM, MISSILE_SPREAD","missile18, unsf_bp_wpn",,,,General,,,,,,,,,,
-#Type-3 Drone Launcher - for now WIP,unsf_dronestorage,1,0.5,1500000,3000,,600,,120,15,3,500,,,HIGH_EXPLOSIVE,30,,0,0.2,10,0.01,0,0,0,,,800,0,30,800,"DO_NOT_AIM, DO_NOT_CONSERVE, MISSILE_SPREAD","missile18, unsf_bp_wpn",,,,General,,,,,,,,,,
+Type-1 Drone Launcher,unsf_drone_launcher,2,0.5,6500,1500,,250,,120,15,6,,,,HIGH_EXPLOSIVE,200,,0,20,6,0.25,0,0,0,,,800,0,10,200,"DO_NOT_AIM, MISSILE_SPREAD","missile18, unsf_bp_wpn",,,,General,,,,,,,,,,
+#Type-3 Drone Launcher - for now WIP,unsf_drone_storage,1,0.5,1500000,3000,,250,,120,15,15,,,,HIGH_EXPLOSIVE,200,,0,25,14,0.2,0,0,0,,,800,0,30,800,"DO_NOT_AIM, DO_NOT_CONSERVE, MISSILE_SPREAD","missile18, unsf_bp_wpn",,,,General,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #VERTICAL LAUNCH MISSILE PODS - because US navy go brrr,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10
-VLS Type-0 (pd),unsf_vls_0,0,0.5,1500,800,,150,50,0,100,2,30,1,5,FRAGMENTATION,,,0,0.1,,,0,0,0,0,,500,100,5,100,"DO_NOT_AIM, PD_ONLY, ANTI_FTR,","missile18, unsf_bp_wpn",,,,Anti Small Craft,Fast,Excellent,,,,,,,,14
-VLS Type-1 (small),unsf_vls_1,1,0.5,4500,1200,,250,100,50,50,5,40,,,KINETIC,,,0,15,4,0.25,0,0,0,0,,450,75,8,200,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike17, missile18, unsf_bp_wpn",,,,Anti Shield,Fast,Excellent,,,,,,,,11
-VLS Type-2 (medium),unsf_vls_2,2,0.5,8000,1600,,600,500,100,50,10,15,,,HIGH_EXPLOSIVE,,,0,20,3,0.5,0,0,0,0,,300,50,12,400,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike18, missile18, unsf_bp_wpn",,,,Anti Armor,,,,,,,,,,12
-VLS Type-3 (heavy),unsf_vls_3,3,0.5,25000,2000,,2500,800,250,50,22,8,,,ENERGY,,,0,25,,,0,0,0,0,,350,75,20,500,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike19, missile18, unsf_bp_wpn",,,,General,,,,,,,,,,13
-VLS Type-X HORIZON,unsf_horizon,3,0.5,150000,2000,,3500,1000,250,50,28,1,0.01,1,ENERGY,1000,,0,40,,,0,0,0,0,,400,100,25,1000,"STRIKE, DO_NOT_AIM,","strike20, missile18, unsf_bp_wpn",,,,Superweapon,,,,,,,,,,
+VLS Type-0,unsf_vls_0,0,0.5,1500,2000,,150,50,0,100,2,20,1,5,FRAGMENTATION,,,0,0.1,,,0,0,0,0,,500,100,5,100,"DO_NOT_AIM, PD_ONLY, ANTI_FTR,","missile18, unsf_bp_wpn",,,,Anti Small Craft,Fast,Excellent,,,,,,,,14
+VLS Type-1,unsf_vls_1,1,0.5,4500,2000,,250,100,50,50,4,30,,,KINETIC,,,0,1,2,0.25,0,0,0,0,,450,75,5,200,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike17, missile18, unsf_bp_wpn",,,,Anti Shield,Fast,Excellent,,,,,,,,11
+VLS Type-2,unsf_vls_2,2,0.5,8000,2500,,600,500,100,50,9,15,,,HIGH_EXPLOSIVE,,,0,5,3,0.5,0,0,0,0,,300,50,10,400,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike18, missile18, unsf_bp_wpn",,,,Anti Armor,,,,,,,,,,12
+VLS Type-3,unsf_vls_3,3,0.5,25000,4000,,2500,800,250,50,22,8,,,ENERGY,,,0,20,,,0,0,0,0,,350,75,20,500,"STRIKE, USE_VS_FRIGATES, DO_NOT_AIM","strike19, missile18, unsf_bp_wpn",,,,General,,,,,,,,,,13
+VLS Type-X,unsf_horizon,4,0.5,150000,5000,,4000,1000,400,50,28,1,0.01,1,ENERGY,1000,,0,40,,,0,0,0,0,,400,100,25,1000,"STRIKE, DO_NOT_AIM,","strike20, missile18, unsf_bp_wpn",,,,Superweapon,,,,,,,,,,
 ,,,,,#balanced,,#balanced,,,,,,,,#balanced,,,,#balanced,#balanced,#balanced,,,,,,#balanced,#balanced,#balanced,,#balanced,#balanced,,,,#balanced,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

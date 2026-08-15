@@ -8,7 +8,7 @@
 	"collisionRadius":16,
 	"collisionClass":"MISSILE_NO_FF",
 	"explosionColor":[100,100,255,220],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":125, # purely visual
+	"explosionRadius":400, # purely visual
 	"engineSpec":{"turnAcc":600,
 				  "turnRate":150,
 				  "acc":250,
@@ -44,13 +44,13 @@
 					"impact":5,
 					"emp":0,
 					"damageType":ENERGY,
-					"hitpoints":800,
+					"hitpoints":400,
 					"arc":160,
 					"arcOffset":180,
 					"evenSpread":true,
 					"spreadSpeed":800,
 					"spreadSpeedRange":1,
-					"projectileRange":3000,
+					"projectileRange":5000,
 					"projectileSpec":"unsf_horizon_missile_subprojectile",
 					#"emptySpec":"type_1_mirv_empty",
 					"smokeSpec":{"particleSizeMin":30.0,

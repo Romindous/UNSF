@@ -38,8 +38,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS 005": "unsf_dronelauncher",
-        "WS 006": "unsf_dronelauncher"
+        "WS 005": "unsf_drone_launcher",
+        "WS 006": "unsf_drone_launcher"
       }
     },
     {
