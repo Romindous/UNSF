@@ -21,6 +21,7 @@ unsf_railgun_small,WEAPON,"A cornerstone of every UNSF ship is this multipurpose
 unsf_railgun_medium,WEAPON,"Take two Type-1s make them larger, then weld them together. Perfect for mid-sized hulls as primary suppression and shield pressure weapon.   ",,,,,,,
 unsf_flak_ted,WEAPON,"A large flak Timed Explosion Device launcher, hosting powerful two-stage projectiles that tear missiles and strike-craft to shreds, provided, you have the capacity to install it.",,,,,,,
 unsf_shotgun,WEAPON,"Limited UNSF navy capabilities of close-quarter combat have lead to a development of this primitive, yet effective weapon. Fires a spread of explosive pellets, aimed at stripping enemy armor.",,,,,,,
+,,,,,,,,,
 "#PULSE WEAPONS - long range, medium damage",,,,,,,,,
 unsf_coilgun,WEAPON,This is evolution of railgun technology where slugs and rails are replaced by pulse charged coils and small charged-plasma capsules. ,,,,,,,
 unsf_pulsar,WEAPON,"Recovery of pulse weapon research from Atlantis lead to development of large scale pulse cannon prototypes. These cannons are now fitted onto most large mounts on UNSF ships, due to their efficiency against most threats.",,,,,,,
@@ -30,7 +31,6 @@ unsf_asgard_pulse,WEAPON,"A very successful adaptation of Asgard plasma armament
 unsf_asgard_beam,WEAPON,"Old Asgard designs of plasma beam weapons are well known for their power, but less so for their relatively short range and slow charge-up time.",,,,,,,
 unsf_asgard_lance,WEAPON,"Evolution of old Asgard technology upgraded by tachyon beam blueprints. On impact on hull or armor, delivers emp arcs, that are often devastating to ship weapons and engines.",,,,,,,
 unsf_ori_lance,WEAPON,"Adapted from weapons of defeated gods, this lance collects and directs massive energy bursts, designed to melt holes clean through the unfortunate target.",,,,,,,
-,,,,,,,,,
 ,,,,,,,,,
 #DRONES - very angry missile,,,,,,,,,
 unsf_drone_launcher,WEAPON,"""Craft of minds from ancient days, forged in wisdom's endless gaze, I seek no throne, no crown, no name, but strike with force from which I came.""
