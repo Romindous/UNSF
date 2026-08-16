@@ -1,6 +1,6 @@
 package TrueAvarus.UNSF.Industry;
 
-import TrueAvarus.UNSF.Constants.Items;
+import TrueAvarus.UNSF.Objects.Items;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BaseIndustry;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 

@@ -10,7 +10,7 @@ import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import com.fs.starfarer.api.impl.hullmods.BaseLogisticsHullMod;
 import org.magiclib.util.MagicIncompatibleHullmods;
 
-import static TrueAvarus.UNSF.Constants.HullMods.UNSF_REACTOR;
+import static TrueAvarus.UNSF.Objects.HullMods.UNSF_REACTOR;
 
 public class unsf_neutrinoionreactor extends BaseLogisticsHullMod {
 

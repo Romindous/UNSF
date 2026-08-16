@@ -1,8 +1,8 @@
 package TrueAvarus.UNSF.World.Systems;
 
 import java.awt.*;
-import TrueAvarus.UNSF.Constants.Industries;
-import TrueAvarus.UNSF.Constants.Items;
+import TrueAvarus.UNSF.Objects.Industries;
+import TrueAvarus.UNSF.Objects.Items;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;

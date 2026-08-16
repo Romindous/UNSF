@@ -2,7 +2,7 @@ package TrueAvarus.UNSF.ItemEffects;
 
 
 import java.util.List;
-import TrueAvarus.UNSF.Constants.Items;
+import TrueAvarus.UNSF.Objects.Items;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MutableCommodityQuantity;
 import com.fs.starfarer.api.impl.campaign.econ.impl.BoostIndustryInstallableItemEffect;

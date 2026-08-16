@@ -3,7 +3,7 @@ package TrueAvarus.UNSF;
 
 import java.security.SecureRandom;
 import java.util.Random;
-import TrueAvarus.UNSF.Constants.Items;
+import TrueAvarus.UNSF.Objects.Items;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
 import TrueAvarus.UNSF.NPCs.important_people;
 import TrueAvarus.UNSF.WeaponAI.PDMissileAI;

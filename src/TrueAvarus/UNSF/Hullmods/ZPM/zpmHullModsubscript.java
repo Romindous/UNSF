@@ -1,8 +1,8 @@
 package TrueAvarus.UNSF.Hullmods.ZPM;
 
 
-import TrueAvarus.UNSF.Constants.HullMods;
-import TrueAvarus.UNSF.Constants.Items;
+import TrueAvarus.UNSF.Objects.HullMods;
+import TrueAvarus.UNSF.Objects.Items;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.*;

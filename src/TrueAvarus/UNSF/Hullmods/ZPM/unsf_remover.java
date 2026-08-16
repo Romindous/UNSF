@@ -4,7 +4,7 @@ import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 
-import static TrueAvarus.UNSF.Constants.HullMods.*;
+import static TrueAvarus.UNSF.Objects.HullMods.*;
 
 public class unsf_remover extends BaseHullMod {
 

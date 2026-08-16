@@ -12,8 +12,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.hullmods.BaseLogisticsHullMod;
 import org.magiclib.util.MagicIncompatibleHullmods;
 
-import static TrueAvarus.UNSF.Constants.HullMods.UNSF_ASGARD_HYPERDRIVE;
-import static TrueAvarus.UNSF.Constants.HullMods.UNSF_ZPM_DRIVE;
+import static TrueAvarus.UNSF.Objects.HullMods.UNSF_ASGARD_HYPERDRIVE;
+import static TrueAvarus.UNSF.Objects.HullMods.UNSF_ZPM_DRIVE;
 
 public class unsf_asgardhyperdrive extends BaseLogisticsHullMod {
 

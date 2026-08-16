@@ -1,6 +1,6 @@
 package TrueAvarus.UNSF.Hullmods.ZPM;
 
-import TrueAvarus.UNSF.Constants.Items;
+import TrueAvarus.UNSF.Objects.Items;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CargoAPI;
 import com.fs.starfarer.api.campaign.FleetDataAPI;
@@ -10,7 +10,7 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 
-import static TrueAvarus.UNSF.Constants.HullMods.*;
+import static TrueAvarus.UNSF.Objects.HullMods.*;
 
 public class unsf_zpm extends BaseHullMod {
 

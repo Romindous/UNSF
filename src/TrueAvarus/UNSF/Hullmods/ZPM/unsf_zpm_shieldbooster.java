@@ -1,8 +1,8 @@
 package TrueAvarus.UNSF.Hullmods.ZPM;
 
 import java.awt.*;
-import TrueAvarus.UNSF.Constants.Format;
-import TrueAvarus.UNSF.Constants.HullMods;
+import TrueAvarus.UNSF.Utils.Format;
+import TrueAvarus.UNSF.Objects.HullMods;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;

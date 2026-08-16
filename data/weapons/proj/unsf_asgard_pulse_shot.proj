@@ -8,10 +8,9 @@
 	"length":100.0,
 	"width":10.0,
 	"fadeTime":0.25,
-	"fringeColor":[0,190,255,255],
-	"coreColor":[116,211,255,200],
-	#"coreColor":[175,175,175,255],
-	"textureType":"SMOOTH",  # only needed for BEAM spawnType
+	"fringeColor":[100, 225, 160, 255],
+	"coreColor":[120, 120, 255, 200],
+	"textureType":"SMOOTH", # only needed for BEAM spawnType
 	"textureScrollSpeed":-256.0,
 	"pixelsPerTexel":1.0	
 }

@@ -9,7 +9,7 @@ import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.campaign.ids.HullMods;
 import org.magiclib.util.MagicIncompatibleHullmods;
 
-import static TrueAvarus.UNSF.Constants.HullMods.UNSF_TRINIUM;
+import static TrueAvarus.UNSF.Objects.HullMods.UNSF_TRINIUM;
 
 public class unsf_triniumalloy extends BaseHullMod {
 

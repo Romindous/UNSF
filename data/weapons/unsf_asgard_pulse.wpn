@@ -8,12 +8,7 @@
   "turretGlowSprite": "graphics/weapons/unsf_asgard_pulse_glow_tr.png",
   "hardpointSprite": "graphics/weapons/unsf_asgard_pulse_base_hp.png",
   "hardpointGlowSprite": "graphics/weapons/unsf_asgard_pulse_glow_hp.png",
-  "glowColor": [
-    100,
-    225,
-    160,
-    255
-  ],
+  "glowColor": [100, 225, 160, 255],
   "turretOffsets": [
     6,
     0

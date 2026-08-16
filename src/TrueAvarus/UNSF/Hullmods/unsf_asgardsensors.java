@@ -1,7 +1,7 @@
 package TrueAvarus.UNSF.Hullmods;
 
 import java.util.*;
-import TrueAvarus.UNSF.Constants.Format;
+import TrueAvarus.UNSF.Utils.Format;
 import com.fs.starfarer.api.GameState;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
@@ -17,7 +17,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import org.magiclib.util.MagicIncompatibleHullmods;
 
-import static TrueAvarus.UNSF.Constants.HullMods.UNSF_ASGARD_SENSORS;
+import static TrueAvarus.UNSF.Objects.HullMods.UNSF_ASGARD_SENSORS;
 
 public class unsf_asgardsensors extends BaseLogisticsHullMod  implements HullModFleetEffect {
 

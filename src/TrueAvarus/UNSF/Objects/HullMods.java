@@ -1,4 +1,4 @@
-package TrueAvarus.UNSF.Constants;
+package TrueAvarus.UNSF.Objects;
 
 public class HullMods extends com.fs.starfarer.api.impl.campaign.ids.HullMods {
     public static final String UNSF_ZPM = "unsf_zpm";
