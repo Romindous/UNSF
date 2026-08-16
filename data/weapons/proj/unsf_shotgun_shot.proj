@@ -1,5 +1,5 @@
 {
-	"id":"unsf_shotgunspray",
+	"id":"unsf_shotgun_shot",
 	"specClass":"projectile",
 	"spawnType":"BALLISTIC",
 	"collisionClass":"PROJECTILE_FF",

@@ -1,7 +1,7 @@
 {
   "id": "unsf_shotgun",
   "specClass": "projectile",
-  "projectileSpecId": "unsf_shotgunspray",
+  "projectileSpecId": "unsf_shotgun_shot",
   "type": "BALLISTIC",
   "size": "MEDIUM",
   "turretSprite": "graphics/weapons/unsf_shotgun_turret_tr.png",
