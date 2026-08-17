@@ -137,9 +137,11 @@ RemoveOption bqfs_askForSupplies","You make the arrangements, and before the pas
 
 ""The funds you receive from $theFaction are meant to cover operational expenses,"" $personName says brusquely. ""Your commission ID will be flagged for one full cycle due to this emergency supply transfer, so don't make a habit of not having a backup plan.""",,
 ,,,,,,
-,,,,,,
+"All Triggers - PopulateOptions DialogOptionSelected OpenCommLink PickGreeting NewGameOptionSelected
+NPCCommsRequest MarketPostOpen ConfirmNPCWantsToTalk PostGroundRaid PickGreetingActiveBeginNewGameCreation
+",,,,,,
 #KIERA SHEPPARD INTERACTION,,,,,,
-unsfKieraFirstGreeting,PopulateOptions,"$isPerson
+#unsfKieraFirstGreeting,PopulateOptions,"$isPerson
 $id == atlantis_shady
 !$player.metAtlantis_Shady","ShowPersonVisual
 FireAll PopulateOptions
@@ -149,7 +151,7 @@ AddText ""You walk trought station, its like nothing you have ever seen, its les
 AddText ""Many corridors, hallways, teleporters for civilian use. You use one and find yourself in docking area.""
 
 AddText ""You explore a bit untill you find woman near wet boxes.""",,ksi_observe_op:Observe woman,
-unsfObserveKiera,DialogOptionSelected,"$option == ksi_observe_op
+#unsfObserveKiera,DialogOptionSelected,"$option == ksi_observe_op
 ",,"""Never thought I’d find something like this... after all these weeks.""
 She holds up the device, its faint glow pulsing softly.
 ""It even still has power.""
@@ -172,6 +174,24 @@ AddText """"\""Bzzt!!""\"""" highlight
 AddText ""A woman with a tied up white hair can now be seen appearing in your monitor, wearing a dark officer uniform with badges that appear quite high in rank on her shawl. A small text also appeared on the down-left side of your screen, identifying the person as Nia Auroria, the Administrator of this station as well as the current Head of The Bureau.""
 
 AddText ""\""Well, you may speak your business now, if not then I'll have something else to do.\"" the woman speaks in a strict manner, only slightly staring at you.""",,0:cutCommLinkPolite:Cut the comm link,
+,,,,,,
+unsfKieraGreet,PopulateOptions,"$isPerson
+$id == atlantis_shady
+!$player.metAtlantis_Shady","FireAll PopulateOptions
+$player.metAtlantis_Shady = true","""*Kierra says hi + heard about player*""
+""*Kierra asks for help + to meet her in person*""",,
+unsfKieraKnown,PopulateOptions,"$isPerson
+$id == atlantis_shady
+$player.metAtlantis_Shady",FireAll PopulateOptions,*Kierra says hi + asks if player can meet*,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,
