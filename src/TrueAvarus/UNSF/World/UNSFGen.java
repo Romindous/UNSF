@@ -3,11 +3,11 @@ package TrueAvarus.UNSF.World;
 
 //import TrueAvarus.UNSF.World.Systems.nebelheim;
 
+import TrueAvarus.UNSF.Constants.Factions;
 import TrueAvarus.UNSF.World.Systems.niltrof;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
 
 public class UNSFGen {
 
@@ -26,7 +26,7 @@ public class UNSFGen {
         FactionAPI church = sector.getFaction(Factions.LUDDIC_CHURCH);
         FactionAPI path = sector.getFaction(Factions.LUDDIC_PATH);
         FactionAPI league = sector.getFaction(Factions.PERSEAN);
-        FactionAPI myfaction= sector.getFaction("unsf_faction");
+        FactionAPI myfaction= sector.getFaction(Factions.UNSF);
 
         myfaction.setRelationship(path.getId(), RepLevel.INHOSPITABLE);
         myfaction.setRelationship(hegemony.getId(), RepLevel.FAVORABLE);

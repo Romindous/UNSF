@@ -1,5 +1,6 @@
 package TrueAvarus.UNSF.NPCs;
 
+import TrueAvarus.UNSF.Constants.Factions;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PersonImportance;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
@@ -26,7 +27,7 @@ public class important_people {
         PersonAPI person = Global.getFactory().createPerson();
         person.setId(ATLANTIS_BOSS);
         person.setImportance(PersonImportance.VERY_HIGH);
-        person.setFaction("unsf_faction");
+        person.setFaction(Factions.UNSF);
         person.setGender(FullName.Gender.FEMALE);
         person.setRankId(Ranks.CITIZEN);
         person.setPostId(Ranks.POST_FACTION_LEADER);
@@ -44,7 +45,7 @@ public class important_people {
         PersonAPI person2 = Global.getFactory().createPerson();
         person2.setId(ATLANTIS_SHADY);
         person2.setImportance(PersonImportance.VERY_LOW);
-        person2.setFaction("unsf_faction");
+        person2.setFaction(Factions.UNSF);
         person2.setGender(FullName.Gender.FEMALE);
         person2.setRankId(Ranks.CITIZEN);
         person2.setPostId(Ranks.UNKNOWN);

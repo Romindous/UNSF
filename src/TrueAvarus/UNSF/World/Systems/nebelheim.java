@@ -104,7 +104,7 @@ public class nebelheim {
 
 
 
-    MarketAPI planet_1_market = addMarketplace("unsf_faction", planet1, null,
+    MarketAPI planet_1_market = addMarketplace(Factions.UNSF, planet1, null,
             "Prima",
             7,
             new ArrayList<>(
@@ -151,7 +151,7 @@ public class nebelheim {
 
 
 
-        MarketAPI planet_2_market = addMarketplace("unsf_faction", planet2, null,
+        MarketAPI planet_2_market = addMarketplace(Factions.UNSF, planet2, null,
                 "Secunda",
                 7,
                 new ArrayList<>(
@@ -187,7 +187,7 @@ public class nebelheim {
 
 
 
-        MarketAPI planet_3_market = addMarketplace("unsf_faction", planet3, null,
+        MarketAPI planet_3_market = addMarketplace(Factions.UNSF, planet3, null,
                 "Tertia",
                 7,
                 new ArrayList<>(

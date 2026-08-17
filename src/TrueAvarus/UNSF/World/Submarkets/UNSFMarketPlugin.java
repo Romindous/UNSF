@@ -1,5 +1,6 @@
 package TrueAvarus.UNSF.World.Submarkets;
 
+import TrueAvarus.UNSF.Constants.Factions;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CargoStackAPI;
 import com.fs.starfarer.api.campaign.CoreUIAPI;
@@ -8,7 +9,6 @@ import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.econ.SubmarketAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.submarkets.BaseSubmarketPlugin;
 import com.fs.starfarer.api.util.Misc;
 
@@ -24,25 +24,18 @@ public class UNSFMarketPlugin extends BaseSubmarketPlugin {
 
     @Override
     public float getTariff() {
-        if (Misc.getCommissionFactionId() == "unsf_faction") {
-            return 0.9f;
-        } else {
-            return 0.3f;
-        }
+        return Factions.UNSF.equals(Misc.getCommissionFactionId()) ? 0.9f : 0.3f;
     }
 
     @Override
     public boolean isHidden() {
-        if (market.getFaction() != Global.getSector().getFaction("unsf_faction")) {
-            return true;
-        }
-        return false;
+        return market.getFaction() != Global.getSector().getFaction(Factions.UNSF);
     }
 
     @Override
     public String getTooltipAppendix(CoreUIAPI ui) {
         RepLevel level = market.getFaction().getRelationshipLevel(Global.getSector().getFaction(Factions.PLAYER));
-        if (market.getFaction() != Global.getSector().getFaction("unsf_faction")) {
+        if (market.getFaction() != Global.getSector().getFaction(Factions.UNSF)) {
             return "Defunct due to hostile occupation";
         }
         if (!Global.getSector().getPlayerFleet().isTransponderOn()) {
@@ -57,7 +50,7 @@ public class UNSFMarketPlugin extends BaseSubmarketPlugin {
 
     @Override
     public boolean isEnabled(CoreUIAPI ui) {
-        if (market.getFaction() != Global.getSector().getFaction("unsf_faction")) {
+        if (market.getFaction() != Global.getSector().getFaction(Factions.UNSF)) {
             return false;
         }
         if (!Global.getSector().getPlayerFleet().isTransponderOn()) {

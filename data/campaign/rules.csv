@@ -139,7 +139,7 @@ RemoveOption bqfs_askForSupplies","You make the arrangements, and before the pas
 ,,,,,,
 "All Triggers - PopulateOptions DialogOptionSelected OpenCommLink PickGreeting NewGameOptionSelected
 NPCCommsRequest MarketPostOpen ConfirmNPCWantsToTalk PostGroundRaid PickGreetingActiveBeginNewGameCreation
-",,,,,,
+",ShowImageVisual NAME,,,,,
 #KIERA SHEPPARD INTERACTION,,,,,,
 #unsfKieraFirstGreeting,PopulateOptions,"$isPerson
 $id == atlantis_shady
@@ -175,24 +175,47 @@ AddText ""A woman with a tied up white hair can now be seen appearing in your mo
 
 AddText ""\""Well, you may speak your business now, if not then I'll have something else to do.\"" the woman speaks in a strict manner, only slightly staring at you.""",,0:cutCommLinkPolite:Cut the comm link,
 ,,,,,,
+#unsfKieraGreet,PopulateOptions,"$isPerson
+$id == atlantis_shady
+!$player.metAtlantis_Shady","FireAll PopulateOptions
+$player.metAtlantis_Shady = true
+SetOptionColor unsfVisitKierra highlight","""*Kierra says hi + heard about player*""
+""*Kierra asks for help + to meet her in person*""","0:cutCommLinkPolite:Cut the comm link
+1:unsfVisitKierra:Take a shuttle down to meet Kierra",
+#unsfKieraKnown,PopulateOptions,"$isPerson
+$id == atlantis_shady
+$player.metAtlantis_Shady","FireAll PopulateOptions
+SetOptionColor unsfVisitKierra highlight",*Kierra says hi + asks if player can meet*,"0:cutCommLinkPolite:Cut the comm link
+1:unsfVisitKierra:Take a shuttle down to meet Kierra",
+,,,,,,
 unsfKieraGreet,PopulateOptions,"$isPerson
 $id == atlantis_shady
 !$player.metAtlantis_Shady","FireAll PopulateOptions
-$player.metAtlantis_Shady = true","""*Kierra says hi + heard about player*""
-""*Kierra asks for help + to meet her in person*""",,
+$player.metAtlantis_Shady = true
+SetOptionColor unsfVisitKierra highlight",*Kierra says hi + heard about player*,null:Continue,
 unsfKieraKnown,PopulateOptions,"$isPerson
 $id == atlantis_shady
-$player.metAtlantis_Shady",FireAll PopulateOptions,*Kierra says hi + asks if player can meet*,,
+$player.metAtlantis_Shady","FireBest DialogOptionSelected
+SetOptionColor unsfVisitKierra highlight",*Kierra asks if player can meet in person*,"0:cutCommLinkPolite:Cut the comm link
+1:unsfvisitKierra1:Take a shuttle down to meet Kierra",
 ,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
+unsfVisitKierra1,DialogOptionSelected,$option == unsfVisitKierra1,ShowLargePlanet,*Description of going down*,unsfvisitKierra2:Continue,
+unsfVisitKierra2,DialogOptionSelected,$option == unsfVisitKierra2,,*Description of Kierra at a testing facility*,unsfvisitKierra3:Continue,
+unsfVisitKierra3,DialogOptionSelected,$option == unsfVisitKierra3,,"*Kierra says hi + thanks for coming*
+
+*Kierra explains about the scientist working with Tri-Tach on a warp-drive*","unsfvisitKierra4:""A warp drive? Like the kind that brought you here?""",
+unsfVisitKierra4,DialogOptionSelected,"$option == unsfVisitKierra4
+FireBest unsfKierraTJResponse",,*Kierra says its similar to a Transverse Jump*,,
+unsfvisitKierra4Known,unsfKierraTJResponse,$player.ability:fracture_jump,,,"unsfvisitKierra5:""That sounds similar to a Transverse Jump I can do!""",
+unsfvisitKierra4Unknown,unsfKierraTJResponse,!$player.ability:fracture_jump,,,"unsfvisitKierra5:""Doesn't that give any fleet using it a huge tactical advantage!""",
+unsfVisitKierra5,DialogOptionSelected,$option == unsfVisitKierra5,,"""That it does!"" She looks somewhat surprised of your experience with the subject matter, ""But it has a lot more uses, past the dreams of an ordinary salvager.""
+
+""Understanding the rules that govern this universe's cross-dimensional transit might let us escape the madness that's come over this sector, or better yet"", she pauses, you can almost see a smirk form on her face, ""travel back home.""
+It's unclear whether she actually believes this specific project is capable of that...","unsfvisitKierra6:""Sounds like something worth looking into. Where's Dr. NAME stationed at?""",
+unsfVisitKierra6,DialogOptionSelected,"Call $mHub accept $missionId
+Call $mHub returnToList",,"She softly grins, ""Funny, I said the same thing the first time I heard of it.""
+
+""Last she checked in, NAME was on a PLANET-TYPE, about DISTANCE ly away. Head there, provide the assistance she requested, and report back."" Kierra gives you a disappointed look, ""I'm not able to provide you any compensation for what is to come, but I do have some fuel tanks you may use for your journey!""
+
+She waves you goodbye as you part ways ""Godspeed, $playerFirstName.""",,
 ,,,,,,
