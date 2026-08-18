@@ -14,7 +14,7 @@ import static TrueAvarus.UNSF.Objects.HullMods.UNSF_TRINIUM;
 
 public class unsf_asgardcpu extends BaseHullMod {
 
-    public static final float HYBRID_RANGE = 25f;
+    public static final float HYBRID_RANGE = 30f;
     public static final float PD_RANGE = 250f;
     public static final float BEAM_RANGE = 400f;
 

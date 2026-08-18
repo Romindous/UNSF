@@ -18,7 +18,7 @@ import com.fs.starfarer.api.util.Misc;
 public class niltrof {
 
     private static final String ATLANTIS_BOSS = "atlantis_boss";
-    private static final String FACTION = Factions.UNSF;
+    private static final String FACTION = "unsf_faction";
 
     public void generate(SectorAPI sector) {
         // Create the star system
