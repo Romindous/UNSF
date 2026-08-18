@@ -48,7 +48,7 @@ public class important_people {
         person2.setFaction(Factions.UNSF);
         person2.setGender(FullName.Gender.FEMALE);
         person2.setRankId(Ranks.CITIZEN);
-        person2.setPostId(Ranks.UNKNOWN);
+        person2.setPostId(Ranks.POST_SHADY);
         person2.getName().setFirst("Kiera");
         person2.getName().setLast("Sheppard");
         person2.setPortraitSprite(Global.getSettings().getSpriteName("characters", "kiera"));

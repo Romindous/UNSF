@@ -141,69 +141,24 @@ RemoveOption bqfs_askForSupplies","You make the arrangements, and before the pas
 NPCCommsRequest MarketPostOpen ConfirmNPCWantsToTalk PostGroundRaid PickGreetingActiveBeginNewGameCreation
 ",ShowImageVisual NAME,"Leaving options - defaultLeave:Leave (full leave), cutCommLinkNoText:Continue (leave to station menu),
 cutCommLinkPolite:Cut the comm link, cutCommLink:Cut the comm link",,,,
-#KIERA SHEPPARD INTERACTION,,,,,,
-#unsfKieraFirstGreeting,PopulateOptions,"$isPerson
+#Shady SHEPPARD INTERACTION,,,,,,
+unsfShadyGreet,PickGreeting,"$isPerson
 $id == atlantis_shady
-!$player.metAtlantis_Shady","ShowPersonVisual
-FireAll PopulateOptions
-$player.metAtlantis_Shady = true
-AddText ""You walk trought station, its like nothing you have ever seen, its less of a space staton but more of a space city.""
-
-AddText ""Many corridors, hallways, teleporters for civilian use. You use one and find yourself in docking area.""
-
-AddText ""You explore a bit untill you find woman near wet boxes.""",,ksi_observe_op:Observe woman,
-#unsfObserveKiera,DialogOptionSelected,"$option == ksi_observe_op
-",,"""Never thought I’d find something like this... after all these weeks.""
-She holds up the device, its faint glow pulsing softly.
-""It even still has power.""
-Kiera glances at you suspiciously, her expression hardening as she continues.
-""Who are you? Haven’t seen you around here before.""
-Her grip on the device tightens as she assesses your intentions.
-",,
-,,,,,,
-,,,,,,
-#UAFNiaFirstGreeting,PickGreeting,"$id == uaf_niaauroria score:100
-!$player.metUAFNiaAuroria","ShowPersonVisual
-FireAll PopulateOptions
-$player.metUAFNiaAuroria = true
-AddText ""You see many people from numerous worlds seems to be queueing in front of you, took the ticket and wait in the queue bench. Looking up there is a large sign laced with neon lights underneath with a text saying \""Aurora Diplomatic Bureau\"".""
-
-AddText ""Not long after, your number got called, you walk over to the counter and open the communication device that is now available to you""
-
-AddText """"\""Bzzt!!""\"""" highlight
-
-AddText ""A woman with a tied up white hair can now be seen appearing in your monitor, wearing a dark officer uniform with badges that appear quite high in rank on her shawl. A small text also appeared on the down-left side of your screen, identifying the person as Nia Auroria, the Administrator of this station as well as the current Head of The Bureau.""
-
-AddText ""\""Well, you may speak your business now, if not then I'll have something else to do.\"" the woman speaks in a strict manner, only slightly staring at you.""",,0:cutCommLinkPolite:Cut the comm link,
-,,,,,,
-#unsfKieraGreet,PopulateOptions,"$isPerson
+!$player.greetedShady",$player.greetedShady = true,*Shady says hi + heard about player*,unsfShadyShuttle:I guess I've been around here and there.,
+unsfShadyAfter,PickGreeting,"$isPerson
 $id == atlantis_shady
-!$player.metAtlantis_Shady","FireAll PopulateOptions
-$player.metAtlantis_Shady = true
-SetOptionColor unsfShadyMeet highlight","""*Shady says hi + heard about player*""
-""*Shady asks for help + to meet her in person*""","0:cutCommLinkPolite:Cut the comm link
-1:unsfShadyMeet:Take a shuttle down to meet Shady",
-#unsfKieraKnown,PopulateOptions,"$isPerson
-$id == atlantis_shady
-$player.metAtlantis_Shady","FireAll PopulateOptions
-SetOptionColor unsfShadyMeet highlight",*Shady says hi + asks if player can meet*,"0:cutCommLinkPolite:Cut the comm link
-1:unsfShadyMeet:Take a shuttle down to meet Shady",
-,,,,,,
-,,,,,,
-,,,,,,
-unsfKieraGreet,PickGreeting,"$isPerson
-$id == atlantis_shady
-!$player.greetedShady",$player.greetedShady = true,*Shady says hi + heard about player*,unsfKieraShuttle:I guess I've been around here and there.,
-unsfKieraAfter,PickGreeting,"$isPerson
-$id == atlantis_shady
-$player.greetedShady","$option = unsfKieraShuttle
+$player.greetedShady","$option = unsfShadyShuttle
 FireBest DialogOptionSelected",*Shady welcomes the player back*,,
-unsfKieraShuttle,DialogOptionSelected,$option == unsfKieraShuttle,SetOptionColor unsfShadyMeet1 highlight,*Shady asks if player can meet in person*,"unsfShadyMeet1:Take a shuttle down to meet Shady
+unsfShadyShuttle,DialogOptionSelected,$option == unsfShadyShuttle,SetOptionColor unsfShadyMeet1 highlight,*Shady asks if player can meet in person*,"unsfShadyMeet1:Take a shuttle down to meet Shady
 cutCommLinkPolite:Cut the comm link",
 ,,,,,,
 ,,,,,,
-unsfShadyMeet1,DialogOptionSelected,$option == unsfShadyMeet1,ShowLargePlanet,*Description of going down*,unsfShadyMeet2:Continue,
-unsfShadyMeet2,DialogOptionSelected,$option == unsfShadyMeet2,,*Description of Shady at a testing facility*,unsfShadyMeet3:Continue,
+unsfShadyMeet1,DialogOptionSelected,$option == unsfShadyMeet1,ShowLargePlanet,"The station is so much bigger than it looks from the outside. Despite its intended use as a space vessel, it's surprisingly uncramped, which adds to it's ""planetary city"" feel. You walk with several bodyguards through many corridors, hallways, teleporters, all designed for civilian use. You use one and find yourself at a loading dock. $personName should be around here.
+
+The crowd isn't particularly dense, and you're able to discern the people who care about being seen. A woman stares at you a bit longer than others, and after glancing back, you realise she's the one you've been looking for.","unsfShadyMeet2:$personName, I presume.",
+unsfShadyMeet2,DialogOptionSelected,$option == unsfShadyMeet2,,"The woman looks over the shoulders of you and your bodyguards, ""Might as well 've brought an army at this point,"" she rolls her eyes ""I swear, if I get in trouble for this...""
+
+$personName realizes yelling at you will just draw more attention. ""Anyway,"" she exhales, """"",unsfShadyMeet3:Continue,
 unsfShadyMeet3,DialogOptionSelected,$option == unsfShadyMeet3,,"*Shady says hi + thanks for coming*
 
 *Shady explains about the scientist working with Tri-Tach on a warp-drive*","unsfShadyMeet4:""A warp drive? Like the kind that brought you here?""",
@@ -211,17 +166,29 @@ unsfShadyMeet4,DialogOptionSelected,"$option == unsfShadyMeet4
 FireBest unsfShadyTJResponse",,*Shady says its similar to a Transverse Jump*,,
 unsfShadyMeet4Known,unsfShadyTJResponse,$player.ability:fracture_jump,,,"unsfShadyMeet5:""That sounds similar to a Transverse Jump I can do!""",
 unsfShadyMeet4Unknown,unsfShadyTJResponse,!$player.ability:fracture_jump,,,"unsfShadyMeet5:""Doesn't that give any fleet using it a huge tactical advantage!""",
-unsfShadyMeet5,DialogOptionSelected,$option == unsfShadyMeet5,,"""That it does!"" She looks somewhat surprised of your experience with the subject matter, ""But it has a lot more uses, past the dreams of an ordinary salvager.""
+unsfShadyMeet5,DialogOptionSelected,$option == unsfShadyMeet5,,"""That it does!"" $personName looks somewhat surprised of your experience with the subject matter, ""But it has a lot more uses, past the dreams of an ordinary salvager.""
 
 ""Understanding the rules that govern this universe's cross-dimensional transit might let us escape the madness that's come over this sector, or better yet"", she pauses, you can almost see a smirk form on her face, ""travel back home.""
 It's unclear whether she actually believes this specific project is capable of that...","unsfShadyMeet6:""Sounds like something worth looking into. Where's Dr. NAME stationed at?""",
 unsfShadyMeet6,DialogOptionSelected,$option == unsfShadyMeet6,"$player.metShady = true
+AddRemoveCommodity fuel 1000
 Call $mHub accept $missionId
 Call $mHub returnToList","She softly grins, ""Funny, I said the same thing the first time I heard of it.""
 
-""Last she checked in, NAME was on a PLANET-TYPE, about DISTANCE ly away. Head there, provide the assistance she requested, and report back."" Shady gives you a disappointed look, ""I'm not able to provide you any compensation for what's to come, but I do have some fuel tanks you may use for your journey!""
+""Last she checked in, NAME was on a PLANET-TYPE, about DISTANCE ly away. Head there, provide the assistance she requested, and report back."" $personName gives you a disappointed look, ""I'm not able to provide you any compensation for what's to come, but I do have some fuel you may use for your journey!""
 
 She waves you goodbye as you part ways ""Godspeed, $player.firstName!""",cutCommLinkNoText:Continue,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,
