@@ -4,7 +4,7 @@ package TrueAvarus.UNSF.World;
 //import TrueAvarus.UNSF.World.Systems.nebelheim;
 
 import TrueAvarus.UNSF.Constants.Factions;
-import TrueAvarus.UNSF.World.Systems.niltrof;
+import TrueAvarus.UNSF.World.Systems.Niltrof;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
@@ -15,7 +15,7 @@ public class UNSFGen {
     public void generate(SectorAPI sector) {
         initFactionRelationships(sector);
         //new nebelheim().generate(sector);
-        new niltrof().generate(sector);
+        new Niltrof().generate(sector);
     }
 
     public static void initFactionRelationships(SectorAPI sector) {

@@ -15,10 +15,15 @@ import com.fs.starfarer.api.impl.campaign.terrain.AsteroidFieldTerrainPlugin.Ast
 import com.fs.starfarer.api.impl.campaign.terrain.BaseTiledTerrain;
 import com.fs.starfarer.api.util.Misc;
 
-public class niltrof {
+public class Niltrof {
 
-    private static final String ATLANTIS_BOSS = "atlantis_boss";
     private static final String FACTION = "unsf_faction";
+    public static final String AEGIRGAST = "unsf_aegirgast";
+    public static final String NIDAVELLIR = "unsf_nidavellir";
+    public static final String ATLANTIS = "unsf_atlantis";
+    public static final String OBERON = "unsf_oberon";
+    public static final String ARGOS = "unsf_argos";
+    public static final String IGNARA = "unsf_ignara";
 
     public void generate(SectorAPI sector) {
         // Create the star system
@@ -68,15 +73,15 @@ public class niltrof {
         PlanetAPI niltrof_star = system.initStar("niltrof_star",
             StarTypes.BLUE_SUPERGIANT, 1500f, 500);
         niltrof_star.setCircularOrbit(center, 0, 2500, 32); // Make it orbit around the central location at 0 distance
-//        niltrof_star.setName("niltrof");
+//        niltrof_star.setName("Niltrof");
 
         PlanetAPI niltrof_gas_giant = system.addPlanet("niltrof_gas_giant",
             center, "Ignara", Planets.GAS_GIANT,
             0, 300f, 6000, 117f);
         PlanetConditionGenerator.generateConditionsForPlanet(niltrof_gas_giant, StarAge.YOUNG);
+        niltrof_gas_giant.setCustomDescriptionId(IGNARA + "_planet");
 
 
-        niltrof_gas_giant.setCustomDescriptionId("unsf_ignara_planet");
         // Create other star bodies and make them orbit around the center location
         PlanetAPI lycaon_star = system.addPlanet("lycaon_star",
             star_orbit_1, "Lycaon", StarTypes.YELLOW,
@@ -90,7 +95,7 @@ public class niltrof {
         PlanetConditionGenerator.generateConditionsForPlanet(lycaon_water, StarAge.YOUNG);
         lycaon_water.setFaction(FACTION);
         lycaon_water.setInteractionImage("illustrations", "oberon");
-        lycaon_water.setCustomDescriptionId("unsf_oberon_planet");
+        lycaon_water.setCustomDescriptionId(OBERON + "_planet");
 
 
         PlanetAPI nyxara_star = system.addPlanet("nyxara_star",
@@ -105,7 +110,7 @@ public class niltrof {
             0, 130f, 2000, 23f);
         PlanetConditionGenerator.generateConditionsForPlanet(nyxara_frozen, StarAge.YOUNG);
         nyxara_frozen.setFaction(FACTION);
-        nyxara_frozen.setCustomDescriptionId("unsf_argos_planet");
+        nyxara_frozen.setCustomDescriptionId(ARGOS + "_planet");
 
         // CENTRAL ASTEROID BELT
         system.addRingBand(center, "misc", "rings_dust0", 1000f, 1, Color.white, 1000f, 7500, 200f, null, null);
@@ -207,25 +212,25 @@ public class niltrof {
         // MARKETS
 
         //Blown up planet mining station
-        SectorEntityToken AegirgastSt = system.addCustomEntity("aegirgast_station", "Aegirgast Station", "industrial_station_1", FACTION);
+        SectorEntityToken AegirgastSt = system.addCustomEntity(AEGIRGAST + "_station", "Aegirgast Station", "industrial_station_1", FACTION);
         AegirgastSt.setCircularOrbitWithSpin(center, 180, 7525f, 200, 3f, 5f);
-        AegirgastSt.setInteractionImage("illustrations", "aegirgast_station");
+        AegirgastSt.setInteractionImage("illustrations", AEGIRGAST);
         AegirgastSt.setCustomDescriptionId("unsf_aegirgast_station");
 
         //Blown up planet mining station
-        SectorEntityToken NidavellirSt = system.addCustomEntity("nidavellir_station", "Nidavellir Station", "industrial_station_1", FACTION);
+        SectorEntityToken NidavellirSt = system.addCustomEntity(NIDAVELLIR + "_station", "Nidavellir Station", "industrial_station_1", FACTION);
         NidavellirSt.setCircularOrbitPointingDown(nyxara_star, 270, 600f, 15);
         NidavellirSt.setInteractionImage("illustrations", "orbital");
         NidavellirSt.setCustomDescriptionId("unsf_nidavellir_station");
 
-        SectorEntityToken AtlantisSt = system.addCustomEntity("atlantis_station", "Atlantis Station", "atlantis_station", FACTION);
+        SectorEntityToken AtlantisSt = system.addCustomEntity(ATLANTIS + "_station", "Atlantis Station", ATLANTIS, FACTION);
         AtlantisSt.setCircularOrbitPointingDown(lycaon_star, 270, 5000f, 150);
-        AtlantisSt.setInteractionImage("illustrations", "atlantis_station");
+        AtlantisSt.setInteractionImage("illustrations", ATLANTIS);
         AtlantisSt.setCustomDescriptionId("unsf_atlantis_station");
 
         //ATLANTIS
 
-        MarketAPI atlantis_market = Global.getFactory().createMarket("atlantis_station_market", AtlantisSt.getName(), 0);
+        MarketAPI atlantis_market = Global.getFactory().createMarket(ATLANTIS + "_market", AtlantisSt.getName(), 0);
         atlantis_market.setSize(5);
         atlantis_market.setFactionId(AtlantisSt.getFaction().getId());
 
@@ -270,7 +275,7 @@ public class niltrof {
         //AEGIRAST
 
         //todo Mining station market code - !!! USE AS TEMPLATE FOR CUSTOM MARKETS FOR OTHER PLANETS/STATIONS !!!!
-        MarketAPI aegirast_market = Global.getFactory().createMarket("aegirgast_station_market", AegirgastSt.getName(), 0);
+        MarketAPI aegirast_market = Global.getFactory().createMarket(AEGIRGAST + "_market", AegirgastSt.getName(), 0);
         aegirast_market.setSize(4);
         aegirast_market.setFactionId(AegirgastSt.getFaction().getId());
 
@@ -308,7 +313,7 @@ public class niltrof {
         //NIDAVELLIR
 
         //Mining station market code - !!! USE AS TEMPLATE FOR CUSTOM MARKETS FOR OTHER PLANETS/STATIONS !!!!
-        MarketAPI nidavellir_market = Global.getFactory().createMarket("nidavellir_station_market", NidavellirSt.getName(), 0);
+        MarketAPI nidavellir_market = Global.getFactory().createMarket(NIDAVELLIR + "_market", NidavellirSt.getName(), 0);
         nidavellir_market.setSize(5);
         nidavellir_market.setFactionId(NidavellirSt.getFaction().getId());
 
@@ -344,7 +349,7 @@ public class niltrof {
 
         //OBERON
 
-        MarketAPI oberon_market = Global.getFactory().createMarket("oberon_planet_market", lycaon_water.getName(), 0);
+        MarketAPI oberon_market = Global.getFactory().createMarket(OBERON + "_market", lycaon_water.getName(), 0);
         oberon_market.setSize(6);
         oberon_market.setFactionId(FACTION);
         oberon_market.setPrimaryEntity(lycaon_water);
@@ -383,7 +388,7 @@ public class niltrof {
 
         //ARGOS
 
-        MarketAPI argos_market = Global.getFactory().createMarket("argos_planet_market", nyxara_frozen.getName(), 0);
+        MarketAPI argos_market = Global.getFactory().createMarket(ARGOS + "_market", nyxara_frozen.getName(), 0);
         argos_market.setSize(4);
         argos_market.setFactionId(FACTION);
         argos_market.setPrimaryEntity(nyxara_frozen);

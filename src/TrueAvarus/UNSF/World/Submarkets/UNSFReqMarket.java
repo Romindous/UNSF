@@ -12,7 +12,7 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.submarkets.BaseSubmarketPlugin;
 import com.fs.starfarer.api.util.Misc;
 
-public class UNSFMarketPlugin extends BaseSubmarketPlugin {
+public class UNSFReqMarket extends BaseSubmarketPlugin {
 
     private final RepLevel MIN_STANDING = RepLevel.COOPERATIVE;
 
