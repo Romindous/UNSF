@@ -69,8 +69,6 @@ public class UNSFMarketPlugin extends BaseSubmarketPlugin {
 
             getCargo().getMothballedShips().clear();
 
-            float quality = 0.1f;
-
             FactionDoctrineAPI doctrineOverride = submarket.getFaction().getDoctrine().clone();
             addShips(submarket.getFaction().getId(),
                     300f, // combat
@@ -113,12 +111,12 @@ public class UNSFMarketPlugin extends BaseSubmarketPlugin {
 
     @Override
     public String getIllegalTransferText(FleetMemberAPI member, TransferAction action) {
-        return "Sales only!";
+        return "Purchases only!";
     }
 
     @Override
     public String getIllegalTransferText(CargoStackAPI stack, TransferAction action) {
-        return "Sales only!";
+        return "Purchases only!";
     }
 
     @Override

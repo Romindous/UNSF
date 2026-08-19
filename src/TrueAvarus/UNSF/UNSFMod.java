@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import java.util.Random;
 import TrueAvarus.UNSF.Objects.Items;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
-import TrueAvarus.UNSF.NPCs.important_people;
+import TrueAvarus.UNSF.NPCs.People;
 import TrueAvarus.UNSF.WeaponAI.PDMissileAI;
 import TrueAvarus.UNSF.WeaponAI.HorizonMissleAI;
 import TrueAvarus.UNSF.World.UNSFGen;
@@ -41,7 +41,7 @@ public class UNSFMod extends BaseModPlugin {
         super.onNewGameAfterEconomyLoad();
 
         // Call your personnel creation method
-        important_people.createAtlantisPersonnel();
+        People.createAtlantisPersonnel();
     }
 
     public static final String HORIZON_NUKE = "unsf_horizon_missile_subprojectile";
