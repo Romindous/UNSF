@@ -12,8 +12,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 public class People {
 
     // ATLANTIS PERSONEL
-    public static final String ATLANTIS_BOSS = "atlantis_boss";
-    public static final String ATLANTIS_SHADY = "atlantis_shady";
+    public static final String BOSS = "unsf_boss";
+    public static final String SHADY = "unsf_shady";
 
     public static void createAtlantisPersonnel() {
 
@@ -24,7 +24,7 @@ public class People {
         if (market != null) {
 
             final PersonAPI boss = Global.getFactory().createPerson();
-            boss.setId(ATLANTIS_BOSS);
+            boss.setId(BOSS);
             boss.setImportance(PersonImportance.VERY_HIGH);
             boss.setFaction(Factions.UNSF);
             boss.setGender(FullName.Gender.FEMALE);
@@ -42,7 +42,7 @@ public class People {
 
 
             final PersonAPI shady = Global.getFactory().createPerson();
-            shady.setId(ATLANTIS_SHADY);
+            shady.setId(SHADY);
             shady.setImportance(PersonImportance.VERY_LOW);
             shady.setFaction(Factions.UNSF);
             shady.setGender(FullName.Gender.FEMALE);
@@ -50,7 +50,7 @@ public class People {
             shady.setPostId(Ranks.POST_SHADY);
             shady.getName().setFirst("Kiera");
             shady.getName().setLast("Sheppard");
-            shady.setPortraitSprite(Global.getSettings().getSpriteName("characters", "kiera"));
+            shady.setPortraitSprite(Global.getSettings().getSpriteName("characters", "unsf_kiera"));
 
 
             market.getCommDirectory().addPerson(shady, 1);

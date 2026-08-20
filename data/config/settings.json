@@ -1,36 +1,37 @@
 
 {
-	"designTypeColors":{
-			"UNSF": [60,120,255,200],
-	},
-	
-	
-	
-	"graphics":{
-			"blueprint_packages":{
-				"unsf_blueprint_hull":"graphics/icons/cargo/unsf_blueprint_bp_hull.png",
-				"unsf_blueprint_wing":"graphics/icons/cargo/unsf_blueprint_bp_wing.png",
-				"unsf_blueprint_wpn":"graphics/icons/cargo/unsf_blueprint_bp_wpn.png",
-			},
-			
+  "designTypeColors":{
+    "UNSF": [60,120,255,200],
+  },
 
-			"terrain":{
-				"nebula_grey_map":"graphics/terrain_new/nebula_grey_map.png",
-				"nebula_grey":"graphics/terrain_new/nebula_grey.png",
-						},
-			
-			
-			"illustrations":{
-			"oberon":"graphics/illustrations/oberon.jpg",
-			"aegirgast_station":"graphics/illustrations/asteroid_station_1.jpg",
-			"atlantis_station":"graphics/illustrations/atlantis_station.jpg",
-								},
-								
-								
-								
-			"characters":{
-			"kiera":"graphics/portraits/characters/kiera.png",
-							},
-		
-	},
+
+
+  "graphics":{
+    "blueprint_packages":{
+      "unsf_blueprint_hull":"graphics/icons/cargo/unsf_blueprint_bp_hull.png",
+      "unsf_blueprint_wing":"graphics/icons/cargo/unsf_blueprint_bp_wing.png",
+      "unsf_blueprint_wpn":"graphics/icons/cargo/unsf_blueprint_bp_wpn.png",
+    },
+
+
+    "terrain":{
+      "nebula_grey_map":"graphics/terrain_new/nebula_grey_map.png",
+      "nebula_grey":"graphics/terrain_new/nebula_grey.png",
+    },
+
+
+    "illustrations":{
+      "unsf_oberon":"graphics/illustrations/unsf_oberon.jpg",
+      "unsf_aegirgast":"graphics/illustrations/unsf_aegirgast.jpg",
+      "unsf_atlantis":"graphics/illustrations/unsf_atlantis.jpg",
+    },
+
+
+
+    "characters":{
+      "unsf_kiera":"graphics/portraits/characters/unsf_kiera.png",
+      "unsf_carmen":"graphics/portraits/characters/unsf_carmen.png"
+    },
+
+  },
 }
