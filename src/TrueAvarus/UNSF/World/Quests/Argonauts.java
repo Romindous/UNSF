@@ -76,11 +76,13 @@ public class Argonauts extends HubMissionWithSearch {
             return false;
         }
 
-        makeImportant(targetMarket, "$unsf_argo_sci_mkt", new Enum[]{Stage.TALK_SCIENTIST1});
+        makeImportant(targetMarket, "$unsf_argo_base", new Enum[]{Stage.TALK_SCIENTIST1});
 //        makeImportant(shady, "$nex_remM1_returnHere", new Enum[]{Stage.RETURN_CORES});
         setStartingStage(Stage.TALK_SHADY);
         addSuccessStages(new Object[]{Stage.COMPLETED});
         addFailureStages(new Object[]{Stage.FAILED});
+        connectWithMemoryFlag(Stage.TALK_SHADY, Stage.MEET_SHADY, targetMarket, "$unsf_argo_shady_talk");
+        connectWithMemoryFlag(Stage.MEET_SHADY, Stage.TALK_SCIENTIST1, targetMarket, "$unsf_argo_shady_meet");
         connectWithMemoryFlag(Stage.TALK_SCIENTIST1, Stage.EXPLORE_STATION, targetMarket, "$unsf_argo_sci_talk1");
         connectWithMemoryFlag(Stage.EXPLORE_STATION, Stage.TALK_SCIENTIST2, targetMarket, "$unsf_argo_explore");
         connectWithMemoryFlag(Stage.TALK_SCIENTIST2, Stage.TRY_BH_JUMP, targetMarket, "$unsf_argo_sci_talk2");
@@ -208,6 +210,7 @@ public class Argonauts extends HubMissionWithSearch {
         set("$unsf_argo_marketOnOrAt", targetMarket.getOnOrAt());
         set("$unsf_argo_dist", getDistanceLY(targetMarket));
         set("$unsf_argo_stage", getCurrentStage());
+
     }
 
     public String getBaseName() {
