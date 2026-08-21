@@ -144,7 +144,9 @@ cutCommLinkPolite:Cut the comm link, cutCommLink:Cut the comm link",,,,
 #Shady SHEPPARD INTERACTION,,,,,,
 unsfShadyGreet,PickGreeting,"$isPerson
 $id == unsf_shady
-!$unsf_argo_shady_greet",$unsf_argo_shady_greet = true,*Shady says hi + heard about player*,unsfShadyShuttle:I guess I've been around here and there.,
+!$unsf_argo_shady_greet",$unsf_argo_shady_greet = true,"An avatar of a $unsf_argo_shadySex appears on the screen ""Hey $player.firstName, a spacer like you has just the,"" $unsf_argo_shadyHeOrShe pauses, trying to come up with a word, ""reputation, i'm looking for.""
+
+""I'm $unsf_argo_shadyName, and a friend of mine is in need of assistance from an unaffiliated third party fleet."" That would be you. ""It's vital that the fleet in question is only interested in our, or their own, success."" You feel like $unsf_argo_shadyHeOrShe's done some research on who you are, for better or worse.",unsfShadyShuttle:I guess I've been around here and there.,
 unsfShadyAfter,PickGreeting,"$isPerson
 $id == unsf_shady
 $$unsf_argo_shady_greet
@@ -155,7 +157,7 @@ CallEvent $unsf_argonauts accept
 $unsf_argo_shady_talk = true",*Shady asks if player can meet in person*,"unsfShadyMeet1:Take a shuttle down to meet Shady
 cutCommLinkPolite:""Not right now."" [Cut the comm link]
 unsfShadyRefuse:""I'm not interested"" [Terminate quest]",
-unsfShadyRefuse,DialogOptionSelected,$option == unsfShadyRefuse,z,*Shady sounds dissappointed*,cutCommLinkPolite:Cut the comm link,
+unsfShadyRefuse,DialogOptionSelected,$option == unsfShadyRefuse,CallEvent $unsf_argonauts cancel,*Shady sounds dissappointed*,cutCommLinkPolite:Cut the comm link,
 ,,,,,,
 unsfShadyMeet1,DialogOptionSelected,$option == unsfShadyMeet1,ShowLargePlanet,"The station is so much bigger than it looks from deep space. Despite its intended use as a space vessel, it's surprisingly uncramped, which adds to it's ""planetary city"" feel. You walk with several bodyguards through many corridors, hallways, teleporters, all designed for civilian use. You use one and find yourself at a loading dock. $personName should be around here.
 
