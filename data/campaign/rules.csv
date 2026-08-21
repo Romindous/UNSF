@@ -151,13 +151,15 @@ unsfShadyAfter,PickGreeting,"$isPerson
 $id == unsf_shady
 $$unsf_argo_shady_greet
 !$unsf_argo_shady_meet","$option = unsfShadyShuttle
-FireBest DialogOptionSelected",*Shady welcomes the player back*,,
+FireBest DialogOptionSelected","The $unsf_argo_shadySex gives you a relieved look, ""Glad to see you back.""",,
 unsfShadyShuttle,DialogOptionSelected,$option == unsfShadyShuttle,"SetOptionColor unsfShadyMeet1 highlight
 CallEvent $unsf_argonauts accept
-$unsf_argo_shady_talk = true",*Shady asks if player can meet in person*,"unsfShadyMeet1:Take a shuttle down to meet Shady
+$unsf_argo_shady_talk = true","$unsf_argo_shadyName nods down to her TriPad, ""The information is rather sensitive, so I would prefer if we talked in person.""
+As $unsf_argo_shadyHeOrShe sends over coordinates on $unsf_argo_start for your meeting, you ponder if the trouble $unsf_argo_shadyHisOrHer 'friend' got into is worth your time.","unsfShadyMeet1:Take a shuttle down to meet Shady
 cutCommLinkPolite:""Not right now."" [Cut the comm link]
 unsfShadyRefuse:""I'm not interested"" [Terminate quest]",
-unsfShadyRefuse,DialogOptionSelected,$option == unsfShadyRefuse,CallEvent $unsf_argonauts cancel,*Shady sounds dissappointed*,cutCommLinkPolite:Cut the comm link,
+unsfShadyRefuse,DialogOptionSelected,$option == unsfShadyRefuse,CallEvent $unsf_argonauts cancel,"A disappointed look washes over $unsf_argo_shadyHisOrHer face, ""Hm, looks like it's back to doing business with pirate-salvagers...""
+Without any more hesitation, the avatar dissapears.",cutCommLinkPolite:Cut the comm link,
 ,,,,,,
 unsfShadyMeet1,DialogOptionSelected,$option == unsfShadyMeet1,ShowLargePlanet,"The station is so much bigger than it looks from deep space. Despite its intended use as a space vessel, it's surprisingly uncramped, which adds to it's ""planetary city"" feel. You walk with several bodyguards through many corridors, hallways, teleporters, all designed for civilian use. You use one and find yourself at a loading dock. $personName should be around here.
 
