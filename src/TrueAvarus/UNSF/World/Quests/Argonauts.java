@@ -8,18 +8,19 @@ import TrueAvarus.UNSF.NPCs.People;
 import TrueAvarus.UNSF.Objects.Industries;
 import TrueAvarus.UNSF.World.Systems.Niltrof;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.FactionAPI;
-import com.fs.starfarer.api.campaign.InteractionDialogAPI;
-import com.fs.starfarer.api.campaign.PersonImportance;
-import com.fs.starfarer.api.campaign.RuleBasedDialog;
+import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.FullName;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.impl.campaign.CoreReputationPlugin;
+import com.fs.starfarer.api.impl.campaign.ids.Entities;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
+import com.fs.starfarer.api.impl.campaign.ids.Tags;
+import com.fs.starfarer.api.impl.campaign.intel.contacts.ContactIntel;
 import com.fs.starfarer.api.impl.campaign.missions.hub.BaseMissionHub;
 import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithSearch;
+import com.fs.starfarer.api.impl.campaign.missions.hub.ReqMode;
 import com.fs.starfarer.api.impl.campaign.rulecmd.AddRemoveCommodity;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
@@ -32,11 +33,14 @@ public class Argonauts extends HubMissionWithSearch {
     public static final String REF_NAME = "$unsf_argonauts";
     public static final String SCIENTIST_ID = "unsf_scientist";
 
-    protected PersonAPI shady;
-    protected MarketAPI startMkt;
+    private PersonAPI shady;
+    private MarketAPI startMkt;
 
-    protected MarketAPI baseMkt;
-    protected PersonAPI scientist;
+    private MarketAPI baseMkt;
+    private PersonAPI scientist;
+
+    private PlanetAPI star;
+    private OrbitalStationAPI station;
 
     protected Object readResolve() {
         if (startMkt == null && shady != null) {
@@ -49,8 +53,9 @@ public class Argonauts extends HubMissionWithSearch {
     protected boolean create(MarketAPI createdAt, boolean barEvent) {
         if (Global.getSector().getMemoryWithoutUpdate().get(REF_NAME)
             instanceof final Argonauts a1) {
-            a1.abort(); setGlobalReference(REF_NAME);
+            a1.abort();
         }
+        setGlobalReference(REF_NAME);
 
         startMkt = createdAt;
         if (!startMkt.getId().startsWith(Niltrof.ATLANTIS)) return false;
@@ -64,28 +69,31 @@ public class Argonauts extends HubMissionWithSearch {
         personOverride = shady;
 
         setStoryMission();
+        setMissionId("unsf_argonauts");
         requireMarketFaction(new String[]{Factions.TRITACHYON});
         requireMarketNotInHyperspace();
         preferMarketSizeAtLeast(3);
         preferMarketSizeAtMost(5);
+        preferMarketNotMilitary();
         search.marketPrefs.add(m -> m.hasFunctionalIndustry(Industries.PATROLHQ));
-        baseMkt = pickMarket();
+        baseMkt = pickMarket(true);
         if (baseMkt == null) {
             System.out.println("Failed to find market");
             return false;
         }
 
+        makeImportant(baseMkt, "$unsf_argo_shady", new Enum[]{Stage.MEET_SHADY});
         makeImportant(baseMkt, "$unsf_argo_base", new Enum[]{Stage.TALK_SCIENTIST1});
 //        makeImportant(shady, "$nex_remM1_returnHere", new Enum[]{Stage.RETURN_CORES});
-        setStartingStage(Stage.TALK_SHADY);
+        setStartingStage(Stage.MEET_SHADY);
         addSuccessStages(new Object[]{Stage.COMPLETED});
         addFailureStages(new Object[]{Stage.FAILED});
-        connectWithMemoryFlag(Stage.TALK_SHADY, Stage.MEET_SHADY, baseMkt, "$unsf_argo_shady_talk");
+//        connectWithMemoryFlag(Stage.TALK_SHADY, Stage.MEET_SHADY, baseMkt, "$unsf_argo_shady_talk");
         connectWithMemoryFlag(Stage.MEET_SHADY, Stage.TALK_SCIENTIST1, baseMkt, "$unsf_argo_shady_meet");
         connectWithMemoryFlag(Stage.TALK_SCIENTIST1, Stage.EXPLORE_STATION, baseMkt, "$unsf_argo_sci_talk1");
         connectWithMemoryFlag(Stage.EXPLORE_STATION, Stage.TALK_SCIENTIST2, baseMkt, "$unsf_argo_explore");
-        connectWithMemoryFlag(Stage.TALK_SCIENTIST2, Stage.TRY_BH_JUMP, baseMkt, "$unsf_argo_sci_talk2");
-        connectWithMemoryFlag(Stage.TRY_BH_JUMP, Stage.TALK_SCIENTIST3, baseMkt, "$unsf_argo_jump");
+        connectWithMemoryFlag(Stage.TALK_SCIENTIST2, Stage.TRY_STAR_JUMP, baseMkt, "$unsf_argo_sci_talk2");
+        connectWithMemoryFlag(Stage.TRY_STAR_JUMP, Stage.TALK_SCIENTIST3, baseMkt, "$unsf_argo_jump");
         connectWithMemoryFlag(Stage.TALK_SCIENTIST3, Stage.RESQ_SCIENTIST, baseMkt, "$unsf_argo_sci_talk3");
         setStageOnMemoryFlag(Stage.COMPLETED, shady, "$unsf_argo_completed");
         setStageOnMemoryFlag(Stage.FAILED, shady, "$unsf_argo_failed");
@@ -97,7 +105,77 @@ public class Argonauts extends HubMissionWithSearch {
         setRepPersonChangesHigh();
         setRepFactionChangesMedium();
         setCreditReward(CreditReward.HIGH);
+        setPersonIsPotentialContactOnSuccess(shady);
 
+        beginStageTrigger(Stage.TALK_SCIENTIST1);
+        triggerRunScriptAfterDelay(0, () -> {
+            setMarketMissionRef(baseMkt, REF_NAME);
+            scientist = Global.getSector().getImportantPeople().getPerson(SCIENTIST_ID);
+            if (scientist != null) {
+                Global.getSector().getImportantPeople().removePerson(scientist);
+                baseMkt.getCommDirectory().removePerson(scientist);
+                baseMkt.removePerson(scientist);
+            }
+            scientist = Global.getFactory().createPerson();
+            scientist.setId(SCIENTIST_ID);
+            scientist.setImportance(PersonImportance.MEDIUM);
+            scientist.setFaction(Factions.UNSF);
+            scientist.setGender(FullName.Gender.FEMALE);
+            scientist.setRankId(Ranks.CITIZEN);
+            scientist.setPostId(Ranks.POST_SCIENTIST);
+            scientist.getName().setFirst("Carmen");
+            scientist.getName().setLast("McKay");
+            scientist.setPortraitSprite(Global.getSettings().getSpriteName("characters", "unsf_carmen"));
+            makeImportant(scientist, "$unsf_argo_sci", new Enum[]{Stage.TALK_SCIENTIST1, Stage.TALK_SCIENTIST2, Stage.TALK_SCIENTIST3});
+            baseMkt.getCommDirectory().addPerson(scientist);
+            baseMkt.addPerson(scientist);
+            Global.getSector().getImportantPeople().addPerson(scientist);
+            setPersonMissionRef(scientist, REF_NAME);
+            updateInteractionDataImpl();
+        });
+        endTrigger();
+
+        beginStageTrigger(Stage.EXPLORE_STATION);
+        triggerRunScriptAfterDelay(0, () -> {
+            requireSystemBlackHole();
+            requireSystemOnFringeOfSector();
+            requireSystemHasAtLeastNumJumpPoints(1);
+            requireSystemHasNumPlanets(2);
+            requireSystemTags(ReqMode.NOT_ALL, Tags.SYSTEM_ABYSSAL);
+            star = pickSystem(true).getStar();
+            if (star == null) {
+                System.out.println("Failed to find system");
+                return;
+            }
+            final PlanetAPI resPlanet = star.getStarSystem().getPlanets().get(0);
+            if (resPlanet == null) {
+                System.out.println("Failed to find planet");
+                return;
+            }
+            final LocData loc = new LocData(EntityLocationType.ORBITING_PLANET_OR_STAR,
+                resPlanet, star.getStarSystem(), false);
+            spawnDebrisField(DEBRIS_SMALL, DEBRIS_DENSE, loc);
+            final SectorEntityToken set = spawnEntity(Entities.STATION_RESEARCH, loc);
+            System.out.println("Station is a " + set.toString());
+            if (!(set instanceof final OrbitalStationAPI os)) {
+                System.out.println("Failed to create station");
+                return;
+            }
+            station = os;
+            setEntityMissionRef(station, REF_NAME);
+            makeImportant(star, "$unsf_argo_star", new Enum[]{Stage.TRY_STAR_JUMP});
+            makeImportant(station, "$unsf_argo_station", new Enum[]{Stage.EXPLORE_STATION});
+            updateInteractionDataImpl();
+        });
+        endTrigger();
+
+        beginStageTrigger(Stage.RESQ_SCIENTIST);
+        triggerRunScriptAfterDelay(0, () -> {
+            final StarSystemAPI ss = startMkt.getStarSystem();
+
+            updateInteractionDataImpl();
+        });
+        endTrigger();
 //        triggerCreateMediumPatrolAroundMarket(target, Stage.RETRIEVE_CORES, 0.0F);
         return true;
     }
@@ -108,33 +186,9 @@ public class Argonauts extends HubMissionWithSearch {
 
         switch (action) {
             case "accept":
-                setMarketMissionRef(baseMkt, REF_NAME);
-
-                scientist = Global.getSector().getImportantPeople().getPerson(SCIENTIST_ID);
-                if (scientist != null) {
-                    Global.getSector().getImportantPeople().removePerson(scientist);
-                    baseMkt.getCommDirectory().removePerson(scientist);
-                    baseMkt.removePerson(scientist);
-                }
-                scientist = Global.getFactory().createPerson();
-                shady.setId(SCIENTIST_ID);
-                shady.setImportance(PersonImportance.MEDIUM);
-                shady.setFaction(Factions.UNSF);
-                shady.setGender(FullName.Gender.FEMALE);
-                shady.setRankId(Ranks.CITIZEN);
-                shady.setPostId(Ranks.POST_SCIENTIST);
-                shady.getName().setFirst("Carmen");
-                shady.getName().setLast("McKay");
-                scientist.setPortraitSprite(Global.getSettings().getSpriteName("characters", "unsf_carmen"));
-                baseMkt.getCommDirectory().addPerson(scientist);
-                baseMkt.addPerson(scientist);
-                Global.getSector().getImportantPeople().addPerson(scientist);
-                setPersonMissionRef(scientist, REF_NAME);
-
-                updateInteractionData(dialog, memoryMap);
                 accept(dialog, memoryMap);
                 return true;
-            case "cancel", "refuse":
+            case "refuse":
                 if (shady != null) {
                     startMkt.getCommDirectory().removePerson(shady);
                     startMkt.removePerson(shady);
@@ -147,66 +201,37 @@ public class Argonauts extends HubMissionWithSearch {
                 }
                 abort();
                 return false;
-            case "raidComplete":
-            case "boughtCores":
-                startMkt.getCommDirectory().addPerson(shady);
-                return true;
-            case "hasCores":
-                return Global.getSector().getPlayerFleet().getCargo().getCommodityQuantity("beta_core") >= 2.0F;
-            case "forceShowPerson":
-                dialog.getVisualPanel().showPersonInfo(shady);
-                return true;
             case "complete":
                 BaseMissionHub.set(shady, new BaseMissionHub(shady));
-                startMkt.addPerson(shady);
                 shady.getMemoryWithoutUpdate().set(BaseMissionHub.NUM_BONUS_MISSIONS, 1);
-                shady.getMemoryWithoutUpdate().set("$nex_remM1_completed", true);
-                ((RuleBasedDialog)dialog.getPlugin()).updateMemory();
+                shady.getMemoryWithoutUpdate().set("$unsf_argo_completed", true);
+                ((RuleBasedDialog) dialog.getPlugin()).updateMemory();
+                Global.getSector().getIntelManager().addIntel(new ContactIntel(shady, startMkt), false, dialog.getTextPanel());
+                Global.getSector().getMemoryWithoutUpdate().set("$unsf_argo_completed", true);
+                endSuccess(dialog, memoryMap);
                 return true;
-            case "complete2":
-                shady.getName().setFirst(RemnantQuestUtils.getString("dissonantName1"));
-                shady.getName().setLast(RemnantQuestUtils.getString("dissonantName2"));
-                SpecialContactIntel intel = new SpecialContactIntel(shady, startMkt);
-                Global.getSector().getIntelManager().addIntel(intel, false, dialog.getTextPanel());
-                Global.getSector().getMemoryWithoutUpdate().set("$nex_remM1_missionCompleted", true);
-                return true;
-            case "betray":
-                PersonAPI person = dialog.getInteractionTarget().getActivePerson();
-                FactionAPI pFaction = person.getFaction();
-                float repMult = pFaction.getCustomFloat("AICoreRepMult");
-                CoreReputationPlugin.MissionCompletionRep repPerson = new CoreReputationPlugin.MissionCompletionRep(getRepRewardSuccessPerson() * repMult, getRewardLimitPerson(), -getRepPenaltyFailurePerson(), getPenaltyLimitPerson());
-                CoreReputationPlugin.MissionCompletionRep repFaction = new CoreReputationPlugin.MissionCompletionRep(getRepRewardSuccessFaction() * repMult, getRewardLimitFaction(), -getRepPenaltyFailureFaction(), getPenaltyLimitFaction());
-                Global.getSector().adjustPlayerReputation(new CoreReputationPlugin.RepActionEnvelope(RepActions.MISSION_SUCCESS, repPerson, dialog.getTextPanel(), true), person);
-                Global.getSector().adjustPlayerReputation(new CoreReputationPlugin.RepActionEnvelope(RepActions.MISSION_SUCCESS, repFaction, dialog.getTextPanel(), true), pFaction.getId());
-                float bounty = Global.getSettings().getCommoditySpec("beta_core").getBasePrice();
-                bounty *= 2.0F * pFaction.getCustomFloat("AICoreValueMult");
-                Global.getSector().getPlayerFleet().getCargo().getCredits().add(bounty);
-                AddRemoveCommodity.addCreditsGainText((int)bounty, dialog.getTextPanel());
-                Global.getSector().getMemoryWithoutUpdate().set("$nex_remM1_missionCompleted", true);
-                Global.getSector().getMemoryWithoutUpdate().set("$nex_remM1_betrayed", true);
-            case "refuse":
-                startMkt.getCommDirectory().removePerson(shady);
-                startMkt.removePerson(shady);
-                shady.getMemoryWithoutUpdate().set("$nex_remM1_failed", true);
-                Global.getSector().getMemoryWithoutUpdate().set("$nex_remM1_missionCompleted", true);
-                Global.getSector().getMemoryWithoutUpdate().set("$nex_remM1_betrayed", true);
-                return false;
         }
 
         return super.callEvent(ruleId, dialog, params, memoryMap);
     }
 
     protected void updateInteractionDataImpl() {
-        set("$unsf_argo_shadyName", shady.getName().getFirst());
+        set("$unsf_argo_shady", shady.getName().getFirst());
         set("$unsf_argo_shadyFull", scientist.getNameString());
         set("$unsf_argo_shadySex", shady.getManOrWoman());
         set("$unsf_argo_shadyHeOrShe", shady.getHeOrShe());
         set("$unsf_argo_shadyHisOrHer", shady.getHisOrHer());
         if (scientist != null) {
-            set("$unsf_argo_sciName", scientist.getName().getFirst());
+            set("$unsf_argo_sci", scientist.getName().getFirst());
             set("$unsf_argo_sciFull", scientist.getNameString());
             set("$unsf_argo_sciSex", scientist.getManOrWoman());
             set("$unsf_argo_sciHeOrShe", scientist.getHeOrShe());
+            set("$unsf_argo_sciHisOrHer", scientist.getHisOrHer());
+        }
+        if (station != null && star != null) {
+            set("$unsf_argo_system", star.getName());
+            set("$unsf_argo_system_dist", getDistanceLY(star));
+            set("$unsf_argo_station", station.getName());
         }
         set("$unsf_argo_reward", Misc.getWithDGS(getCreditsReward()));
         set("$unsf_argo_start_star", startMkt.getStarSystem().getNameWithLowercaseTypeShort());
@@ -215,7 +240,7 @@ public class Argonauts extends HubMissionWithSearch {
         set("$unsf_argo_base_star", baseMkt.getStarSystem().getNameWithLowercaseTypeShort());
         set("$unsf_argo_base", baseMkt.getName());
         set("$unsf_argo_baseOnOrAt", baseMkt.getOnOrAt());
-        set("$unsf_argo_dist", getDistanceLY(baseMkt));
+        set("$unsf_argo_base_dist", getDistanceLY(baseMkt));
         set("$unsf_argo_stage", getCurrentStage());
 
     }
@@ -234,9 +259,9 @@ public class Argonauts extends HubMissionWithSearch {
         String pName = shady.getNameString();
         FactionAPI heg = Global.getSector().getFaction("hegemony");
         FactionAPI pl = Global.getSector().getFaction("persean");
-        if (currentStage == Stage.RETRIEVE_CORES) {
+        if (currentStage == Stage.EXPLORE_STATION) {
             info.addPara(RemnantQuestUtils.getString("m1_stage1Desc"), opad, h, new String[]{baseMkt.getName()});
-        } else if (currentStage == Stage.RETURN_CORES) {
+        } else if (currentStage == Stage.MEET_SHADY) {
             LabelAPI label = info.addPara(RemnantQuestUtils.getString("m1_stage2Desc"), opad, h, new String[]{pName, startMkt.getName(), heg.getDisplayNameWithArticle(), pl.getDisplayNameLongWithArticle()});
             label.setHighlight(new String[]{pName, startMkt.getName(), heg.getDisplayNameWithArticleWithoutArticle(), pl.getDisplayNameWithArticleWithoutArticle()});
             label.setHighlightColors(new Color[]{h, startMkt.getFaction().getBaseUIColor(), heg.getBaseUIColor(), pl.getBaseUIColor()});
@@ -261,12 +286,11 @@ public class Argonauts extends HubMissionWithSearch {
     }
 
     public enum Stage {
-        TALK_SHADY,
         MEET_SHADY,
         TALK_SCIENTIST1,
         EXPLORE_STATION,
         TALK_SCIENTIST2,
-        TRY_BH_JUMP,
+        TRY_STAR_JUMP,
         TALK_SCIENTIST3,
         RESQ_SCIENTIST,
         COMPLETED,
