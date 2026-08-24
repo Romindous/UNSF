@@ -1,6 +1,7 @@
 package TrueAvarus.UNSF.NPCs;
 
 import TrueAvarus.UNSF.Constants.Factions;
+import TrueAvarus.UNSF.World.Systems.Niltrof;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PersonImportance;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
@@ -12,19 +13,19 @@ import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 public class People {
 
     // ATLANTIS PERSONEL
-    public static final String BOSS = "unsf_boss";
-    public static final String SHADY = "unsf_shady";
+    public static final String BOSS_ID = "unsf_boss";
+    public static final String SHADY_ID = "unsf_shady";
 
     public static void createAtlantisPersonnel() {
 
         final ImportantPeopleAPI ip = Global.getSector().getImportantPeople();
         final MarketAPI market;
 
-        market = Global.getSector().getEconomy().getMarket("atlantis_station_market");
+        market = Global.getSector().getEconomy().getMarket(Niltrof.ATLANTIS + "_market");
         if (market != null) {
 
             final PersonAPI boss = Global.getFactory().createPerson();
-            boss.setId(BOSS);
+            boss.setId(BOSS_ID);
             boss.setImportance(PersonImportance.VERY_HIGH);
             boss.setFaction(Factions.UNSF);
             boss.setGender(FullName.Gender.FEMALE);
@@ -42,7 +43,7 @@ public class People {
 
 
             final PersonAPI shady = Global.getFactory().createPerson();
-            shady.setId(SHADY);
+            shady.setId(SHADY_ID);
             shady.setImportance(PersonImportance.VERY_LOW);
             shady.setFaction(Factions.UNSF);
             shady.setGender(FullName.Gender.FEMALE);

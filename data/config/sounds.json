@@ -138,7 +138,7 @@
     {"file":"sounds/flak/canister_flak_explosion_05.ogg","pitch":1.0,"volume":0.1},
   ],
 
-  "unsf_hyperspace_window":[
+  "unsf_hyper_window":[
     {"file":"sounds/ability/unsf_hyperspace.ogg","pitch":1,"volume":0.3},
   ],
 

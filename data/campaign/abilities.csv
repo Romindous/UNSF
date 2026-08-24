@@ -2,6 +2,6 @@ name,id,type,tags,activationDays,activationCooldown,durationDays,deactivationDay
 ,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,
-#Hyperspace Window,hyperspace_window,DURATION,"stealth-, burn+",0.02,,0.001,0.1,0.5,TRUE,,,,,,jump_point_open,,,graphics/icons/abilities/hyperspace_window.png,TrueAvarus.UNSF.Abilities.HyperspaceWindowGenerator,,"Jump into a system to an approximate desired location, or directly into hyperspace. Uses lots of fuel, but is a great way to escape a tailing fleet.",800
+Hyperspace Window,hyper_window,DURATION,"stealth-, burn+",0.02,,0.001,0.1,0.5,FALSE,,,,,,jump_point_open,,,graphics/icons/abilities/hyper_window.png,TrueAvarus.UNSF.Abilities.HyperWindowGenerator,,"Jump into hyperspace without the use of a jump-point, or jump into a star system across hyperspace, exiting at an approximately similar location, relative to the celestial body.",800
 ,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,

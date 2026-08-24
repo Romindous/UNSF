@@ -274,7 +274,7 @@ public class Niltrof {
 
         //AEGIRAST
 
-        //todo Mining station market code - !!! USE AS TEMPLATE FOR CUSTOM MARKETS FOR OTHER PLANETS/STATIONS !!!!
+        //Mining station market code - !!! USE AS TEMPLATE FOR CUSTOM MARKETS FOR OTHER PLANETS/STATIONS !!!!
         MarketAPI aegirast_market = Global.getFactory().createMarket(AEGIRGAST + "_market", AegirgastSt.getName(), 0);
         aegirast_market.setSize(4);
         aegirast_market.setFactionId(AegirgastSt.getFaction().getId());

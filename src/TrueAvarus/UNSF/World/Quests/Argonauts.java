@@ -13,7 +13,6 @@ import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.FullName;
 import com.fs.starfarer.api.characters.PersonAPI;
-import com.fs.starfarer.api.impl.campaign.CoreReputationPlugin;
 import com.fs.starfarer.api.impl.campaign.ids.Entities;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
@@ -21,12 +20,12 @@ import com.fs.starfarer.api.impl.campaign.intel.contacts.ContactIntel;
 import com.fs.starfarer.api.impl.campaign.missions.hub.BaseMissionHub;
 import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithSearch;
 import com.fs.starfarer.api.impl.campaign.missions.hub.ReqMode;
-import com.fs.starfarer.api.impl.campaign.rulecmd.AddRemoveCommodity;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
-import exerelin.campaign.intel.SpecialContactIntel;
 import exerelin.campaign.intel.missions.remnant.RemnantQuestUtils;
+
+import static TrueAvarus.UNSF.NPCs.People.SHADY_ID;
 
 public class Argonauts extends HubMissionWithSearch {
 
@@ -59,11 +58,11 @@ public class Argonauts extends HubMissionWithSearch {
 
         startMkt = createdAt;
         if (!startMkt.getId().startsWith(Niltrof.ATLANTIS)) return false;
-        if (Global.getSector().getImportantPeople().getData(People.SHADY) == null)  {
+        if (Global.getSector().getImportantPeople().getData(SHADY_ID) == null)  {
             People.createAtlantisPersonnel();
         }
         
-        shady = getImportantPerson(People.SHADY);
+        shady = getImportantPerson(SHADY_ID);
         if (shady == null) return false;
 
         personOverride = shady;
@@ -82,21 +81,22 @@ public class Argonauts extends HubMissionWithSearch {
             return false;
         }
 
-        makeImportant(baseMkt, "$unsf_argo_shady", new Enum[]{Stage.MEET_SHADY});
+        makeImportant(startMkt, "$unsf_argo_shady", new Enum[]{Stage.MEET_SHADY});
         makeImportant(baseMkt, "$unsf_argo_base", new Enum[]{Stage.TALK_SCIENTIST1});
 //        makeImportant(shady, "$nex_remM1_returnHere", new Enum[]{Stage.RETURN_CORES});
         setStartingStage(Stage.MEET_SHADY);
         addSuccessStages(new Object[]{Stage.COMPLETED});
         addFailureStages(new Object[]{Stage.FAILED});
 //        connectWithMemoryFlag(Stage.TALK_SHADY, Stage.MEET_SHADY, baseMkt, "$unsf_argo_shady_talk");
-        connectWithMemoryFlag(Stage.MEET_SHADY, Stage.TALK_SCIENTIST1, baseMkt, "$unsf_argo_shady_meet");
-        connectWithMemoryFlag(Stage.TALK_SCIENTIST1, Stage.EXPLORE_STATION, baseMkt, "$unsf_argo_sci_talk1");
-        connectWithMemoryFlag(Stage.EXPLORE_STATION, Stage.TALK_SCIENTIST2, baseMkt, "$unsf_argo_explore");
-        connectWithMemoryFlag(Stage.TALK_SCIENTIST2, Stage.TRY_STAR_JUMP, baseMkt, "$unsf_argo_sci_talk2");
-        connectWithMemoryFlag(Stage.TRY_STAR_JUMP, Stage.TALK_SCIENTIST3, baseMkt, "$unsf_argo_jump");
-        connectWithMemoryFlag(Stage.TALK_SCIENTIST3, Stage.RESQ_SCIENTIST, baseMkt, "$unsf_argo_sci_talk3");
-        setStageOnMemoryFlag(Stage.COMPLETED, shady, "$unsf_argo_completed");
-        setStageOnMemoryFlag(Stage.FAILED, shady, "$unsf_argo_failed");
+        final MemoryAPI plMem = Global.getSector().getPlayerMemoryWithoutUpdate();
+        connectWithMemoryFlag(Stage.MEET_SHADY, Stage.TALK_SCIENTIST1, plMem, "$unsf_argo_shady_meet");
+        connectWithMemoryFlag(Stage.TALK_SCIENTIST1, Stage.EXPLORE_STATION, plMem, "$unsf_argo_sci_talk1");
+        connectWithMemoryFlag(Stage.EXPLORE_STATION, Stage.TALK_SCIENTIST2, plMem, "$unsf_argo_explore");
+        connectWithMemoryFlag(Stage.TALK_SCIENTIST2, Stage.TRY_STAR_JUMP, plMem, "$unsf_argo_sci_talk2");
+        connectWithMemoryFlag(Stage.TRY_STAR_JUMP, Stage.TALK_SCIENTIST3, plMem, "$unsf_argo_jump");
+        connectWithMemoryFlag(Stage.TALK_SCIENTIST3, Stage.RESQ_SCIENTIST, plMem, "$unsf_argo_sci_take");
+        setStageOnMemoryFlag(Stage.COMPLETED, plMem, "$unsf_argo_completed");
+        setStageOnMemoryFlag(Stage.FAILED, plMem, "$unsf_argo_failed");
         addNoPenaltyFailureStages(new Object[]{Stage.FAILED_DECIV});
         connectWithMarketDecivilized(Stage.TALK_SCIENTIST1, Stage.FAILED_DECIV, baseMkt);
         connectWithMarketDecivilized(Stage.TALK_SCIENTIST2, Stage.FAILED_DECIV, baseMkt);
@@ -107,7 +107,7 @@ public class Argonauts extends HubMissionWithSearch {
         setCreditReward(CreditReward.HIGH);
         setPersonIsPotentialContactOnSuccess(shady);
 
-        beginStageTrigger(Stage.TALK_SCIENTIST1);
+        beginStageTrigger(Stage.MEET_SHADY);
         triggerRunScriptAfterDelay(0, () -> {
             setMarketMissionRef(baseMkt, REF_NAME);
             scientist = Global.getSector().getImportantPeople().getPerson(SCIENTIST_ID);
@@ -142,6 +142,7 @@ public class Argonauts extends HubMissionWithSearch {
             requireSystemHasAtLeastNumJumpPoints(1);
             requireSystemHasNumPlanets(2);
             requireSystemTags(ReqMode.NOT_ALL, Tags.SYSTEM_ABYSSAL);
+            requireSystem(ss -> ss.getConstellation() != null);
             star = pickSystem(true).getStar();
             if (star == null) {
                 System.out.println("Failed to find system");
@@ -190,6 +191,7 @@ public class Argonauts extends HubMissionWithSearch {
                 return true;
             case "refuse":
                 if (shady != null) {
+                    Global.getSector().getImportantPeople().removePerson(SHADY_ID);
                     startMkt.getCommDirectory().removePerson(shady);
                     startMkt.removePerson(shady);
                 }
@@ -230,6 +232,7 @@ public class Argonauts extends HubMissionWithSearch {
         }
         if (station != null && star != null) {
             set("$unsf_argo_system", star.getName());
+            set("$unsf_argo_const", star.getConstellation().getNameWithType());
             set("$unsf_argo_system_dist", getDistanceLY(star));
             set("$unsf_argo_station", station.getName());
         }

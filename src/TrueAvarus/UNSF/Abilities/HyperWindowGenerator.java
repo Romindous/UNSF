@@ -16,7 +16,7 @@ import com.fs.starfarer.api.util.Misc;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
-public class HyperspaceWindowGenerator extends BaseDurationAbility {
+public class HyperWindowGenerator extends BaseDurationAbility {
 	public static final Color FUEL_CLR = Global.getSettings().getColor("progressBarFuelColor");
 	private static final float EXTRA_DST = 1000f;
 	private static final float MIN_SPEED = 100f;
@@ -43,7 +43,7 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 			primed = true;
 
 			// Play sound when ability is primed
-			Global.getSoundPlayer().playSound("unsf_hyperspace_window", 1f, 2f, fleet.getLocation(), fleet.getVelocity());
+			Global.getSoundPlayer().playSound("unsf_hyper_window", 1f, 2f, fleet.getLocation(), fleet.getVelocity());
 
 			// Define the color for the particle effect with lower brightness and less white
 			Color particleColor = new Color(150, 210, 180, 20); // Light green color, semi-transparent with lower alpha
@@ -93,7 +93,7 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 			ping = Global.getSector().addPing(fleet, Pings.TRANSVERSE_JUMP);
 			primed = true;
 			// Play sound when ability is primed
-			Global.getSoundPlayer().playSound("unsf_hyperspace_window", 1f, 2f, fleet.getLocation(), fleet.getVelocity());
+			Global.getSoundPlayer().playSound("unsf_hyper_window", 1f, 2f, fleet.getLocation(), fleet.getVelocity());
 
 
 			// Define the color for the particle effect with lower brightness and less white
@@ -363,7 +363,7 @@ public class HyperspaceWindowGenerator extends BaseDurationAbility {
 		CampaignFleetAPI fleet = getFleet();
 		if (fleet == null) return;
 
-		tooltip.addTitle("Hyperspace Window Generator");
+		tooltip.addTitle("Hyper-Window Generator");
 
 		tooltip.addPara("Jump into hyperspace without the use of a jump-point, or " +
 			"jump into a star system across hyperspace, exiting at an approximately " +
