@@ -182,7 +182,7 @@ unsfShadyMeet5,DialogOptionSelected,$option == unsfShadyMeet5,,"""That it does!"
 It's unclear whether she actually believes this specific project is capable of that...","unsfShadyMeet6:""Sounds like something worth looking into. Where's Dr. NAME stationed at?""",
 unsfShadyMeet6,DialogOptionSelected,$option == unsfShadyMeet6,"AddRemoveCommodity fuel 1000
 $player.unsf_argo_shady_meet = true
-Call $global.unsf_argonauts updateStage
+Call $global.unsf_argonauts updateData
 Call $global.unsf_argonauts showMap ""Target: $unsf_argo_base""","She softly grins, ""Funny, I said the same thing the first time I heard of it.""
 
 ""Last she checked in, NAME was on a PLANET-TYPE, about DISTANCE ly away. Head there, provide the assistance she requested, and report back."" $personName gives you a disappointed look, ""I'm not able to provide you any compensation for what's to come, but I do have some fuel you may use for your journey!""
@@ -194,7 +194,7 @@ $id == unsf_scientist
 $player.unsf_argo_shady_meet
 !$player.unsf_argo_sci_talk1
 ","$player.unsf_argo_sci_talk1 = true
-Call $global.unsf_argonauts updateStage",*Scientist says hi and asks if you were the one Shady sent*,unsfSciTaskExplore:Continue1,
+Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciTaskExplore:Continue1,
 unsfSciTaskExplore,DialogOptionSelected,$option == unsfSciTaskExplore,"Call $global.unsf_argonauts showMap ""Target: $unsf_argo_const""",*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
 ,,,,,,
 unsfSciReport,PickGreeting,"$isPerson
@@ -202,7 +202,7 @@ $id == unsf_scientist
 $player.unsf_argo_explore
 !$player.unsf_argo_sci_talk2
 ","$player.unsf_argo_sci_talk2 = true
-Call $global.unsf_argonauts updateStage",*Scientist says hi and asks if you were the one Shady sent*,unsfSciTaskJump:Continue1,
+Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciTaskJump:Continue1,
 unsfSciTaskJump,DialogOptionSelected,$option == unsfSciTaskJump,"Call $global.unsf_argonauts showMap ""Target: $unsf_argo_star""",*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
 ,,,,,,
 unsfSciResult,PickGreeting,"$isPerson
@@ -210,18 +210,22 @@ $id == unsf_scientist
 $player.unsf_argo_jump
 !$player.unsf_argo_sci_take
 ","$player.unsf_argo_sci_take = true
-Call $global.unsf_argonauts updateStage",*Scientist says hi and asks if you were the one Shady sent*,unsfSciResq:Continue1,
+Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciResq:Continue1,
 unsfSciTaskJump,DialogOptionSelected,$option == unsfSciResq,"Call $global.unsf_argonauts showMap ""Target: $unsf_argo_const""",*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
 ,,,,,,
-unsfSciReport,OpenInteractionDialog,"$market.id == unsf_atlantis_market
+unsfSciReturn,OpenInteractionDialog,"$market.id == unsf_atlantis_market
 $player.unsf_argo_sci_take
 !$player.unsf_argo_completed
 ","$player.unsf_argo_sci_take = true
-Call $global.unsf_argonauts updateStage",*Scientist says hi and asks if you were the one Shady sent*,unsfSciReturn:Continue1,
-unsfSciTaskJump,DialogOptionSelected,$option == unsfSciReturn,AddAbility hyper_window,*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
+Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciReturn:Continue1,
+unsfShadyBye,DialogOptionSelected,$option == unsfSciReturn,AddAbility hyper_window,*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
 ,,,,,,
-,,,,,,
-,,,,,,
+unsfStationApproach,OpenInteractionDialog,$unsf_argo_station score:1000,"$player.unsf_argo_explore = true
+Call $global.unsf_argonauts updateData
+ShowImageVisual space_wreckage","Your $shipOrFleet approaches the object.
+
+The structure bears a resemblance to a Domain Explorarium mothership, but seemingly cut up and rearranged in rather dramatic fashion for purposes unknown.",unsfStationExplore1:Continue,
+unsfStationExplore1,DialogOptionSelected,$option == unsfStationExplore1,ShowImageVisual salvor_explore_hull,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,

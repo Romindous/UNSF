@@ -23,6 +23,8 @@ import com.fs.starfarer.api.impl.campaign.missions.hub.ReqMode;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+import exerelin.campaign.intel.missions.remnant.RemnantFragments;
+import exerelin.campaign.intel.missions.remnant.RemnantM1;
 import exerelin.campaign.intel.missions.remnant.RemnantQuestUtils;
 
 import static TrueAvarus.UNSF.NPCs.People.SHADY_ID;
