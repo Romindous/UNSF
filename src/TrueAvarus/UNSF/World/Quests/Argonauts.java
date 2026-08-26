@@ -108,6 +108,7 @@ public class Argonauts extends HubMissionWithSearch {
         setRepFactionChangesMedium();
         setCreditReward(CreditReward.HIGH);
         setPersonIsPotentialContactOnSuccess(shady);
+        updateInteractionDataImpl();
 
         beginStageTrigger(Stage.MEET_SHADY);
         triggerRunScriptAfterDelay(0, () -> {
@@ -236,17 +237,17 @@ public class Argonauts extends HubMissionWithSearch {
         if (station != null && star != null) {
             set("$unsf_argo_system", star.getName());
             set("$unsf_argo_const", star.getConstellation().getNameWithType());
-            set("$unsf_argo_system_dist", getDistanceLY(star));
+            set("$unsf_argo_systemDist", getDistanceLY(star));
             set("$unsf_argo_station", station.getName());
         }
         set("$unsf_argo_reward", Misc.getWithDGS(getCreditsReward()));
-        set("$unsf_argo_start_star", startMkt.getStarSystem().getNameWithLowercaseTypeShort());
+        set("$unsf_argo_startStar", startMkt.getStarSystem().getNameWithLowercaseTypeShort());
         set("$unsf_argo_start", startMkt.getName());
         set("$unsf_argo_startOnOrAt", startMkt.getOnOrAt());
-        set("$unsf_argo_base_star", baseMkt.getStarSystem().getNameWithLowercaseTypeShort());
+        set("$unsf_argo_baseStar", baseMkt.getStarSystem().getNameWithLowercaseTypeShort());
         set("$unsf_argo_base", baseMkt.getName());
         set("$unsf_argo_baseOnOrAt", baseMkt.getOnOrAt());
-        set("$unsf_argo_base_dist", getDistanceLY(baseMkt));
+        set("$unsf_argo_baseDist", getDistanceLY(baseMkt));
         set("$unsf_argo_stage", getCurrentStage());
 
     }
