@@ -165,6 +165,7 @@ public class Argonauts extends HubMissionWithSearch {
                 return;
             }
             station = os;
+            station.setId("unsf_argo_station");
             setEntityMissionRef(station, REF_NAME);
             makeImportant(star, "$unsf_argo_star", new Enum[]{Stage.TRY_STAR_JUMP});
             makeImportant(station, "$unsf_argo_station", new Enum[]{Stage.EXPLORE_STATION});

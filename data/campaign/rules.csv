@@ -220,7 +220,8 @@ $player.unsf_argo_sci_take
 Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciReturn:Continue1,
 unsfShadyBye,DialogOptionSelected,$option == unsfSciReturn,AddAbility hyper_window,*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
 ,,,,,,
-unsfStationApproach,OpenInteractionDialog,$unsf_argo_station score:1000,"$player.unsf_argo_explore = true
+unsfStationApproach,OpenInteractionDialog,"$unsf_argo_station score:1000
+$id = unsf_argo_station","$player.unsf_argo_explore = true
 Call $global.unsf_argonauts updateData
 ShowImageVisual space_wreckage","Your $shipOrFleet approaches the object.
 
