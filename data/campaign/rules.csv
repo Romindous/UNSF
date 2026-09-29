@@ -135,60 +135,66 @@ $faction.playerReceivedCommissionResupplyOn = $global.daysSinceStart
 FireAll PopulateOptions
 RemoveOption bqfs_askForSupplies","You make the arrangements, and before the passing of a workshift, a small batch of emergency supplies is transferred to your $shipOrFleet for repairs.
 
-""The funds you receive from $theFaction are meant to cover operational expenses,"" $unsf_argo_shady says brusquely. ""Your commission ID will be flagged for one full cycle due to this emergency supply transfer, so don't make a habit of not having a backup plan.""",,
+""The funds you receive from $theFaction are meant to cover operational expenses,"" $unsf_argo_shadyName says brusquely. ""Your commission ID will be flagged for one full cycle due to this emergency supply transfer, so don't make a habit of not having a backup plan.""",,
 ,,,,,,
 "#All Triggers - PopulateOptions DialogOptionSelected OpenInteractionDialog OpenCommLink PickGreeting NewGameOptionSelected
-NPCCommsRequest MarketPostOpen ConfirmNPCWantsToTalk PostGroundRaid PickGreetingActiveBeginNewGameCreation
+NPCCommsRequest MarketPostOpen ConfirmNPCWantsToTalk PostGroundRaid PickGreetingActiveBeginNewGameCreation BeginFleetEncounter
 ",ShowImageVisual NAME,"Leaving options - defaultLeave:Leave (full leave), cutCommLinkNoText:Continue (leave to station menu),
 cutCommLinkPolite:Cut the comm link, cutCommLink:Cut the comm link","Call (MARKET | GLOBAL) (updateData | updateStage | showMap ""Text"" | CUSTOM)
-CallEvent",,,
+CallEvent","SetShortcut nskr_kestevenQuestCancel ""ESCAPE""",,
 #Shady SHEPPARD INTERACTION,,,,,,
 unsfShadyGreet,PickGreeting,"$isPerson
 $id == unsf_shady
 !$player.unsf_argo_shady_greet","$player.unsf_argo_shady_greet = true
-Highlight ""unaffiliated""","An avatar of a $unsf_argo_shadySex appears on the screen ""Hey $player.firstName, a spacer like you has just the,"" $unsf_argo_shadyHeOrShe pauses, trying to come up with a word, ""reputation, i'm looking for.""
+SetTextHighlights ""unaffiliated""
+ShowPersonVisual
+UNSFCMD startMission
+Call $global.unsf_argonauts updateData","An avatar of a $ManOrWoman appears on the screen ""Hey $player.firstName, a spacer like you has just the,"" $heOrShe pauses, trying to come up with a word, ""reputation, i'm looking for.""
 
-""I'm $unsf_argo_shady, and a friend of mine is in need of assistance from an unaffiliated third party fleet."" That would be you. ""It's vital that the fleet in question is only interested in our, or their own, success."" You feel like $unsf_argo_shadyHeOrShe's done some research on who you are, for better or worse.",unsfShadyShuttle:I guess I've been around here and there.,
+""I'm $name, and a friend of mine is in need of assistance from an unaffiliated third party fleet."" That would be you. ""It's vital that the fleet in question is only interested in our, or their own, success."" You feel like $heOrShe's done some research on who you are, for better or worse.",unsfShadyShuttle:I guess I've been around here and there.,
 unsfShadyAfter,PickGreeting,"$isPerson
 $id == unsf_shady
 $player.unsf_argo_shady_greet
 !$market.unsf_argo_shady_meet","$option = unsfShadyShuttle
-FireBest DialogOptionSelected","The $unsf_argo_shadySex gives you a relieved look, ""Glad to see you back.""",,
+FireBest DialogOptionSelected
+ShowPersonVisual","The $ManOrWoman gives you a relieved look, ""Glad to see you back.""",,
 unsfShadyShuttle,DialogOptionSelected,$option == unsfShadyShuttle,"SetOptionColor unsfShadyMeet1 highlight
-$player.unsf_argo_shady_greet = true","$unsf_argo_shady nods down to her TriPad, ""The information is rather sensitive, so I would prefer if we talked in person.""
-As $unsf_argo_shadyHeOrShe sends over coordinates on $unsf_argo_start for your meeting, you ponder if the trouble $unsf_argo_shadyHisOrHer 'friend' got into is worth your time.","unsfShadyMeet1:Take a shuttle down to meet Shady
+$player.unsf_argo_shady_greet = true","$unsf_argo_shadyName nods down to her TriPad, ""The information is rather sensitive, so I would prefer if we talked in person.""
+As $heOrShe sends over coordinates on $entity.name for your meeting, you ponder if the trouble $HisOrHer 'friend' got into is worth your time.","unsfShadyMeet1:Take a shuttle down to meet Shady
 cutCommLinkPolite:""Not right now."" [Cut the comm link]
 unsfShadyRefuse:""I'm not interested"" [Terminate quest]",
 unsfShadyRefuse,DialogOptionSelected,$option == unsfShadyRefuse,"$player.unsf_argo_failed = true
-CallEvent $unsf_argonauts refuse","A disappointed look washes over $unsf_argo_shadyHisOrHer face, ""Hm, looks like it's back to doing business with pirate-salvagers...""
+Call $global.unsf_argonauts refuse","A disappointed look washes over $HisOrHer face, ""Hm, looks like it's back to doing business with pirate-salvagers...""
 Without any more hesitation, the avatar dissapears.",cutCommLinkPolite:Cut the comm link,
 ,,,,,,
 unsfShadyMeet1,DialogOptionSelected,$option == unsfShadyMeet1,"ShowLargePlanet
-CallEvent $unsf_argonauts accept
-Highlight ""'planetary city'""","The station is so much bigger than it looks from deep space. Despite its intended use as a space vessel, it's surprisingly uncramped, which adds to it's 'planetary city' feel. You walk with several bodyguards through many corridors, hallways, teleporters, all designed for civilian use. You use one and find yourself at a loading dock. $unsf_argo_shady should be around here.
+Call $global.unsf_argonauts accept
+SetTextHighlights ""'planetary city'""","The station is so much bigger than it looks from deep space. Despite its intended use as a space vessel, it's surprisingly uncramped, which adds to it's 'planetary city' feel. You walk with several bodyguards through many corridors, hallways, teleporters, all designed for civilian use. You use one and find yourself at a loading dock. $unsf_argo_shadyName should be around here.
 
-The crowd isn't particularly dense, and you're able to discern the people who care about being seen. A $unsf_argo_shadySex stares at you a bit longer than others, and after glancing back, you realise $unsf_argo_shadyHeOrShe's the one you've been looking for.","unsfShadyMeet2:$unsf_argo_shady, I presume.",
-unsfShadyMeet2,DialogOptionSelected,$option == unsfShadyMeet2,ShowDefaultVisual,"The $unsf_argo_shadySex looks over the shoulders of you and your bodyguards, ""Might as well 've brought an army at this point,"" $unsf_argo_shadyHeOrShe rolls her eyes ""I swear, if I get in trouble for this...""
+The crowd isn't particularly dense, and you're able to discern the people who care about being seen. A $unsf_argo_shadySex stares at you a bit longer than others, and after glancing back, you realise $unsf_argo_shadyHeOrShe's the one you've been looking for.","unsfShadyMeet2:$unsf_argo_shadyName, I presume.",
+unsfShadyMeet2,DialogOptionSelected,$option == unsfShadyMeet2,"ShowPersonVisual
+$player.unsf_argo_shady_meet = true
+Call $global.unsf_argonauts updateData","The $unsf_argo_shadySex looks over the shoulders of you and your bodyguards, ""Might as well 've brought an army at this point,"" $unsf_argo_shadyHeOrShe rolls her eyes ""I swear, if I get in trouble for this...""
 
-$unsf_argo_shady realizes yelling at you will just draw more attention. ""Anyway,"" $unsf_argo_shadyHeOrShe exhales...",unsfShadyMeet3:Continue,
-unsfShadyMeet3,DialogOptionSelected,$option == unsfShadyMeet3,"Highlight ""TriTach"" ""any point""","""One of my long-time friends does research for an UNSF engineering company that collaborates with TriTach. Recently, they've started working on a new engine prototype, that uses accelerated particle-antiparticle pairs to cause an energy-dense fissi-"" $unsf_argo_shadyHeOrShe stumbles on $unsf_argo_shadyHisOrHer works, ""or was it fusion-"" then shrugs briefly.
+$unsf_argo_shadyName realizes yelling at you will just draw more attention. ""Anyway,"" $unsf_argo_shadyHeOrShe exhales...",unsfShadyMeet3:Continue,
+unsfShadyMeet3,DialogOptionSelected,$option == unsfShadyMeet3,"SetTextHighlights ""TriTach"" ""any point""","""One of my long-time friends does research for an UNSF engineering company that collaborates with TriTach. Recently, they've started working on a new engine prototype, that uses accelerated particle-antiparticle pairs to cause an energy-dense fissi-"" $unsf_argo_shadyHeOrShe stumbles on $unsf_argo_shadyHisOrHer works, ""or was it fusion-"" then shrugs briefly.
 
 As you can see, $unsf_argo_shadyHeOrShe rehearsed at least some of it. ""Anyway, this engine would be able to warp a ship into hyperspace from any point in regular space.""","unsfShadyMeet4:""So a warp drive? Like the kind that brought you here?""",
-unsfShadyMeet4,DialogOptionSelected,"$option == unsfShadyMeet4
-FireBest unsfShadyTJResponse",,"""Similar,"" $unsf_argo_shady nods, ""although a bit limited and on a much smaller scale. Opening the wormhole would consume a lot of AM fuel, but in turn, let a fleet enter and exit any system freely!""",,
+unsfShadyMeet4,DialogOptionSelected,$option == unsfShadyMeet4,FireBest unsfShadyTJResponse,"""Similar,"" $unsf_argo_shadyName nods, ""although a bit limited and on a much smaller scale. Opening the wormhole would consume a lot of AM fuel, but in turn, let a fleet enter and exit any system freely!""",,
 unsfShadyMeet4Known,unsfShadyTJResponse,$player.ability:fracture_jump,,,"unsfShadyMeet5:""That sounds similar to a Transverse Jump I can do!""",
 unsfShadyMeet4Unknown,unsfShadyTJResponse,!$player.ability:fracture_jump,,,"unsfShadyMeet5:""Doesn't that give any fleet using it a huge tactical advantage?""",
-unsfShadyMeet5,DialogOptionSelected,$option == unsfShadyMeet5,"Highlight ""home""","""That it does!"" $unsf_argo_shady looks somewhat surprised of your experience with the subject matter, ""But it has a lot more uses, past the dreams of an ordinary salvager.""
+unsfShadyMeet5,DialogOptionSelected,$option == unsfShadyMeet5,"SetTextHighlights ""home""","""That it does!"" $unsf_argo_shadyName looks somewhat surprised of your experience with the subject matter, ""But it has a lot more uses, past the dreams of an ordinary salvager.""
 
 ""Understanding the rules that govern this universe's cross-dimensional transit might let us escape the madness that's come over this sector, or better yet"", $unsf_argo_shadyHeOrShe pauses, you can almost see a smirk form on $unsf_argo_shadyHisOrHer face, ""travel back home.""
-It's unclear whether she actually believes this specific project is capable of that...","unsfShadyMeet6:""Sounds like something worth looking into. Where's Dr. NAME stationed at?""",
-unsfShadyMeet6,DialogOptionSelected,$option == unsfShadyMeet6,"AddRemoveCommodity fuel 1000
-Highlight ""fuel"" $unsf_argo_base ""$unsf_argo_baseDist ly""
-$player.unsf_argo_shady_meet = true
-Call $global.unsf_argonauts updateData
-Call $global.unsf_argonauts showMap ""Target: $unsf_argo_base""","""Funny,"" $unsf_argo_shadyHeOrShe softly grins, ""I said the same thing the first time I heard of it.""
 
-""Last $unsf_argo_sciHeOrShe checked in, $unsf_argo_sci was $unsf_argo_baseOnOrAt $unsf_argo_base, about $unsf_argo_baseDist ly away. Head there, provide the assistance she requested, and report back."" $unsf_argo_shady gives you a disappointed look, ""I'm not able to provide you any compensation for what's to come, but I do have some fuel you may use for your journey!""
+It's unclear whether $unsf_argo_shadyHeOrShe actually believes this specific project is capable of that...","unsfShadyMeet6:""Sounds like something worth looking into.""",
+unsfShadyMeet6,DialogOptionSelected,$option == unsfShadyMeet6,"SetTextHighlights ""fuel"" ""$unsf_argo_baseDist ly"" ""$unsf_argo_baseName""
+Call $global.unsf_argonauts showMap ""Target: $unsf_argo_baseName""
+AddRemoveCommodity fuel 1000","""Funny,"" $unsf_argo_shadyHeOrShe softly grins, ""I said the same thing the first time I heard of it.""
+
+""Last $unsf_argo_sciHeOrShe checked in, $unsf_argo_sciName was $unsf_argo_baseOnOrAt $unsf_argo_baseName, about $unsf_argo_baseDist ly away. Head there, provide the assistance she requested, and report back.""
+
+$unsf_argo_shadyName gives you a disappointed look, ""I'm not able to provide you any compensation for what's to come, but I do have some fuel you may use for your journey!""
 
 She waves you goodbye as you part ways ""Godspeed, $player.firstName!""",cutCommLinkNoText:Stroll back to your shuttle,
 ,,,,,,
@@ -200,42 +206,78 @@ $player.unsf_argo_shady_meet
 Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciTaskExplore:Continue1,
 unsfSciTaskExplore,DialogOptionSelected,$option == unsfSciTaskExplore,"Call $global.unsf_argonauts showMap ""Target: $unsf_argo_const""",*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
 ,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+unsfStationApproach,OpenInteractionDialog,"$unsf_argo_station score:1000
+$id == unsf_argo_station","$player.unsf_argo_explore = true
+Call $global.unsf_argonauts updateData
+ShowImageVisual space_wreckage","Your $shipOrFleet approaches the abandoned station.
+
+The structure resembles a Tri-Tachyon research facility, with what seem like additional modules attached over time.",unsfStationExplore1:Explore the station,
+unsfStationExplore1,DialogOptionSelected,$option == unsfStationExplore1,ShowImageVisual salvor_explore_hull,"Salvor teams cut through fused locks and infiltrate the station. Most of the bulkheads seem stable enough to support an atmosphere, yet the station seems to have been depressurized on purpose.
+
+It's evident that whoever left this place, did so in a hurry, and rather than destroying the research in question, just made it tedious to get to.",unsfStationExplore2:Continue,
+unsfStationExplore2,DialogOptionSelected,$option == unsfStationExplore2,ShowImageVisual salvor_ruins,"You watch as one of the teams makes it to the research lab of interest. They see the eerily familiar AI core sockets, cyber-interface chambers, and data cores... lots of them.
+
+Seems like a lot of data was collected, but on what? And for what purpose? ""It'll take us a while to analyze these, boss. From the looks of it, about a forth of the data is encrypted, and another fourth is straight up gone!""",unsfStationExplore3:How much time will it take?,
+unsfStationExplore3,DialogOptionSelected,$option == unsfStationExplore3,FireBest unsfStationExplore4,"""10, maybe 12 hours, a while."" The tech tries to put it in the best way possible. ""Usually we'd just take these and scan them after, but disconnecting these out of order may corrupt the rest of the data.""",,
+unsfStationExplore4HasAI,DialogOptionSelected,"$option == unsfStationExplore4
+PlayerHasCargo beta_core score:1000",,,"unsfStationExplore5Wait:Find something to do for the rest of the day.
+unsfStationExplore5UseAI:Plug in a semi-intelligent AI core to help with data mining.",
+unsfStationExplore4NoAI,DialogOptionSelected,$option == unsfStationExplore4,"SetEnabled unsfStationExplore5NoAI false
+SetTooltip unsfStationExplore5NoAI ""Requires a beta-level AI core.""",,"unsfStationExplore5Wait:Find something to do for the rest of the day.
+unsfStationExplore5UseAI:Plug in a semi-intelligent AI core to help with data mining.",
+unsfStationExplore5Wait,DialogOptionSelected,$option == unsfStationExplore5Wait,,"The next several hours are as tense as they are boring. You wait for your tech officer to give the all clear, while keeping watch on the sensors for unwanted guests. After what feels like a cycle of trying to keep your eyes open, his voice finally comes through. ""I think we got everything, heading back now!""",unsfStationExplore6:Better now than never!,
+unsfStationExplore5UseAI,DialogOptionSelected,$option == unsfStationExplore5UseAI,$player.unsf_argo_used_ai = true,"Making use of the AI interface sockets, you bring in a beta core to help the techs crack this data repository. It's smart enough to fill in the gaps and run decryption algorithms, but doesn't care nearly enough to sabotage or relay the data in question.
+
+The whole mess is sorted before the hour is up, and the AI core is placed back into your holding cell.",unsfStationExplore6:Well that was quick!,
+unsfStationExplore6,DialogOptionSelected,$option == unsfStationExplore6,"EndConversation
+ShowDefaultVisual
+$salvageLeaveText = Leave 0
+FireBest CheckSalvageSpecial
+FireBest OpenInteractionDialog",The tech team returns to your $shipOrFleet and let the salvor crews ,cutCommLinkPolite:Proceed,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
 unsfSciReport,PickGreeting,"$isPerson
 $id == unsf_scientist
 $player.unsf_argo_explore
 !$player.unsf_argo_sci_talk2
 ","$player.unsf_argo_sci_talk2 = true
-Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciTaskJump:Continue1,
-unsfSciTaskJump,DialogOptionSelected,$option == unsfSciTaskJump,"Call $global.unsf_argonauts showMap ""Target: $unsf_argo_star""",*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
+Call $global.unsf_argonauts updateData",*Scientist welcomes you back and asks to see what you found*,unsfSciTaskJump:Continue1,
+unsfSciTaskJump,DialogOptionSelected,$option == unsfSciTaskJump,"Call $global.unsf_argonauts showMap ""Target: $unsf_argo_star""",*Scientist asks you to collect additional data at a black hole*,cutCommLinkPolite:Continue2,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
 ,,,,,,
 unsfSciResult,PickGreeting,"$isPerson
 $id == unsf_scientist
 $player.unsf_argo_jump
 !$player.unsf_argo_sci_take
 ","$player.unsf_argo_sci_take = true
-Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciResq:Continue1,
-unsfSciTaskJump,DialogOptionSelected,$option == unsfSciResq,"Call $global.unsf_argonauts showMap ""Target: $unsf_argo_const""",*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
+Call $global.unsf_argonauts updateData",*You return the data back to the scientist*,unsfSciResq:Continue1,
+unsfSciTaskRescue,DialogOptionSelected,$option == unsfSciResq,"Call $global.unsf_argonauts showMap ""Target: $unsf_argo_startName""",*Scientist asks to be transported to atlantis*,cutCommLinkPolite:Continue2,
 ,,,,,,
 unsfSciReturn,OpenInteractionDialog,"$market.id == unsf_atlantis_market
-$player.unsf_argo_sci_take
+$player.unsf_argo_sci_take score:1000
 !$player.unsf_argo_completed
 ","$player.unsf_argo_sci_take = true
-Call $global.unsf_argonauts updateData",*Scientist says hi and asks if you were the one Shady sent*,unsfSciReturn:Continue1,
-unsfShadyBye,DialogOptionSelected,$option == unsfSciReturn,AddAbility hyper_window,*Scientist gives you directions to constellation with abandoned station*,cutCommLinkPolite:Continue2,
-,,,,,,
-unsfStationApproach,OpenInteractionDialog,"$unsf_argo_station score:1000
-$id = unsf_argo_station","$player.unsf_argo_explore = true
-Call $global.unsf_argonauts updateData
-ShowImageVisual space_wreckage","Your $shipOrFleet approaches the object.
-
-The structure bears a resemblance to a Domain Explorarium mothership, but seemingly cut up and rearranged in rather dramatic fashion for purposes unknown.",unsfStationExplore1:Continue,
-unsfStationExplore1,DialogOptionSelected,$option == unsfStationExplore1,ShowImageVisual salvor_explore_hull,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
+Call $global.unsf_argonauts updateData",*You deliver Scientist to Shady and they thank you*,unsfShadyFinish:Continue1,
+unsfShadyFinish,DialogOptionSelected,$option == unsfShadyFinish,AddAbility hyper_window,*Scientist installs you the hyper window system and Shady says buy*,cutCommLinkPolite:Continue2,
 ,,,,,,
 ,,,,,,
 ,,,,,,

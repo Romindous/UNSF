@@ -11,7 +11,7 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 
 public class UNSFGen {
 
-    // THIS IS WHERE YOU PUT REGISTER FOR NEW SYSTEMS YOU BROTHER BLOWING SISTER FUCKING NAKED MOTHER WATCHING ALABAMA ENJOYING DUMB FUCK MORON
+    // THIS IS WHERE YOU PUT REGISTER FOR NEW SYSTEMS
     public void generate(SectorAPI sector) {
         initFactionRelationships(sector);
         //new nebelheim().generate(sector);
@@ -26,7 +26,7 @@ public class UNSFGen {
         FactionAPI church = sector.getFaction(Factions.LUDDIC_CHURCH);
         FactionAPI path = sector.getFaction(Factions.LUDDIC_PATH);
         FactionAPI league = sector.getFaction(Factions.PERSEAN);
-        FactionAPI myfaction= sector.getFaction(Factions.UNSF);
+        FactionAPI myfaction = sector.getFaction(Factions.UNSF);
 
         myfaction.setRelationship(path.getId(), RepLevel.INHOSPITABLE);
         myfaction.setRelationship(hegemony.getId(), RepLevel.FAVORABLE);

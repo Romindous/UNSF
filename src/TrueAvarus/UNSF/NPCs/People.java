@@ -51,7 +51,7 @@ public class People {
             shady.setPostId(Ranks.POST_SHADY);
             shady.getName().setFirst("Kiera");
             shady.getName().setLast("Sheppard");
-            shady.setPortraitSprite(Global.getSettings().getSpriteName("characters", "unsf_kiera"));
+            shady.setPortraitSprite(Global.getSettings().getSpriteName("characters", "unsf_sheppard"));
 
 
             market.getCommDirectory().addPerson(shady, 1);

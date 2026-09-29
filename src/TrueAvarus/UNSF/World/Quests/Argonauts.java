@@ -6,10 +6,12 @@ import java.util.Map;
 import TrueAvarus.UNSF.Constants.Factions;
 import TrueAvarus.UNSF.NPCs.People;
 import TrueAvarus.UNSF.Objects.Industries;
+import TrueAvarus.UNSF.UNSFMod;
 import TrueAvarus.UNSF.World.Systems.Niltrof;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.campaign.listeners.FleetEventListener;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.FullName;
 import com.fs.starfarer.api.characters.PersonAPI;
@@ -23,13 +25,11 @@ import com.fs.starfarer.api.impl.campaign.missions.hub.ReqMode;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
-import exerelin.campaign.intel.missions.remnant.RemnantFragments;
-import exerelin.campaign.intel.missions.remnant.RemnantM1;
 import exerelin.campaign.intel.missions.remnant.RemnantQuestUtils;
 
 import static TrueAvarus.UNSF.NPCs.People.SHADY_ID;
 
-public class Argonauts extends HubMissionWithSearch {
+public class Argonauts extends HubMissionWithSearch implements FleetEventListener {
 
     public static final String REF_NAME = "$unsf_argonauts";
     public static final String SCIENTIST_ID = "unsf_scientist";
@@ -38,7 +38,7 @@ public class Argonauts extends HubMissionWithSearch {
     private MarketAPI startMkt;
 
     private MarketAPI baseMkt;
-    private PersonAPI scientist;
+    private PersonAPI sci;
 
     private PlanetAPI star;
     private OrbitalStationAPI station;
@@ -47,11 +47,13 @@ public class Argonauts extends HubMissionWithSearch {
         if (startMkt == null && shady != null) {
             startMkt = shady.getMarket();
         }
-
         return this;
     }
 
+//    public boolean imply(MarketAPI createdAt) {return create(createdAt, false);}
+
     protected boolean create(MarketAPI createdAt, boolean barEvent) {
+        System.out.println("11 " + (Global.getSector().getMemoryWithoutUpdate().get(REF_NAME) instanceof Argonauts));
         if (Global.getSector().getMemoryWithoutUpdate().get(REF_NAME)
             instanceof final Argonauts a1) {
             a1.abort();
@@ -59,6 +61,7 @@ public class Argonauts extends HubMissionWithSearch {
         setGlobalReference(REF_NAME);
 
         startMkt = createdAt;
+        System.out.println("12 " + !startMkt.getId().startsWith(Niltrof.ATLANTIS));
         if (!startMkt.getId().startsWith(Niltrof.ATLANTIS)) return false;
         if (Global.getSector().getImportantPeople().getData(SHADY_ID) == null)  {
             People.createAtlantisPersonnel();
@@ -71,6 +74,7 @@ public class Argonauts extends HubMissionWithSearch {
 
         setStoryMission();
         setMissionId("unsf_argonauts");
+        setGenRandom(UNSFMod.srnd);
         requireMarketFaction(new String[]{Factions.TRITACHYON});
         requireMarketNotInHyperspace();
         preferMarketSizeAtLeast(3);
@@ -83,7 +87,9 @@ public class Argonauts extends HubMissionWithSearch {
             return false;
         }
 
-        makeImportant(startMkt, "$unsf_argo_shady", new Enum[]{Stage.MEET_SHADY});
+        Misc.makeStoryCritical(startMkt, "unsf_argonauts");
+        Misc.makeStoryCritical(baseMkt, "unsf_argonauts");
+        makeImportant(startMkt, "$unsf_argo_start", new Enum[]{Stage.MEET_SHADY});
         makeImportant(baseMkt, "$unsf_argo_base", new Enum[]{Stage.TALK_SCIENTIST1});
 //        makeImportant(shady, "$nex_remM1_returnHere", new Enum[]{Stage.RETURN_CORES});
         setStartingStage(Stage.MEET_SHADY);
@@ -108,38 +114,37 @@ public class Argonauts extends HubMissionWithSearch {
         setRepFactionChangesMedium();
         setCreditReward(CreditReward.HIGH);
         setPersonIsPotentialContactOnSuccess(shady);
-        updateInteractionDataImpl();
 
-        beginStageTrigger(Stage.MEET_SHADY);
-        triggerRunScriptAfterDelay(0, () -> {
+        beginStageTrigger(Stage.TALK_SCIENTIST1);
+        triggerCustomAction(cntx -> {
             setMarketMissionRef(baseMkt, REF_NAME);
-            scientist = Global.getSector().getImportantPeople().getPerson(SCIENTIST_ID);
-            if (scientist != null) {
-                Global.getSector().getImportantPeople().removePerson(scientist);
-                baseMkt.getCommDirectory().removePerson(scientist);
-                baseMkt.removePerson(scientist);
+            sci = Global.getSector().getImportantPeople().getPerson(SCIENTIST_ID);
+            if (sci != null) {
+                Global.getSector().getImportantPeople().removePerson(sci);
+                baseMkt.getCommDirectory().removePerson(sci);
+                baseMkt.removePerson(sci);
             }
-            scientist = Global.getFactory().createPerson();
-            scientist.setId(SCIENTIST_ID);
-            scientist.setImportance(PersonImportance.MEDIUM);
-            scientist.setFaction(Factions.UNSF);
-            scientist.setGender(FullName.Gender.FEMALE);
-            scientist.setRankId(Ranks.CITIZEN);
-            scientist.setPostId(Ranks.POST_SCIENTIST);
-            scientist.getName().setFirst("Carmen");
-            scientist.getName().setLast("McKay");
-            scientist.setPortraitSprite(Global.getSettings().getSpriteName("characters", "unsf_carmen"));
-            makeImportant(scientist, "$unsf_argo_sci", new Enum[]{Stage.TALK_SCIENTIST1, Stage.TALK_SCIENTIST2, Stage.TALK_SCIENTIST3});
-            baseMkt.getCommDirectory().addPerson(scientist);
-            baseMkt.addPerson(scientist);
-            Global.getSector().getImportantPeople().addPerson(scientist);
-            setPersonMissionRef(scientist, REF_NAME);
-            updateInteractionDataImpl();
+            sci = Global.getFactory().createPerson();
+            sci.setId(SCIENTIST_ID);
+            sci.setImportance(PersonImportance.MEDIUM);
+            sci.setFaction(Factions.UNSF);
+            sci.setGender(FullName.Gender.FEMALE);
+            sci.setRankId(Ranks.CITIZEN);
+            sci.setPostId(Ranks.POST_SCIENTIST);
+            sci.getName().setFirst("Carmen");
+            sci.getName().setLast("McKay");
+            sci.setPortraitSprite(Global.getSettings().getSpriteName("characters", "unsf_mckay"));
+            makeImportant(sci, "$unsf_argo_sci", new Enum[]{Stage.TALK_SCIENTIST1, Stage.TALK_SCIENTIST2, Stage.TALK_SCIENTIST3});
+            baseMkt.getCommDirectory().addPerson(sci);
+            baseMkt.addPerson(sci);
+            Global.getSector().getImportantPeople().addPerson(sci);
+            setPersonMissionRef(sci, REF_NAME);
         });
         endTrigger();
 
         beginStageTrigger(Stage.EXPLORE_STATION);
-        triggerRunScriptAfterDelay(0, () -> {
+        triggerCustomAction(cntx -> {
+            preferSystemWithinRangeOf(baseMkt.getLocationInHyperspace(), 20f);
             requireSystemBlackHole();
             requireSystemOnFringeOfSector();
             requireSystemHasAtLeastNumJumpPoints(1);
@@ -158,8 +163,10 @@ public class Argonauts extends HubMissionWithSearch {
             }
             final LocData loc = new LocData(EntityLocationType.ORBITING_PLANET_OR_STAR,
                 resPlanet, star.getStarSystem(), false);
-            spawnDebrisField(DEBRIS_SMALL, DEBRIS_DENSE, loc);
             final SectorEntityToken set = spawnEntity(Entities.STATION_RESEARCH, loc);
+            spawnDebrisField(DEBRIS_SMALL, DEBRIS_DENSE, loc);
+            /*final BaseThemeGenerator.EntityLocation eloc = generateLocation(null, EntityLocationType.ORBITING_PLANET_OR_STAR, null, star.getStarSystem());
+            final SectorEntityToken set = star.getStarSystem().addCustomEntity("unsf_argo_station", null, Entities.STATION_RESEARCH, Factions.TRITACHYON);*/
             System.out.println("Station is a " + set.toString());
             if (!(set instanceof final OrbitalStationAPI os)) {
                 System.out.println("Failed to create station");
@@ -167,18 +174,18 @@ public class Argonauts extends HubMissionWithSearch {
             }
             station = os;
             station.setId("unsf_argo_station");
+            station.setDiscoverable(Boolean.TRUE);
+            station.setFaction(Factions.TRITACHYON);
             setEntityMissionRef(station, REF_NAME);
             makeImportant(star, "$unsf_argo_star", new Enum[]{Stage.TRY_STAR_JUMP});
             makeImportant(station, "$unsf_argo_station", new Enum[]{Stage.EXPLORE_STATION});
-            updateInteractionDataImpl();
         });
         endTrigger();
 
         beginStageTrigger(Stage.RESQ_SCIENTIST);
-        triggerRunScriptAfterDelay(0, () -> {
+        triggerCustomAction(cntx -> {
             final StarSystemAPI ss = startMkt.getStarSystem();
 
-            updateInteractionDataImpl();
         });
         endTrigger();
 //        triggerCreateMediumPatrolAroundMarket(target, Stage.RETRIEVE_CORES, 0.0F);
@@ -187,11 +194,16 @@ public class Argonauts extends HubMissionWithSearch {
 
     public boolean callEvent(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
         final String action = params.get(0).getString(memoryMap);
-        if (null == action || baseMkt == null) return super.callEvent(ruleId, dialog, params, memoryMap);
+        if (action == null || baseMkt == null) return super.callEvent(ruleId, dialog, params, memoryMap);
+        System.out.println("call for event " + action);
+        System.out.println("st=" + currentStage);
 
         switch (action) {
             case "accept":
                 accept(dialog, memoryMap);
+                setStartingStage(Stage.MEET_SHADY);
+                setCurrentStage(Stage.MEET_SHADY, dialog, memoryMap);
+                System.out.println("es=" + currentStage);
                 return true;
             case "refuse":
                 if (shady != null) {
@@ -199,13 +211,14 @@ public class Argonauts extends HubMissionWithSearch {
                     startMkt.getCommDirectory().removePerson(shady);
                     startMkt.removePerson(shady);
                 }
-                if (scientist == null) scientist = Global.getSector().getImportantPeople().getPerson(SCIENTIST_ID);
-                if (scientist != null) {
-                    Global.getSector().getImportantPeople().removePerson(scientist);
-                    baseMkt.getCommDirectory().removePerson(scientist);
-                    baseMkt.removePerson(scientist);
+                if (sci == null) sci = Global.getSector().getImportantPeople().getPerson(SCIENTIST_ID);
+                if (sci != null) {
+                    Global.getSector().getImportantPeople().removePerson(sci);
+                    baseMkt.getCommDirectory().removePerson(sci);
+                    baseMkt.removePerson(sci);
                 }
                 abort();
+                System.out.println("es=" + currentStage);
                 return false;
             case "complete":
                 BaseMissionHub.set(shady, new BaseMissionHub(shady));
@@ -215,37 +228,69 @@ public class Argonauts extends HubMissionWithSearch {
                 Global.getSector().getIntelManager().addIntel(new ContactIntel(shady, startMkt), false, dialog.getTextPanel());
                 Global.getSector().getMemoryWithoutUpdate().set("$unsf_argo_completed", true);
                 endSuccess(dialog, memoryMap);
+                System.out.println("es=" + currentStage);
+                return true;
+            case "showMap":
+                SectorEntityToken mapLoc = getMapLocation(null, currentStage);
+                if (mapLoc == null) return true;
+                Color color = getFactionForUIColors().getBaseUIColor();
+                if (mapLoc.getFaction() != null && !mapLoc.getFaction().isNeutralFaction()) {
+                    color = mapLoc.getFaction().getBaseUIColor();
+                } else if (mapLoc instanceof final PlanetAPI planet) {
+                    if (planet.getStarSystem() != null && planet.getFaction().isNeutralFaction()) {
+                        StarSystemAPI system = planet.getStarSystem();
+                        if (system.getStar() == planet || system.getCenter() == planet) {
+                            if (planet.getMarket() != null) {
+                                color = planet.getMarket().getTextColorForFactionOrPlanet();
+                            } else {
+                                color = Misc.setAlpha(planet.getSpec().getIconColor(), 255);
+                                color = Misc.setBrightness(color, 235);
+                            }
+                        } else {
+                            color = Misc.setAlpha(planet.getSpec().getIconColor(), 255);
+                            color = Misc.setBrightness(color, 235);
+                        }
+                    }
+                }
+                if (mapMarkerNameColor != null) color = mapMarkerNameColor;
+
+                dialog.getVisualPanel().showMapMarker(mapLoc,
+                    params.get(1).getStringWithTokenReplacement(ruleId, dialog, memoryMap), color,
+                    true, getIcon(), "", getIntelTags(null));
+                System.out.println("es=" + currentStage);
                 return true;
         }
 
-        return super.callEvent(ruleId, dialog, params, memoryMap);
+        final boolean b = super.callEvent(ruleId, dialog, params, memoryMap);
+        System.out.println("es=" + currentStage);
+        return b;
     }
 
     protected void updateInteractionDataImpl() {
-        set("$unsf_argo_shady", shady.getName().getFirst());
-        set("$unsf_argo_shadyFull", scientist.getNameString());
+        set("$unsf_argo_shadyName", shady.getName().getFirst());
+        set("$unsf_argo_shadyFull", shady.getNameString());
         set("$unsf_argo_shadySex", shady.getManOrWoman());
         set("$unsf_argo_shadyHeOrShe", shady.getHeOrShe());
         set("$unsf_argo_shadyHisOrHer", shady.getHisOrHer());
-        if (scientist != null) {
-            set("$unsf_argo_sci", scientist.getName().getFirst());
-            set("$unsf_argo_sciFull", scientist.getNameString());
-            set("$unsf_argo_sciSex", scientist.getManOrWoman());
-            set("$unsf_argo_sciHeOrShe", scientist.getHeOrShe());
-            set("$unsf_argo_sciHisOrHer", scientist.getHisOrHer());
+        if (sci != null) {
+            set("$unsf_argo_sciName", sci.getName().getFirst());
+            set("$unsf_argo_sciFull", sci.getNameString());
+            set("$unsf_argo_sciSex", sci.getManOrWoman());
+            set("$unsf_argo_sciHeOrShe", sci.getHeOrShe());
+            set("$unsf_argo_sciHisOrHer", sci.getHisOrHer());
         }
         if (station != null && star != null) {
-            set("$unsf_argo_system", star.getName());
+            set("$unsf_argo_systemName", star.getName());
             set("$unsf_argo_const", star.getConstellation().getNameWithType());
             set("$unsf_argo_systemDist", getDistanceLY(star));
             set("$unsf_argo_station", station.getName());
         }
         set("$unsf_argo_reward", Misc.getWithDGS(getCreditsReward()));
         set("$unsf_argo_startStar", startMkt.getStarSystem().getNameWithLowercaseTypeShort());
-        set("$unsf_argo_start", startMkt.getName());
+        set("$unsf_argo_startName", startMkt.getName());
         set("$unsf_argo_startOnOrAt", startMkt.getOnOrAt());
         set("$unsf_argo_baseStar", baseMkt.getStarSystem().getNameWithLowercaseTypeShort());
-        set("$unsf_argo_base", baseMkt.getName());
+        set("$unsf_argo_baseName", baseMkt.getName());
         set("$unsf_argo_baseOnOrAt", baseMkt.getOnOrAt());
         set("$unsf_argo_baseDist", getDistanceLY(baseMkt));
         set("$unsf_argo_stage", getCurrentStage());
@@ -290,6 +335,16 @@ public class Argonauts extends HubMissionWithSearch {
 
     public String getPostfixForState() {
         return startingStage != null ? "" : super.getPostfixForState();
+    }
+
+    @Override
+    public void reportFleetDespawnedToListener(CampaignFleetAPI fleet, CampaignEventListener.FleetDespawnReason reason, Object param) {
+
+    }
+
+    @Override
+    public void reportBattleOccurred(CampaignFleetAPI fleet, CampaignFleetAPI primaryWinner, BattleAPI battle) {
+
     }
 
     public enum Stage {

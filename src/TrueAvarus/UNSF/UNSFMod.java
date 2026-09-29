@@ -3,27 +3,43 @@ package TrueAvarus.UNSF;
 
 import java.security.SecureRandom;
 import java.util.Random;
-import TrueAvarus.UNSF.Objects.Items;
 import TrueAvarus.UNSF.ItemEffects.ZPM_POWER;
 import TrueAvarus.UNSF.NPCs.People;
-import TrueAvarus.UNSF.WeaponAI.PDMissileAI;
+import TrueAvarus.UNSF.Objects.Items;
 import TrueAvarus.UNSF.WeaponAI.HorizonMissleAI;
+import TrueAvarus.UNSF.WeaponAI.PDMissileAI;
 import TrueAvarus.UNSF.World.UNSFGen;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.PluginPick;
 import com.fs.starfarer.api.campaign.CampaignPlugin;
+import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.combat.MissileAIPlugin;
 import com.fs.starfarer.api.combat.MissileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.impl.campaign.econ.impl.ItemEffectsRepo;
+import com.fs.starfarer.api.impl.campaign.missions.hub.BaseHubMission;
 import exerelin.campaign.SectorManager;
 
 
 public class UNSFMod extends BaseModPlugin {
 
-
     public static final Random srnd = new SecureRandom();
+
+    private static BaseHubMission mission;
+    private static final String MISSION = "$UNSF_MISSION";
+
+    public static BaseHubMission activeMission() {
+        if (mission != null) return mission;
+        return Global.getSector().getMemory().get(MISSION)
+            instanceof final BaseHubMission ms ? ms : null;
+    }
+
+    public static void activeMission(final BaseHubMission ms) {
+        if (mission == null) return;
+        Global.getSector().getMemory().set(MISSION, ms);
+        mission = ms;
+    }
 
     @Override
     public void onNewGame() {
@@ -34,6 +50,18 @@ public class UNSFMod extends BaseModPlugin {
         if (!isNexerelinEnabled || SectorManager.getManager().isCorvusMode()) {
             new UNSFGen().generate(Global.getSector());
         }
+    }
+
+    @Override
+    public void onGameLoad(boolean newGame) {
+        System.out.println("0987 game " + this);
+    }
+
+    @Override
+    public void beforeGameSave() {
+        SectorAPI sector = Global.getSector();
+        if (mission != null) sector.getMemory().set(MISSION, mission);
+        super.beforeGameSave();
     }
 
     @Override

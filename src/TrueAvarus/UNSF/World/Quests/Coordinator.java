@@ -15,7 +15,6 @@ public class Coordinator {
     private static final String TAG_DESTINATION_PLANET = "Demo_destination_planet";
 
     static SectorEntityToken getDestinationPlanet() {
-        RemnantM1
         return Global.getSector().getEntityById(TAG_DESTINATION_PLANET);
     }
 
@@ -35,7 +34,7 @@ public class Coordinator {
      * Player has accepted quest.
      */
     static void start(Quest qs) {
-        Global.getSector().getIntelManager().addIntel(new DemoIntel());
+//        Global.getSector().getIntelManager().addIntel(new DemoIntel());
     }
 
     /**

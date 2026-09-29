@@ -1,6 +1,7 @@
 package TrueAvarus.UNSF.World.Systems;
 
 import java.awt.*;
+import TrueAvarus.UNSF.Constants.Factions;
 import TrueAvarus.UNSF.Objects.Industries;
 import TrueAvarus.UNSF.Objects.Items;
 import com.fs.starfarer.api.Global;
@@ -17,7 +18,6 @@ import com.fs.starfarer.api.util.Misc;
 
 public class Niltrof {
 
-    private static final String FACTION = "unsf_faction";
     public static final String AEGIRGAST = "unsf_aegirgast";
     public static final String NIDAVELLIR = "unsf_nidavellir";
     public static final String ATLANTIS = "unsf_atlantis";
@@ -93,8 +93,8 @@ public class Niltrof {
             lycaon_star, "Oberon", Planets.PLANET_WATER,
             0, 250f, 2800, 38f);
         PlanetConditionGenerator.generateConditionsForPlanet(lycaon_water, StarAge.YOUNG);
-        lycaon_water.setFaction(FACTION);
-        lycaon_water.setInteractionImage("illustrations", "oberon");
+        lycaon_water.setFaction(Factions.UNSF);
+        lycaon_water.setInteractionImage("illustrations", OBERON);
         lycaon_water.setCustomDescriptionId(OBERON + "_planet");
 
 
@@ -109,7 +109,7 @@ public class Niltrof {
             "Argos", Planets.FROZEN2,
             0, 130f, 2000, 23f);
         PlanetConditionGenerator.generateConditionsForPlanet(nyxara_frozen, StarAge.YOUNG);
-        nyxara_frozen.setFaction(FACTION);
+        nyxara_frozen.setFaction(Factions.UNSF);
         nyxara_frozen.setCustomDescriptionId(ARGOS + "_planet");
 
         // CENTRAL ASTEROID BELT
@@ -162,25 +162,25 @@ public class Niltrof {
         SectorEntityToken comm = system.addCustomEntity("lycaon_relay", // unique id
             "Lycaon Relay", // name - if null, defaultName from custom_entities.json will be used
             Entities.COMM_RELAY, // type of object, defined in custom_entities.json
-            FACTION); // faction
+            Factions.UNSF); // faction
         comm.setCircularOrbit(lycaon_star, 200, 4000, 65);
-        comm.setFaction(FACTION);
+        comm.setFaction(Factions.UNSF);
 
         // Nyxara Sensor Array
         SectorEntityToken sensor = system.addCustomEntity("nyxara_sensor_array", // unique id
             "Nyxara Sensor Array", // name - if null, defaultName from custom_entities.json will be used
             Entities.SENSOR_ARRAY, // type of object, defined in custom_entities.json
-            FACTION); // faction
+            Factions.UNSF); // faction
         sensor.setCircularOrbit(nyxara_star, 200, 4000, 65);
-        sensor.setFaction(FACTION);
+        sensor.setFaction(Factions.UNSF);
 
         // Niltrof Nav Buoy
         SectorEntityToken nav = system.addCustomEntity("niltrof_nav_buoy", // unique id
             "Niltrof Nav Buoy", // name - if null, defaultName from custom_entities.json will be used
             Entities.NAV_BUOY, // type of object, defined in custom_entities.json
-            FACTION); // faction
+            Factions.UNSF); // faction
         nav.setCircularOrbit(niltrof_star, 200, 4000, 65);
-        nav.setFaction(FACTION);
+        nav.setFaction(Factions.UNSF);
 
         // JUMP POINTS
 
@@ -212,21 +212,21 @@ public class Niltrof {
         // MARKETS
 
         //Blown up planet mining station
-        SectorEntityToken AegirgastSt = system.addCustomEntity(AEGIRGAST + "_station", "Aegirgast Station", "industrial_station_1", FACTION);
+        SectorEntityToken AegirgastSt = system.addCustomEntity(AEGIRGAST + "_station", "Aegirgast Station", "industrial_station_1", Factions.UNSF);
         AegirgastSt.setCircularOrbitWithSpin(center, 180, 7525f, 200, 3f, 5f);
         AegirgastSt.setInteractionImage("illustrations", AEGIRGAST);
-        AegirgastSt.setCustomDescriptionId("unsf_aegirgast_station");
+        AegirgastSt.setCustomDescriptionId(AEGIRGAST + "_station");
 
         //Blown up planet mining station
-        SectorEntityToken NidavellirSt = system.addCustomEntity(NIDAVELLIR + "_station", "Nidavellir Station", "industrial_station_1", FACTION);
+        SectorEntityToken NidavellirSt = system.addCustomEntity(NIDAVELLIR + "_station", "Nidavellir Station", "industrial_station_1", Factions.UNSF);
         NidavellirSt.setCircularOrbitPointingDown(nyxara_star, 270, 600f, 15);
         NidavellirSt.setInteractionImage("illustrations", "orbital");
-        NidavellirSt.setCustomDescriptionId("unsf_nidavellir_station");
+        NidavellirSt.setCustomDescriptionId(NIDAVELLIR + "_station");
 
-        SectorEntityToken AtlantisSt = system.addCustomEntity(ATLANTIS + "_station", "Atlantis Station", ATLANTIS, FACTION);
+        SectorEntityToken AtlantisSt = system.addCustomEntity(ATLANTIS + "_station", "Atlantis Station", "atlantis_station", Factions.UNSF);
         AtlantisSt.setCircularOrbitPointingDown(lycaon_star, 270, 5000f, 150);
         AtlantisSt.setInteractionImage("illustrations", ATLANTIS);
-        AtlantisSt.setCustomDescriptionId("unsf_atlantis_station");
+        AtlantisSt.setCustomDescriptionId(ATLANTIS + "_station");
 
         //ATLANTIS
 
@@ -351,7 +351,7 @@ public class Niltrof {
 
         MarketAPI oberon_market = Global.getFactory().createMarket(OBERON + "_market", lycaon_water.getName(), 0);
         oberon_market.setSize(6);
-        oberon_market.setFactionId(FACTION);
+        oberon_market.setFactionId(Factions.UNSF);
         oberon_market.setPrimaryEntity(lycaon_water);
         oberon_market.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
         //oberon_market.setFactionId(lycaon_water.getFaction().getId());
@@ -390,7 +390,7 @@ public class Niltrof {
 
         MarketAPI argos_market = Global.getFactory().createMarket(ARGOS + "_market", nyxara_frozen.getName(), 0);
         argos_market.setSize(4);
-        argos_market.setFactionId(FACTION);
+        argos_market.setFactionId(Factions.UNSF);
         argos_market.setPrimaryEntity(nyxara_frozen);
         argos_market.setSurveyLevel(MarketAPI.SurveyLevel.FULL);
         //argos_market.setFactionId(lycaon_water.getFaction().getId());

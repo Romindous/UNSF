@@ -4,7 +4,9 @@
     "UNSF": [60,120,255,200],
   },
 
-
+  "ruleCommandPackages":[
+    "TrueAvarus.UNSF.Commands",
+  ],
 
   "graphics":{
     "blueprint_packages":{
@@ -29,9 +31,13 @@
 
 
     "characters":{
-      "unsf_kiera":"graphics/portraits/characters/unsf_kiera.png",
-      "unsf_carmen":"graphics/portraits/characters/unsf_carmen.png"
+      "unsf_sheppard":"graphics/portraits/characters/unsf_sheppard.png",
+      "unsf_mckay":"graphics/portraits/characters/unsf_mckay.png"
     },
 
+    "plugins":{
+      #"coreLifecyclePlugin":"exerelin.plugins.NexCoreLifecyclePlugin",
+      #"newGameCreationEntryPoint":"exerelin.world.ExerelinNewGameSetup",
+    },
   },
 }
